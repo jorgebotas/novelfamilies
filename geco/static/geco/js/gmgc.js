@@ -1,4 +1,4 @@
-API_BASE_URL = "/geco/api"
+API_BASE_URL = "/api"
 STATIC_URL = "/static/geco"
 
 var get_newick = async (query) => {
