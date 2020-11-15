@@ -1,0 +1,72 @@
+/* Input */
+
+
+div#submit-params {
+    display: block;
+    position: relative;
+    text-align: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 2s;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 5px;
+    max-width: 70%;
+    min-width: 250px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: .8em;
+}
+
+div#input-params {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+
+div.input-panel {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  border: solid var(--dark-gray) 1px;
+  border-radius: 5px;
+  margin: 20px 10px;
+}
+
+div.panel-header {
+    margin-bottom: 10px;
+    margin-top: -13px !important;
+    background-color: var(--sand);
+    padding: 0 10px;
+    position: absolute;
+}
+
+div.input-panel > div {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+div.checkbox {
+   display: inline-block;
+   margin: 10px 0 0 20px; 
+}
+
+
+div.required {
+  font-size: 0.8em;
+  color: red;
+  font-weight: bold;
+  display: block;
+  height: 50px;
+}
+
+input#customScale {
+    margin: 10px;
+    margin-bottom: 0;
+    padding: 3px;
+    text-align: center;
+    border: 1px solid gray;
+    border-radius: 5px;
+}

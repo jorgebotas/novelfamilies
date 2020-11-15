@@ -1,0 +1,20 @@
+:root {
+  --nodata: #cfcfcf;
+  --black: black;
+
+  --gray: rgba(0, 0, 0, 0.1);
+  --dark-gray: #5d5d5d;
+
+  --sand: white; /*#fefcf8*/
+
+  --orange: #ff8c00;
+
+  --dark-red: #b30059;
+
+  --green: #A3C398;
+  --dark-green: #01452c;
+
+  --purple: #8c1bff;
+  --dark-purple: #3f009b;
+
+}

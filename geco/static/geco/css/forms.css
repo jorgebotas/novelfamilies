@@ -1,0 +1,113 @@
+/*p {*/
+    /*margin: 30px auto;*/
+    /*text-align: center;*/
+/*}*/
+
+
+ul.errorlist {
+    display: none;
+    width: 200px;
+    margin: 0 auto;
+}
+
+/*input, textarea {*/
+  /*display: block;*/
+  /*margin: 0 auto;*/
+  /*border: 1px solid var(--dark-gray);*/
+  /*border-radius: 5px;*/
+/*}*/
+
+input {
+    text-align: center;
+}
+
+
+input:-webkit-autofill {
+    background-color: var(--sand) !important;
+    -webkit-box-shadow: 0 0 0 100px var(--sand) inset;
+    -webkit-text-fill-color: var(--dark-gray);
+}
+
+input:-webkit-autofill:focus {
+    background-color: var(--sand) !important;
+    -webkit-box-shadow: 0 0 0 100px var(--sand) inset;
+    -webkit-text-fill-color: var(--dark-gray);
+}
+
+input[type=number] {
+    width: 70px;
+}
+
+input[type=text]:focus, 
+input[type=number]:focus,
+textarea:focus{
+    border-color: var(--black);
+}
+
+
+input[type=file] {
+  padding: 10px;
+  cursor: pointer;
+
+}
+
+
+input[type=file]:hover {
+  color: var(--black);
+}
+
+
+textarea {
+    width: 200px;
+    height: 100px;
+    max-width: 77%;
+    max-height: 97%;
+    padding: 5px;
+    resize: both;
+}
+
+.input {
+  background-color: var(--sand);
+  border: solid var(--dark-gray) 1px;
+  border:none;
+  border-radius: 5px;
+  padding: 5px;
+  display: block;
+  margin: 0 auto;
+  outline: none;
+  cursor: pointer;
+  /*-webkit-box-shadow: 1px 1px 1px gray;*/
+  /*-moz-box-shadow: 1px 1px 1px gray;*/
+  /*box-shadow: 1px 1px 1px gray;*/
+}
+
+
+span.glyphicon {
+    font-size: 1.2em;
+    color: var(--dark-gray);
+    margin-top: 0;
+    padding-top: 0;
+    margin-left: 3px;
+    position: relative;
+    top: 3px;
+}
+
+/*button {*/
+  /*display: block;*/
+  /*margin: 30px auto;*/
+  /*padding: 7px 20px;*/
+  /*outline: none;*/
+  /*clear: both;*/
+  /*font-weight: bold;*/
+  /*border: solid var(--dark-gray) 1px;*/
+  /*border-radius: 5px;*/
+  /*background-color: var(--sand);*/
+  /*color: var(--dark-gray);*/
+  /*transition: color 0.8s;*/
+/*}*/
+
+
+/*button:hover, button:hover span.glyphicon{*/
+  /*background-color: var(--dark-gray);*/
+  /*color: var(--sand);*/
+/*}*/
