@@ -21,5 +21,5 @@ a.nav-link.active {
 }
 
 .progress-bar {
-    background: #6574cd;
+    background: #6574cd !important;
 }
