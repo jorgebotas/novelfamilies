@@ -90,8 +90,10 @@ var gmgc_vueapp = new Vue({
         },
 
         toggleGeCo : async function(selector, query) {
+            console.log(query)
             let newick = this.show_items[query].newick;
             let context = this.show_items[query].context;
+            console.log(context)
             if (context) {
                 await window.launch_GeCo(selector, context_data, newick, 41, colors);
             } else {
