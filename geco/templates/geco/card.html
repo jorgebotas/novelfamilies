@@ -10,7 +10,9 @@
                   <li class="nav-item mx-2">
                     <a class="nav-link" id="pills-geco-tab" data-toggle="pill"
                         href="#pills-geco" role="tab" aria-controls="pills-geco"
-                        aria-selected="false">GeCo</a>
+                        aria-selected="false"
+                        @click="toggleGeCo('#f'+tid+'-gecoViz')"
+                        >GeCo</a>
                   </li>
 
                 </ul>
@@ -32,8 +34,7 @@
               aria-labelledby="pills-geco-tab">
            <div class="card">
                <div class="card-body" 
-                    :id="'f' + tid + '-gecoViz'"
-                    @click="toggleGeCo('#f'+tid+'-gecoViz')">
+                    :id="'f' + tid + '-gecoViz'">
                    {% include 'geco/geco.html' %}
                </div>
            </div>
