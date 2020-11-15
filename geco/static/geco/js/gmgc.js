@@ -90,9 +90,10 @@ var gmgc_vueapp = new Vue({
 
         toggleGeCo : async function(selector, query) {
             console.log(query)
-            console.log(this.show_items)
+            console.log(this.show_items[String(query)])
             let newick = this.show_items[query].newick;
             let context = this.show_items[query].context;
+            console.log(context)
             let colors = await get_colors();
             if (context) {
                 console.log(context)
