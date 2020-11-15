@@ -1,5 +1,5 @@
-API_BASE_URL = "/gmgc/api"
-STATIC_URL = "/static/gmgc"
+API_BASE_URL = "/geco/api"
+STATIC_URL = "/static/geco"
 
 
 var get_newick = async (query) => {
