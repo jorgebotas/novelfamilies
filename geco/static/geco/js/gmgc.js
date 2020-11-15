@@ -32,7 +32,7 @@ var get_colors = async () => {
 
 var gmgc_vueapp = new Vue({
     delimiters: ['[[', ']]'],
-    el: '#gmgc_vueapp',
+    el: '#NovelFams',
     data: {
         query: { nitems: 20 },
         // Your custom data data
