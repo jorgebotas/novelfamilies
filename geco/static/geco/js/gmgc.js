@@ -95,7 +95,7 @@ var gmgc_vueapp = new Vue({
             let context = this.show_items[query].context;
             console.log(context)
             if (context) {
-                await window.launch_GeCo(selector, context_data, newick, 41, colors);
+                await window.launch_GeCo(selector, context, newick, 41, colors);
             } else {
                 query = "095_560_840";
                 await $(selector + " .geco-loader").show();
