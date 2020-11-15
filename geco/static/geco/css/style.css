@@ -1,0 +1,21 @@
+* {
+    outline: none !important;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+a.nav-link {
+    color: #6574cd;
+}
+
+a.nav-link:hover {
+    color: #6574cd;
+}
+
+a.nav-link.active {
+    background-color: #6574cd !important;
+
+}
+
+.form-help:hover, .form-help[aria-describedby] {
+    background: #6574cd;
+}

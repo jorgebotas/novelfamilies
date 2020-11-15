@@ -1,0 +1,165 @@
+{% extends 'geco/base.html' %}
+{% block content %}
+
+
+{% include 'geco/searchbar.html'%}
+
+{% comment %}<div class="loader"></div>{% endcomment %}
+
+<form
+       action=""
+       method="get"
+       enctype="multipart/form-data"
+       accept-charset="utf-8"
+       target="_self"
+       id="params"
+       >
+
+       <div class="mt-4 card">
+           <div class="card-header bg-white">
+              FAMILY NAME 
+                <ul class="nav nav-pills justify-content-center mx-4" id="pills-tab" role="tablist">
+                  <li class="nav-item mx-2">
+                    <a class="nav-link active" id="pills-info-tab" data-toggle="pill"
+                        href="#pills-info" role="tab" aria-controls="pills-info"
+                        aria-selected="true">Info</a>
+                  </li>
+                  <li class="nav-item mx-2">
+                    <a class="nav-link" id="pills-geco-tab" data-toggle="pill"
+                        href="#pills-geco" role="tab" aria-controls="pills-geco"
+                        aria-selected="false">GeCo</a>
+                  </li>
+
+                </ul>
+           </div>
+           <div class="card-body bg-light m-0">
+
+
+        <div class="tab-content" id="pills-tabContent">
+          <div class="tab-pane fade show active" id="pills-info" role="tabpanel"
+              aria-labelledby="pills-info-tab">
+           <div class="card">
+               <div class="card-body">
+                   Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 
+                   Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+               </div>
+           </div>
+          </div>
+          <div class="tab-pane fade" id="pills-geco" role="tabpanel"
+              aria-labelledby="pills-geco-tab">
+           <div class="card">
+               <div class="card-body">
+                   GECO GRAPHICATION
+               </div>
+           </div>
+          </div>
+        </div>
+
+   </div>
+</div>
+
+
+
+       {% endblock %}
+       {% block scripts %}
+       <script charset="utf-8">
+           $('.collapse').collapse()
+       </script>
+       {% endblock %}
+
+
+
+
+                           {% comment %}<div class="container mt-4 mb-3{% endcomment %}
+                               {% comment %}justify-content-center border border-dark{% endcomment %}
+                               {% comment %}rounded p-3">{% endcomment %}
+                               {% comment %}<label class="form-label text-center">Scale</label>{% endcomment %}
+                           {% comment %}<div class="d-flex flex-row justify-content-center">{% endcomment %}
+
+                               {% comment %}<div class="mx-2">{% endcomment %}
+                                    {% comment %}<label class="form-label">Genes upstream</label>{% endcomment %}
+                               {% comment %}<select name="upstream" id="upstream"{% endcomment %}
+                                   {% comment %}class="form-select">{% endcomment %}
+                                   {% comment %}<option value="2">2</option>{% endcomment %}
+                                   {% comment %}<option value="5">5</option>{% endcomment %}
+                                   {% comment %}<option value="10" selected>10</option>{% endcomment %}
+                                   {% comment %}<option value="15">15</option>{% endcomment %}
+                                   {% comment %}<option value="20">20</option>{% endcomment %}
+                               {% comment %}</select>{% endcomment %}
+                               {% comment %}</div>{% endcomment %}
+
+
+
+                               {% comment %}<div class="mx-2">{% endcomment %}
+                                    {% comment %}<label class="form-label">Genes downstream</label>{% endcomment %}
+                               {% comment %}<select name="upstream" id="downstream"{% endcomment %}
+                                   {% comment %}class="form-select">{% endcomment %}
+                                   {% comment %}<option value="2">2</option>{% endcomment %}
+                                   {% comment %}<option value="5">5</option>{% endcomment %}
+                                   {% comment %}<option value="10" selected>10</option>{% endcomment %}
+                                   {% comment %}<option value="15">15</option>{% endcomment %}
+                                   {% comment %}<option value="20">20</option>{% endcomment %}
+                               {% comment %}</select>{% endcomment %}
+                               {% comment %}</div>{% endcomment %}
+
+                               {% comment %}<div class="mx-2">{% endcomment %}
+                                    {% comment %}<label class="form-label">Gene distance</label>{% endcomment %}
+                               {% comment %}<select name="downstream" id="downstream"{% endcomment %}
+                                   {% comment %}class="form-select">{% endcomment %}
+                                   {% comment %}<option value="equiDist">equidistant</option>{% endcomment %}
+                                   {% comment %}<option value="collpaseDist">collapse</option>{% endcomment %}
+                                   {% comment %}<option value="scaleDist">genomic distance</option>{% endcomment %}
+                               {% comment %}</select>{% endcomment %}
+                               {% comment %}</div>{% endcomment %}
+
+                           {% comment %}</div>{% endcomment %}
+                           {% comment %}</div>{% endcomment %}
+                            
+                           {% comment %}<div class="container mb-3 p-3 border border-dark rounded">{% endcomment %}
+                               {% comment %}<label class="form-label text-center">Display</label>{% endcomment %}
+                           {% comment %}<div class="form-selectgroup form-selectgroup-pills{% endcomment %}
+                                {% comment %}justify-content-center container">{% endcomment %}
+                               {% comment %}<label class="form-selectgroup-item">{% endcomment %}
+                                   {% comment %}<input type="checkbox" name="showTree"{% endcomment %}
+                                   {% comment %}id="showTree" class="form-selectgroup-input"{% endcomment %}
+                                   {% comment %}checked/>{% endcomment %}
+                                   {% comment %}<span class="form-selectgroup-label">Tree</span>{% endcomment %}
+                               {% comment %}</label>{% endcomment %}
+                               
+                               {% comment %}<label class="form-selectgroup-item">{% endcomment %}
+                                   {% comment %}<input type="checkbox" name="showName"{% endcomment %}
+                                   {% comment %}id="showName" class="form-selectgroup-input"{% endcomment %}
+                                   {% comment %}checked/>{% endcomment %}
+                                   {% comment %}<span{% endcomment %}
+                                       {% comment %}class="form-selectgroup-label">Gene name</span>{% endcomment %}
+                               {% comment %}</label>{% endcomment %}
+
+                               {% comment %}<label class="form-selectgroup-item">{% endcomment %}
+                                   {% comment %}<input type="checkbox" name="nContigs"{% endcomment %}
+                                   {% comment %}id="nContigs" class="form-selectgroup-input"{% endcomment %}
+                                   {% comment %}/>{% endcomment %}
+                                   {% comment %}<span{% endcomment %}
+                                       {% comment %}class="form-selectgroup-label">Number of contigs</span>{% endcomment %}
+                               {% comment %}</label>{% endcomment %}
+
+                               {% comment %}<label class="form-selectgroup-item">{% endcomment %}
+                                   {% comment %}<input type="checkbox" name="genePos"{% endcomment %}
+                                   {% comment %}id="genePos" class="form-selectgroup-input"{% endcomment %}
+                                   {% comment %}/>{% endcomment %}
+                                   {% comment %}<span class="form-selectgroup-label">Genomic{% endcomment %}
+                                   {% comment %}position</span>{% endcomment %}
+                               {% comment %}</label>{% endcomment %}
+
+
+                               {% comment %}<label class="form-selectgroup-item">{% endcomment %}
+                                   {% comment %}<input type="checkbox" name="highlightAnchor"{% endcomment %}
+                                   {% comment %}id="highlightAnchor" class="form-selectgroup-input"{% endcomment %}
+                                   {% comment %}/>{% endcomment %}
+                                   {% comment %}<span{% endcomment %}
+                                       {% comment %}class="form-selectgroup-label">Highlight{% endcomment %}
+                                   {% comment %}anchor</span>{% endcomment %}
+                               {% comment %}</label>{% endcomment %}
+                           {% comment %}</div>{% endcomment %}
+                               
+                           {% comment %}</div>{% endcomment %}
+
