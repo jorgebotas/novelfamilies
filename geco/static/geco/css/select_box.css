@@ -1,7 +1,7 @@
 /* Select box customization */
 
 /*the container must be positioned relative:*/
-.custom-select {
+.custom-selectbox {
   position: relative;
   margin: 0 auto;
   margin-top: 10px;
@@ -17,7 +17,7 @@
     color: var(--black);
 }
 
-.custom-select select {
+.custom-selectbox select {
   display: none; /*hide original SELECT element:*/
 }
 
