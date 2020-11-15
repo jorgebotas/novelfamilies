@@ -19,3 +19,7 @@ a.nav-link.active {
 .form-help:hover, .form-help[aria-describedby] {
     background: #6574cd;
 }
+
+.progress-bar {
+    background: #6574cd;
+}
