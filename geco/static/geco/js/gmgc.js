@@ -1,6 +1,7 @@
 API_BASE_URL = "/geco/api"
 STATIC_URL = "/static/geco"
 
+console.log("hi")
 
 var get_newick = async (query) => {
     let newick;
