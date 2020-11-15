@@ -1,5 +1,6 @@
 {% extends 'geco/base.html' %}
 {% block content %}
+{% load static %}
     <link rel="stylesheet" type="text/css" href="{% static '/geco/css/geco.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static '/geco/css/colors.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static '/geco/css/scrollbar.css' %}"/>
@@ -20,7 +21,6 @@
 
 {% endblock %}
 {% block scripts %}
-{% load static %}
     <script src="{% static "geco/js/geco.js" %}"></script>
     <script src="{% static "geco/js/gmgc.js" %}"></script>
     <script charset="utf-8">
