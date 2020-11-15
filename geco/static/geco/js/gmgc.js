@@ -90,12 +90,12 @@ var gmgc_vueapp = new Vue({
         },
 
         toggleGeCo : async function(selector, query) {
-            query = "095_560_840";
             let newick = this.show_items[query].newick;
             let context = this.show_items[query].context;
             if (context) {
                 await window.launch_GeCo(selector, context_data, newick, 41, colors);
             } else {
+                query = "095_560_840";
                 await $(selector + " .geco-loader").show();
                 let newick = await get_newick(query);
                 let context = await get_context(query, "cluster", 30);
