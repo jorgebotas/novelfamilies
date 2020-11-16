@@ -41,3 +41,7 @@ a.nav-link.active {
     background: var(--dark-indigo);
     border-color: var(--dark-indigo);
 }
+
+.form-check-input:checked {
+    background-color: var(--indigo);
+}
