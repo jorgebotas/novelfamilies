@@ -4,6 +4,32 @@
         <input type="text" class="form-control form-control-rounded"
                placeholder="Browse novel family..."/>
     </div>
+
+    <div class="col">
+        <label class=form-label>Filter by</label>
+        <select name="search-filters" id="search-filters" multiple="multiple"
+            tabindex="-1" style="display:none;">
+        </select>
+        <div class="selectize-control form-select multi plugin-remove_button">
+            <div class="selective-input items not-full has-options has-items">
+                <div class="item" data-value"Prokaryote">
+                    Prokaryote
+                </div>
+            </div>
+            <div class="selectize-dropdown multi form-select
+                         plugin-remove_button" 
+                  style="display:none; visibility:visible;
+                         width:340px; top:34px; left:0px;">
+               <div class="selectize-dropdown-content">
+                   <div class="option" data-selectable data-value="Eukaryote">
+                       Eukaryote
+                   </div>
+               </div> 
+            </div>
+            
+        </div>
+    </div>
+
     <div class="col-auto align-self-center">
         <span class="form-help" 
               data-toggle="popover"
