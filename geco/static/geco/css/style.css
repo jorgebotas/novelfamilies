@@ -37,7 +37,7 @@ a.nav-link.active {
     border-color: var(--indigo);
 }
 
-.btn-primary:hover, .btn-primary:active, .btn-primary:focus {
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active {
     background: var(--dark-indigo);
     border-color: var(--dark-indigo);
 }
