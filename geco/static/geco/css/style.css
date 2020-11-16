@@ -26,4 +26,10 @@ a.nav-link.active {
 
 .btn-primary {
     background: #6574cd !important;
+    border-color: #6574cd !important;
+}
+
+.btn-primary:hover {
+    background: #3849ad !important;
+    border-color: #3849ad !important;
 }
