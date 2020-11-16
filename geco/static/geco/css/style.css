@@ -12,32 +12,32 @@ a:hover {
 }
 
 a.nav-link {
-    color: #6574cd;
+    color: var(--indigo);
 }
 
 a.nav-link:hover {
-    color: #6574cd;
+    color: var(--indigo);
 }
 
 a.nav-link.active {
-    background-color: #6574cd !important;
-
+    color: white !important;
+    background-color: var(--indigo) !important;
 }
 
 .form-help:hover, .form-help[aria-describedby] {
-    background: #6574cd;
+    background: var(--indigo);
 }
 
 .progress-bar {
-    background: #6574cd !important;
+    background: var(--indigo) !important;
 }
 
 .btn-primary {
-    background: #6574cd !important;
-    border-color: #6574cd !important;
+    background: var(--indigo) !important;
+    border-color: var(--indigo) !important;
 }
 
 .btn-primary:hover {
-    background: #3849ad !important;
-    border-color: #3849ad !important;
+    background: var(--dark-indigo) !important;
+    border-color: var(--dark-indigo) !important;
 }
