@@ -1,15 +1,15 @@
 * {
-    outline: none !important;
+    outline: none ;
     font-family: 'Roboto Condensed', sans-serif;
 }
 
 a {
-    color: var(--indigo) !important;
+    color: var(--indigo) ;
 }
 
 a:hover {
-    color: var(--dark-indigo) !important;
-    text-decoration: none !important;
+    color: var(--dark-indigo) ;
+    text-decoration: none ;
 }
 
 a.nav-link {
@@ -21,8 +21,8 @@ a.nav-link:hover {
 }
 
 a.nav-link.active {
-    color: white !important;
-    background-color: var(--indigo) !important;
+    color: white ;
+    background-color: var(--indigo) ;
 }
 
 .form-help:hover, .form-help[aria-describedby] {
@@ -30,15 +30,15 @@ a.nav-link.active {
 }
 
 .progress-bar {
-    background: var(--indigo) !important;
+    background: var(--indigo) ;
 }
 
 .btn-primary {
-    background: var(--indigo) !important;
-    border-color: var(--indigo) !important;
+    background: var(--indigo) ;
+    border-color: var(--indigo) ;
 }
 
 .btn-primary:hover {
-    background: var(--dark-indigo) !important;
-    border-color: var(--dark-indigo) !important;
+    background: var(--dark-indigo) ;
+    border-color: var(--dark-indigo) ;
 }
