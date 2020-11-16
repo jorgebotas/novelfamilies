@@ -42,6 +42,10 @@ a.nav-link.active {
     border-color: var(--dark-indigo);
 }
 
+.form-check-input {
+    margin-top: 1px;
+}
+
 .form-check-input:checked {
     background-color: var(--indigo);
 }
