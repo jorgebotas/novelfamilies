@@ -4,11 +4,11 @@
 }
 
 a {
-    color: var(--indigo);
+    color: var(--indigo) !important;
 }
 
 a:hover {
-    color: var(--dark-indigo);
+    color: var(--dark-indigo) !important;
 }
 
 a.nav-link {
