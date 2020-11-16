@@ -9,6 +9,7 @@ a {
 
 a:hover {
     color: var(--dark-indigo) !important;
+    text-decoration: none;
 }
 
 a.nav-link {
