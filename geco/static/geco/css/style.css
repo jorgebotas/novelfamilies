@@ -3,6 +3,14 @@
     font-family: 'Roboto Condensed', sans-serif;
 }
 
+a {
+    color: var(--indigo);
+}
+
+a:hover {
+    color: var(--dark-indigo);
+}
+
 a.nav-link {
     color: #6574cd;
 }
