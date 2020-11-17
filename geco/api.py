@@ -14,7 +14,7 @@ def random_items(request, nitems):
                 "newick": "(A, B);",
                 "tags": ["tag", "tag100"],
                 "ntips": random.randint(1, 100),
-                "nnodes": random.randint(1, 100),$log(uuu);
+                "nnodes": random.randint(1, 100),
                 "taxscope": random.sample(names, 1),
                 "desc": " Some description %d " %(i),
             }
