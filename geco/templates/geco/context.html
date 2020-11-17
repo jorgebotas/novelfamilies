@@ -22,7 +22,12 @@
     <script src="{% static "geco/js/geco.js" %}"></script>
     <script src="{% static "geco/js/gmgc.js" %}"></script>
     <script charset="utf-8">
-        $('.collapse').collapse()
+      $(document).ready(function () {
+        $('#search-filters').selectize({
+            maxItems: 15,
+            plugins: ['remove_button'],
+        });
+      });
     </script>
 {% endblock %}
 
