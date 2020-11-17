@@ -112,11 +112,24 @@ var gmgc_vueapp = new Vue({
         },
 
         searchFams : function() {
-            let val = $("#search-fams").val();
             $("#search-fams").blur();
+            let val = $("#search-fams").val();
             let type = $("#search-fams-type").val();
             console.log(val)
             console.log(type)
-        }
+            let url = API_BASE_URL + '/info/';
+            if (type == "identifier") {
+                url += '/id/';
+            } else if (type == "function") {
+                url += '/function/';
+            }
+            url += val + '/';
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data.show_items)
+                    this.show_items = data.show_items
+                })
+        },
     }
 });

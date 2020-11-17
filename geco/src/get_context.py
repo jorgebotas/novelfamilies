@@ -6,31 +6,16 @@ import numpy as np
 import operator
 import pandas as pd
 import pickle
-from pymongo import MongoClient
 import sys, os, shutil
 
 from django.conf import settings
+
+from .mongodb.py import mongo_connect
 
 
 STATIC_PATH = settings.BASE_DIR + '/static/geco/'
 RESULTS_PATH = settings.BASE_DIR + '/geco/results.tmp/'
 
-
-def mongo_connect():
-    """
-    Connection to MongoDB
-    """
-    # global coll_unigenes
-    # global coll_clusters
-    db = None
-    if not db:
-            client = MongoClient('10.0.3.1', 27017, maxPoolSize=10)
-            db = client.gmgc_unigenes
-            coll_unigene = db.neighbour
-            coll_cluster = db.emapper_v2
-            coll_e5 = db.eggnog_v5
-
-    return [client, db, coll_unigene,coll_cluster,coll_e5]
 
 
 def mongo_orf_find(GMGC,max_gmgc_genes,coll_unigenes):
@@ -750,18 +735,18 @@ def get_newick(query, client):
 def get_context(query, n_range, cutoff, cluster=True, isList=False, json=False):
 
     ### MongoDB call
-    global client, db, coll_unigenes, coll_clusters, coll_e5
-    client,\
-    db,\
-    coll_unigenes,\
-    coll_clusters,\
-    coll_e5 = mongo_connect()
+    # global client, db, coll_unigenes, coll_clusters, coll_e5
+    # client,\
+    # db,\
+    # coll_unigenes,\
+    # coll_clusters,\
+    # coll_e5 = mongo_connect()
 
-    global ncbi
+    # global ncbi
     ncbi = NCBITaxa()
 
     ### Analysis parameters
-    global max_gmgc_genes, percentage_cutoff, neighbor_range
+    # global max_gmgc_genes, percentage_cutoff, neighbor_range
     # maximun number of unigene allowed by gmgc cluster to be computed,
     # smaller the number smaller computing time
     max_gmgc_genes = int(400)

@@ -2,6 +2,7 @@ from django.http import HttpResponse, HttpResponseNotFound, JsonResponse
 import json
 
 from .src.get_context import get_context, get_newick, mongo_connect
+from .src.get_fams import get_fam_info
 
 def random_items(request, nitems):
     import random
@@ -13,11 +14,19 @@ def random_items(request, nitems):
                 "newick": "(A, B);",
                 "tags": ["tag", "tag100"],
                 "ntips": random.randint(1, 100),
-                "nnodes": random.randint(1, 100),
+                "nnodes": random.randint(1, 100),$log(uuu);
                 "taxscope": random.sample(names, 1),
                 "desc": " Some description %d " %(i),
             }
         data["show_items"]["tree_%d"%(i)] = doc
+    return JsonResponse(data)
+
+def info(request, search_type, query):
+    data = { "show_items" : {} }
+    if search_type == "identifier":
+        data["show_items"] = { query : get_fam_info(query) }
+    elif search_type == "function":
+        pass
     return JsonResponse(data)
 
 def newick(request, query):
