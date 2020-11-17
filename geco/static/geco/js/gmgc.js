@@ -94,7 +94,9 @@ var gmgc_vueapp = new Vue({
             let colors = await get_colors();
             if (context) {
                 window.onload = () => {
+                    await $(selector + " .geco-progress").show();
                     await window.launch_GeCo(selector, context, newick, 41, colors);
+                    await $(selector + " .geco-progress").hide();
                 }
             } else {
                 old_query = query;
