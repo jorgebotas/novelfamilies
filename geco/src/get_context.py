@@ -10,7 +10,7 @@ import sys, os, shutil
 
 from django.conf import settings
 
-from .mongodb.py import mongo_connect
+from .mongodb import mongo_connect
 
 
 STATIC_PATH = settings.BASE_DIR + '/static/geco/'
