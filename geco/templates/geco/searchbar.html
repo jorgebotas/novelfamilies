@@ -30,8 +30,7 @@
                        />
             </div>
             <div class="selectize-dropdown multi form-select
-                         plugin-remove_button" 
-                 style="display: none; visibility: visible; top: 34px; left: 0px;">
+                         plugin-remove_button">
                <div class="selectize-dropdown-content">
                    <div class="option" data-selectable data-value="Eukaryote">
                        Eukaryote
@@ -58,3 +57,11 @@
 </div>
     
 </div>
+<script charset="utf-8">
+      $(document).ready(function () {
+  	$('#search-filters').selectize({
+  		maxItems: 15,
+  		plugins: ['remove_button'],
+  	});
+  });
+</script>
