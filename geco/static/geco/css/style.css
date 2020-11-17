@@ -58,6 +58,17 @@ a.nav-link.active {
     background: var(--white);
 }
 
+.selectize-dropdown {
+    border-radius: 20px;
+    margin-top: 5px;
+}
+
 .selectize-input {
     background: var(--white) !important;
+}
+
+.selectize-dropdown [data-selectable].option {
+    border-radius: 20px;
+    margin: 5px 10px;
+    padding: 5px 15px;
 }
