@@ -14,12 +14,18 @@
                         @click="toggleGeCo('#f'+tid+'-gecoViz', tid)"
                         >GeCo</a>
                   </li>
+                  <li class="nav-item mx-2 ml-auto">
+                        <a class="btn btn-primary" data-toggle="collapse" 
+                           :href="'#f' + tid + '-tab-content'" aria-expanded="false" 
+                           aria-controls="collapseExample"
+                           >psan</a>
+                  </li>
 
                 </ul>
            </div>
            <div class="card-body bg-light p-2 rounded">
 
-        <div class="tab-content" id="pills-tabContent">
+        <div class="tab-content" :id="'f' + tid + '-tab-content'">
           <div class="tab-pane fade show active" :id="'f' + tid + '-info'" role="tabpanel"
               aria-labelledby="pills-info-tab">
            <div class="card m-0">
