@@ -7,7 +7,7 @@
         <input type="text" 
                class="form-control text-left w-100"
                id="search-fams"
-               @keypress.enter="searchFams()"
+               @keypress.enter.prevent="searchFams()"
                placeholder="Browse novel family..."/>
     </div>
 
