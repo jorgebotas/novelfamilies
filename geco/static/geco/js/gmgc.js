@@ -109,6 +109,10 @@ var gmgc_vueapp = new Vue({
                 this.show_items[old_query].newick = newick;
                 this.show_items[old_query].context = context;
             }
+        },
+
+        searchFams : function(identifier) {
+            console.log(identifier)
         }
     }
 });
