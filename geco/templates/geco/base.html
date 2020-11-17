@@ -74,7 +74,9 @@
         {% block scripts %}
         {% endblock %}
         <script charset="utf-8">
-            document.body.style.display = "block";
+            window.onload = () => {
+                document.body.style.display = "block";
+            }
         </script>
     </body>
 </html>
