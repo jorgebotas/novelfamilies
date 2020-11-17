@@ -65,6 +65,7 @@ a.nav-link.active {
 
 .selectize-input {
     background: var(--white) !important;
+    border-radius: 20px !important;
 }
 
 .selectize-dropdown [data-selectable].option {
