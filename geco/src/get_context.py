@@ -735,7 +735,7 @@ def get_newick(query, client):
 def get_context(query, n_range, cutoff, cluster=True, isList=False, json=False):
 
     ### MongoDB call
-    # global client, db, coll_unigenes, coll_clusters, coll_e5
+    global client, db, coll_unigenes, coll_clusters, coll_e5
     client,\
     db,\
     coll_unigenes,\
