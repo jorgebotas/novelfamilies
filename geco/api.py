@@ -23,11 +23,13 @@ def random_items(request, nitems):
     return JsonResponse(data)
 
 def info(request, search_type, query):
+    print(query)
     data = { "show_items" : {} }
     if search_type == "identifier":
         data["show_items"] = { query : get_fam_info(query) }
     elif search_type == "function":
         pass
+    print(data)
     return JsonResponse(data)
 
 def newick(request, query):
