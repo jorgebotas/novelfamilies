@@ -35,6 +35,10 @@
         <link rel="icon" href="{% static 'geco/img/geco.png' %}">
         <title>GeCo</title>
 
+        <style type="text/css" media="screen">
+            body { display: none; }
+        </style>
+
     </head>
     <body>
         {% include 'geco/navbar.html' %}
@@ -69,5 +73,8 @@
 
         {% block scripts %}
         {% endblock %}
+        <script charset="utf-8">
+            document.body.style.display = "block";
+        </script>
     </body>
 </html>
