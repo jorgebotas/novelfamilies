@@ -99,15 +99,15 @@ var gmgc_vueapp = new Vue({
                     await $(selector + " .geco-progress").hide();
                 }
             } else {
-                old_query = query;
-                query = "095_560_840";
+                //old_query = query;
+                //query = "095_560_840";
                 await $(selector + " .geco-progress").show();
                 newick = await get_newick(query);
                 context = await get_context(query, "cluster", 30);
                 await window.launch_GeCo(selector, context, newick, 41, colors);
                 await $(selector + " .geco-progress").hide();
-                this.show_items[old_query].newick = newick;
-                this.show_items[old_query].context = context;
+                this.show_items[query].newick = newick;
+                this.show_items[query].context = context;
             }
         },
 
