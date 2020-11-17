@@ -1,7 +1,8 @@
 from django.http import HttpResponse, HttpResponseNotFound, JsonResponse
 import json
 
-from .src.get_context import get_context, get_newick, mongo_connect
+from .src.mongodb import mongo_connect
+from .src.get_context import get_context, get_newick
 from .src.get_fams import get_fam_info
 
 def random_items(request, nitems):

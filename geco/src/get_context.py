@@ -742,7 +742,7 @@ def get_context(query, n_range, cutoff, cluster=True, isList=False, json=False):
     coll_clusters,\
     coll_e5 = mongo_connect()
 
-    # global ncbi
+    global ncbi
     ncbi = NCBITaxa()
 
     ### Analysis parameters
