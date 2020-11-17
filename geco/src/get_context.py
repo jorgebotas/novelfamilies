@@ -746,7 +746,7 @@ def get_context(query, n_range, cutoff, cluster=True, isList=False, json=False):
     ncbi = NCBITaxa()
 
     ### Analysis parameters
-    # global max_gmgc_genes, percentage_cutoff, neighbor_range
+    global max_gmgc_genes, percentage_cutoff, neighbor_range
     # maximun number of unigene allowed by gmgc cluster to be computed,
     # smaller the number smaller computing time
     max_gmgc_genes = int(400)
