@@ -111,8 +111,12 @@ var gmgc_vueapp = new Vue({
             }
         },
 
-        searchFams : function(identifier) {
-            console.log(identifier)
+        searchFams : function() {
+            let val = $("#search-fams").val();
+            $("#search-fams").blur();
+            let type = $("#search-fams-type").val();
+            console.log(val)
+            console.log(type)
         }
     }
 });

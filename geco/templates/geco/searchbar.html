@@ -6,12 +6,13 @@
     <div class="w-50 m-1">
         <input type="text" 
                class="form-control text-left w-100"
-               @keypress.enter="searchFams($(this).val())"
+               id="search-fams"
+               @keypress.enter="searchFams()"
                placeholder="Browse novel family..."/>
     </div>
 
     <div class="w-25 m-1">
-        <select name="search-type" id="search-type"
+        <select name="search-fams-type" id="search-fams-ype"
             class="form-select-selectized">
             <option value="identifier" selected>identifier</option>
             <option value="function">function</option>
