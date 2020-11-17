@@ -1,7 +1,7 @@
 from django.http import HttpResponse, HttpResponseNotFound, JsonResponse
 import json
 
-from .src.get_context import get_context, get_newick, mongo_connect
+# from .src.get_context import get_context, get_newick, mongo_connect
 
 def random_items(request, nitems):
     import random
@@ -23,7 +23,7 @@ def random_items(request, nitems):
 def newick(request, query):
     # try:
     client = mongo_connect()[0]
-    tree = get_newick(query, client)
+    tree = ""  # get_newick(query, client)
     return HttpResponse(tree, content_type='text/plain')
     # except:
     print("NO TREE for specified cluster: " + str(query))
@@ -33,9 +33,10 @@ def context(request, query, cutoff):
     isCluster = True
     isList = False
     n_neigh = 20
-    analysis = get_context(query,
-                        n_neigh,
-                        cutoff,
-                        isCluster,
-                        isList)
+    # analysis = get_context(query,
+                        # n_neigh,
+                        # cutoff,
+                        # isCluster,
+                        # isList)
+    analysis = ""
     return JsonResponse(analysis)
