@@ -56,7 +56,7 @@ div#phylogram {
     display: inline-block;
     width: 515px;
     min-width: 515px;
-    text-align: right;
+    text-align: left;
     height: 1000px;
     border: solid var(--dark-gray) 1px;
     border-radius: 5px;
