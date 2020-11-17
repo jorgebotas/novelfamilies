@@ -1,6 +1,6 @@
 :root {
   --nodata: #cfcfcf;
-  --highlight: var(--indigo); /*#ff8c00*/
+  --highlight: var(--orange); /*#ff8c00*/
   --black: black;
 
   --gray: rgba(0, 0, 0, 0.1);
