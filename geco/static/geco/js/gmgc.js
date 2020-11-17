@@ -123,6 +123,11 @@ var gmgc_vueapp = new Vue({
                     console.log(data.show_items)
                     this.show_items = data.show_items
                 })
+            document.querySelector('.fam-toggle').click();
         },
+
+        showAllFams : function() {
+            docuemnt.querySelector('.fam-toggle').click();
+        }
     }
 });
