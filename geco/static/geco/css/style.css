@@ -33,13 +33,13 @@ a.nav-link.active {
 }
 
 .btn-primary {
-    background: var(--indigo);
-    border-color: var(--indigo);
+    background: var(--indigo) !important;
+    border-color: var(--indigo) !important;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
-    background: var(--dark-indigo);
-    border-color: var(--dark-indigo);
+    background: var(--dark-indigo) !important;
+    border-color: var(--dark-indigo) !important;
 }
 
 .form-check-input {
