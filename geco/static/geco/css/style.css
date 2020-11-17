@@ -49,3 +49,11 @@ a.nav-link.active {
 .form-check-input:checked {
     background-color: var(--indigo);
 }
+
+.form-help {
+    background: var(--white);
+}
+
+.selectize-input {
+    background: var(--white) !important;
+}
