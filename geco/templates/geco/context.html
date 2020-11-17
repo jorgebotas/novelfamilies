@@ -23,7 +23,7 @@
     <script src="{% static "geco/js/gmgc.js" %}"></script>
     <script charset="utf-8">
       $(document).ready(function () {
-          $(".form-help").popover();
+          $(".form-help").popover({ trigger:'focus' });
           $("#search-type").selectize();
           $('#search-filters').selectize({
             maxItems: 20,
