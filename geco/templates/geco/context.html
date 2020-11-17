@@ -23,10 +23,11 @@
     <script src="{% static "geco/js/gmgc.js" %}"></script>
     <script charset="utf-8">
       $(document).ready(function () {
-        $('#search-filters').selectize({
-            maxItems: 15,
+          $(".form-help").popover();
+          $('#search-filters').selectize({
+            maxItems: 20,
             plugins: ['remove_button'],
-        });
+            });
       });
     </script>
 {% endblock %}
