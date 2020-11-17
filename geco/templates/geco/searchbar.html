@@ -6,7 +6,7 @@
     <div class="w-50 m-1">
         <input type="text" 
                class="form-control text-left w-100"
-               @keypress.enter="searchFams(this.value)"
+               @keypress.enter="searchFams($(this).val())"
                placeholder="Browse novel family..."/>
     </div>
 
