@@ -93,15 +93,15 @@ var gmgc_vueapp = new Vue({
             let context = this.show_items[query].context;
             let colors = await get_colors();
             if (context) {
-                console.log(context)
-                await window.launch_GeCo(selector, context, newick, 41, colors);
+                window.onload = () => {
+                    await window.launch_GeCo(selector, context, newick, 41, colors);
+                }
             } else {
                 old_query = query;
                 query = "095_560_840";
                 await $(selector + " .geco-progress").show();
                 newick = await get_newick(query);
                 context = await get_context(query, "cluster", 30);
-                console.log(context);
                 await window.launch_GeCo(selector, context, newick, 41, colors);
                 await $(selector + " .geco-progress").hide();
                 this.show_items[old_query].newick = newick;
