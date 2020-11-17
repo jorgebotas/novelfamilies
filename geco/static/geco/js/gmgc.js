@@ -117,14 +117,7 @@ var gmgc_vueapp = new Vue({
             let type = $("#search-fams-type").val();
             console.log(val)
             console.log(type)
-            let url = API_BASE_URL + '/info';
-            if (type == "identifier") {
-                url += '/id/';
-            } else if (type == "function") {
-                url += '/function/';
-            }
-            url += val + '/';
-            fetch(url)
+            fetch(API_BASE_URL + '/' + type + '/' + val + '/')
                 .then(response => response.json())
                 .then(data => {
                     console.log(data.show_items)
