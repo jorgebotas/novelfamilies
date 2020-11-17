@@ -93,7 +93,7 @@ var gmgc_vueapp = new Vue({
             let context = this.show_items[query].context;
             let colors = await get_colors();
             if (context) {
-                window.onload = () => {
+                window.onload = async () => {
                     await $(selector + " .geco-progress").show().delay(2000);
                     await window.launch_GeCo(selector, context, newick, 41, colors);
                     await $(selector + " .geco-progress").hide();
