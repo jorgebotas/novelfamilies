@@ -43,8 +43,14 @@
 
     </head>
     <body>
-        {% include 'geco/navbar.html' %}
         <script src="{% static "geco/js/theme.js" %}"></script>
+        <script charset="utf-8">
+            const themeConfig = new ThemeConfig();
+            // place customizations here
+            themeConfig.initTheme();
+            const darkSwitch = writeDarkSwitch(themeConfig);
+        </script>
+        {% include 'geco/navbar.html' %}
         <body class="antialiased">
         <div class="page">
                 <div class="content">
