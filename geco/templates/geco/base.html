@@ -44,13 +44,13 @@
 
     </head>
     <body>
-        <script src="{% static "geco/js/theme.js" %}"></script>
-        <script charset="utf-8">
-            const themeConfig = new ThemeConfig();
-            // place customizations here
-            themeConfig.initTheme();
-            const darkSwitch = writeDarkSwitch(themeConfig);
-        </script>
+        {% comment %}<script src="{% static "geco/js/theme.js" %}"></script>{% endcomment %}
+        {% comment %}<script charset="utf-8">{% endcomment %}
+            {% comment %}const themeConfig = new ThemeConfig();{% endcomment %}
+            {% comment %}// place customizations here{% endcomment %}
+            {% comment %}themeConfig.initTheme();{% endcomment %}
+            {% comment %}const darkSwitch = writeDarkSwitch(themeConfig);{% endcomment %}
+        {% comment %}</script>{% endcomment %}
         {% include 'geco/navbar.html' %}
         <body class="antialiased">
         <div class="page">
