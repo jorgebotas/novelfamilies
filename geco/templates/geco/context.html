@@ -12,8 +12,10 @@
 
 {% include 'geco/searchbar.html'%}
 
-<div v-if="show_items != {}" v-for="(tdata, tid, index) in show_items">               
+<div v-if="show_items != {}" >
+<div v-for="(tdata, tid, index) in show_items">               
     {% include 'geco/card.html' %}
+</div>
 </div>
 
 {% endblock %}
