@@ -72,7 +72,7 @@ var gmgc_vueapp = new Vue({
                 //"nnodes": 449,
                 //"taxscope": "Bacteria",
                 /*"desc": " Some description 4 asnd f fl;kj fdslkj fdjk fdsl;kj fsd;lkj fsd ",*/
-            }
+            //}
         },
 
     },
