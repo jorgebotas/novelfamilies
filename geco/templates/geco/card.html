@@ -25,13 +25,13 @@
 
                 </ul>
            </div>
-           <div class="card-body p-2 rounded"> <!--bg-light-->
+           <div class="card-body p-2 rounded bg-light"> <!--bg-light-->
 
         <div class="tab-content collapse" :id="'f' + tid + '-tab-content'">
           <div class="tab-pane fade show active" :id="'f' + tid + '-info'" role="tabpanel"
               aria-labelledby="pills-info-tab">
            <div class="card m-0">
-               <div class="card-body">
+               <div class="card-body rounded">
                    [[ tdata.desc  ]]
                </div>
            </div>
@@ -39,7 +39,7 @@
           <div class="tab-pane fade" :id="'f' + tid + '-geco'" role="tabpanel"
               aria-labelledby="pills-geco-tab">
            <div class="card">
-               <div class="card-body overflow-auto" 
+               <div class="card-body overflow-auto rounded" 
                     :id="'f' + tid + '-gecoViz'"
                     style="height:1600px;resize:vertical;">
                    {% include 'geco/geco.html' %}
