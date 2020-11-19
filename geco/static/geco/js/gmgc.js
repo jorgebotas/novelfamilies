@@ -33,45 +33,45 @@ var gmgc_vueapp = new Vue({
     delimiters: ['[[', ']]'],
     el: '#NovelFams',
     data: {
-        query: { nitems: 20 },
+        //query: { nitems: 20 },
         // Your custom data data
         show_items: {
-            "tree_name1": {
-                "newick": "(A, B);",
-                "tags": ["tag1", "tag2"],
-                "ntips": 20,
-                "nnodes": 49,
-                "taxscope": "Bilateria",
-                "desc": " Some description 1",
-            },
+/*            "tree_name1": {*/
+                //"newick": "(A, B);",
+                //"tags": ["tag1", "tag2"],
+                //"ntips": 20,
+                //"nnodes": 49,
+                //"taxscope": "Bilateria",
+                //"desc": " Some description 1",
+            //},
 
-            "tree_name2": {
-                "newick": "(A, B);",
-                "tags": ["tag1", "tag2"],
-                "ntips": 454,
-                "nnodes": 4934,
-                "taxscope": "Bilateria and others",
-                "desc": " Some description 2 ",
-            },
-
-
-            "tree_name3": {
-                "newick": "(A, B, C , D);",
-                "tags": ["tag1"],
-                "ntips": 210,
-                "nnodes": 490,
-                "taxscope": "Eukaryota",
-                "desc": " Some description 3 fsdlkj lfsd;lj fsdl;kj ",
-            },
+            //"tree_name2": {
+                //"newick": "(A, B);",
+                //"tags": ["tag1", "tag2"],
+                //"ntips": 454,
+                //"nnodes": 4934,
+                //"taxscope": "Bilateria and others",
+                //"desc": " Some description 2 ",
+            //},
 
 
-            "tree_name4": {
-                "newick": "(A, B);",
-                "tags": ["tag1", "tag100"],
-                "ntips": 20,
-                "nnodes": 449,
-                "taxscope": "Bacteria",
-                "desc": " Some description 4 asnd f fl;kj fdslkj fdjk fdsl;kj fsd;lkj fsd ",
+            //"tree_name3": {
+                //"newick": "(A, B, C , D);",
+                //"tags": ["tag1"],
+                //"ntips": 210,
+                //"nnodes": 490,
+                //"taxscope": "Eukaryota",
+                //"desc": " Some description 3 fsdlkj lfsd;lj fsdl;kj ",
+            //},
+
+
+            //"tree_name4": {
+                //"newick": "(A, B);",
+                //"tags": ["tag1", "tag100"],
+                //"ntips": 20,
+                //"nnodes": 449,
+                //"taxscope": "Bacteria",
+                /*"desc": " Some description 4 asnd f fl;kj fdslkj fdjk fdsl;kj fsd;lkj fsd ",*/
             }
         },
 
@@ -115,8 +115,6 @@ var gmgc_vueapp = new Vue({
             $("#search-fams").blur();
             let val = $("#search-fams").val();
             let type = $("#search-fams-type").val();
-            console.log(val)
-            console.log(type)
             fetch(API_BASE_URL + '/info/' + type + '/' + val + '/')
                 .then(response => response.json())
                 .then(data => {
