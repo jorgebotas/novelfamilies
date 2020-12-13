@@ -4,4 +4,6 @@ def get_fam_info(identifier):
     gf = mongo_connect_novelfams()[1]
     df_identif = int(identifier.replace("_", ""))
     data = gf.find({'gf' : df_identif})
-    return data
+    for r in data:
+        data = r
+    return dict(data)
