@@ -1,8 +1,6 @@
 
 def get_fam_info(identifier):
-    data = {}
-    data = {
-        "name" : identifier,
-        "desc" : "Fam description"
-    }
+    gf = mongo_connect_novelfams()[1]
+    df_identif = int(identifier.replace("_", ""))
+    data = gf.find({'gf' : df_identif})
     return data

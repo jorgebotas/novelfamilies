@@ -14,3 +14,10 @@ def mongo_connect():
 
     return [client, db, coll_unigene,coll_cluster,coll_e5]
 
+
+def mongo_connect_novelfams():
+    client = MongoClient('10.0.3.1', 27017, maxPoolSize=10)
+    db = client.novel_fams
+    gf = db.gf_profile_gmgcv1
+    gmgcv1_neighs = db.gmgcv1_neighs
+    return db, gf, gmgcv1_neighs
