@@ -1,3 +1,4 @@
+from .mongodb import mongo_connect_novelfams
 
 def get_fam_info(identifier):
     gf = mongo_connect_novelfams()[1]
