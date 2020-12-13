@@ -36,11 +36,11 @@
                        <div class="table-responsive">
                            <table class="table table-vcenter card-table">
                                <thead><tr>
-                                       <th>Members (unigenes)</th>
+                                       <th>Members (unigene)</th>
                                    </tr></thead>
                                <tbody>
-                                   <tr>
-                                       <th> [[tdata.members]] </th>
+                                   <tr v-for="m in tdata.members">
+                                       <th> [[m]] </th>
                                    </tr>
 
                                </tbody>
