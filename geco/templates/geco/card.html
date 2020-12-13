@@ -32,7 +32,6 @@
               aria-labelledby="pills-info-tab">
            <div class="card m-0">
                <div class="card-body rounded">
-                   [[ tdata.members  ]]
                    <div class="card">
                        <div class="table-responsive">
                            <div class="table table-vcenter card-table">
@@ -40,8 +39,8 @@
                                        <th>Members (unigenes)</th>
                                    </tr></thead>
                                <tbody>
-                                   <tr v-for="m in tdata['members']">
-                                       <th> [[ m ]] </th>
+                                   <tr>
+                                       <th> [[tdata.members]] </th>
                                    </tr>
 
                                </tbody>
