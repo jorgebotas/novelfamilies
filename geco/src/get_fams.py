@@ -5,5 +5,6 @@ def get_fam_info(identifier):
     df_identif = int(identifier.replace("_", ""))
     data = gf.find({'gf' : df_identif})
     for r in data:
+        print(r)
         data = r
     return dict(data)
