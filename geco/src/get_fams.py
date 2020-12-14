@@ -14,7 +14,7 @@ def get_fam_info(identifier):
     return data
 
 def get_neighborhood(identifier):
-    gmgc_neigh = mongo_connect()[2]
+    gmgc_neigh = mongo_connect_novelfams()[2]
     int_identif = int(identifier.replace("_", ""))
     rawd = gmgc_neigh.fing({'gf' : int_identif})[0]['neigh']
     for n in rawd:
