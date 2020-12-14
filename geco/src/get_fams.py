@@ -10,7 +10,7 @@ def get_fam_info(identifier):
         "keggp" : rawd['keggp'],
         'tapx' : rawd['taxp']
     }
-    get_neighborhood
+    get_neighborhood(identifier)
     return data
 
 def get_neighborhood(identifier):
