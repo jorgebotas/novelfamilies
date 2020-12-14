@@ -28,7 +28,6 @@ def info(request, search_type, query):
         data["show_items"] = { query : get_fam_info(query) }
     elif search_type == "function":
         pass
-    print(data)
     return JsonResponse(data)
 
 def newick(request, query):

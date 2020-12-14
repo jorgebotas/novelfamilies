@@ -18,5 +18,5 @@ def get_neighborhood(identifier):
     int_identif = int(identifier.replace("_", ""))
     rawd = gmgc_neigh.find({'gf' : int_identif})[0]['neigh']
     for n in rawd:
-        print("\n\n")
+        print("\n")
         print(n)
