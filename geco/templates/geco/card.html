@@ -28,10 +28,10 @@
                   <li class="nav-item mx-2">
                     <a class="nav-link btn-sm" 
                        id="pills-biomes-tab" 
-                        @click="donutBiome('f'+tid+'-biomesViz', tdata.biomes)"
                        data-toggle="pill"
-                        :href="'#f' + tid + '-biomes'"
+                       :href="'#f' + tid + '-biomes'"
                         @click="toggleFam('f' + tid + '-tab-content')"
+                        @click="donutBiome('f'+tid+'-biomesViz', tdata.biomes)"
                         role="tab" 
                         aria-controls="pills-biomes"
                         aria-selected="false">Biomes</a>
