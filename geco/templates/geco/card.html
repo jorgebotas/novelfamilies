@@ -51,12 +51,14 @@
                                        </th>
                                    </tr>
                                </thead>
-                               <tbody class="collapse"
+                               <div class="collapse"
                                       :id="'f' + tid + '-members'">
+                               <tbody>
                                    <tr v-for="m in tdata.members">
                                        <th class="p-1"> [[m]] </th>
                                    </tr>
                                </tbody>
+                               </div>
                            </table>
                        </div>
                    </div>
