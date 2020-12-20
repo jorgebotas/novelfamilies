@@ -17,7 +17,7 @@ def get_fam_info(identifier):
         'domains' : domains,
         'biomes' : rawd['biomep']
     }
-    print(rawd['ampred'])
+    print(rawd['keggp'])
     return data
 
 def get_neighborhood(identifier):
