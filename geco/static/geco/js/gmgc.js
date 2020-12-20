@@ -128,6 +128,10 @@ var gmgc_vueapp = new Vue({
             $('.tab-content').collapse('show');
         },
 
+        toggleFam : function(id) {
+            $("#" + id).collapse('show');
+        },
+
         donutBiome : function(id, biomes) {
             options = {
                 chart: {

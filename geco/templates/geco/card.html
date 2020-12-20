@@ -6,15 +6,21 @@
                     id="pills-tab" role="tablist">
 
                   <li class="nav-item mx-2">
-                    <a class="nav-link active btn-sm" id="pills-info-tab" data-toggle="pill"
-                        :href="'#f' + tid + '-info'" role="tab" aria-controls="pills-info"
-                        aria-selected="true">Info</a>
+                    <a class="nav-link active btn-sm" 
+                       id="pills-info-tab" 
+                       @click="toggleFam('f' + tid + '-tab-content')"
+                       data-toggle="pill"
+                       :href="'#f' + tid + '-info'" 
+                       role="tab" 
+                       aria-controls="pills-info"
+                       aria-selected="true">Info</a>
                   </li>
                   <li class="nav-item mx-2">
                     <a class="nav-link btn-sm" 
                        id="pills-domains-tab" 
+                       @click="toggleFam('f' + tid + '-tab-content')"
                        data-toggle="pill"
-                        :href="'#f' + tid + '-domains'"
+                       :href="'#f' + tid + '-domains'"
                         role="tab" 
                         aria-controls="pills-domains"
                         aria-selected="false">Domains</a>
@@ -25,6 +31,7 @@
                         @click="donutBiome('f'+tid+'-biomesViz', tdata.biomes)"
                        data-toggle="pill"
                         :href="'#f' + tid + '-biomes'"
+                        @click="toggleFam('f' + tid + '-tab-content')"
                         role="tab" 
                         aria-controls="pills-biomes"
                         aria-selected="false">Biomes</a>
@@ -33,6 +40,7 @@
                     <a class="nav-link btn-sm" id="pills-geco-tab" data-toggle="pill"
                         :href="'#f' + tid + '-geco'" role="tab" aria-controls="pills-geco"
                         aria-selected="false"
+                        @click="toggleFam('f' + tid + '-tab-content')"
                         @click="toggleGeCo('#f'+tid+'-gecoViz', tid)"
                         >GeCo</a>
                   </li>
