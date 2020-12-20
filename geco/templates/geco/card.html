@@ -35,7 +35,7 @@
            <div class="card m-0">
                <div class="card-body rounded">
 
-                   <div class="card col-md-2 p-0 members-table">
+                   <div class="card p-0 members-table">
                        <div class="table-responsive">
                            <table class="table table-vcenter card-table
                                text-center mb-0">
@@ -58,29 +58,29 @@
                                <tbody class="collapse"
                                       :id="'f' + tid + '-members'">
                                    <tr v-for="m in tdata.members">
-                                           <th class="p-1">
-                                               [[ m ]]
-                                           </th>
-                                           <th class="p-1">
-                                               [[
-                                               tdata.domains[m]['num_h']
-                                               ]]
-                                           </th>
-                                           <th class="p-1">
-                                               [[
-                                               tdata.domains[m]['topo_h']
-                                               ]]
-                                           </th>
-                                           <th class="p-1">
-                                               [[
-                                               tdata.domains[m]['signalp_p']
-                                               ]]
-                                           </th>
-                                           <th class="p-1">
-                                               [[
-                                               tdata.domains[m]['signalp_n']
-                                               ]]
-                                           </th>
+                                       <th class="p-1">
+                                           [[ m ]]
+                                       </th>
+                                       <th class="p-1">
+                                           [[
+                                           tdata.domains[m]['num_h']
+                                           ]]
+                                       </th>
+                                       <th class="p-1">
+                                           [[
+                                           tdata.domains[m]['topo_h']
+                                           ]]
+                                       </th>
+                                       <th class="p-1">
+                                           [[
+                                           tdata.domains[m]['signalp_p']
+                                           ]]
+                                       </th>
+                                       <th class="p-1">
+                                           [[
+                                           tdata.domains[m]['signalp_n']
+                                           ]]
+                                       </th>
                                    </tr>
                                </tbody>
                            </table>
