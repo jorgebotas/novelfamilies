@@ -117,12 +117,11 @@ var gmgc_vueapp = new Vue({
             fetch(API_BASE_URL + '/info/' + type + '/' + val + '/')
                 .then(response => response.json())
                 .then(data => {
-                    console.log(data.show_items)
                     this.show_items = data.show_items
                 })
-            $(document).ready(function(){
-                $('.tab-content').collapse('show');
-            });
+                .then(() => {
+                    $('.tab-content').collapse('show');
+                })
         },
 
         showAllFams : function() {
