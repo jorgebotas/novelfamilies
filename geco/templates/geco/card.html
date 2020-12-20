@@ -17,8 +17,10 @@
                   </li>
                   <li class="nav-item mx-3 position-absolute"
                       style="right:20px; top:10px;">
-                        <a class="btn btn-primary btn-sm fam-toggle" data-toggle="collapse" 
-                           :href="'#f' + tid + '-tab-content'" aria-expanded="false" 
+                        <a class="btn btn-primary btn-sm fam-toggle" 
+                           data-toggle="collapse" 
+                           :href="'#f' + tid + '-tab-content'" 
+                           aria-expanded="true" 
                            aria-controls="collapseExample"
                            ><i class="fas fa-angle-down"></i></a>
                   </li>
@@ -37,11 +39,22 @@
                        <div class="table-responsive">
                            <table class="table table-vcenter card-table
                                text-center mb-0">
-                               <thead><tr>
-                                       <th>Members (unigene)</th>
-                                   </tr></thead>
-                               <tbody>
-                                   <tr v-for="m in tdata.members.split(',')">
+                               <thead>
+                                   <tr>
+                                       <th>Members (unigene)  
+                                       <a class="ml-2 btn 
+                                          btn-terciary btn-sm
+                                          rounded"
+                                          :href="'#f' + tid + '-members'" 
+                                          data-toggle="collapse"
+                                          aria-expanded="false">
+                                           +</a>
+                                       </th>
+                                   </tr>
+                               </thead>
+                               <tbody class="collapse"
+                                      :id="'f' + tid + '-members'">
+                                   <tr v-for="m in tdata.members">
                                        <th class="p-1"> [[m]] </th>
                                    </tr>
                                </tbody>

@@ -6,7 +6,7 @@ def get_fam_info(identifier):
     rawd = gf.find({'gf' : int_identif})[0]
     data = {
         "name" : rawd['gf'],
-        "members" : rawd['unigenes'],
+        "members" : rawd['unigenes'].split(","),
         "keggp" : rawd['keggp'],
         'tapx' : rawd['taxp']
     }
