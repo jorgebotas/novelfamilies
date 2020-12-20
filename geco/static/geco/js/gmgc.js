@@ -125,6 +125,55 @@ var gmgc_vueapp = new Vue({
 
         showAllFams : function() {
             docuemnt.querySelector('.fam-toggle').click();
-        }
+        },
+
+        donutBiome : function(id, biomes) {
+            options = {
+                chart: {
+                    type: "donut",
+                    fontFamily: 'inherit',
+                    height: 240,
+                    sparkline: {
+                        enabled: true
+                    },
+                    animations: {
+                        enabled: false
+                    },
+                },
+                fill: {
+                    opacity: 1,
+                },
+                series: Object.values(biomes),
+                labels: Object.keys(biomes),
+                grid: {
+                    strokeDashArray: 14,
+                },
+                //colors: ["#206bc4", "#79a6dc", "#bfe399", "#e9ecf1"],
+                colors: ["#abfdcb",
+                            "#c9b2fd",
+                            "#fcaf81",
+                            "#a9dff7",
+                            "#254F93",
+                            "#FF5C8D",
+                            "#838383",
+                            "#5F33FF",
+                            "#c7e3aa",
+                            "#D81E5B",
+                            "#47DAFF",
+                            "#c4ab77",
+                            "#A1A314",
+                            "#fff600"],
+                legend: {
+                    show: false,
+                },
+                tooltip: {
+                    fillSeriesColor: false
+                },
+            }
+      	window.ApexCharts &&
+        (new ApexCharts(document.getElementById(id),
+                        options)).render();
+        },
+
     }
 });
