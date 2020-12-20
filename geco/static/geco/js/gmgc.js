@@ -129,10 +129,12 @@ var gmgc_vueapp = new Vue({
         },
 
         toggleFam : function(id) {
-            $("#" + id).collapse('toggle');
+            $("#" + id).collapse('show');
         },
 
         donutBiome : function(id, biomes) {
+            let div = document.querySelector("id" + id);
+            while(div.lastChild) { div.lastChild.remove(); }
             options = {
                 chart: {
                     type: "donut",
