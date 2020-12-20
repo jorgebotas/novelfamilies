@@ -4,12 +4,18 @@ def get_fam_info(identifier):
     gf = mongo_connect_novelfams()[1]
     int_identif = int(identifier.replace("_", ""))
     rawd = gf.find({'gf' : int_identif})[0]
+    doms = rawd['domains']
+    domains = {}
+    for i in range(len(doms)):
+        domains = {
+            doms[i].keys()[0] = doms[i].values([0])
+        }
     data = {
         "name" : rawd['gf'],
         "members" : rawd['unigenes'].split(","),
         "keggp" : rawd['keggp'],
         'tapx' : rawd['taxp'],
-        'domains' : rawd['domains']
+        'domains' : domains
     }
     print(rawd['biomep'])
     print(rawd['domains'])
