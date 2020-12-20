@@ -186,17 +186,19 @@ var gmgc_vueapp = new Vue({
                             "#c4ab77",
                             "#A1A314",
                             "#fff600"],
-                legend: {
-                    //show: false,
-                    position : 'bottom',
-                },
+                responsive: [{
+                    legend: {
+                        //show: false,
+                        position : 'bottom',
+                    },
+                }],
                 tooltip: {
                     fillSeriesColor: false
                 },
             }
-            window.ApexCharts &&
-            (new ApexCharts(div,
-                            options)).render();
+            //window.ApexCharts &&
+            var chart = new ApexCharts(div, options);
+            chart.render();
             //}
         },
 
