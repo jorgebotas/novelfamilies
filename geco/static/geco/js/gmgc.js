@@ -133,7 +133,7 @@ var gmgc_vueapp = new Vue({
         },
 
         donutBiome : function(id, biomes) {
-            let div = document.querySelector("id" + id);
+            let div = document.getElementById(id);
             if (!div.children) {
             options = {
                 chart: {
@@ -195,7 +195,7 @@ var gmgc_vueapp = new Vue({
                 },
             }
             window.ApexCharts &&
-            (new ApexCharts(document.getElementById(id),
+            (new ApexCharts(div,
                             options)).render();
             }
         },
