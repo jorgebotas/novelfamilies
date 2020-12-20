@@ -21,7 +21,7 @@
                            data-toggle="collapse" 
                            :href="'#f' + tid + '-tab-content'" 
                            aria-expanded="true" 
-                           aria-controls="collapseExample"
+                           aria-controls="tab-content"
                            ><i class="fas fa-angle-down"></i></a>
                   </li>
 
@@ -45,16 +45,19 @@
                                        <a class=""
                                           :href="'#f' + tid + '-members'" 
                                           data-toggle="collapse"
-                                          aria-expanded="false">
+                                          aria-expanded="false"
+                                          aria-controls="members">
                                           Members (unigene)</a>
                                        </th>
                                    </tr>
                                </thead>
-                               <tbody class="collapse"
+                               <tbody>
+                                   <div class="collapse"
                                       :id="'f' + tid + '-members'">
                                    <tr v-for="m in tdata.members">
                                        <th class="p-1"> [[m]] </th>
                                    </tr>
+                                   </div>
                                </tbody>
                            </table>
                        </div>
