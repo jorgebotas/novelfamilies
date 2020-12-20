@@ -16,7 +16,7 @@
                         :href="'#f' + tid + '-domains'"
                         role="tab" 
                         aria-controls="pills-domains"
-                        aria-selected="true">Domains</a>
+                        aria-selected="false">Domains</a>
                   </li>
                   <li class="nav-item mx-2">
                     <a class="nav-link btn-sm" id="pills-geco-tab" data-toggle="pill"
@@ -49,8 +49,10 @@
            </div>
           </div>
 
-          <div class="tab-pane fade show active" :id="'f' + tid + '-info'" role="tabpanel"
-              aria-labelledby="pills-info-tab">
+          <div class="tab-pane fade show active" 
+               :id="'f' + tid + '-domains'" 
+               role="tabpanel"
+               aria-labelledby="pills-domains-tab">
            <div class="card m-0">
                <div class="card-body rounded">
 
