@@ -30,8 +30,8 @@
                        id="pills-biomes-tab" 
                        data-toggle="pill"
                        :href="'#f' + tid + '-biomes'"
-                        @click="toggleFam('f' + tid + '-tab-content')"
-                        @click="donutBiome('f'+tid+'-biomesViz', tdata.biomes)"
+                        @click="toggleFam('f' + tid + '-tab-content');
+                                donutBiome('f'+tid+'-biomesViz', tdata.biomes)"
                         role="tab" 
                         aria-controls="pills-biomes"
                         aria-selected="false">Biomes</a>
@@ -40,8 +40,8 @@
                     <a class="nav-link btn-sm" id="pills-geco-tab" data-toggle="pill"
                         :href="'#f' + tid + '-geco'" role="tab" aria-controls="pills-geco"
                         aria-selected="false"
-                        @click="toggleFam('f' + tid + '-tab-content')"
-                        @click="toggleGeCo('#f'+tid+'-gecoViz', tid)"
+                        @click="toggleFam('f' + tid + '-tab-content');
+                                toggleGeCo('#f'+tid+'-gecoViz', tid)"
                         >GeCo</a>
                   </li>
                   <li class="nav-item mx-3 position-absolute"
