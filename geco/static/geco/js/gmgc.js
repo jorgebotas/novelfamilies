@@ -129,7 +129,7 @@ var gmgc_vueapp = new Vue({
         },
 
         toggleFam : function(id) {
-            $("#" + id).collapse('show');
+            $("#" + id).collapse('toggle');
         },
 
         donutBiome : function(id, biomes) {
