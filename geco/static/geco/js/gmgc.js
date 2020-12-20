@@ -28,7 +28,6 @@ var get_colors = async () => {
     return colors;
 }
 
-
 var gmgc_vueapp = new Vue({
     delimiters: ['[[', ']]'],
     el: '#NovelFams',
@@ -121,7 +120,7 @@ var gmgc_vueapp = new Vue({
                     console.log(data.show_items)
                     this.show_items = data.show_items
                 })
-            document.querySelector('.fam-toggle').click();
+            //document.querySelector('.fam-toggle').click();
         },
 
         showAllFams : function() {
