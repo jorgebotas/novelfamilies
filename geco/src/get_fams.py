@@ -8,7 +8,9 @@ def get_fam_info(identifier):
     domains = {}
     for i in range(len(doms)):
         d = eval(doms[i])
-        domains [d.keys()[0]] = d.values()
+        print(d.keys())
+        print(d.values())
+        domains [d.keys() = d.values()
     data = {
         "name" : rawd['gf'],
         "members" : rawd['unigenes'].split(","),
