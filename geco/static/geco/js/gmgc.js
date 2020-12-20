@@ -120,7 +120,9 @@ var gmgc_vueapp = new Vue({
                     console.log(data.show_items)
                     this.show_items = data.show_items
                 })
-            $('.tab-content').collapse('show');
+            $(document).ready(function(){
+                $('.tab-content').collapse('show');
+            });
         },
 
         showAllFams : function() {
