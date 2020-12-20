@@ -49,12 +49,40 @@
                                           aria-controls="members">
                                           Members (unigene)</a>
                                        </th>
+                                       <th>Number of helices</th>
+                                       <th>Topology</th>
+                                       <th>Gram + sp prediction</th>
+                                       <th>Gram - sp prediction</th>
                                    </tr>
                                </thead>
                                <tbody class="collapse"
                                       :id="'f' + tid + '-members'">
-                                   <tr v-for="m in tdata.members">
-                                       <th class="p-1"> [[m]] </th>
+                                   <tr v-for="i in len(tdata.members)">
+                                       <td>
+                                           <th class="p-1">
+                                               [[ tdata.members[i] ]]
+                                           </th>
+                                           <th class=p-1>
+                                               [[
+                                               tdata.domains[i].values()['num_h']
+                                               ]]
+                                           </th>
+                                           <th class=p-1>
+                                               [[
+                                               tdata.domains[i].values()['topo_h']
+                                               ]]
+                                           </th>
+                                           <th class=p-1>
+                                               [[
+                                               tdata.domains[i].values()['signalp_p']
+                                               ]]
+                                           </th>
+                                           <th class=p-1>
+                                               [[
+                                               tdata.domains[i].values()['signalp_n']
+                                               ]]
+                                           </th>
+                                       </td>
                                    </tr>
                                </tbody>
                            </table>

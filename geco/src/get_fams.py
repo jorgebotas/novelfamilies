@@ -8,7 +8,8 @@ def get_fam_info(identifier):
         "name" : rawd['gf'],
         "members" : rawd['unigenes'].split(","),
         "keggp" : rawd['keggp'],
-        'tapx' : rawd['taxp']
+        'tapx' : rawd['taxp'],
+        'domains' : rawd['domains']
     }
     print(rawd['biomep'])
     print(rawd['domains'])
