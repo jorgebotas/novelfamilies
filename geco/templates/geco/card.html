@@ -57,7 +57,7 @@
                                </thead>
                                <tbody class="collapse"
                                       :id="'f' + tid + '-members'">
-                                   <tr v-for="i in len(tdata.members)">
+                                   <tr v-for="i in tdata.members.length">
                                        <td>
                                            <th class="p-1">
                                                [[ tdata.members[i] ]]
