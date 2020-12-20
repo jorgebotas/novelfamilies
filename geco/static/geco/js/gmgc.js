@@ -144,7 +144,23 @@ var gmgc_vueapp = new Vue({
                 fill: {
                     opacity: 1,
                 },
-                series: Object.values(biomes),
+                //series: Object.values(biomes),
+                series : [
+                    "Marine",
+                    "Human vagina",
+                    "Fresh water",
+                    "Soil",
+                    "Pig gut",
+                    "Mouse gut",
+                    "Built environment",
+                    "Human skin",
+                    "Human nose",
+                    "Dog gut",
+                    "Cat gut",
+                    "Human gut",
+                    "Waste water",
+                    "Human oral"
+                ],
                 labels: Object.keys(biomes),
                 grid: {
                     strokeDashArray: 14,
