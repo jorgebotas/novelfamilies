@@ -91,7 +91,7 @@ var donutBiome = function(id, biomes) {
     //window.ApexCharts &&
     var chart = new ApexCharts(div, options);
     chart.render();
-},
+}
 
 var gmgc_vueapp = new Vue({
     delimiters: ['[[', ']]'],
