@@ -64,14 +64,16 @@
            <div class="card m-0">
                <div class="card-body rounded">
                    <div class="col-md-4">
-                    <a class='btn btn-primary btn-sm'
-                          :href="'#f' + tid + '-biomesViz'" 
-                          data-toggle="collapse"
-                          aria-expanded="false"
-                          aria-controls="biomesViz"
-                          @click="donutBiome('f'+tid+'-biomesViz', tdata.biomes)">
-                        Biome Distribution
-                    </a>
+                       <div class="m-3 text-center">
+                        <a class='btn btn-primary btn-sm'
+                              :href="'#f' + tid + '-biomesViz'" 
+                              data-toggle="collapse"
+                              aria-expanded="false"
+                              aria-controls="biomesViz"
+                              @click="donutBiome('f'+tid+'-biomesViz', tdata.biomes)">
+                            Biome Distribution
+                        </a>
+                       </div>
                     <div class="collapse bg-white rounded" 
                          :id="'f' + tid + '-biomesViz'">
                     </div>
