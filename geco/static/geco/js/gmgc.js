@@ -139,7 +139,7 @@ var gmgc_vueapp = new Vue({
                 chart: {
                     type: "donut",
                     fontFamily: 'inherit',
-                    height: 240,
+                    //height: 240,
                     sparkline: {
                         enabled: true
                     },
@@ -187,11 +187,16 @@ var gmgc_vueapp = new Vue({
                             "#A1A314",
                             "#fff600"],
                 responsive: [{
-                    legend: {
-                        //show: false,
-                        position : 'bottom',
-                    },
-                }],
+                      breakpoint: 480,
+                      options: {
+                        chart: {
+                          width: 200
+                        },
+                        legend: {
+                          position: 'bottom'
+                        }
+                      }
+                    }],
                 tooltip: {
                     fillSeriesColor: false
                 },
