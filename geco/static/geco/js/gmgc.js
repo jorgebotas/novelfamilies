@@ -190,7 +190,7 @@ var gmgc_vueapp = new Vue({
                             "#A1A314",
                             "#fff600"],
                 legend: {
-                    show : 'false',
+                    position : 'bottom',
                 },
                 tooltip: {
                     fillSeriesColor: false
