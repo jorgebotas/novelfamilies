@@ -199,7 +199,7 @@ var gmgc_vueapp = new Vue({
             //window.ApexCharts &&
             var chart = new ApexCharts(div, options);
             chart.render();
-            return true;
+            return  chart;
         },
 
     },
