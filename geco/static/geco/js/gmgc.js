@@ -187,6 +187,7 @@ var gmgc_vueapp = new Vue({
                 .then(() => {
                     Object.entries(this.show_items, (f, data) => {
                         var id = 'f' + f + '-biomesViz';
+                        console.log(id)
                         var biomes = data.biomes;
                         donutBiome(id, biomes);
                     })
