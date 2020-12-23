@@ -185,12 +185,12 @@ var gmgc_vueapp = new Vue({
                     this.show_items = data.show_items
                 })
                 .then(() => {
-                    Object.entries(this.show_items, (f, data) => {
+                    Object.entries(this.show_items).forEach((f, data) => {
                         var id = 'f' + f + '-biomesViz';
                         console.log(id)
                         var biomes = data.biomes;
                         donutBiome(id, biomes);
-                    })
+                    });
                     $('.tab-content').collapse('show');
                 })
         },
