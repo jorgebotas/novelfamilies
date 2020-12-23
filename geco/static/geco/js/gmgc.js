@@ -186,7 +186,7 @@ var gmgc_vueapp = new Vue({
                 })
                 .then(() => {
                     console.log(this.show_items)
-                    Object.entries(this.show_items).forEach((f, data) => {
+                    Object.entries(this.show_items).forEach(([f, data]) => {
                         var id = 'f' + f + '-biomesViz';
                         console.log(id)
                         var biomes = data.biomes;
