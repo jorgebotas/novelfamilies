@@ -204,7 +204,7 @@ var gmgc_vueapp = new Vue({
 
     },
     filters : {
-        signal_blank = function (value) {
+        signal_blank : function (value) {
             return value == "OTHER" ? "" : value;
         },
     },
