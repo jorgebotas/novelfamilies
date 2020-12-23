@@ -82,7 +82,7 @@ var donutBiome = function(id, biomes) {
                     "#A1A314",
                     "#fff600"],
         legend: {
-            position : 'bottom',
+            //position : 'bottom',
         },
         tooltip: {
             fillSeriesColor: false
@@ -146,7 +146,6 @@ var gmgc_vueapp = new Vue({
             fetch(API_BASE_URL + '/random_items/' + n + '/')
                 .then(response => response.json())
                 .then(data => {
-                    console.log(data.show_items);
                     this.show_items = data.show_items;
                 })
                 .catch(error => console.log(error));
@@ -185,10 +184,8 @@ var gmgc_vueapp = new Vue({
                     this.show_items = data.show_items
                 })
                 .then(() => {
-                    console.log(this.show_items)
                     Object.entries(this.show_items).forEach(([f, data]) => {
                         var id = 'f' + f + '-biomesViz';
-                        console.log(id)
                         var biomes = data.biomes;
                         donutBiome(id, biomes);
                     });
