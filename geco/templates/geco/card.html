@@ -25,17 +25,17 @@
                         aria-controls="pills-domains"
                         aria-selected="false">Domains</a>
                   </li>
-                  <li class="nav-item mx-2">
-                    <a class="nav-link btn-sm" 
-                       id="pills-biomes-tab" 
-                       data-toggle="pill"
-                       :href="'#f' + tid + '-biomes'"
-                        @click="toggleFam('f' + tid + '-tab-content');
-                                donutBiome('f'+tid+'-biomesViz', tdata.biomes)"
-                        role="tab" 
-                        aria-controls="pills-biomes"
-                        aria-selected="false">Biomes</a>
-                  </li>
+                  <!--<li class="nav-item mx-2">-->
+                    <!--<a class="nav-link btn-sm" -->
+                       <!--id="pills-biomes-tab" -->
+                       <!--data-toggle="pill"-->
+                       <!--:href="'#f' + tid + '-biomes'"-->
+                        <!--@click="toggleFam('f' + tid + '-tab-content');-->
+                                <!--donutBiome('f'+tid+'-biomesViz', tdata.biomes)"-->
+                        <!--role="tab" -->
+                        <!--aria-controls="pills-biomes"-->
+                        <!--aria-selected="false">Biomes</a>-->
+                  <!--</li>-->
                   <li class="nav-item mx-2">
                     <a class="nav-link btn-sm" id="pills-geco-tab" data-toggle="pill"
                         :href="'#f' + tid + '-geco'" role="tab" aria-controls="pills-geco"
@@ -63,10 +63,19 @@
               aria-labelledby="pills-info-tab">
            <div class="card m-0">
                <div class="card-body rounded">
-                    <div class="biomes bg-white rounded" 
+                   <div class="col-md-4">
+                    <a class='btn btn-primary btn-sm'
+                          :href="'#f' + tid + '-biomesViz'" 
+                          data-toggle="collapse"
+                          aria-expanded="false"
+                          aria-controls="biomesViz"
+                          @click="donutBiome('f'+tid+'-biomesViz', tdata.biomes)">
+                        Biome Distribution
+                    </a>
+                    <div class="collapse bg-white rounded" 
                          :id="'f' + tid + '-biomesViz'">
-                        [[ donutBiome('f'+tid+'-biomesViz', tdata.biomes) ]]
                     </div>
+                   </div>
                </div>
            </div>
           </div>
