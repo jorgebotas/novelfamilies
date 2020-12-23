@@ -64,8 +64,8 @@
            <div class="card m-0">
                <div class="card-body rounded">
                     <div class="biomes bg-white rounded" 
-                         :id="'f' + tid + '-biomesViz'"
-                         v-if="donutBiome('f'+tid+'-biomesViz', tdata.biomes)">
+                         :id="'f' + tid + '-biomesViz'">
+                        [[ donutBiome('f'+tid+'-biomesViz', tdata.biomes) ]]
                     </div>
                </div>
            </div>
