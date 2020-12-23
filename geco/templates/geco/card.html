@@ -114,12 +114,14 @@
                                        </th>
                                        <th class="p-1">
                                            [[
-                                           tdata.domains[m]['signalp_p']
+                                           tdata.domains[m]['signalp_p'] |
+                                           signal_blank
                                            ]]
                                        </th>
                                        <th class="p-1">
                                            [[
-                                           tdata.domains[m]['signalp_n']
+                                           tdata.domains[m]['signalp_n'] | 
+                                           signal_blank
                                            ]]
                                        </th>
                                    </tr>
