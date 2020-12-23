@@ -63,7 +63,10 @@
               aria-labelledby="pills-info-tab">
            <div class="card m-0">
                <div class="card-body rounded">
-                   INFO
+                    <div class="biomes bg-white rounded" 
+                         :id="'f' + tid + '-biomesViz'"
+                         v-if="donutBiome('f'+tid+'-biomesViz', tdata.biomes)">
+                    </div>
                </div>
            </div>
           </div>
@@ -133,16 +136,16 @@
                </div>
            </div>
           </div>
-          <div class="tab-pane fade" :id="'f' + tid + '-biomes'" role="tabpanel"
-              aria-labelledby="pills-biomes-tab">
-           <div class="card">
-               <div class="card-body rounded">
-                    <div class="bg-white rounded" 
-                         :id="'f' + tid + '-biomesViz'">
-                    </div>
-               </div>
-           </div>
-          </div>
+          <!--<div class="tab-pane fade" :id="'f' + tid + '-biomes'" role="tabpanel"-->
+              <!--aria-labelledby="pills-biomes-tab">-->
+           <!--<div class="card">-->
+               <!--<div class="card-body rounded">-->
+                    <!--<div class="bg-white rounded" -->
+                         <!--:id="'f' + tid + '-biomesViz'">-->
+                    <!--</div>-->
+               <!--</div>-->
+           <!--</div>-->
+          <!--</div>-->
           <div class="tab-pane fade" :id="'f' + tid + '-geco'" role="tabpanel"
               aria-labelledby="pills-geco-tab">
            <div class="card">

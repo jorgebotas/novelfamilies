@@ -120,6 +120,10 @@ var gmgc_vueapp = new Vue({
                     this.show_items = data.show_items
                 })
                 .then(() => {
+                    $('.biomes').each(function() {
+                        var id = $(this).id;
+
+                    })
                     $('.tab-content').collapse('show');
                 })
         },
@@ -134,7 +138,6 @@ var gmgc_vueapp = new Vue({
 
         donutBiome : function(id, biomes) {
             let div = document.getElementById(id);
-            //if (div.children.length == 0) {
             options = {
                 chart: {
                     type: "donut",
@@ -152,22 +155,22 @@ var gmgc_vueapp = new Vue({
                 },
                 series: Object.values(biomes),
                 //labels: Object.keys(biomes),
-                //labels : [
-                    //"Marine",
-                    //"Human vagina",
-                    //"Fresh water",
-                    //"Soil",
-                    //"Pig gut",
-                    //"Mouse gut",
-                    //"Built environment",
-                    //"Human skin",
-                    //"Human nose",
-                    //"Dog gut",
-                    //"Cat gut",
-                    //"Human gut",
-                    //"Waste water",
-                    //"Human oral"
-                //],
+                labels : [
+                    "Marine",
+                    "Human vagina",
+                    "Fresh water",
+                    "Soil",
+                    "Pig gut",
+                    "Mouse gut",
+                    "Built environment",
+                    "Human skin",
+                    "Human nose",
+                    "Dog gut",
+                    "Cat gut",
+                    "Human gut",
+                    "Waste water",
+                    "Human oral"
+                ],
                 grid: {
                     strokeDashArray: 14,
                 },
@@ -187,7 +190,7 @@ var gmgc_vueapp = new Vue({
                             "#A1A314",
                             "#fff600"],
                 legend: {
-                    position : 'right',
+                    show : 'false',
                 },
                 tooltip: {
                     fillSeriesColor: false
@@ -196,7 +199,7 @@ var gmgc_vueapp = new Vue({
             //window.ApexCharts &&
             var chart = new ApexCharts(div, options);
             chart.render();
-            //}
+            return true;
         },
 
     },
