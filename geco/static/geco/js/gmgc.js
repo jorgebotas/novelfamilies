@@ -28,6 +28,71 @@ var get_colors = async () => {
     return colors;
 }
 
+var donutBiome = function(id, biomes) {
+    let div = document.getElementById(id);
+    options = {
+        chart: {
+            type: "donut",
+            fontFamily: 'inherit',
+            height: 240,
+            sparkline: {
+                enabled: true
+            },
+            animations: {
+                enabled: false
+            },
+        },
+        fill: {
+            opacity: 1,
+        },
+        series: Object.values(biomes),
+        //labels: Object.keys(biomes),
+        labels : [
+            "Marine",
+            "Human vagina",
+            "Fresh water",
+            "Soil",
+            "Pig gut",
+            "Mouse gut",
+            "Built environment",
+            "Human skin",
+            "Human nose",
+            "Dog gut",
+            "Cat gut",
+            "Human gut",
+            "Waste water",
+            "Human oral"
+        ],
+        grid: {
+            strokeDashArray: 14,
+        },
+        //colors: ["#206bc4", "#79a6dc", "#bfe399", "#e9ecf1"],
+        colors: ["#abfdcb",
+                    "#c9b2fd",
+                    "#fcaf81",
+                    "#a9dff7",
+                    "#254F93",
+                    "#FF5C8D",
+                    "#838383",
+                    "#5F33FF",
+                    "#c7e3aa",
+                    "#D81E5B",
+                    "#47DAFF",
+                    "#c4ab77",
+                    "#A1A314",
+                    "#fff600"],
+        legend: {
+            position : 'bottom',
+        },
+        tooltip: {
+            fillSeriesColor: false
+        },
+    }
+    //window.ApexCharts &&
+    var chart = new ApexCharts(div, options);
+    chart.render();
+},
+
 var gmgc_vueapp = new Vue({
     delimiters: ['[[', ']]'],
     el: '#NovelFams',
@@ -120,9 +185,10 @@ var gmgc_vueapp = new Vue({
                     this.show_items = data.show_items
                 })
                 .then(() => {
-                    $('.biomes').each(function() {
-                        var id = $(this).id;
-
+                    Object.entries(this.show_items, (f, data) => {
+                        var id = 'f' + f + '-biomesViz';
+                        var biomes = data.biomes;
+                        donutBiome(id, biomes);
                     })
                     $('.tab-content').collapse('show');
                 })
@@ -134,72 +200,6 @@ var gmgc_vueapp = new Vue({
 
         toggleFam : function(id) {
             $("#" + id).collapse('show');
-        },
-
-        donutBiome : function(id, biomes) {
-            let div = document.getElementById(id);
-            options = {
-                chart: {
-                    type: "donut",
-                    fontFamily: 'inherit',
-                    height: 240,
-                    sparkline: {
-                        enabled: true
-                    },
-                    animations: {
-                        enabled: false
-                    },
-                },
-                fill: {
-                    opacity: 1,
-                },
-                series: Object.values(biomes),
-                //labels: Object.keys(biomes),
-                labels : [
-                    "Marine",
-                    "Human vagina",
-                    "Fresh water",
-                    "Soil",
-                    "Pig gut",
-                    "Mouse gut",
-                    "Built environment",
-                    "Human skin",
-                    "Human nose",
-                    "Dog gut",
-                    "Cat gut",
-                    "Human gut",
-                    "Waste water",
-                    "Human oral"
-                ],
-                grid: {
-                    strokeDashArray: 14,
-                },
-                //colors: ["#206bc4", "#79a6dc", "#bfe399", "#e9ecf1"],
-                colors: ["#abfdcb",
-                            "#c9b2fd",
-                            "#fcaf81",
-                            "#a9dff7",
-                            "#254F93",
-                            "#FF5C8D",
-                            "#838383",
-                            "#5F33FF",
-                            "#c7e3aa",
-                            "#D81E5B",
-                            "#47DAFF",
-                            "#c4ab77",
-                            "#A1A314",
-                            "#fff600"],
-                legend: {
-                    position : 'bottom',
-                },
-                tooltip: {
-                    fillSeriesColor: false
-                },
-            }
-            //window.ApexCharts &&
-            var chart = new ApexCharts(div, options);
-            chart.render();
-            return  chart;
         },
 
     },
