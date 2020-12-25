@@ -12,13 +12,13 @@ def get_fam_info(identifier):
     data = {
         "name" : rawd['gf'],
         "members" : rawd['unigenes'].split(","),
-        "keggp" : rawd['keggp'],
-        'tapx' : rawd['taxp'],
+        "keggp" : rawd['p_keggp'],
+        'cogp' : rawd['p_cogp'],
         'domains' : domains,
         'biomes' : rawd['biomep']
     }
-    print(rawd['keggp'])
-    print(rawd['biomep'])
+    print(rawd['p_kegg'])
+    print(rawd['p_cog'])
     return data
 
 def get_neighborhood(identifier):
