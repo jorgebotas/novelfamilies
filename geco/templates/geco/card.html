@@ -27,6 +27,16 @@
                   </li>
                   <li class="nav-item mx-2">
                     <a class="nav-link btn-sm" 
+                       id="pills-stats-tab" 
+                       @click="toggleFam('f' + tid + '-tab-content')"
+                       data-toggle="pill"
+                       :href="'#f' + tid + '-stats'"
+                        role="tab" 
+                        aria-controls="pills-stats"
+                        aria-selected="false">Stats</a>
+                  </li>
+                  <li class="nav-item mx-2">
+                    <a class="nav-link btn-sm" 
                        id="pills-mappings-tab" 
                        @click="toggleFam('f' + tid + '-tab-content')"
                        data-toggle="pill"
@@ -44,6 +54,26 @@
                         role="tab" 
                         aria-controls="pills-biomes"
                         aria-selected="false">Biomes</a>
+                  </li>
+                  <li class="nav-item mx-2">
+                    <a class="nav-link btn-sm" 
+                       id="pills-functionp-tab" 
+                       @click="toggleFam('f' + tid + '-tab-content')"
+                       data-toggle="pill"
+                       :href="'#f' + tid + '-functionp'"
+                        role="tab" 
+                        aria-controls="pills-functionp"
+                        aria-selected="false">Functional prediction</a>
+                  </li>
+                  <li class="nav-item mx-2">
+                    <a class="nav-link btn-sm" 
+                       id="pills-taxp-tab" 
+                       @click="toggleFam('f' + tid + '-tab-content')"
+                       data-toggle="pill"
+                       :href="'#f' + tid + '-taxp'"
+                        role="tab" 
+                        aria-controls="pills-taxp"
+                        aria-selected="false">Taxonomic prediction</a>
                   </li>
                   <li class="nav-item mx-2">
                     <a class="nav-link btn-sm" id="pills-geco-tab" data-toggle="pill"
@@ -142,18 +172,49 @@
                </div>
            </div>
           </div>
+
+          <div class="tab-pane fade" :id="'f' + tid + '-stats'" role="tabpanel"
+              aria-labelledby="pills-biomes-tab">
+           <div class="card">
+               <div class="card-body rounded">
+                   Alignment stats
+               </div>
+           </div>
+          </div>
+          <div class="tab-pane fade" :id="'f' + tid + '-mappings'" role="tabpanel"
+              aria-labelledby="pills-biomes-tab">
+           <div class="card">
+               <div class="card-body rounded">
+                   Mappings
+               </div>
+           </div>
+          </div>
           <div class="tab-pane fade" :id="'f' + tid + '-biomes'" role="tabpanel"
               aria-labelledby="pills-biomes-tab">
            <div class="card">
                <div class="card-body rounded">
-                   <div class="col-md-4 text-center justify-content-center">
-                        <div class="bg-white rounded" 
-                             :id="'f' + tid + '-biomesViz'">
-                        </div>
-                       <div class='my-3'>
-                           Biome distribution
-                       </div>
+                    <div class="bg-white rounded" 
+                         :id="'f' + tid + '-biomesViz'">
+                    </div>
+                   <div class='my-3'>
+                       Biome distribution
                    </div>
+               </div>
+           </div>
+          </div>
+          <div class="tab-pane fade" :id="'f' + tid + '-functionp'" role="tabpanel"
+              aria-labelledby="pills-biomes-tab">
+           <div class="card">
+               <div class="card-body rounded">
+                   Functional prediction
+               </div>
+           </div>
+          </div>
+          <div class="tab-pane fade" :id="'f' + tid + '-taxp'" role="tabpanel"
+              aria-labelledby="pills-biomes-tab">
+           <div class="card">
+               <div class="card-body rounded">
+                   Taxonomic prediction
                </div>
            </div>
           </div>
