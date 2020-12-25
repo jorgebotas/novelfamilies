@@ -25,17 +25,26 @@
                         aria-controls="pills-domains"
                         aria-selected="false">Domains</a>
                   </li>
-                  <!--<li class="nav-item mx-2">-->
-                    <!--<a class="nav-link btn-sm" -->
-                       <!--id="pills-biomes-tab" -->
-                       <!--data-toggle="pill"-->
-                       <!--:href="'#f' + tid + '-biomes'"-->
-                        <!--@click="toggleFam('f' + tid + '-tab-content');-->
-                                <!--donutBiome('f'+tid+'-biomesViz', tdata.biomes)"-->
-                        <!--role="tab" -->
-                        <!--aria-controls="pills-biomes"-->
-                        <!--aria-selected="false">Biomes</a>-->
-                  <!--</li>-->
+                  <li class="nav-item mx-2">
+                    <a class="nav-link btn-sm" 
+                       id="pills-mappings-tab" 
+                       @click="toggleFam('f' + tid + '-tab-content')"
+                       data-toggle="pill"
+                       :href="'#f' + tid + '-mappings'"
+                        role="tab" 
+                        aria-controls="pills-mappings"
+                        aria-selected="false">Mappings</a>
+                  </li>
+                  <li class="nav-item mx-2">
+                    <a class="nav-link btn-sm" 
+                       id="pills-biomes-tab" 
+                       data-toggle="pill"
+                       :href="'#f' + tid + '-biomes'"
+                        @click="toggleFam('f' + tid + '-tab-content')"
+                        role="tab" 
+                        aria-controls="pills-biomes"
+                        aria-selected="false">Biomes</a>
+                  </li>
                   <li class="nav-item mx-2">
                     <a class="nav-link btn-sm" id="pills-geco-tab" data-toggle="pill"
                         :href="'#f' + tid + '-geco'" role="tab" aria-controls="pills-geco"
@@ -63,24 +72,7 @@
               aria-labelledby="pills-info-tab">
            <div class="card m-0">
                <div class="card-body rounded">
-                   <div class="col-md-4 text-center justify-content-center">
-<!--                       <div class="m-3 text-center">-->
-                        <!--<a class='btn btn-primary btn-sm'-->
-                              <!--:href="'#f' + tid + '-biomesViz'" -->
-                              <!--data-toggle="collapse"-->
-                              <!--aria-expanded="false"-->
-                              <!--aria-controls="biomesViz">-->
-                              <!--[>@click="donutBiome('f'+tid+'-biomesViz', tdata.biomes)"><]-->
-                            <!--Biome Distribution-->
-                        <!--</a>-->
-                       <!--</div>-->
-                        <div class="bg-white rounded" 
-                             :id="'f' + tid + '-biomesViz'">
-                        </div>
-                       <div class='my-3'>
-                           Biome distribution
-                       </div>
-                   </div>
+                   INFO
                </div>
            </div>
           </div>
@@ -150,16 +142,21 @@
                </div>
            </div>
           </div>
-          <!--<div class="tab-pane fade" :id="'f' + tid + '-biomes'" role="tabpanel"-->
-              <!--aria-labelledby="pills-biomes-tab">-->
-           <!--<div class="card">-->
-               <!--<div class="card-body rounded">-->
-                    <!--<div class="bg-white rounded" -->
-                         <!--:id="'f' + tid + '-biomesViz'">-->
-                    <!--</div>-->
-               <!--</div>-->
-           <!--</div>-->
-          <!--</div>-->
+          <div class="tab-pane fade" :id="'f' + tid + '-biomes'" role="tabpanel"
+              aria-labelledby="pills-biomes-tab">
+           <div class="card">
+               <div class="card-body rounded">
+                   <div class="col-md-4 text-center justify-content-center">
+                        <div class="bg-white rounded" 
+                             :id="'f' + tid + '-biomesViz'">
+                        </div>
+                       <div class='my-3'>
+                           Biome distribution
+                       </div>
+                   </div>
+               </div>
+           </div>
+          </div>
           <div class="tab-pane fade" :id="'f' + tid + '-geco'" role="tabpanel"
               aria-labelledby="pills-geco-tab">
            <div class="card">
