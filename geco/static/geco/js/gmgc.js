@@ -82,7 +82,7 @@ var donutBiome = function(id, biomes) {
                     "#A1A314",
                     "#fff600"],
         legend: {
-            //show : 'bottom',
+            show : 'bottom',
             //position : 'bottom',
         },
         tooltip: {
