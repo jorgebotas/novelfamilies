@@ -206,7 +206,55 @@
               aria-labelledby="pills-biomes-tab">
            <div class="card">
                <div class="card-body rounded">
-                   Functional prediction
+                   <div class="card p-0 members-table">
+                       <div class="table-responsive">
+                           <table class="table table-vcenter card-table
+                               text-center mb-0">
+                               <thead>
+                                   <tr>
+                                       <th>KEGG
+                                       </th>
+                                       <th>Vertical conservation</th>
+                                       <th>Horizontal conservation</th>
+                                       <th>Immediate neighbor horizontal
+                                           conservation</th>
+                                   </tr>
+                               </thead>
+                               <!--<tbody class="collapse"-->
+                                      <!--:id="'f' + tid + '-members'">-->
+                               <tbody>
+                                   <tr v-for="m in tdata.keggp">
+                                       <th class="p-1">
+                                           [[ m ]]
+                                       </th>
+<!--                                       <th class="p-1">-->
+                                           <!--[[-->
+                                           <!--tdata.domains[m]['num_h']-->
+                                           <!--]]-->
+                                       <!--</th>-->
+                                       <!--<th class="p-1">-->
+                                           <!--[[-->
+                                           <!--tdata.domains[m]['topo_h']-->
+                                           <!--]]-->
+                                       <!--</th>-->
+                                       <!--<th class="p-1">-->
+                                           <!--[[-->
+                                           <!--tdata.domains[m]['signalp_p'] |-->
+                                           <!--signal_blank-->
+                                           <!--]]-->
+                                       <!--</th>-->
+                                       <!--<th class="p-1">-->
+                                           <!--[[-->
+                                           <!--tdata.domains[m]['signalp_n'] | -->
+                                           <!--signal_blank-->
+                                           <!--]]-->
+                                       <!--</th>-->
+                                   </tr>
+                               </tbody>
+                           </table>
+                       </div>
+                   </div>
+
                </div>
            </div>
           </div>
