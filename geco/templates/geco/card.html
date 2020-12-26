@@ -220,8 +220,6 @@
                                            conservation</th>
                                    </tr>
                                </thead>
-                               <!--<tbody class="collapse"-->
-                                      <!--:id="'f' + tid + '-members'">-->
                                <tbody>
                                    <tr v-for="m in tdata.keggp">
                                        <th class="p-1">
@@ -236,28 +234,6 @@
                                        <th class="p-1">
                                            [[ m.hci | toFixed ]]
                                        </th>
-                                       <!--<th class="p-1">-->
-                                           <!--[[-->
-                                           <!--eval(m)['00525']['hc']-->
-                                           <!--]]-->
-                                       <!--</th>-->
-                                       <!--<th class="p-1">-->
-                                           <!--[[-->
-                                           <!--tdata.domains[m]['topo_h']-->
-                                           <!--]]-->
-                                       <!--</th>-->
-                                       <!--<th class="p-1">-->
-                                           <!--[[-->
-                                           <!--tdata.domains[m]['signalp_p'] |-->
-                                           <!--signal_blank-->
-                                           <!--]]-->
-                                       <!--</th>-->
-                                       <!--<th class="p-1">-->
-                                           <!--[[-->
-                                           <!--tdata.domains[m]['signalp_n'] | -->
-                                           <!--signal_blank-->
-                                           <!--]]-->
-                                       <!--</th>-->
                                    </tr>
                                </tbody>
                            </table>
