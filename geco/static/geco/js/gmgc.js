@@ -207,5 +207,8 @@ var gmgc_vueapp = new Vue({
         signal_blank : function (value) {
             return value == "OTHER" ? "-" : value;
         },
+        toFixed : function (value) {
+            return value.toFixed(3)
+        },
     },
 });
