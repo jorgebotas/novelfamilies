@@ -1,5 +1,14 @@
 from .mongodb import mongo_connect_novelfams
 
+def toJSON(l, identifier)
+    output = []
+    for item in l:
+        item = eval(item)
+        k = list(item.keys())[0]
+        d = list(item.values())[0]
+        output.append({ identifier : k, **d})
+    return output
+
 def get_fam_info(identifier):
     gf = mongo_connect_novelfams()[1]
     int_identif = int(identifier.replace("_", ""))
@@ -9,18 +18,13 @@ def get_fam_info(identifier):
     for i in range(len(doms)):
         d = eval(doms[i])
         domains[list(d.keys())[0]] = list(d.values())[0]
-    keggp = []
-    for item in rawd['p_keggp']:
-        item = eval(item)
-        k = list(item.keys())[0]
-        d = list(item.values())[0]
-        keggp.append({ 'kegg' : k, **d})
+    keggp = toJSON(rawd['p_keggp'])
     print(keggp)
     data = {
         "name" : rawd['gf'],
         "members" : rawd['unigenes'].split(","),
-        'keggp' : keggp,
-        'cogp' : rawd['p_cogp'],
+        'keggp' :  toJSON(rawd['p_keggp']),
+        'coggp' :  toJSON(rawd['p_coggp']),
         'domains' : domains,
         'biomes' : rawd['biomep']
     }
