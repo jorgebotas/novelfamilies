@@ -14,8 +14,8 @@ def get_fam_info(identifier):
         # k,d = dict(item).items()
         print(eval(item))
         print(eval(item).items())
-        print(k)
-        print(d)
+        # print(k)
+        # print(d)
         # keggp.append({ **d, 'kegg' : k })
     print(keggp)
     data = {
