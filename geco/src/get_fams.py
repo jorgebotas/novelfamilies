@@ -1,6 +1,6 @@
 from .mongodb import mongo_connect_novelfams
 
-def toJSON(l, identifier)
+def toJSON(l, identifier):
     output = []
     for item in l:
         item = eval(item)
