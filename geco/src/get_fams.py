@@ -12,6 +12,7 @@ def get_fam_info(identifier):
     keggp = []
     for k, d in eval(rawd['p_keggp']).items():
         keggp.append({ **d, 'kegg' : k })
+    print(keggp)
     data = {
         "name" : rawd['gf'],
         "members" : rawd['unigenes'].split(","),
