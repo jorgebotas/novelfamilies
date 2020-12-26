@@ -16,7 +16,7 @@ def get_fam_info(identifier):
         "name" : rawd['gf'],
         "members" : rawd['unigenes'].split(","),
         # "keggp" : rawd['p_keggp'],
-        'keggp' : keggp
+        'keggp' : keggp,
         'cogp' : rawd['p_cogp'],
         'domains' : domains,
         'biomes' : rawd['biomep']
