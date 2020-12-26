@@ -4,7 +4,7 @@ def toJSON(l, identifier):
     output = []
     print(l)
     for item in l:
-        item = eval(item)
+        # item = eval(item)
         k = list(item.keys())[0]
         d = list(item.values())[0]
         output.append({ identifier : k, **d})
@@ -22,7 +22,7 @@ def get_fam_info(identifier):
     data = {
         "name" : rawd['gf'],
         "members" : rawd['unigenes'].split(","),
-        'keggp' :  toJSON(rawd['p_keggp'], 'kegg'),
+        'keggp' :  toJSON(eval(rawd['p_keggp']), 'kegg'),
         'cogp' :  toJSON(rawd['p_cogp'], 'cog'),
         'domains' : domains,
         'biomes' : rawd['biomep']
