@@ -23,8 +23,8 @@ def get_fam_info(identifier):
     data = {
         "name" : rawd['gf'],
         "members" : rawd['unigenes'].split(","),
-        'keggp' :  toJSON(rawd['p_keggp']),
-        'coggp' :  toJSON(rawd['p_coggp']),
+        'keggp' :  toJSON(rawd['p_keggp'], 'kegg'),
+        'coggp' :  toJSON(rawd['p_coggp'], 'cogg'),
         'domains' : domains,
         'biomes' : rawd['biomep']
     }

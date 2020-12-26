@@ -206,7 +206,8 @@
               aria-labelledby="pills-biomes-tab">
            <div class="card">
                <div class="card-body rounded">
-                   <div class="card p-0 members-table">
+                   <div class="card p-0">
+
                        <div class="table-responsive">
                            <table class="table table-vcenter card-table
                                text-center mb-0">
@@ -224,6 +225,39 @@
                                    <tr v-for="m in tdata.keggp">
                                        <th class="p-1">
                                            [[ m.kegg ]]
+                                       </th>
+                                       <th class="p-1">
+                                           [[ m.vc | toFixed ]]
+                                       </th>
+                                       <th class="p-1">
+                                           [[ m.hc | toFixed ]]
+                                       </th>
+                                       <th class="p-1">
+                                           [[ m.hci | toFixed ]]
+                                       </th>
+                                   </tr>
+                               </tbody>
+                           </table>
+                       </div>
+                   </div>
+
+                       <div class="table-responsive">
+                           <table class="table table-vcenter card-table
+                               text-center mb-0">
+                               <thead>
+                                   <tr>
+                                       <th>eggNOG
+                                       </th>
+                                       <th>Vertical conservation</th>
+                                       <th>Horizontal conservation</th>
+                                       <th>Immediate neighbor horizontal
+                                           conservation</th>
+                                   </tr>
+                               </thead>
+                               <tbody>
+                                   <tr v-for="m in tdata.coggp">
+                                       <th class="p-1">
+                                           [[ m.cogg ]]
                                        </th>
                                        <th class="p-1">
                                            [[ m.vc | toFixed ]]
