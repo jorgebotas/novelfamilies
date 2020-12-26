@@ -208,7 +208,7 @@ var gmgc_vueapp = new Vue({
             return value == "OTHER" ? "-" : value;
         },
         toFixed : function (value) {
-            return value.toFixed(3)
+            return (value).toFixed(3)
         },
     },
 });
