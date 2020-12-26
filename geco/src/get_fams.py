@@ -11,8 +11,9 @@ def get_fam_info(identifier):
         domains[list(d.keys())[0]] = list(d.values())[0]
     keggp = []
     for item in rawd['p_keggp']:
-        k,d = eval(item).items()
-        keggp.append({ **d, 'kegg' : k })
+        # k,d = eval(item).items()
+        print(item)
+        # keggp.append({ **d, 'kegg' : k })
     print(keggp)
     data = {
         "name" : rawd['gf'],
