@@ -18,8 +18,6 @@ def get_fam_info(identifier):
     for i in range(len(doms)):
         d = eval(doms[i])
         domains[list(d.keys())[0]] = list(d.values())[0]
-    keggp = toJSON(rawd['p_keggp'])
-    print(keggp)
     data = {
         "name" : rawd['gf'],
         "members" : rawd['unigenes'].split(","),
