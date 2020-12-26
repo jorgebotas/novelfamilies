@@ -11,8 +11,9 @@ def get_fam_info(identifier):
         domains[list(d.keys())[0]] = list(d.values())[0]
     keggp = []
     for item in rawd['p_keggp']:
-        # k,d = eval(item).items()
-        print(item)
+        k,d = item.items()
+        print(k)
+        print(d)
         # keggp.append({ **d, 'kegg' : k })
     print(keggp)
     data = {
@@ -24,8 +25,8 @@ def get_fam_info(identifier):
         'domains' : domains,
         'biomes' : rawd['biomep']
     }
-    print(rawd['p_keggp'])
-    print(rawd['p_cogp'])
+    # print(rawd['p_keggp'])
+    # print(rawd['p_cogp'])
     return data
 
 def get_neighborhood(identifier):
