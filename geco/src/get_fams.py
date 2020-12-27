@@ -27,7 +27,7 @@ def get_fam_info(identifier):
         'domains' : domains,
         'biomes' : rawd['biomep']
     }
-    # print(rawd['p_keggp'])
+    print(rawd['p_keggp'])
     # print(rawd['p_cogp'])
     return data
 

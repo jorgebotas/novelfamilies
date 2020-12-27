@@ -213,11 +213,11 @@
                                text-center mb-0">
                                <thead>
                                    <tr>
-                                       <th>KEGG
+                                       <th>kegg
                                        </th>
-                                       <th>Vertical conservation</th>
-                                       <th>Horizontal conservation</th>
-                                       <th>Immediate neighbor horizontal
+                                       <th>vertical conservation</th>
+                                       <th>horizontal conservation</th>
+                                       <th>immediate neighbor horizontal
                                            conservation</th>
                                    </tr>
                                </thead>
@@ -227,13 +227,13 @@
                                            [[ m.kegg ]]
                                        </th>
                                        <th class="p-1">
-                                           [[ m.vc | toFixed ]]
+                                           [[ m.vc | tofixed ]]
                                        </th>
                                        <th class="p-1">
-                                           [[ m.hc | toFixed ]]
+                                           [[ m.hc | tofixed ]]
                                        </th>
                                        <th class="p-1">
-                                           [[ m.hci | toFixed ]]
+                                           [[ m.hci | tofixed ]]
                                        </th>
                                    </tr>
                                </tbody>
@@ -241,6 +241,7 @@
                        </div>
                    </div>
 
+                   <div class="card p-0">
                        <div class="table-responsive">
                            <table class="table table-vcenter card-table
                                text-center mb-0">
@@ -249,9 +250,9 @@
                                        <th>eggNOG
                                        </th>
                                        <th>Vertical conservation</th>
-                                       <th>Horizontal conservation</th>
-                                       <th>Immediate neighbor horizontal
-                                           conservation</th>
+                                       <!--<th>Horizontal conservation</th>-->
+                                       <!--<th>Immediate neighbor horizontal-->
+                                           <!--conservation</th>-->
                                    </tr>
                                </thead>
                                <tbody>
@@ -260,14 +261,14 @@
                                            [[ m.cog ]]
                                        </th>
                                        <th class="p-1">
-                                           [[ m.vc | toFixed ]]
+                                           [[ m.vcc | toFixed ]]
                                        </th>
-                                       <th class="p-1">
-                                           [[ m.hc | toFixed ]]
-                                       </th>
-                                       <th class="p-1">
-                                           [[ m.hci | toFixed ]]
-                                       </th>
+                                       <!--<th class="p-1">-->
+                                           <!--[[ m.hc | toFixed ]]-->
+                                       <!--</th>-->
+                                       <!--<th class="p-1">-->
+                                           <!--[[ m.hci | toFixed ]]-->
+                                       <!--</th>-->
                                    </tr>
                                </tbody>
                            </table>
