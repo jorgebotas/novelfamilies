@@ -2,7 +2,6 @@ from .mongodb import mongo_connect_novelfams
 
 def toJSON(l, identifier):
     output = []
-    print(l)
     for item in l:
         # item = eval(item)
         k = list(item.keys())[0]
