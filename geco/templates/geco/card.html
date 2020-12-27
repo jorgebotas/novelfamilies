@@ -1,5 +1,5 @@
 <div class="mt-4 card">
-       <div class="card-header"> <!--bg-white-->
+       <div class="card-header">
               <h2 class="my-1">
                   [[ tdata.name ]]</h2>
                 <ul class="nav nav-pills justify-content-center mx-4"
@@ -121,12 +121,6 @@
                                <thead>
                                    <tr>
                                        <th>Members (unigene)
-                                       <!--<a class=""-->
-                                          <!--:href="'#f' + tid + '-members'" -->
-                                          <!--data-toggle="collapse"-->
-                                          <!--aria-expanded="false"-->
-                                          <!--aria-controls="members">-->
-                                          <!--Members (unigene)</a>-->
                                        </th>
                                        <th>Number of helices</th>
                                        <th>Topology</th>
@@ -134,8 +128,6 @@
                                        <th>Gram - signal peptide prediction</th>
                                    </tr>
                                </thead>
-                               <!--<tbody class="collapse"-->
-                                      <!--:id="'f' + tid + '-members'">-->
                                <tbody>
                                    <tr v-for="m in tdata.members">
                                        <th class="p-1">
@@ -196,9 +188,6 @@
                     <div class="bg-white rounded" 
                          :id="'f' + tid + '-biomesViz'">
                     </div>
-                   <!--<div class='my-3 text-center'>-->
-                       <!--Biome distribution-->
-                   <!--</div>-->
                </div>
            </div>
           </div>
