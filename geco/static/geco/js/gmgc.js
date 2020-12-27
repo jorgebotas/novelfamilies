@@ -66,7 +66,6 @@ var donutBiome = function(id, biomes) {
         grid: {
             strokeDashArray: 14,
         },
-        //colors: ["#206bc4", "#79a6dc", "#bfe399", "#e9ecf1"],
         colors: ["#abfdcb",
                     "#c9b2fd",
                     "#fcaf81",
