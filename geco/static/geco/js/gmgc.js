@@ -33,11 +33,6 @@ var drawDonuts = async function(f, data) {
     var biomes = data.biomes;
     var mags_id = 'f' + f + '-magsDonut';
     var mags = data.mags;
-    var mag_vals = [];
-    Object.values(mags).forEach(d => {
-        mag_vals.append(d.split(',').length)
-    })
-    console.log(mag_vals)
     renderDonut(biomes_id,
                 [
                 "Marine",
@@ -64,7 +59,7 @@ var drawDonuts = async function(f, data) {
                 "TARA Eukaryote",
                 "Earth",
                 ],
-                mag_vals,
+                Object.values(mags),
                 colors.slice(0, 3))
 }
 
