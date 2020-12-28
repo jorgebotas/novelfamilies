@@ -27,6 +27,7 @@ def get_fam_info(identifier):
     mags = {}
     for k, v in mags_raw.items():
         mags[k] = len(v.split(','))
+    print(mags)
     data = {
         'name':  identifier,
         'gf' : gmgcv1_data['gf'],
