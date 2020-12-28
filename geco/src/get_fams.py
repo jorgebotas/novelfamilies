@@ -26,6 +26,10 @@ def get_fam_info(identifier):
     data = {
         'name':  identifier,
         'gf' : gmgcv1_data['gf'],
+        'source' : gf_data['source'],
+        'ftype' : gf_data['ftype'],
+        'hom' : gf_data['hom'],
+        'flength' : gf_data['flength'],
         'members': gmgcv1_data['unigenes'].split(","),
         'keggp' :  toJSON([eval(k) for k  in gmgcv1_data['p_keggp']], 'kegg'),
         'cogp' :  toJSON(gmgcv1_data['p_cogp'], 'cog'),
@@ -33,10 +37,7 @@ def get_fam_info(identifier):
         'biomes' : gmgcv1_data['biomep'],
         'taxp' :  [eval(i) for i in gmgcv1_data['p_taxp']],
     }
-    print(gf_data['source'])
-    print(gf_data['ftype'])
-    print(gf_data['hom'])
-    print(gf_data['flength'])
+    print(gf_data['mags'])
     return data
 
 def get_neighborhood(identifier):

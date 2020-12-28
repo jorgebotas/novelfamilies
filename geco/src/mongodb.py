@@ -11,7 +11,6 @@ def mongo_connect():
             coll_unigene = db.neighbour
             coll_cluster = db.emapper_v2
             coll_e5 = db.eggnog_v5
-
     return [client, db, coll_unigene,coll_cluster,coll_e5]
 
 def mongo_connect_novelfams():
