@@ -259,7 +259,44 @@ var gmgc_vueapp = new Vue({
                 })
                 .then(() => {
                     Object.entries(this.show_items).forEach(([f, data]) => {
-                        drawDonuts(f, data);
+                        //drawDonuts(f, data);
+                        var biomes_id = 'f' + f + '-biomesViz';
+                        var biomes = data.biomes;
+                        var mags_id = 'f' + f + '-magsDonut';
+                        var mags = data.mags;
+                        var mag_vals = [];
+                        Object.values(mags).forEach(d => {
+                            console.log(d)
+                            mag_vals.append(d.split(',').length)
+                        })
+                        renderDonut(biomes_id,
+                                    [
+                                    "Marine",
+                                    "Human vagina",
+                                    "Fresh water",
+                                    "Soil",
+                                    "Pig gut",
+                                    "Mouse gut",
+                                    "Built environment",
+                                    "Human skin",
+                                    "Human nose",
+                                    "Dog gut",
+                                    "Cat gut",
+                                    "Human gut",
+                                    "Waste water",
+                                    "Human oral"
+                                    ],
+                                    Object.values(biomes),
+                                    colors);
+                        renderDonut(mags_id,
+                                    [
+                                    "Human gut",
+                                    "Marine",
+                                    "TARA Eukaryote",
+                                    "Earth",
+                                    ],
+                                    mag_vals,
+                                    colors.slice(0, 3))
                     });
                     $('.tab-content').collapse('show');
                 })
