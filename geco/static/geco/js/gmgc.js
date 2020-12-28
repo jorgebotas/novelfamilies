@@ -35,7 +35,8 @@ var drawDonuts = function(f, data) {
     var mags = data.mags;
     var mag_vals = [];
     Object.values(mags).forEach(d => {
-        mag_vals.append(d.length)
+        console.log(d)
+        mag_vals.append(d.split(',').length)
     })
     renderDonut(biomes_id,
                 [
