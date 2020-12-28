@@ -67,7 +67,6 @@ var drawDonuts = function(f, data) {
                 colors.slice(0, 3))
 }
 
-
 var renderDonut = function(id, labels, vals, colors) {
     let div = document.getElementById(id);
     options = {
