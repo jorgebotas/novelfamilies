@@ -47,7 +47,6 @@ def get_fam_info(identifier):
         'align' : gf_data['algstats'],
     }
     print(gf_data['exp'])
-    print(gf_data['algstats'])
     return data
 
 def get_neighborhood(identifier):
