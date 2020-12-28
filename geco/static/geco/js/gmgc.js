@@ -33,6 +33,20 @@ var drawDonuts = async function(f, data) {
     var biomes = data.biomes;
     var mags_id = 'f' + f + '-magsDonut';
     var mags = data.mags;
+    var colors = ["#abfdcb",
+                    "#c9b2fd",
+                    "#fcaf81",
+                    "#a9dff7",
+                    "#254F93",
+                    "#FF5C8D",
+                    "#838383",
+                    "#5F33FF",
+                    "#c7e3aa",
+                    "#D81E5B",
+                    "#47DAFF",
+                    "#c4ab77",
+                    "#A1A314",
+                    "#fff600"];
     renderDonut(biomes_id,
                 [
                 "Marine",
