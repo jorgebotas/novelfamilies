@@ -28,6 +28,81 @@ var get_colors = async () => {
     return colors;
 }
 
+var drawDonuts = function(f, data) {
+    var biomes_id = 'f' + f + '-biomesViz';
+    var biomes = data.biomes;
+    var mags_id = 'f' + f + '-magsDonut';
+    var mags = data.mags;
+    var mag_vals = [];
+    Object.values(mags).forEach(d => {
+        mag_vals.append(d.length)
+    })
+    renderDonut(biomes_id,
+                [
+                "Marine",
+                "Human vagina",
+                "Fresh water",
+                "Soil",
+                "Pig gut",
+                "Mouse gut",
+                "Built environment",
+                "Human skin",
+                "Human nose",
+                "Dog gut",
+                "Cat gut",
+                "Human gut",
+                "Waste water",
+                "Human oral"
+                ],
+                Object.values(biomes),
+                colors);
+    renderDonut(mags_id,
+                [
+                "Human gut",
+                "Marine",
+                "TARA Eukaryote",
+                "Earth",
+                ],
+                mag_vals,
+                colors.slice(0, 3))
+}
+
+
+var renderDonut = function(id, labels, vals, colors) {
+    let div = document.getElementById(id);
+    options = {
+        chart: {
+            type: "donut",
+            fontFamily: 'inherit',
+            height: 240,
+            sparkline: {
+                enabled: true
+            },
+            animations: {
+                enabled: false
+            },
+        },
+        fill: {
+            opacity: 1,
+        },
+        series: vals,
+        labels : labels,
+        grid: {
+            strokeDashArray: labels.length,
+        },
+        colors: colors,
+        legend: {
+            show : 'bottom',
+        },
+        tooltip: {
+            fillSeriesColor: false
+        },
+    }
+    var chart = new ApexCharts(div, options);
+    chart.render();
+
+}
+
 var donutBiome = function(id, biomes) {
     let div = document.getElementById(id);
     options = {
@@ -82,7 +157,6 @@ var donutBiome = function(id, biomes) {
                     "#fff600"],
         legend: {
             show : 'bottom',
-            //position : 'bottom',
         },
         tooltip: {
             fillSeriesColor: false
@@ -185,9 +259,7 @@ var gmgc_vueapp = new Vue({
                 })
                 .then(() => {
                     Object.entries(this.show_items).forEach(([f, data]) => {
-                        var id = 'f' + f + '-biomesViz';
-                        var biomes = data.biomes;
-                        donutBiome(id, biomes);
+                        drawDonuts(f, data);
                     });
                     $('.tab-content').collapse('show');
                 })
