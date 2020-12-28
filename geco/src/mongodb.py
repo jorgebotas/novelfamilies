@@ -17,6 +17,7 @@ def mongo_connect():
 def mongo_connect_novelfams():
     client = MongoClient('10.0.3.1', 27017, maxPoolSize=10)
     db = client.novel_fam
-    gf = db.gf_profile_gmgcv1
+    gf = db.gene_families
+    gmgcv1_gf = db.gf_profile_gmgcv1
     gmgcv1_neighs = db.gmgcv1_neighs
-    return db, gf, gmgcv1_neighs
+    return db, gf, gmgcv1_gf, gmgcv1_neighs
