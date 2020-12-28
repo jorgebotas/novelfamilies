@@ -23,6 +23,10 @@ def get_fam_info(identifier):
     for i in range(len(doms)):
         d = eval(doms[i])
         domains[list(d.keys())[0]] = list(d.values())[0]
+    mags_raw = gf_data['mags']
+    mags = {}
+    for k, v in mags_raw.items():
+        mags[k] = len(v.split(','))
     data = {
         'name':  identifier,
         'gf' : gmgcv1_data['gf'],
@@ -36,6 +40,7 @@ def get_fam_info(identifier):
         'domains' : domains,
         'biomes' : gmgcv1_data['biomep'],
         'taxp' :  [eval(i) for i in gmgcv1_data['p_taxp']],
+        'mags' : mags,
     }
     # print(gf_data['mags'])
     return data
