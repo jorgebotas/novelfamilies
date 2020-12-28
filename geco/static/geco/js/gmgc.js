@@ -28,7 +28,7 @@ var get_colors = async () => {
     return colors;
 }
 
-var drawDonuts = function(f, data) {
+var drawDonuts = async function(f, data) {
     var biomes_id = 'f' + f + '-biomesViz';
     var biomes = data.biomes;
     var mags_id = 'f' + f + '-magsDonut';
