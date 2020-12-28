@@ -37,7 +37,7 @@ def get_fam_info(identifier):
         'biomes' : gmgcv1_data['biomep'],
         'taxp' :  [eval(i) for i in gmgcv1_data['p_taxp']],
     }
-    print(gf_data['mags'])
+    # print(gf_data['mags'])
     return data
 
 def get_neighborhood(identifier):
