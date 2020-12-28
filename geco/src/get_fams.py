@@ -10,10 +10,10 @@ def toJSON(l, identifier):
 
 def get_fam_info(identifier):
     # Connect to MongoDB
-    db,
-        gf,
-        gmgcv1_gf,
-        gmgcv1_neighs = mongo_connect_novelfams()
+    db,\
+    gf,\
+    gmgcv1_gf,\
+    gmgcv1_neighs = mongo_connect_novelfams()
     # int_identif = int(identifier.replace("_", ""))
     gf_data = gf.find({'gfn' : identifier})[0]
     gmgcv1_data = gmgcv1_gf.find({'gf' : gf_data['gf']})[0]
