@@ -44,6 +44,7 @@ def get_fam_info(identifier):
         'mags' : mags,
         'dnds' : gf_data['dnds'],
         'p_exp' : gf_data['p_exp'],
+        'align' : gf_data['algstats'],
     }
     print(gf_data['exp'])
     print(gf_data['algstats'])

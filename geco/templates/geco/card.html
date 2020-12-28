@@ -208,9 +208,8 @@
                                text-center mb-0">
                                <thead>
                                    <tr>
-                                       <th>dN/dS</th>
-                                       <th>p-val</th>
                                        <th>Members</th>
+                                       <th>Conserved domain length</th>
                                        <th>Aminoacids in members</th>
                                        <th>Smallest sequence</th>
                                        <th>Largest sequence</th>
@@ -220,15 +219,50 @@
                                        <th>Most related identity</th>
                                        <th>Least related identity</th>
                                        <th>Most distant member identity</th>
+                                       <th>dN/dS</th>
+                                       <th>p-val</th>
                                    </tr>
                                </thead>
                                <tbody>
-                                   <tr v-for="m in tdata.cogp">
+                                   <tr>
                                        <th class="p-1">
-                                           [[ m.cog ]]
+                                           [[ tdata.align.esize | toFixed ]]
                                        </th>
                                        <th class="p-1">
-                                           [[ m.vcc | toFixed ]]
+                                           [[ tdata.align.cdl | toFixed ]]
+                                       </th>
+                                       <th class="p-1">
+                                           [[ tdata.align.naa | toFixed ]]
+                                       </th>
+                                       <th class="p-1">
+                                           [[ tdata.align.sm | toFixed ]]
+                                       </th>
+                                       <th class="p-1">
+                                           [[ tdata.align.lg | toFixed ]]
+                                       </th>
+                                       <th class="p-1">
+                                           [[ tdata.align.avl | toFixed ]]
+                                       </th>
+                                       <th class="p-1">
+                                           [[ tdata.align.al | toFixed ]]
+                                       </th>
+                                       <th class="p-1">
+                                           [[ tdata.align.avi | toFixed ]]
+                                       </th>
+                                       <th class="p-1">
+                                           [[ tdata.align.mrp | toFixed ]]
+                                       </th>
+                                       <th class="p-1">
+                                           [[ tdata.align.mup | toFixed ]]
+                                       </th>
+                                       <th class="p-1">
+                                           [[ tdata.align.mds | toFixed ]]
+                                       </th>
+                                       <th class="p-1">
+                                           [[ tdata.dnds | toFixed ]]
+                                       </th>
+                                       <th class="p-1">
+                                           [[ tdata.p_exp | toFixed ]]
                                        </th>
                                    </tr>
                                </tbody>
