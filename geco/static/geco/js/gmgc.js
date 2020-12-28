@@ -35,9 +35,9 @@ var drawDonuts = async function(f, data) {
     var mags = data.mags;
     var mag_vals = [];
     Object.values(mags).forEach(d => {
-        console.log(d)
         mag_vals.append(d.split(',').length)
     })
+    console.log(mag_vals)
     renderDonut(biomes_id,
                 [
                 "Marine",
@@ -101,70 +101,6 @@ var renderDonut = function(id, labels, vals, colors) {
     var chart = new ApexCharts(div, options);
     chart.render();
 
-}
-
-var donutBiome = function(id, biomes) {
-    let div = document.getElementById(id);
-    options = {
-        chart: {
-            type: "donut",
-            fontFamily: 'inherit',
-            height: 240,
-            sparkline: {
-                enabled: true
-            },
-            animations: {
-                enabled: false
-            },
-        },
-        fill: {
-            opacity: 1,
-        },
-        series: Object.values(biomes),
-        //labels: Object.keys(biomes),
-        labels : [
-            "Marine",
-            "Human vagina",
-            "Fresh water",
-            "Soil",
-            "Pig gut",
-            "Mouse gut",
-            "Built environment",
-            "Human skin",
-            "Human nose",
-            "Dog gut",
-            "Cat gut",
-            "Human gut",
-            "Waste water",
-            "Human oral"
-        ],
-        grid: {
-            strokeDashArray: 14,
-        },
-        colors: ["#abfdcb",
-                    "#c9b2fd",
-                    "#fcaf81",
-                    "#a9dff7",
-                    "#254F93",
-                    "#FF5C8D",
-                    "#838383",
-                    "#5F33FF",
-                    "#c7e3aa",
-                    "#D81E5B",
-                    "#47DAFF",
-                    "#c4ab77",
-                    "#A1A314",
-                    "#fff600"],
-        legend: {
-            show : 'bottom',
-        },
-        tooltip: {
-            fillSeriesColor: false
-        },
-    }
-    //window.ApexCharts &&
-    var chart = new ApexCharts(div, options);
-    chart.render();
 }
 
 var gmgc_vueapp = new Vue({
@@ -258,48 +194,8 @@ var gmgc_vueapp = new Vue({
                     this.show_items = data.show_items
                 })
                 .then(() => {
-                    console.log(this.show_items)
                     Object.entries(this.show_items).forEach(([f, data]) => {
-                        console.log(f)
-                        console.log(data)
                         drawDonuts(f, data);
-/*                        var biomes_id = 'f' + f + '-biomesViz';*/
-                        //var biomes = data.biomes;
-                        //var mags_id = 'f' + f + '-magsDonut';
-                        //var mags = data.mags;
-                        //var mag_vals = [];
-                        //Object.values(mags).forEach(d => {
-                            //console.log(d)
-                            //mag_vals.append(d.split(',').length)
-                        //})
-                        //renderDonut(biomes_id,
-                                    //[
-                                    //"Marine",
-                                    //"Human vagina",
-                                    //"Fresh water",
-                                    //"Soil",
-                                    //"Pig gut",
-                                    //"Mouse gut",
-                                    //"Built environment",
-                                    //"Human skin",
-                                    //"Human nose",
-                                    //"Dog gut",
-                                    //"Cat gut",
-                                    //"Human gut",
-                                    //"Waste water",
-                                    //"Human oral"
-                                    //],
-                                    //Object.values(biomes),
-                                    //colors);
-                        //renderDonut(mags_id,
-                                    //[
-                                    //"Human gut",
-                                    //"Marine",
-                                    //"TARA Eukaryote",
-                                    //"Earth",
-                                    //],
-                                    //mag_vals,
-                                    /*colors.slice(0, 3))*/
                     });
                     $('.tab-content').collapse('show');
                 })
