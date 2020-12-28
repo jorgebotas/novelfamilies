@@ -15,7 +15,7 @@ def get_fam_info(identifier):
     gmgcv1_gf,\
     gmgcv1_neighs = mongo_connect_novelfams()
     # int_identif = int(identifier.replace("_", ""))
-    gf_data = gf.find({'gfn' : identifier})[0]
+    gf_data = gf.find({'gfn' : int(identifier)})[0]
     gmgcv1_data = gmgcv1_gf.find({'gf' : gf_data['gf']})[0]
     # Format domains info
     doms = gmgcv1_data['domains']
