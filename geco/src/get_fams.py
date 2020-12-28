@@ -24,8 +24,9 @@ def get_fam_info(identifier):
         d = eval(doms[i])
         domains[list(d.keys())[0]] = list(d.values())[0]
     data = {
-        "name" : gmgcv1_data['gf'],
-        "members" : gmgcv1_data['unigenes'].split(","),
+        'name':  identifier,
+        'gf' : gmgcv1_data['gf'],
+        'members': gmgcv1_data['unigenes'].split(","),
         'keggp' :  toJSON([eval(k) for k  in gmgcv1_data['p_keggp']], 'kegg'),
         'cogp' :  toJSON(gmgcv1_data['p_cogp'], 'cog'),
         'domains' : domains,
