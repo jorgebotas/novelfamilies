@@ -25,6 +25,7 @@ def get_fam_info(identifier):
         'cogp' :  toJSON(rawd['p_cogp'], 'cog'),
         'domains' : domains,
         'biomes' : rawd['biomep']
+        'taxp' :  [eval(i) for i in rawd['p_taxp']],
     }
     print(rawd['p_taxp'])
     return data

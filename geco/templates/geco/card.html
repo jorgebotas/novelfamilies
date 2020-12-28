@@ -192,7 +192,7 @@
            </div>
           </div>
           <div class="tab-pane fade" :id="'f' + tid + '-functionp'" role="tabpanel"
-              aria-labelledby="pills-biomes-tab">
+              aria-labelledby="pills-functionp-tab">
            <div class="card">
                <div class="card-body rounded row">
 
@@ -263,10 +263,40 @@
            </div>
           </div>
           <div class="tab-pane fade" :id="'f' + tid + '-taxp'" role="tabpanel"
-              aria-labelledby="pills-biomes-tab">
+              aria-labelledby="pills-taxp-tab">
            <div class="card">
                <div class="card-body rounded">
-                   Taxonomic prediction
+                   
+                   <div class="col-md-4">
+                   <div class="card p-0 mx-2 fam-table">
+                       <div class="table-responsive">
+                           <table class="table table-vcenter card-table
+                               text-center mb-0">
+                               <thead>
+                                   <tr>
+                                       <th>Taxomic annotation</th>
+                                       <th>Number of genes annotated</th>
+                                       <th>Mean identity</th>
+                                   </tr>
+                               </thead>
+                               <tbody>
+                                   <tr v-for="m in tdata.taxp">
+                                       <th class="p-1">
+                                           [[ m.p_taxp_in ]]
+                                       </th>
+                                       <th class="p-1">
+                                           [[ m.p_taxp_in_c | toFixed ]]
+                                       </th>
+                                       <th class="p-1">
+                                           [[ m.p_taxp_id | toFixed ]]
+                                       </th>
+                                   </tr>
+                               </tbody>
+                           </table>
+                       </div>
+                   </div>
+                   </div>
+
                </div>
            </div>
           </div>
