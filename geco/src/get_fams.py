@@ -23,11 +23,11 @@ def get_fam_info(identifier):
     for i in range(len(doms)):
         d = eval(doms[i])
         domains[list(d.keys())[0]] = list(d.values())[0]
+    # Format MAGS data to obtain number of samples per MAG
     mags_raw = gf_data['mags']
     mags = {}
     for k, v in mags_raw.items():
         mags[k] = len(v.split(','))
-    print(mags)
     data = {
         'name':  identifier,
         'gf' : gmgcv1_data['gf'],
@@ -42,8 +42,11 @@ def get_fam_info(identifier):
         'biomes' : gmgcv1_data['biomep'],
         'taxp' :  [eval(i) for i in gmgcv1_data['p_taxp']],
         'mags' : mags,
+        'dnds' : gf_data['dnds'],
+        'p_exp' : gf_data['p_exp'],
     }
-    # print(gf_data['mags'])
+    print(gf_data['exp'])
+    print(gf_data['algstats'])
     return data
 
 def get_neighborhood(identifier):

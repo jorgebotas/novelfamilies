@@ -74,7 +74,7 @@ var drawDonuts = async function(f, data) {
                 "Earth",
                 ],
                 Object.values(mags),
-                colors.slice(0, 3))
+                colors.slice(0, 4))
 }
 
 var renderDonut = function(id, labels, vals, colors) {

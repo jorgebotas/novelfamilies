@@ -201,7 +201,41 @@
               aria-labelledby="pills-stats-tab">
            <div class="card">
                <div class="card-body rounded">
-                   Alignment stats
+                   <div class="col-md-4">
+                   <div class="card p-0 mx-2 fam-table">
+                       <div class="table-responsive">
+                           <table class="table table-vcenter card-table
+                               text-center mb-0">
+                               <thead>
+                                   <tr>
+                                       <th>dN/dS</th>
+                                       <th>p-val</th>
+                                       <th>Members</th>
+                                       <th>Aminoacids in members</th>
+                                       <th>Smallest sequence</th>
+                                       <th>Largest sequence</th>
+                                       <th>Average sequence</th>
+                                       <th>Alignment length</th>
+                                       <th>Average identity</th>
+                                       <th>Most related identity</th>
+                                       <th>Least related identity</th>
+                                       <th>Most distant member identity</th>
+                                   </tr>
+                               </thead>
+                               <tbody>
+                                   <tr v-for="m in tdata.cogp">
+                                       <th class="p-1">
+                                           [[ m.cog ]]
+                                       </th>
+                                       <th class="p-1">
+                                           [[ m.vcc | toFixed ]]
+                                       </th>
+                                   </tr>
+                               </tbody>
+                           </table>
+                       </div>
+                   </div>
+                   </div>
                </div>
            </div>
           </div>
