@@ -22,7 +22,6 @@ def get_fam_info(identifier):
     mags = {}
     for k, v in mags_raw.items():
         mags[k] = len(v.split(','))
-    print(gmgcv1_data['p_taxp'])
     data = {
         'name':  identifier,
         'gf' : gmgcv1_data['gf'],
@@ -36,7 +35,7 @@ def get_fam_info(identifier):
         'sstr' : gmgcv1_data['sstr'],
         'domains' : gmgcv1_data['domains'],
         'biomes' : gmgcv1_data['biomep'],
-        # 'taxp' :  [eval(i) for i in gmgcv1_data['p_taxp']],
+        'taxp' :  gmgcv1_data['p_taxp'],
         'mags' : mags,
         'dnds' : gf_data['dnds'],
         'p_exp' : gf_data['p_exp'],

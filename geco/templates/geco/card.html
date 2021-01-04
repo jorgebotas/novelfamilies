@@ -423,7 +423,8 @@
                                text-center mb-0">
                                <thead>
                                    <tr>
-                                       <th>Taxomic annotation</th>
+                                       <th>Taxomic id</th>
+                                       <th>Taxomic name</th>
                                        <th>Number of genes annotated</th>
                                        <th>Mean identity</th>
                                    </tr>
@@ -432,6 +433,9 @@
                                    <tr v-for="m in tdata.taxp">
                                        <th class="p-1">
                                            [[ m.p_taxp_in ]]
+                                       </th>
+                                       <th class="p-1">
+                                           [[ m.p_taxp_name ]]
                                        </th>
                                        <th class="p-1">
                                            [[ m.p_taxp_in_c | toFixed ]]
