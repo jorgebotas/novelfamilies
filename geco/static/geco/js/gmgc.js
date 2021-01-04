@@ -181,8 +181,6 @@ var gmgc_vueapp = new Vue({
                     await $(selector + " .geco-progress").hide();
                 }
             } else {
-                //old_query = query;
-                //query = "095_560_840";
                 await $(selector + " .geco-progress").show();
                 newick = await get_newick(query);
                 context = await get_context(query, "cluster", 30);
