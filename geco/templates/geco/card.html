@@ -344,8 +344,42 @@
                        <div class="card-header text-muted font-weight-bold">
                            eggNOG prediction
                        </div>
-                       <h4 class="card-title">STRING scores on COG set</h4>
-                   <div class="card p-0 mx-2 my-3 fam-table">
+                   <h4 class="card-title text-muted mt-4 ml-4">STRING scores on COG set</h4>
+                   <div class="card p-0 mx-2 fam-table">
+                       <div class="table-responsive">
+                           <table class="table table-vcenter card-table
+                               text-center mb-0">
+                               <thead>
+                                   <tr>
+                                       <th>eggNOG
+                                       </th>
+                                       <th>Vertical conservation</th>
+                                       <th>Taxonomic level</th>
+                                       <th>Description</th>
+                                   </tr>
+                               </thead>
+                               <tbody>
+                                   <tr v-for="m in tdata.cogp">
+                                       <th class="p-1">
+                                           [[ m | getKeyByValue(tdata.cogp) ]]
+                                       </th>
+                                       <th class="p-1">
+                                           [[ m.vcc | toFixed ]]
+                                       </th>
+                                       <th class="p-1">
+                                           [[ m.taxl_c ]]
+                                       </th>
+                                       <th class="p-1">
+                                           [[ m.desc_c ]]
+                                       </th>
+                                   </tr>
+                               </tbody>
+                           </table>
+                       </div>
+                   </div>
+                   </div>
+                   <h4 class="card-title text-muted mt-4 ml-4">STRING scores on COG set</h4>
+                   <div class="card p-0 mx-2 fam-table">
                        <div class="table-responsive">
                            <table class="table table-vcenter card-table
                                text-center mb-0">
