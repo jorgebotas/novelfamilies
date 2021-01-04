@@ -225,8 +225,6 @@ var gmgc_vueapp = new Vue({
             return +(+value).toFixed(3);
         },
         getKeyByValue : function(value, object) {
-            console.log(value)
-            console.log(Object.keys(object).find(key => object[key] === value))
             return Object.keys(object).find(key => object[key] === value);
         },
     },

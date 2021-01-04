@@ -8,6 +8,16 @@ def toJSON(l, identifier):
         output.append({ identifier : k, **d})
     return output
 
+def get_gf(identifier):
+    # Connect to MongoDB
+    db,\
+    gf,\
+    gmgcv1_gf,\
+    gmgcv1_neighs = mongo_connect_novelfams()
+    # int_identif = int(identifier.replace("_", ""))
+    gf = gf.find({'gfn' : int(identifier)})[0]['gf']
+    return gf
+
 def get_fam_info(identifier):
     # Connect to MongoDB
     db,\
@@ -44,7 +54,11 @@ def get_fam_info(identifier):
     return data
 
 def get_neighborhood(identifier):
-    gmgc_neigh = mongo_connect_novelfams()[3]
-    int_identif = int(identifier.replace("_", ""))
-    gmgcv1_data = gmgc_neigh.find({'gf' : int_identif})[0]['neigh']
+    # Connect to MongoDB
+    db,\
+    gf,\
+    gmgcv1_gf,\
+    gmgcv1_neighs = mongo_connect_novelfams()
+    gf = get_gf(identfier)
+    gmgcv1_data = gmgcv1_neighs.find({'gf' : gf})[0]
     return gmgcv1_data

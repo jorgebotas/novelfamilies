@@ -50,4 +50,5 @@ def context(request, query, cutoff):
                         # isList)
     analysis = get_neighborhood(query)
     print(analysis)
+    print("hello")
     return JsonResponse(analysis)
