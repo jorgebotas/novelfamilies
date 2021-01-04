@@ -17,12 +17,6 @@ def get_fam_info(identifier):
     # int_identif = int(identifier.replace("_", ""))
     gf_data = gf.find({'gfn' : int(identifier)})[0]
     gmgcv1_data = gmgcv1_gf.find({'gf' : gf_data['gf']})[0]
-    # Format domains info
-    doms = gmgcv1_data['domains']
-    domains = {}
-    for i in range(len(doms)):
-        d = eval(doms[i])
-        domains[list(d.keys())[0]] = list(d.values())[0]
     # Format MAGS data to obtain number of samples per MAG
     mags_raw = gf_data['mags']
     mags = {}
@@ -38,7 +32,7 @@ def get_fam_info(identifier):
         'members': gmgcv1_data['unigenes'].split(","),
         'keggp' :  toJSON([eval(k) for k  in gmgcv1_data['p_keggp']], 'kegg'),
         'cogp' :  toJSON(gmgcv1_data['p_cogp'], 'cog'),
-        'domains' : domains,
+        'domains' : gmgcv1_data['domains'],
         'biomes' : gmgcv1_data['biomep'],
         'taxp' :  [eval(i) for i in gmgcv1_data['p_taxp']],
         'mags' : mags,
