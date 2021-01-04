@@ -358,15 +358,15 @@
                                    </tr>
                                </thead>
                                <tbody>
-                                   <tr v-for="m in tdata.sstr">
+                                   <tr>
                                        <th class="p-1">
-                                           [[ m.sstr_v | toFixed ]]
+                                           [[ m.sstr.sstr_v | toFixed ]]
                                        </th>
                                        <th class="p-1">
-                                           [[ m.ncstr ]]
+                                           [[ m.sstr.ncstr ]]
                                        </th>
                                        <th class="p-1">
-                                           [[ m.p_cogp_n ]]
+                                           [[ m.sstr.p_cogp_n ]]
                                        </th>
                                    </tr>
                                </tbody>
