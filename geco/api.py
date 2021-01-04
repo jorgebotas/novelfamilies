@@ -3,7 +3,7 @@ import json
 
 from .src.mongodb import mongo_connect
 from .src.get_context import get_context, get_newick
-from .src.get_fams import get_fam_info
+from .src.get_fams import get_fam_info, get_neighborhood
 
 def random_items(request, nitems):
     import random
@@ -40,12 +40,13 @@ def newick(request, query):
     return HttpResponseNotFound()
 
 def context(request, query, cutoff):
-    isCluster = True
-    isList = False
-    n_neigh = 20
-    analysis = get_context(query,
-                        n_neigh,
-                        cutoff,
-                        isCluster,
-                        isList)
+    # isCluster = True
+    # isList = False
+    # n_neigh = 20
+    # analysis = get_context(query,
+                        # n_neigh,
+                        # cutoff,
+                        # isCluster,
+                        # isList)
+    get_neighborhood(query)
     return JsonResponse(analysis)
