@@ -48,5 +48,6 @@ def context(request, query, cutoff):
                         # cutoff,
                         # isCluster,
                         # isList)
-    get_neighborhood(query)
+    analysis = get_neighborhood(query)
+    print(analysis)
     return JsonResponse(analysis)

@@ -47,3 +47,4 @@ def get_neighborhood(identifier):
     gmgc_neigh = mongo_connect_novelfams()[3]
     int_identif = int(identifier.replace("_", ""))
     gmgcv1_data = gmgc_neigh.find({'gf' : int_identif})[0]['neigh']
+    return gmgcv1_data
