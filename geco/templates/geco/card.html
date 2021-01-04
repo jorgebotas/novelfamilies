@@ -351,34 +351,30 @@
                                text-center mb-0">
                                <thead>
                                    <tr>
-                                       <th>eggNOG
+                                       <th>STRING score
                                        </th>
-                                       <th>Vertical conservation</th>
-                                       <th>Taxonomic level</th>
-                                       <th>Description</th>
+                                       <th>Number of comparisons</th>
+                                       <th>Number of cogs assigned</th>
                                    </tr>
                                </thead>
                                <tbody>
-                                   <tr v-for="m in tdata.cogp">
+                                   <tr v-for="m in tdata.sstr">
                                        <th class="p-1">
-                                           [[ m | getKeyByValue(tdata.cogp) ]]
+                                           [[ m.sstr_v | toFixed ]]
                                        </th>
                                        <th class="p-1">
-                                           [[ m.vcc | toFixed ]]
+                                           [[ m.ncstr ]]
                                        </th>
                                        <th class="p-1">
-                                           [[ m.taxl_c ]]
-                                       </th>
-                                       <th class="p-1">
-                                           [[ m.desc_c ]]
+                                           [[ m.p_cogp_n ]]
                                        </th>
                                    </tr>
                                </tbody>
                            </table>
                        </div>
                    </div>
-                   </div>
-                   <h4 class="card-title text-muted mt-4 ml-4">STRING scores on COG set</h4>
+                   <h4 class="card-title text-muted mt-4 ml-4">eggNOG
+                       prediction based on neighborhood</h4>
                    <div class="card p-0 mx-2 fam-table">
                        <div class="table-responsive">
                            <table class="table table-vcenter card-table

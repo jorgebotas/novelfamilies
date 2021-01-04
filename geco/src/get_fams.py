@@ -33,6 +33,7 @@ def get_fam_info(identifier):
         'members': gmgcv1_data['unigenes'].split(","),
         'keggp' : gmgcv1_data['p_keggp'],
         'cogp' : gmgcv1_data['p_cogp'],
+        'sstr' : gmgcv1_data['sstr'],
         'domains' : gmgcv1_data['domains'],
         'biomes' : gmgcv1_data['biomep'],
         # 'taxp' :  [eval(i) for i in gmgcv1_data['p_taxp']],
