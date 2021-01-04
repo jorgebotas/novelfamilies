@@ -59,6 +59,6 @@ def get_neighborhood(identifier):
     gf,\
     gmgcv1_gf,\
     gmgcv1_neighs = mongo_connect_novelfams()
-    gf = get_gf(identfier)
+    gf = get_gf(identifier)
     gmgcv1_data = gmgcv1_neighs.find({'gf' : gf})[0]
     return gmgcv1_data
