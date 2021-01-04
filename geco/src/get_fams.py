@@ -22,8 +22,6 @@ def get_fam_info(identifier):
     mags = {}
     for k, v in mags_raw.items():
         mags[k] = len(v.split(','))
-    # print(gmgcv1_data['p_keggp'])
-    # print(gmgcv1_data['p_cogp'])
     print(gmgcv1_data['p_taxp'])
     data = {
         'name':  identifier,
@@ -33,8 +31,6 @@ def get_fam_info(identifier):
         'hom' : gf_data['hom'],
         'flength' : gf_data['flength'],
         'members': gmgcv1_data['unigenes'].split(","),
-        # 'keggp' :  toJSON([eval(k) for k  in gmgcv1_data['p_keggp']], 'kegg'),
-        # 'cogp' :  toJSON(gmgcv1_data['p_cogp'], 'cog'),
         'keggp' : gmgcv1_data['p_keggp'],
         'cogp' : gmgcv1_data['p_cogp'],
         'domains' : gmgcv1_data['domains'],
