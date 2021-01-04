@@ -277,7 +277,7 @@
               aria-labelledby="pills-mappings-tab">
            <div class="card">
                <div class="card-body rounded">
-                    <div class="bg-white rounded" 
+                    <div class="bg-white rounded col-md-6 mx-auto" 
                          :id="'f' + tid + '-magsDonut'">
                     </div>
                </div>
@@ -287,7 +287,7 @@
               aria-labelledby="pills-biomes-tab">
            <div class="card">
                <div class="card-body rounded">
-                    <div class="bg-white rounded" 
+                    <div class="bg-white rounded col-md-6 mx-auto" 
                          :id="'f' + tid + '-biomesViz'">
                     </div>
                </div>
@@ -311,12 +311,13 @@
                                        <th>horizontal conservation</th>
                                        <th>immediate neighbor horizontal
                                            conservation</th>
+                                       <th>Mean surrounding KEGGs</th>
                                    </tr>
                                </thead>
                                <tbody>
                                    <tr v-for="m in tdata.keggp">
                                        <th class="p-1">
-                                           [[ m.kegg ]]
+                                           [[ m | getKeyByValue(tdata.keggp) ]]
                                        </th>
                                        <th class="p-1">
                                            [[ m.vc | tofixed ]]
@@ -326,6 +327,9 @@
                                        </th>
                                        <th class="p-1">
                                            [[ m.hci | tofixed ]]
+                                       </th>
+                                       <th class="p-1">
+                                           [[ m.hcm | toFixed ]]
                                        </th>
                                    </tr>
                                </tbody>
@@ -349,10 +353,16 @@
                                <tbody>
                                    <tr v-for="m in tdata.cogp">
                                        <th class="p-1">
-                                           [[ m.cog ]]
+                                           [[ m | getKeyByValue(tdata.cogp) ]]
                                        </th>
                                        <th class="p-1">
                                            [[ m.vcc | toFixed ]]
+                                       </th>
+                                       <th class="p-1">
+                                           [[ m.taxl_c ]]
+                                       </th>
+                                       <th class="p-1">
+                                           [[ m.desc_c ]]
                                        </th>
                                    </tr>
                                </tbody>
