@@ -215,7 +215,6 @@ var gmgc_vueapp = new Vue({
         toggleFam : function(id) {
             $("#" + id).collapse('show');
         },
-
     },
     filters : {
         signal_blank : function (value) {

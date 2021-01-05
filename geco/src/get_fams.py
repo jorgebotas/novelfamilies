@@ -18,14 +18,18 @@ def get_gf(identifier):
     gf = gf.find({'gfn' : int(identifier)})[0]['gf']
     return gf
 
-def get_fam_info(identifier):
+def get_fam_info(identifier, gf=True):
     # Connect to MongoDB
     db,\
     gf,\
     gmgcv1_gf,\
     gmgcv1_neighs = mongo_connect_novelfams()
-    # int_identif = int(identifier.replace("_", ""))
-    gf_data = gf.find({'gfn' : int(identifier)})[0]
+    if gf:
+        identifier = int(identifier.replace("_", ""))
+        gf_search = {'gf' : int(identifier)}
+    else:
+        gf_search = {'gfn' : int(identifier)}
+    gf_data = gf.find(gf_search)[0]
     gmgcv1_data = gmgcv1_gf.find({'gf' : gf_data['gf']})[0]
     # Format MAGS data to obtain number of samples per MAG
     mags_raw = gf_data['mags']

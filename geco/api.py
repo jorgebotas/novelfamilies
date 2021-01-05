@@ -24,10 +24,13 @@ def random_items(request, nitems):
 
 def info(request, search_type, query):
     data = { "show_items" : {} }
-    if search_type == "identifier":
-        data["show_items"] = { query : get_fam_info(query) }
+    if search_type == "gmgc":
+        info = { query : get_fam_info(query, True) }
+    elif search_type == "novelfam":
+        info = { query : get_fam_info(query, False) }
     elif search_type == "function":
         pass
+    data["show_items"] = info
     return JsonResponse(data)
 
 def newick(request, query):
@@ -40,14 +43,6 @@ def newick(request, query):
     return HttpResponseNotFound()
 
 def context(request, query, cutoff):
-    # isCluster = True
-    # isList = False
-    # n_neigh = 20
-    # analysis = get_context(query,
-                        # n_neigh,
-                        # cutoff,
-                        # isCluster,
-                        # isList)
     analysis = get_neighborhood(query)
     print(analysis)
     print("hello")
