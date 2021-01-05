@@ -25,12 +25,11 @@ def random_items(request, nitems):
 def info(request, search_type, query):
     data = { "show_items" : {} }
     if search_type == "gmgc":
-        info = { query : get_fam_info(query, True) }
+        data["show_items"] = { query : get_fam_info(query, True) }
     elif search_type == "novelfam":
-        info = { query : get_fam_info(query, False) }
+        data["show_items"]  = { query : get_fam_info(query, False) }
     elif search_type == "function":
         pass
-    data["show_items"] = info
     return JsonResponse(data)
 
 def newick(request, query):
