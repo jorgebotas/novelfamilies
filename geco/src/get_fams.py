@@ -18,13 +18,13 @@ def get_gf(identifier):
     gf = gf.find({'gfn' : int(identifier)})[0]['gf']
     return gf
 
-def get_fam_info(identifier, gf=True):
+def get_fam_info(identifier, is_gf=True):
     # Connect to MongoDB
     db,\
     gf,\
     gmgcv1_gf,\
     gmgcv1_neighs = mongo_connect_novelfams()
-    if gf:
+    if is_gf:
         identifier = int(identifier.replace("_", ""))
         gf_search = {'gf' : int(identifier)}
     else:
