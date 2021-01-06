@@ -43,7 +43,7 @@
                        :href="'#f' + tid + '-mappings'"
                         role="tab" 
                         aria-controls="pills-mappings"
-                        aria-selected="false">Mappings</a>
+                        aria-selected="false">MAG mappings</a>
                   </li>
                   <li class="nav-item mx-2">
                     <a class="nav-link btn-sm" 
@@ -63,7 +63,7 @@
                        :href="'#f' + tid + '-functionp'"
                         role="tab" 
                         aria-controls="pills-functionp"
-                        aria-selected="false">Functional prediction</a>
+                        aria-selected="false">Functional assignation</a>
                   </li>
                   <li class="nav-item mx-2">
                     <a class="nav-link btn-sm" 
@@ -73,7 +73,7 @@
                        :href="'#f' + tid + '-taxp'"
                         role="tab" 
                         aria-controls="pills-taxp"
-                        aria-selected="false">Taxonomic prediction</a>
+                        aria-selected="false">Taxonomic assignation</a>
                   </li>
                   <li class="nav-item mx-2">
                     <a class="nav-link btn-sm" id="pills-geco-tab" data-toggle="pill"
@@ -299,7 +299,7 @@
                <div class="card-body rounded row">
                    <div class="card col-md-12">
                        <div class="card-header text-primary font-weight-bold">
-                           KEGG prediction
+                           KEGG assignation
                        </div>
                    <div class="card p-0 mx-2 my-3 fam-table">
                        <div class="table-responsive">
@@ -310,8 +310,8 @@
                                        <th>kegg
                                        </th>
                                        <th>vertical conservation</th>
-                                       <th>horizontal conservation</th>
-                                       <th>immediate neighbor horizontal
+                                       <th>Max horizontal conservation</th>
+                                       <th>Max immediate neighbor horizontal
                                            conservation</th>
                                        <th>Mean surrounding KEGGs</th>
                                    </tr>
@@ -342,7 +342,7 @@
 
                    <div class="card col-md-12">
                        <div class="card-header text-primary font-weight-bold">
-                           eggNOG prediction
+                           eggNOG assignation
                        </div>
                    <div class="text-muted font-weight-bold mt-4 ml-4 mb-2">STRING scores
                        on COG set</div>
@@ -375,7 +375,7 @@
                        </div>
                    </div>
                    <div class="text-muted font-weight-bold mt-4 ml-4 mb-2">eggNOG
-                       prediction based on neighborhood</div>
+                       assignation based on neighborhood</div>
                    <div class="card p-0 mx-2 fam-table">
                        <div class="table-responsive">
                            <table class="table table-vcenter card-table
