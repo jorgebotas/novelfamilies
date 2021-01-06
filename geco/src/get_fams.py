@@ -66,13 +66,13 @@ def get_neighborhood(identifier, origin):
     gf = get_gf(identifier)
     search = {'gf' : gf}
     if origin == "gmgc":
-        data = gmgcv1_neighs.find(search)[0]
+        data = gmgcv1_neighs.find(search)[0]['neigh']
     elif origin == "human-gut":
-        data = human_gut_neighs.find(search)[0]
+        data = human_gut_neighs.find(search)[0]['neigh']
     elif origin == "tara":
-        data = tara_mags_neighs.find(search)[0]
+        data = tara_mags_neighs.find(search)[0]['neigh']
     elif origin == "earth":
-        data = earth_mags_neighs.find(search)[0]
+        data = earth_mags_neighs.find(search)[0]['neigh']
     else:
         data = {}
     return data
