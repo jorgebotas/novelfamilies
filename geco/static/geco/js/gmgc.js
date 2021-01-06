@@ -10,9 +10,9 @@ var get_newick = async (query) => {
     return newick;
 }
 
-var get_context = async (query, datatype, cutoff) => {
+var get_context = async (query, origin, cutoff) => {
     let context;
-    await fetch(API_BASE_URL + '/context/' + query + '/' + cutoff + '/')
+    await fetch(API_BASE_URL + '/context/' + origin + '/' + query + '/' + cutoff + '/')
          .then(response => response.json())
          .then(data => context = data)
          .catch(e => console.log(e));
@@ -170,9 +170,9 @@ var gmgc_vueapp = new Vue({
                 .catch(error => console.log(error));
         },
 
-        toggleGeCo : async function(selector, query) {
-            let newick = this.show_items[query].newick;
-            let context = this.show_items[query].context;
+        toggleGeCo : async function(selector, query, origin) {
+            let newick = this.show_items[query][origin].newick;
+            let context = this.show_items[query][origin].context;
             let colors = await get_colors();
             if (context) {
                 window.onload = async () => {
@@ -183,11 +183,11 @@ var gmgc_vueapp = new Vue({
             } else {
                 await $(selector + " .geco-progress").show();
                 newick = await get_newick(query);
-                context = await get_context(query, "cluster", 30);
+                context = await get_context(query, origin, 30);
                 await window.launch_GeCo(selector, context, newick, 41, colors);
                 await $(selector + " .geco-progress").hide();
-                this.show_items[query].newick = newick;
-                this.show_items[query].context = context;
+                this.show_items[query][origin].newick = newick;
+                this.show_items[query][origin].context = context;
             }
         },
 

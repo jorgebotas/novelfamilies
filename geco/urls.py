@@ -7,6 +7,6 @@ urlpatterns = [
     path(r'api/info/<str:search_type>/<str:query>/',
          api.info),
     path(r'api/newick/<str:query>/', api.newick),
-    path(r'api/context/<str:query>/<int:cutoff>/', api.context),
+    path(r'api/context/<str:origin>/<str:query>/<int:cutoff>/', api.context),
 ]
 

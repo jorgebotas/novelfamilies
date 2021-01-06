@@ -13,10 +13,24 @@ def mongo_connect():
             coll_e5 = db.eggnog_v5
     return [client, db, coll_unigene,coll_cluster,coll_e5]
 
-def mongo_connect_novelfams():
+def mongo_connect_famInfo():
     client = MongoClient('10.0.3.1', 27017, maxPoolSize=10)
     db = client.novel_fam
     gf = db.gene_families
     gmgcv1_gf = db.gf_profile_gmgcv1
+    return db, \
+           gf, \
+           gmgcv1_gf
+
+def mongo_connect_context():
+    client = MongoClient('10.0.3.1', 27017, maxPoolSize=10)
+    db = client.novel_fam
     gmgcv1_neighs = db.gmgcv1_neighs
-    return db, gf, gmgcv1_gf, gmgcv1_neighs
+    human_gut_neighs = db.neighs_human_gut
+    tara_mags_neighs = db.tara_mags_neighs
+    earth_mags_neighs = db.earth_mags_neigs
+    return db, \
+           gmgcv1_neighs, \
+           human_gut_neighs, \
+           tara_mags_neighs, \
+           earth_mags_neighs

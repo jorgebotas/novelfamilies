@@ -33,16 +33,16 @@ def info(request, search_type, query):
     return JsonResponse(data)
 
 def newick(request, query):
-    try:
-        client = mongo_connect()[0]
-        tree = get_newick(query, client)
-        return HttpResponse(tree, content_type='text/plain')
-    except:
-        print("NO TREE for specified cluster: " + str(query))
+#     try:
+        # client = mongo_connect()[0]
+        # tree = get_newick(query, client)
+        # return HttpResponse(tree, content_type='text/plain')
+    # except:
+        # print("NO TREE for specified cluster: " + str(query))
     return HttpResponseNotFound()
 
-def context(request, query, cutoff):
-    analysis = get_neighborhood(query)
+def context(request, origin, query, cutoff):
+    analysis = get_neighborhood(query, origin)
     print(analysis)
     print("hello")
     return JsonResponse(analysis)

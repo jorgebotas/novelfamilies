@@ -1,4 +1,4 @@
-from .mongodb import mongo_connect_novelfams
+from .mongodb import mongo_connect_famInfo, mongo_connect_context
 
 def toJSON(l, identifier):
     output = []
@@ -8,22 +8,19 @@ def toJSON(l, identifier):
         output.append({ identifier : k, **d})
     return output
 
-def get_gf(identifier):
+def get_gf(gfn):
     # Connect to MongoDB
     db,\
-    gf,\
-    gmgcv1_gf,\
-    gmgcv1_neighs = mongo_connect_novelfams()
-    # int_identif = int(identifier.replace("_", ""))
-    gf = gf.find({'gfn' : int(identifier)})[0]['gf']
+        gf,\
+        gmgcv1_gf = mongo_connect_famInfo()
+    gf = gf.find({'gfn' : int(gfn)})[0]['gf']
     return gf
 
 def get_fam_info(identifier, is_gf=True):
     # Connect to MongoDB
     db,\
-    gf,\
-    gmgcv1_gf,\
-    gmgcv1_neighs = mongo_connect_novelfams()
+        gf,\
+        gmgcv1_gf = mongo_connect_famInfo()
     if is_gf:
         identifier = int(identifier.replace("_", ""))
         gf_search = {'gf' : int(identifier)}
@@ -57,16 +54,24 @@ def get_fam_info(identifier, is_gf=True):
     }
     return data
 
-def get_neighborhood(identifier):
+def get_neighborhood(identifier, origin):
     # Connect to MongoDB
     db,\
-    gf,\
-    gmgcv1_gf,\
-    gmgcv1_neighs = mongo_connect_novelfams()
+        gmgcv1_neighs, \
+        human_gut_neighs, \
+        tara_mags_neighs, \
+        earth_mags_neighs = mongo_connect_context()
     gf = str(get_gf(identifier))
     gf = gf[:3] + "_" + gf[3:6] + "_" + gf[6:]
-    print(gf)
-    for i in gmgcv1_neighs.find():
-        print(i)
-    gmgcv1_data = gmgcv1_neighs.find({'gf' : gf})[0]
-    return gmgcv1_data
+    search = {'gf' : gf}
+    if origin == "gmgc":
+        data = gmgcv1_neighs.find(search)[0]
+    elif origin == "human-gut":
+        data = human_gut_neighs.find(search)[0]
+    elif origin == "tara":
+        data = tara_mags_neighs.find(search)[0]
+    elif origin == "earth":
+        data = earth_mags_neighs.find(search)[0]
+    else:
+        data = {}
+    return data
