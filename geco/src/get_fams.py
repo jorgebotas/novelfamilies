@@ -45,6 +45,7 @@ def get_fam_info(identifier, is_gf=True):
         'cogp' : gmgcv1_data['p_cogp'],
         'sstr' : gmgcv1_data['sstr'],
         'domains' : gmgcv1_data['domains'],
+        'ampred' : gmgcv1_data['ampred'],
         'biomes' : gmgcv1_data['biomep'],
         'taxp' :  gmgcv1_data['p_taxp'],
         'mags' : mags,
@@ -52,7 +53,6 @@ def get_fam_info(identifier, is_gf=True):
         'p_exp' : gf_data['p_exp'],
         'align' : gf_data['algstats'],
     }
-    print(gmgcv1_data['ampred'])
     return data
 
 def get_neighborhood(identifier, origin):
