@@ -63,6 +63,7 @@ def get_neighborhood(identifier, origin):
         earth_mags_neighs = mongo_connect_context()
     gf = str(get_gf(identifier))
     gf = gf[:3] + "_" + gf[3:6] + "_" + gf[6:]
+    print(gf)
     search = {'gf' : gf}
     if origin == "gmgc":
         data = gmgcv1_neighs.find(search)[0]
