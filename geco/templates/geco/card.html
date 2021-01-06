@@ -50,7 +50,8 @@
                        id="pills-biomes-tab" 
                        data-toggle="pill"
                        :href="'#f' + tid + '-biomes'"
-                        @click="toggleFam('f' + tid + '-tab-content')"
+                        @click="toggleFam('f' + tid + '-tab-content');
+                                toggleGeCo('#f'+tid+'-humanGutGeco', tid, 'human-gut')"
                         role="tab" 
                         aria-controls="pills-biomes"
                         aria-selected="false">Biomes</a>
@@ -292,6 +293,15 @@
                     </div>
                </div>
            </div>
+           <div class="card">
+               <div class="card-body overflow-auto rounded" 
+                    :id="'f' + tid + '-humanGutGeco'"
+                    style="height:1600px;resize:vertical;">
+                   {% include 'geco/geco.html' %}
+               </div>
+           </div>
+          </div>
+
           </div>
           <div class="tab-pane fade" :id="'f' + tid + '-functionp'" role="tabpanel"
               aria-labelledby="pills-functionp-tab">
