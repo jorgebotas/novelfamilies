@@ -61,8 +61,9 @@ def get_neighborhood(identifier, origin):
         human_gut_neighs, \
         tara_mags_neighs, \
         earth_mags_neighs = mongo_connect_context()
-    gf = str(get_gf(identifier)).zfill(9)
-    gf = gf[:3] + "_" + gf[3:6] + "_" + gf[6:]
+    # gf = str(get_gf(identifier)).zfill(9)
+    # gf = gf[:3] + "_" + gf[3:6] + "_" + gf[6:]
+    gf = get_gf(identifier)
     print(gf)
     search = {'gf' : gf}
     if origin == "gmgc":
