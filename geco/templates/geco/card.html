@@ -182,13 +182,13 @@
                                        <th class="p-1">
                                            [[
                                            tdata.domains[m]['signalp_p'] |
-                                           signal_blank
+                                           filterBlank
                                            ]]
                                        </th>
                                        <th class="p-1">
                                            [[
                                            tdata.domains[m]['signalp_n'] | 
-                                           signal_blank
+                                           filterBlank
                                            ]]
                                        </th>
                                    </tr>
@@ -218,22 +218,22 @@
                                <tbody>
                                    <tr>
                                        <th class="p-1">
-                                           [[ tdata.ampred.ab ]]
+                                           [[ tdata.ampred.ab | filterBlank ]]
                                        </th>
                                        <th class="p-1">
-                                           [[ tdata.ampred.av ]]
+                                           [[ tdata.ampred.av | filterBlank ]]
                                        </th>
                                        <th class="p-1">
-                                           [[ tdata.ampred.af ]]
+                                           [[ tdata.ampred.af | filterBlank ]]
                                        </th>
                                        <th class="p-1">
-                                           [[ tdata.ampred.pam ]]
+                                           [[ tdata.ampred.pam | filterBlank ]]
                                        </th>
                                        <th class="p-1">
-                                           [[ tdata.ampred.ampf ]]
+                                           [[ tdata.ampred.ampf | filterBlank ]]
                                        </th>
                                        <th class="p-1">
-                                           [[ tdata.ampred.phem ]]
+                                           [[ tdata.ampred.phem  | filterBlank]]
                                        </th>
                                    </tr>
                                </tbody>
@@ -276,43 +276,56 @@
                                <tbody>
                                    <tr>
                                        <th class="p-1">
-                                           [[ tdata.align.esize | toFixed ]]
+                                           [[ tdata.align.esize | toFixed |
+                                           filterBlank ]]
                                        </th>
                                        <th class="p-1">
-                                           [[ tdata.align.cdl | toFixed ]]
+                                           [[ tdata.align.cdl | toFixed |
+                                           filterBlank ]]
                                        </th>
                                        <th class="p-1">
-                                           [[ tdata.align.naa | toFixed ]]
+                                           [[ tdata.align.naa | toFixed |
+                                           filterBlank ]]
                                        </th>
                                        <th class="p-1">
-                                           [[ tdata.align.sm | toFixed ]]
+                                           [[ tdata.align.sm | toFixed |
+                                           filterBlank ]]
                                        </th>
                                        <th class="p-1">
-                                           [[ tdata.align.lg | toFixed ]]
+                                           [[ tdata.align.lg | toFixed |
+                                           filterBlank ]]
                                        </th>
                                        <th class="p-1">
-                                           [[ tdata.align.avl | toFixed ]]
+                                           [[ tdata.align.avl | toFixed |
+                                           filterBlank ]]
                                        </th>
                                        <th class="p-1">
-                                           [[ tdata.align.al | toFixed ]]
+                                           [[ tdata.align.al | toFixed |
+                                           filterBlank ]]
                                        </th>
                                        <th class="p-1">
-                                           [[ tdata.align.avi | toFixed ]]
+                                           [[ tdata.align.avi | toFixed |
+                                           filterBlank ]]
                                        </th>
                                        <th class="p-1">
-                                           [[ tdata.align.mrp | toFixed ]]
+                                           [[ tdata.align.mrp | toFixed |
+                                           filterBlank ]]
                                        </th>
                                        <th class="p-1">
-                                           [[ tdata.align.mup | toFixed ]]
+                                           [[ tdata.align.mup | toFixed |
+                                           filterBlank ]]
                                        </th>
                                        <th class="p-1">
-                                           [[ tdata.align.mds | toFixed ]]
+                                           [[ tdata.align.mds | toFixed |
+                                           filterBlank ]]
                                        </th>
                                        <th class="p-1">
-                                           [[ tdata.dnds | toFixed ]]
+                                           [[ tdata.dnds | toFixed |
+                                           filterBlank ]]
                                        </th>
                                        <th class="p-1">
-                                           [[ tdata.p_exp | toFixed ]]
+                                           [[ tdata.p_exp | toFixed |
+                                           filterBlank ]]
                                        </th>
                                    </tr>
                                </tbody>

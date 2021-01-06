@@ -176,8 +176,13 @@ var gmgc_vueapp = new Vue({
         },
     },
     filters : {
-        signal_blank : function (value) {
-            return value == "OTHER" ? "-" : value;
+        filterBlank : function (value) {
+            blank = [
+                "OTHER",
+                "",
+                "NA"
+            ]
+            return blank.indexOf(value) > -1 ? value : "-";
         },
         toFixed : function (value) {
             return +(+value).toFixed(3);
