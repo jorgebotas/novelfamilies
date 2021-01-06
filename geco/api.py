@@ -43,5 +43,4 @@ def newick(request, query):
 
 def context(request, origin, query, cutoff):
     analysis = get_neighborhood(query, origin)
-    print(analysis)
     return JsonResponse(analysis)
