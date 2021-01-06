@@ -64,14 +64,11 @@ def get_neighborhood(identifier, origin):
     # gf = str(get_gf(identifier)).zfill(9)
     # gf = gf[:3] + "_" + gf[3:6] + "_" + gf[6:]
     gf = get_gf(identifier)
-    print(gf)
     search = {'gf' : gf}
     if origin == "gmgc":
         data = gmgcv1_neighs.find(search)[0]
     elif origin == "human-gut":
-        # data = human_gut_neighs.find(search)[0]
-        for i in human_gut_neighs.find():
-            print(i)
+        data = human_gut_neighs.find(search)[0]
     elif origin == "tara":
         data = tara_mags_neighs.find(search)[0]
     elif origin == "earth":
