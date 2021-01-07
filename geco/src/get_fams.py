@@ -71,7 +71,7 @@ def get_neighborhood(identifier, origin):
     except:
         gf = str(identifier).replace("_", "")
         gf = str(gf).zfill(9)
-    search = {'gf' : gf}
+    search = {'gf' : 47734444}
     print(gf)
     if origin == "gmgc":
         data = gmgcv1_neighs.find(search)[0]['neigh']
