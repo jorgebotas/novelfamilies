@@ -131,15 +131,20 @@ var gmgc_vueapp = new Vue({
 
         toggleGeCo : async function(selector, query, origin) {
             let colors = await get_colors();
+            let newick, context;
             try {
-                let newick = this.show_items[query][origin].newick;
-                let context = this.show_items[query][origin].context;
+                newick = this.show_items[query][origin].newick;
+                context = this.show_items[query][origin].context;
+            } catch {
+                context = undefined;
+            }
+            if (context) {
                 window.onload = async () => {
                     await $(selector + " .geco-progress").show().delay(2000);
                     await window.launch_GeCo(selector, context, newick, 41, colors);
                     await $(selector + " .geco-progress").hide();
                 }
-            } catch {
+            } else {
                 await $(selector + " .geco-progress").show();
                 newick = await get_newick(query);
                 context = await get_context(query, origin, 30);
