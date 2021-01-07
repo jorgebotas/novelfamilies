@@ -67,9 +67,9 @@ def get_neighborhood(identifier, origin):
     # gf = gf[:3] + "_" + gf[3:6] + "_" + gf[6:]
     try:
         identifier = int(identifier)
+        gf = get_gf(identifier)
     except:
-        identifier = str(identifier).replace("_", "")
-    gf = get_gf(identifier)
+        gf = str(identifier).replace("_", "")
     search = {'gf' : gf}
     if origin == "gmgc":
         data = gmgcv1_neighs.find(search)[0]['neigh']
