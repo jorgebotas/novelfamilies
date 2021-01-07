@@ -70,6 +70,7 @@ def get_neighborhood(identifier, origin):
         gf = get_gf(identifier)
     except:
         gf = str(identifier).replace("_", "")
+        gf = str(gf).zfill(9)
     search = {'gf' : gf}
     print(gf)
     if origin == "gmgc":
