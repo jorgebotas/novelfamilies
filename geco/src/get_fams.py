@@ -67,11 +67,11 @@ def get_neighborhood(identifier, origin):
     # gf = gf[:3] + "_" + gf[3:6] + "_" + gf[6:]
     try:
         identifier = int(identifier)
-        gfn = int(get_gf(identifier))
-        search = {'gfn' : gfn}
+        gf = int(get_gf(identifier))
     except:
         gf = int(str(identifier).replace("_", ""))
-        search = {'gf' : gf}
+    search = {'gf' : gf}
+    print(gf)
     if origin == "gmgc":
         data = gmgcv1_neighs.find(search)[0]['neigh']
     elif origin == "human-gut":
