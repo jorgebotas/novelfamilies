@@ -54,10 +54,10 @@ var draw_protDomains = function(id, domains, lenseq, width, height) {
             .attr("fill", "orange");
     }
     console.log(id)
-    domains = [
+    console.log([
                     {start:10, end:50, class:"helix"},
                     {start:60, end:80, class:"helix"},
-                ]
+                ])
     console.log(domains)
     var g = d3.select('#' + id)
               .append('svg:svg')
@@ -205,6 +205,7 @@ var gmgc_vueapp = new Vue({
                 .then(() => {
                     Object.entries(this.show_items).forEach(([f, data]) => {
                         drawDonuts(f, data);
+                        console.log(data)
                         data.domains.forEach(d => {
                             console.log(d);
                             draw_protDomains("d" + d.gene, d.doms, 1000, 700, 20);
