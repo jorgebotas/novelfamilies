@@ -44,7 +44,7 @@ var draw_protDomains = function(id, domains, lenseq, width, height, palette) {
     function draw_legend(selector, palette) {
         var legend = d3.select(selector)
          .append("div")
-         .attr("class", "row col-md-12");
+         .attr("class", "col-md-12");
         Object.entries(palette).forEach(([k, v]) => {
             let l = legend.append("div")
             l.append('svg')
@@ -57,7 +57,7 @@ var draw_protDomains = function(id, domains, lenseq, width, height, palette) {
              .attr("cy", 5)
              .attr("fill", v);
             l.append('div')
-             .attr('class', 'd-inline')
+             .attr('class', 'd-inline px-2')
              .text(k)
         })
     }
