@@ -42,6 +42,7 @@ var draw_protDomains = function(id, domains, lenseq, width, height, palette) {
             .attr("y2", height / 2);
     }
     function draw_palette(g, height, palette) {
+        g.append('svg:g')
         Object.entries(palette, ([k, v]) => {
             g.append()
         })
@@ -161,11 +162,11 @@ var renderDonut = function(id, labels, vals, colors) {
 var renderDomains = function(domains) {
         palette = { 'helix' : '#e6ac00',
                     'sp' : '#6574cd'}
-        document.querySelectorAll('.domains').forEach(div => {
-            if (div.children.length > 0) {
-                div.firstChild.remove();
-            }
-        })
+        //document.querySelectorAll('.domains').forEach(div => {
+            //if (div.children.length > 0) {
+                //div.firstChild.remove();
+            //}
+        //})
         domains.forEach(d => {
             selector = "d" + d.gene
             draw_protDomains(selector, d.doms, 1000, 600, 10, palette);
