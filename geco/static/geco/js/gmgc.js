@@ -45,7 +45,7 @@ var draw_protDomains = function(id, domains, lenseq, width, height, palette) {
         g.selectAll('circle')
             .data(domains.filter(d => d.shape == "circle" ))
             .enter().append('rect')
-            attr("r", 4)
+            .attr("r", 4)
             .attr("cx", function (d) { return scale(+d.c, lenseq, width); })
             .attr("cy", height/2)
             .attr("fill", d => { return palette[d.class] });
