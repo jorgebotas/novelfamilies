@@ -51,7 +51,7 @@ var draw_protDomains = function(id, domains, lenseq, width, height, palette) {
             .attr("y", 0)
             .attr("width", function (d) { return scale(+d.end - +d.start, lenseq, width); })
             .attr("height", height)
-            .attr("fill", d => { palette[d.class] });
+            .attr("fill", d => { return palette[d.class] });
     }
     var g = d3.select('#' + id)
               .append('svg:svg')
@@ -145,7 +145,7 @@ var renderDonut = function(id, labels, vals, colors) {
 
 }
 var renderDomains = function(domains) {
-            palette = { 'helix' : "#e6ac00" }
+            palette = { 'helix' : '#e6ac00' }
             domains.forEach(d => {
                 selector = "d" + d.gene
                 try {
