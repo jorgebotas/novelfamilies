@@ -144,11 +144,14 @@ var renderDonut = function(id, labels, vals, colors) {
     chart.render();
 
 }
-var renderDomains = function(domains) {
+var renderDomains = async function(domains) {
             domains.forEach(d => {
                 selector = "d" + d.gene
                 try {
-                    document.querySelector(selector).lastChild.remove();
+                    var div = document.querySelector(selector)
+                    if (div.firstChild) {
+                        await div.firstChild.remove();
+                    }
                     draw_protDomains(selector, d.doms, 1000, 600, 10);
                 } catch {
                     d3.select(selector).text(d.doms)
