@@ -39,9 +39,7 @@ def get_fam_info(identifier, is_gf=True):
         dms = []
         sp_p = d['signalp_p']
         sp_n = d['signalp_n']
-        if sp_p != "" or sp_n != "":
-            print(sp_p)
-            print(sp_n)
+        if sp_p != "OTHER" or sp_n != "OTHER":
             dms.append({
                 'c' : 0,
                 'class' : 'sp',
