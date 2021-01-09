@@ -48,12 +48,16 @@ var draw_protDomains = function(id, domains, lenseq, width, height, palette) {
         Object.entries(palette).forEach(([k, v]) => {
             let l = legend.append("div")
             l.append('svg')
+             .attr('width', 10)
+             .attr('height', 10)
+             .attr('class', 'inline-block')
              .append('circle')
              .attr("r", 4)
              .attr("cx", 2)
              .attr("cy", 2)
              .attr("fill", v);
             l.append('div')
+             .attr('class', 'inline-block')
              .text(k)
         })
     }
