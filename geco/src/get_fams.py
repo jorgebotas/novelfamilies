@@ -45,15 +45,16 @@ def get_fam_info(identifier, is_gf=True):
             doms = str(doms).split('-')
             dms = []
             for i in range(1, len(doms)):
-                p = doms[i-1]
+                p = str(doms[i-1])
+                c = str(doms[i])
                 try :
-                    start = int(p[i-1][-2:])
+                    start = int(p[-2:])
                 except:
-                    start = int(p[i-1][-1])
+                    start = int(p[-1])
                 try:
-                    end = int(p[i][:2])
+                    end = int(c[:2])
                 except:
-                    end = int(p[i][0])
+                    end = int(c[0])
                 dms.append({
                     'gene' : gene,
                     'start' : start,
