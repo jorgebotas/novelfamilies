@@ -47,14 +47,15 @@ var draw_protDomains = function(id, domains, lenseq, width, height, palette) {
          .attr("class", "col-md-12");
         Object.entries(palette).forEach(([k, v]) => {
             let l = legend.append("div")
+                          .attr('class', 'row')
             l.append('svg')
              .attr('width', 10)
              .attr('height', 10)
              .attr('class', 'mr-2')
              .append('circle')
              .attr("r", 5)
-             .attr("cx", 2.5)
-             .attr("cy", 2.5)
+             .attr("cx", 5)
+             .attr("cy", 5)
              .attr("fill", v);
             l.append('div')
              .attr('class', 'd-inline')
