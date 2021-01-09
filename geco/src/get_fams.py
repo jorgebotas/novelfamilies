@@ -40,6 +40,8 @@ def get_fam_info(identifier, is_gf=True):
         sp_p = d['signalp_p']
         sp_n = d['signalp_n']
         if sp_p != "" or sp_n != "":
+            print(sp_p)
+            print(sp_n)
             dms.append({
                 'c' : 0,
                 'class' : 'sp',
@@ -72,7 +74,8 @@ def get_fam_info(identifier, is_gf=True):
                     'shape' : 'rect'
                 })
         domains.append({ 'gene' : gene,
-                         'doms' : dms})
+                         'doms' : dms
+                        })
 
     data = {
         'name':  identifier,
