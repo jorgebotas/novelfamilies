@@ -51,6 +51,7 @@ var draw_protDomains = function(id, lenseq, domains, width, height) {
             .attr("height", height)
             .attr("fill", "orange");
     }
+    console.log(id)
     var g = d3.select('#' + id).append('svg:svg');
     draw_seqLine(g, width, height);
     draw_domains(g, lenseq, domains, width, height);
