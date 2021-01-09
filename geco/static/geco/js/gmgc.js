@@ -44,7 +44,7 @@ var draw_protDomains = function(id, domains, lenseq, width, height, palette) {
     function draw_domains(g, domains, lenseq, width, height, palette) {
         g.selectAll('circle')
             .data(domains.filter(d => d.shape == "circle" ))
-            .enter().append('rect')
+            .enter().append('circle')
             .attr("r", 4)
             .attr("cx", function (d) { return scale(+d.c, lenseq, width); })
             .attr("cy", height/2)
@@ -149,13 +149,13 @@ var renderDonut = function(id, labels, vals, colors) {
     chart.render();
 
 }
+
 var renderDomains = function(domains) {
             palette = { 'helix' : '#e6ac00',
                         'sp' : '#6574cd'}
             domains.forEach(d => {
                 selector = "d" + d.gene
                 var div = document.querySelector("#" + selector)
-                console.log(div.children.length)
                 if (div.children.length > 0) {
                     div.firstChild.remove();
                 }
@@ -231,7 +231,6 @@ var gmgc_vueapp = new Vue({
         toggleFam : function(id) {
             $("#" + id).collapse('show');
         },
-
 
     },
     filters : {
