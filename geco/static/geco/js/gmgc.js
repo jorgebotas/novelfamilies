@@ -43,7 +43,8 @@ var draw_protDomains = function(id, domains, lenseq, width, height, palette) {
     }
     function draw_legend(selector, height, palette) {
         var legend = d3.select(selector)
-         .appemd("div")
+         .append("div")
+         .attr("class", "col-md-12");
         Object.entries(palette, ([k, v]) => {
             let l = legend.append("div")
             l.append('svg')
