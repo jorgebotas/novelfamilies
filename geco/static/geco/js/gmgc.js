@@ -152,7 +152,7 @@ var renderDonut = function(id, labels, vals, colors) {
 var renderDomains = function(domains) {
             domains.forEach(d => {
                 try {
-                    draw_protDomains("d" + d.gene, d.doms, 1000, 1000, 10);
+                    draw_protDomains("d" + d.gene, d.doms, 1000, 2000, 10);
                 } catch {
                     d3.select("d" + d.gene).text(d.doms)
                 }
