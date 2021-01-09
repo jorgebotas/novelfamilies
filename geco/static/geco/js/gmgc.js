@@ -175,9 +175,11 @@ var renderDonut = function(id, labels, vals, colors) {
 }
 
 var renderDomains = function(domains) {
-        palette = { 'helix' : '#e6ac00',
-                    'signal peptide' : '#6574cd'}
-
+        document.querySelectorAll('.domains').forEach(div => {
+            if (div.children.length > 0) {
+                div.firstChild.remove();
+            }
+        })
         var doms = new Set();
         domains.forEach(d => {
             doms.add(d.class)
@@ -221,12 +223,7 @@ var renderDomains = function(domains) {
               ]
         var palette = d3.scale.ordinal()
                         .domain(doms)
-                        .range(colors)
-        document.querySelectorAll('.domains').forEach(div => {
-            if (div.children.length > 0) {
-                div.firstChild.remove();
-            }
-        })
+                        .range(colors);
         domains.forEach(d => {
             console.log(d)
             selector = "d" + d.gene

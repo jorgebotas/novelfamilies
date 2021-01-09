@@ -45,12 +45,14 @@ def get_fam_info(identifier, is_gf=True):
                 'class' : sp_p,
                 'shape' : 'circle'
             })
+            print(sp_p)
         if sp_n != "OTHER":
             dms.append({
                 'c' : 0,
                 'class' : sp_n,
                 'shape' : 'circle'
             })
+            print(sp_n)
         doms = d['topo_h']
         if len(doms) < 2:
             dms.append({
