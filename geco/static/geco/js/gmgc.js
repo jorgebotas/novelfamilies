@@ -149,10 +149,10 @@ var renderDomains = function(domains) {
                 selector = "d" + d.gene
                 try {
                     var div = document.querySelector("#" + selector)
-                    console.log(div.chidren.length)
-                    //if (div.chidren.length > 1) {
-                        //div.firstChild.remove();
-                    //}
+                    console.log(div.children.length)
+                    if (div.children.length > 1) {
+                        div.firstChild.remove();
+                    }
                     draw_protDomains(selector, d.doms, 1000, 600, 10);
                 } catch {
                     d3.select("#" + selector).text(d.doms)
