@@ -223,7 +223,7 @@ var renderDomains = function(domains) {
             "#ff6200",
             "#406362"
               ]
-        var palette = d3.scale.ordinal()
+        var palette = d3.scaleOrdinal()
                         .domain(doms)
                         .range(colors);
         domains.forEach(d => {
