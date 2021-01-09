@@ -48,7 +48,11 @@ def get_fam_info(identifier, is_gf=True):
             })
         doms = d['topo_h']
         if len(doms) < 2:
-            dms.append(doms)
+            dms.append({
+                    'start' : 0,
+                    'end' : 0,
+                    'shape' : 'rect'
+                })
         else:
             doms = str(doms).split('-')
             for i in range(1, len(doms)):

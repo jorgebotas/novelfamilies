@@ -154,16 +154,12 @@ var renderDomains = function(domains) {
                         'sp' : '#6574cd'}
             domains.forEach(d => {
                 selector = "d" + d.gene
-                try {
-                    var div = document.querySelector("#" + selector)
-                    console.log(div.children.length)
-                    if (div.children.length > 0) {
-                        div.firstChild.remove();
-                    }
-                    draw_protDomains(selector, d.doms, 1000, 600, 10, palette);
-                } catch {
-                    d3.select("#" + selector).text(d.doms)
+                var div = document.querySelector("#" + selector)
+                console.log(div.children.length)
+                if (div.children.length > 0) {
+                    div.firstChild.remove();
                 }
+                draw_protDomains(selector, d.doms, 1000, 600, 10, palette);
             });
 }
 
