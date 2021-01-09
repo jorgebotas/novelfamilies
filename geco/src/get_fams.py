@@ -42,7 +42,7 @@ def get_fam_info(identifier, is_gf=True):
         if len(doms) < 2:
             domains = [{}]
         else:
-            doms = doms.split['-']
+            doms = str(doms).split['-']
             dms = []
             for i in range(1, len(doms)):
                 p = doms[i-1]
