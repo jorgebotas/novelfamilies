@@ -150,7 +150,7 @@ var renderDomains = function(domains) {
                 try {
                     var div = document.querySelector("#" + selector)
                     console.log(div.children.length)
-                    if (div.children.length > 1) {
+                    if (div.children.length > 0) {
                         div.firstChild.remove();
                     }
                     draw_protDomains(selector, d.doms, 1000, 600, 10);
