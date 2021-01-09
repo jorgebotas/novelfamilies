@@ -35,7 +35,6 @@ def get_fam_info(identifier, is_gf=True):
         mags[k] = len(v.split(','))
     ds = gmgcv1_data['domains']
     domains = [];
-    print(ds)
     for gene, d in ds.items():
         dms = []
         sp_p = d['signalp_p']
@@ -72,8 +71,8 @@ def get_fam_info(identifier, is_gf=True):
                     'class' : 'helix',
                     'shape' : 'rect'
                 })
-            domains.append({ 'gene' : gene,
-                             'doms' : dms})
+        domains.append({ 'gene' : gene,
+                         'doms' : dms})
 
     data = {
         'name':  identifier,

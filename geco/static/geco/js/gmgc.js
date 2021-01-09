@@ -41,6 +41,11 @@ var draw_protDomains = function(id, domains, lenseq, width, height, palette) {
             .attr("x2", width)
             .attr("y2", height / 2);
     }
+    function draw_palette(g, height, palette) {
+        Object.entries(palette, ([k, v]) => {
+            g.append()
+        })
+    }
     function draw_domains(g, domains, lenseq, width, height, palette) {
         g.selectAll('circle')
             .data(domains.filter(d => d.shape == "circle" ))
@@ -66,6 +71,7 @@ var draw_protDomains = function(id, domains, lenseq, width, height, palette) {
                 .attr("transform", "translate(" + 5 + ", 0)");
     draw_seqLine(g, width, height);
     draw_domains(g, domains, lenseq, width, height, palette);
+    draw_legend(g, height, palette);
 }
 
 var drawDonuts = async function(f, data) {
