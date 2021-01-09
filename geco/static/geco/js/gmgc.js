@@ -54,10 +54,10 @@ var draw_protDomains = function(id, domains, lenseq, width, height) {
             .attr("fill", "orange");
     }
     console.log(id)
-    console.log([
+    domains = [
                     {start:10, end:50, class:"helix"},
                     {start:60, end:80, class:"helix"},
-                ])
+                ]
     console.log(domains)
     var g = d3.select('#' + id)
               .append('svg:svg')
