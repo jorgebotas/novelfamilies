@@ -168,6 +168,7 @@ var renderDomains = function(domains) {
             }
         })
         domains.forEach(d => {
+            console.log(d)
             selector = "d" + d.gene
             draw_protDomains(selector, d.doms, 1000, 600, 10, palette);
         });
