@@ -47,6 +47,7 @@ var draw_protDomains = function(id, domains, lenseq, width, height, palette) {
          .attr("class", "col-md-12");
         Object.entries(palette).forEach(([k, v]) => {
             let l = legend.append("div")
+                     .attr('class', 'd-inline px-2');
             l.append('svg')
              .attr('width', 10)
              .attr('height', 10)
@@ -57,7 +58,7 @@ var draw_protDomains = function(id, domains, lenseq, width, height, palette) {
              .attr("cy", 5)
              .attr("fill", v);
             l.append('div')
-             .attr('class', 'd-inline px-2')
+             .attr('class', 'd-inline')
              .text(k)
         })
     }
