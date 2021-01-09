@@ -161,8 +161,10 @@ var renderDomains = function(domains) {
                         div.firstChild.remove();
                     }
                     draw_protDomains(selector, d.doms, 1000, 600, 10, palette);
-                } catch {
-                    d3.select("#" + selector).text(d.doms)
+                } catch (e) {
+                    //d3.select("#" + selector).text(d.doms)
+                    console.log(d.doms)
+                    console.log(e)
                 }
             });
 }
