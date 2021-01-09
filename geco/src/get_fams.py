@@ -42,7 +42,7 @@ def get_fam_info(identifier, is_gf=True):
         sp_n = d['signalp_n']
         if sp_p or sp_n:
             dms.append({
-                'c' : 2,
+                'c' : 0,
                 'class' : 'sp',
                 'shape' : 'circle'
             })
