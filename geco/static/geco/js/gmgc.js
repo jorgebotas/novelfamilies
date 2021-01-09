@@ -61,7 +61,9 @@ var draw_protDomains = function(id, domains, lenseq, width, height, palette) {
     var g = d3.select('#' + id)
               .append('svg:svg')
               .attr("width", width)
-              .attr("height", height);
+              .attr("height", height)
+              .append('svg:g')
+                .attr("transform", "translate(" + 5 + ", 0)");
     draw_seqLine(g, width, height);
     draw_domains(g, domains, lenseq, width, height, palette);
 }
