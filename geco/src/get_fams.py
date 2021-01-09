@@ -38,6 +38,7 @@ def get_fam_info(identifier, is_gf=True):
     print(ds)
     for gene, d in ds.items():
         doms = d['topo_h']
+        print(doms)
         if len(doms) < 2:
             domains = [{}]
         else:
