@@ -40,7 +40,7 @@ def get_fam_info(identifier, is_gf=True):
         doms = d['topo_h']
         print(doms)
         if len(doms) < 2:
-            domains = doms
+            domains.append({ 'gene' : gene, 'doms' : doms })
         else:
             doms = str(doms).split('-')
             dms = []
