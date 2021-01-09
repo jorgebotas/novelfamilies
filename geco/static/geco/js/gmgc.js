@@ -157,7 +157,7 @@ var renderDomains = function(domains) {
                     d3.select("d" + d.gene).text(d.doms)
                 }
             });
-        },
+}
 
 var gmgc_vueapp = new Vue({
     delimiters: ['[[', ']]'],
@@ -214,7 +214,7 @@ var gmgc_vueapp = new Vue({
                 .then(() => {
                     Object.entries(this.show_items).forEach(([f, data]) => {
                         drawDonuts(f, data);
-                        renderDomains(data.domains)
+                        renderDomains(data.domains);
                     });
                     $('.tab-content').collapse('show');
                 })
