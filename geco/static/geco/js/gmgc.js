@@ -44,7 +44,7 @@ var draw_protDomains = function(id, domains, lenseq, width, height, palette) {
     function draw_legend(selector, palette) {
         var legend = d3.select(selector)
          .append("div")
-         .attr("class", "col-md-12");
+         .attr("class", "d-inline px-32");
         Object.entries(palette).forEach(([k, v]) => {
             let l = legend.append("div")
                      .attr('class', 'd-inline px-2');
