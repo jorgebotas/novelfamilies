@@ -35,6 +35,7 @@ def get_fam_info(identifier, is_gf=True):
         mags[k] = len(v.split(','))
     ds = gmgcv1_data['domains']
     domains = [];
+    print(ds)
     for gene, d in ds.items():
         doms = d['topo_h']
         if len(doms) < 2:
