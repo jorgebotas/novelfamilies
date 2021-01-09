@@ -42,12 +42,17 @@ var draw_protDomains = function(id, domains, lenseq, width, height, palette) {
             .attr("y2", height / 2);
     }
     function draw_domains(g, domains, lenseq, width, height, palette) {
-        g.selectAll('rect')
-            .data(domains)
+        g.selectAll('circle')
+            .data(domains.filter(d => { return d.shape == "circle" }))
             .enter().append('rect')
-            .attr("x", function (d) {
-                console.log(d.start)
-                return scale(+d.start, lenseq, width); })
+            attr("r", 4)
+            .attr("cx", function (d) { return scale(+d.c, lenseq, width); })
+            .attr("cy", height/2)
+            .attr("fill", d => { return palette[d.class] });
+        g.selectAll('rect')
+            .data(domains.filter(d => { return d.shape == "rect" }))
+            .enter().append('rect')
+            .attr("x", function (d) {return scale(+d.start, lenseq, width); })
             .attr("y", 0)
             .attr("width", function (d) { return scale(+d.end - +d.start, lenseq, width); })
             .attr("height", height)
@@ -145,7 +150,8 @@ var renderDonut = function(id, labels, vals, colors) {
 
 }
 var renderDomains = function(domains) {
-            palette = { 'helix' : '#e6ac00' }
+            palette = { 'helix' : '#e6ac00',
+                        'sp' : '#6574cd'}
             domains.forEach(d => {
                 selector = "d" + d.gene
                 try {

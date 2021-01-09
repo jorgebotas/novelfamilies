@@ -37,13 +37,20 @@ def get_fam_info(identifier, is_gf=True):
     domains = [];
     print(ds)
     for gene, d in ds.items():
+        dms = []
+        sp_p = d['signalp_p']
+        sp_n = d['signalp_n']
+        if sp_p:
+            dms.append({
+                'c' : 2,
+                'class' : 'sp',
+                'shape' : 'circle'
+            })
         doms = d['topo_h']
-        print(doms)
         if len(doms) < 2:
-            domains.append({ 'gene' : gene, 'doms' : doms })
+            dms.append(doms)
         else:
             doms = str(doms).split('-')
-            dms = []
             for i in range(1, len(doms)):
                 p = str(doms[i-1])
                 c = str(doms[i])
@@ -58,11 +65,11 @@ def get_fam_info(identifier, is_gf=True):
                 dms.append({
                     'start' : start,
                     'end' : end,
-                    'class' : 'helix'
+                    'class' : 'helix',
+                    'shape' : 'rect'
                 })
             domains.append({ 'gene' : gene,
                              'doms' : dms})
-    print(domains)
 
     data = {
         'name':  identifier,
