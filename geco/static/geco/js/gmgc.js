@@ -205,6 +205,10 @@ var gmgc_vueapp = new Vue({
                 .then(() => {
                     Object.entries(this.show_items).forEach(([f, data]) => {
                         drawDonuts(f, data);
+                        data.domains.forEach(d => {
+                            console.log(d);
+                            draw_protDomains("d" + d.gene, d.doms, 1000, 700, 20);
+                        });
                     });
                     $('.tab-content').collapse('show');
                 })
@@ -220,13 +224,13 @@ var gmgc_vueapp = new Vue({
 
         renderDomains : async function(query) {
             console.log(query)
-            var domains = this.show_items[query].domains;
-            comsole.log(domains)
-            console.log("domains")
-            domains.forEach(d => {
-                console.log(d);
-                draw_protDomains("d" + d.gene, d.doms, 1000, 700, 20);
-            });
+/*            var domains = this.show_items[query].domains;*/
+            //comsole.log(domains)
+            //console.log("domains")
+            //domains.forEach(d => {
+                //console.log(d);
+                //draw_protDomains("d" + d.gene, d.doms, 1000, 700, 20);
+            /*});*/
         },
     },
     filters : {
