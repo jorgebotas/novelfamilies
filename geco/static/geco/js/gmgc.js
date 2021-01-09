@@ -153,17 +153,21 @@ var renderDonut = function(id, labels, vals, colors) {
 }
 
 var renderDomains = function(domains) {
-            palette = { 'helix' : '#e6ac00',
-                        'sp' : '#6574cd'}
-            domains.forEach(d => {
-                selector = "d" + d.gene
-                var div = document.querySelector("#" + selector)
-                if (div.children.length > 0) {
-                    div.firstChild.remove();
-                }
-                draw_protDomains(selector, d.doms, 1000, 600, 10, palette);
-            });
+        palette = { 'helix' : '#e6ac00',
+                    'sp' : '#6574cd'}
+        document.querySelectorAll('.domains').forEach(div => {
+        if (div.children.length > 0) {
+            div.firstChild.remove();
+        }
+        domains.forEach(d => {
+            selector = "d" + d.gene
+            draw_protDomains(selector, d.doms, 1000, 600, 10, palette);
+        });
+
+
+    })
 }
+
 
 var gmgc_vueapp = new Vue({
     delimiters: ['[[', ']]'],
