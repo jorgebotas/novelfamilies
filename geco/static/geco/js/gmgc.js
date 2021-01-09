@@ -176,7 +176,7 @@ var renderDonut = function(id, labels, vals, colors) {
 
 var renderDomains = function(domains) {
         palette = { 'helix' : '#e6ac00',
-                    'sp' : '#6574cd'}
+                    'signal peptide' : '#6574cd'}
         document.querySelectorAll('.domains').forEach(div => {
             if (div.children.length > 0) {
                 div.firstChild.remove();
