@@ -56,7 +56,9 @@ var draw_protDomains = function(id, domains, lenseq, width, height) {
                     {start:10, end:50, class:"helix"},
                     {start:60, end:80, class:"helix"},
                 ]
-    var g = d3.select('#' + id).append('svg:svg');
+    var g = d3.select('#' + id)
+              .append('svg:svg')
+              .attr("height", 25);
     draw_seqLine(g, width, height);
     draw_domains(g, domains, lenseq, width, height);
 }
