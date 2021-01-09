@@ -67,7 +67,6 @@ var draw_protDomains = function(id, domains, lenseq, width, height) {
 }
 
 var drawDonuts = async function(f, data) {
-    console.log(data)
     var biomes_id = 'f' + f + '-biomesViz';
     var biomes = data.biomes;
     var mags_id = 'f' + f + '-magsDonut';
@@ -209,7 +208,11 @@ var gmgc_vueapp = new Vue({
                         console.log(data)
                         data.domains.forEach(d => {
                             console.log(d);
-                            draw_protDomains("d" + d.gene, d.doms, 1000, 700, 20);
+                            doms = [
+                    {start:10, end:50, class:"helix"},
+                    {start:60, end:80, class:"helix"},
+                ]
+                            draw_protDomains("d" + d.gene, doms, 1000, 700, 20);
                         });
                     });
                     $('.tab-content').collapse('show');
