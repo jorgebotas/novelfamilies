@@ -148,8 +148,8 @@ var renderDomains = function(domains) {
             domains.forEach(d => {
                 selector = "d" + d.gene
                 try {
-                    var div = document.querySelector(selector)
-                    console.log(div.chidren.length )
+                    var div = document.querySelector("#" + selector)
+                    console.log(div.chidren.length)
                     if (div.chidren.length > 1) {
                         div.firstChild.remove();
                     }
