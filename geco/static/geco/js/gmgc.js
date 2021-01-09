@@ -218,7 +218,7 @@ var gmgc_vueapp = new Vue({
             $("#" + id).collapse('show');
         },
 
-        renderDomains : function(domains) {
+        renderDomains : async function(domains) {
             console.log(domains)
             console.log("domains")
             domains.forEach(d => {
