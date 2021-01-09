@@ -140,13 +140,6 @@ var renderDonut = function(id, labels, vals, colors) {
 
 }
 
-var renderDomains = function(data) {
-    for (d in data.domains) {
-        console.log(domains);
-        draw_protDomains("d" + d.gene, domains, 1000, 700, 20);
-    }
-}
-
 var gmgc_vueapp = new Vue({
     delimiters: ['[[', ']]'],
     el: '#NovelFams',
@@ -213,6 +206,13 @@ var gmgc_vueapp = new Vue({
 
         toggleFam : function(id) {
             $("#" + id).collapse('show');
+        },
+
+        renderDomains : function(data) {
+            for (d in data.domains) {
+                console.log(domains);
+                draw_protDomains("d" + d.gene, domains, 1000, 700, 20);
+            }
         },
     },
     filters : {
