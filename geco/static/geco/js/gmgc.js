@@ -53,14 +53,9 @@ var draw_protDomains = function(id, domains, lenseq, width, height) {
             .attr("height", height)
             .attr("fill", "orange");
     }
-    console.log(id)
-    console.log([
-                    {start:10, end:50, class:"helix"},
-                    {start:60, end:80, class:"helix"},
-                ])
-    console.log(domains)
     var g = d3.select('#' + id)
               .append('svg:svg')
+              .attr("width", width)
               .attr("height", height);
     draw_seqLine(g, width, height);
     draw_domains(g, domains, lenseq, width, height);
@@ -152,7 +147,7 @@ var renderDonut = function(id, labels, vals, colors) {
 var renderDomains = function(domains) {
             domains.forEach(d => {
                 try {
-                    draw_protDomains("d" + d.gene, d.doms, 1000, 2000, 10);
+                    draw_protDomains("d" + d.gene, d.doms, 1000, 600, 10);
                 } catch {
                     d3.select("d" + d.gene).text(d.doms)
                 }
