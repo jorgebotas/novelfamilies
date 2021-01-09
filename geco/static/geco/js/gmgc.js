@@ -41,11 +41,11 @@ var draw_protDomains = function(id, domains, lenseq, width, height, palette) {
             .attr("x2", width)
             .attr("y2", height / 2);
     }
-    function draw_legend(selector, height, palette) {
+    function draw_legend(selector, palette) {
         var legend = d3.select(selector)
          .append("div")
          .attr("class", "col-md-12");
-        Object.entries(palette, ([k, v]) => {
+        Object.entries(palette).forEach(([k, v]) => {
             let l = legend.append("div")
             l.append('svg')
              .append('circle')
@@ -82,7 +82,7 @@ var draw_protDomains = function(id, domains, lenseq, width, height, palette) {
                 .attr("transform", "translate(" + 5 + ", 0)");
     draw_seqLine(g, width, height);
     draw_domains(g, domains, lenseq, width, height, palette);
-    draw_legend('#' + id, height, palette);
+    draw_legend('#' + id, palette);
 }
 
 var drawDonuts = async function(f, data) {
