@@ -41,11 +41,13 @@ var draw_protDomains = function(id, domains, lenseq, width, height, palette) {
             .attr("x2", width)
             .attr("y2", height / 2);
     }
-    function draw_legend(selector, palette) {
+    function draw_legend(selector, domains, palette) {
         var legend = d3.select(selector)
          .append("div")
          .attr("class", "d-inline px-3");
-        Object.entries(palette).forEach(([k, v]) => {
+        var doms = new Set();
+        domains.forEach(d => doms.add(d.class))
+        doms.forEach(d => {
             let l = legend.append("div")
                      .attr('class', 'd-inline px-2');
             l.append('svg')
@@ -56,10 +58,10 @@ var draw_protDomains = function(id, domains, lenseq, width, height, palette) {
              .attr("r", 5)
              .attr("cx", 5)
              .attr("cy", 5)
-             .attr("fill", v);
+             .attr("fill", palette(d));
             l.append('div')
              .attr('class', 'd-inline')
-             .text(k)
+             .text(d)
         })
     }
     function draw_domains(g, domains, lenseq, width, height, palette) {
@@ -87,7 +89,7 @@ var draw_protDomains = function(id, domains, lenseq, width, height, palette) {
                 .attr("transform", "translate(" + 5 + ", 0)");
     draw_seqLine(g, width, height);
     draw_domains(g, domains, lenseq, width, height, palette);
-    draw_legend('#' + id, palette);
+    draw_legend('#' + id, domains, palette);
 }
 
 var drawDonuts = async function(f, data) {
