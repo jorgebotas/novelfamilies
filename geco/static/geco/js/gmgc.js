@@ -149,6 +149,15 @@ var renderDonut = function(id, labels, vals, colors) {
     chart.render();
 
 }
+var renderDomains = function(domains) {
+            domains.forEach(d => {
+                try {
+                    draw_protDomains("d" + d.gene, d.doms, 1000, 1000, 10);
+                } catch {
+                    d3.select("d" + d.gene).text(d.doms)
+                }
+            });
+        },
 
 var gmgc_vueapp = new Vue({
     delimiters: ['[[', ']]'],
@@ -205,7 +214,7 @@ var gmgc_vueapp = new Vue({
                 .then(() => {
                     Object.entries(this.show_items).forEach(([f, data]) => {
                         drawDonuts(f, data);
-
+                        renderDomains(data.domains)
                     });
                     $('.tab-content').collapse('show');
                 })
@@ -219,13 +228,7 @@ var gmgc_vueapp = new Vue({
             $("#" + id).collapse('show');
         },
 
-        renderDomains : async function(domains) {
-            domains.forEach(d => {
-                try {
-                    draw_protDomains("d" + d.gene, d.doms, 1000, 700, 10);
-                } catch {}
-            });
-        },
+
     },
     filters : {
         filterBlank : function (value) {
