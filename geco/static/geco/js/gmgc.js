@@ -212,7 +212,9 @@ var gmgc_vueapp = new Vue({
                     {start:10, end:50, class:"helix"},
                     {start:60, end:80, class:"helix"},
                 ]
-                            draw_protDomains("d" + d.gene, doms, 1000, 700, 20);
+                            try {
+                                draw_protDomains("d" + d.gene, d.doms, 1000, 700, 20);
+                            } catch {}
                         });
                     });
                     $('.tab-content').collapse('show');
