@@ -41,20 +41,21 @@ var draw_protDomains = function(id, domains, lenseq, width, height) {
             .attr("x2", width)
             .attr("y2", height / 2);
     }
-    function draw_domains(g, lenseq, domains, width, height) {
+    function draw_domains(g, domains, lenseq, width, height) {
         g.selectAll('rect')
             .data(domains)
             .enter().append('rect')
-            .attr("x", function (d) { return scale(d.start, lenseq, width); })
+            .attr("x", function (d) { return scale(+d.start, lenseq, width); })
             .attr("y", 0)
             .attr("width", function (d) { return scale(+d.end - +d.start, lenseq, width); })
             .attr("height", height)
             .attr("fill", "orange");
     }
     console.log(id)
+    console
     var g = d3.select('#' + id).append('svg:svg');
     draw_seqLine(g, width, height);
-    draw_domains(g, lenseq, domains, width, height);
+    draw_domains(g, domains, lenseq, width, height);
 }
 
 var drawDonuts = async function(f, data) {
