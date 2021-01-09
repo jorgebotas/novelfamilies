@@ -39,10 +39,16 @@ def get_fam_info(identifier, is_gf=True):
         dms = []
         sp_p = d['signalp_p']
         sp_n = d['signalp_n']
-        if sp_p != "OTHER" or sp_n != "OTHER":
+        if sp_p != "OTHER":
             dms.append({
                 'c' : 0,
-                'class' : 'signal peptide',
+                'class' : sp_p,
+                'shape' : 'circle'
+            })
+        if sp_n != "OTHER":
+            dms.append({
+                'c' : 0,
+                'class' : sp_n,
                 'shape' : 'circle'
             })
         doms = d['topo_h']
