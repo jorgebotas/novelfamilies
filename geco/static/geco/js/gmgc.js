@@ -43,14 +43,14 @@ var draw_protDomains = function(id, domains, lenseq, width, height, palette) {
     }
     function draw_domains(g, domains, lenseq, width, height, palette) {
         g.selectAll('circle')
-            .data(domains.filter(d => { return d.shape == "circle" }))
+            .data($(domains).filter(d => { return d.shape == "circle" }))
             .enter().append('rect')
             attr("r", 4)
             .attr("cx", function (d) { return scale(+d.c, lenseq, width); })
             .attr("cy", height/2)
             .attr("fill", d => { return palette[d.class] });
         g.selectAll('rect')
-            .data(domains.filter(d => { return d.shape == "rect" }))
+            .data($(domains).filter(d => { return d.shape == "rect" }))
             .enter().append('rect')
             .attr("x", function (d) {return scale(+d.start, lenseq, width); })
             .attr("y", 0)
@@ -161,10 +161,8 @@ var renderDomains = function(domains) {
                         div.firstChild.remove();
                     }
                     draw_protDomains(selector, d.doms, 1000, 600, 10, palette);
-                } catch (e) {
-                    //d3.select("#" + selector).text(d.doms)
-                    console.log(d.doms)
-                    console.log(e)
+                } catch {
+                    d3.select("#" + selector).text(d.doms)
                 }
             });
 }
