@@ -205,17 +205,7 @@ var gmgc_vueapp = new Vue({
                 .then(() => {
                     Object.entries(this.show_items).forEach(([f, data]) => {
                         drawDonuts(f, data);
-                        console.log(data)
-                        data.domains.forEach(d => {
-                            console.log(d);
-                            doms = [
-                    {start:10, end:50, class:"helix"},
-                    {start:60, end:80, class:"helix"},
-                ]
-                            try {
-                                draw_protDomains("d" + d.gene, d.doms, 1000, 700, 20);
-                            } catch {}
-                        });
+
                     });
                     $('.tab-content').collapse('show');
                 })
@@ -229,15 +219,12 @@ var gmgc_vueapp = new Vue({
             $("#" + id).collapse('show');
         },
 
-        renderDomains : async function(query) {
-            console.log(query)
-/*            var domains = this.show_items[query].domains;*/
-            //comsole.log(domains)
-            //console.log("domains")
-            //domains.forEach(d => {
-                //console.log(d);
-                //draw_protDomains("d" + d.gene, d.doms, 1000, 700, 20);
-            /*});*/
+        renderDomains : async function(domains) {
+            domains.forEach(d => {
+                try {
+                    draw_protDomains("d" + d.gene, d.doms, 1000, 700, 20);
+                } catch {}
+            });
         },
     },
     filters : {
