@@ -148,6 +148,7 @@ var renderDomains = function(domains) {
             domains.forEach(d => {
                 selector = "d" + d.gene
                 try {
+                    document.querySelector(selector).lastChild.remove();
                     draw_protDomains(selector, d.doms, 1000, 600, 10);
                 } catch {
                     d3.select(selector).text(d.doms)
