@@ -155,7 +155,7 @@ var renderDomains = function(domains) {
                     //}
                     draw_protDomains(selector, d.doms, 1000, 600, 10);
                 } catch {
-                    d3.select(selector).text(d.doms)
+                    d3.select("#" + selector).text(d.doms)
                 }
             });
 }
