@@ -210,8 +210,8 @@ var gmgc_vueapp = new Vue({
 
         renderDomains : function(data) {
             for (d in data.domains) {
-                console.log(domains);
-                draw_protDomains("d" + d.gene, domains, 1000, 700, 20);
+                console.log(d);
+                draw_protDomains("d" + d.gene, d, 1000, 700, 20);
             }
         },
     },
