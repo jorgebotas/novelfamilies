@@ -72,7 +72,7 @@ var draw_protDomains = function(id, domains, lenseq, width, height, palette) {
                 .attr("transform", "translate(" + 5 + ", 0)");
     draw_seqLine(g, width, height);
     draw_domains(g, domains, lenseq, width, height, palette);
-    draw_legend(g, height, palette);
+    //draw_legend(g, height, palette);
 }
 
 var drawDonuts = async function(f, data) {
