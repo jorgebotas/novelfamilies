@@ -28,7 +28,7 @@ var get_colors = async () => {
     return colors;
 }
 
-var draw_protDomains = function(id, lenseq, domains, width, height) {
+var draw_protDomains = function(id, domains, lenseq, width, height) {
     function scale(num, inSize, outSize) {
         return +num * outSize / inSize;
     }
