@@ -222,7 +222,7 @@ var gmgc_vueapp = new Vue({
             console.log(data.domains)
             data.domains.forEach(d => {
                 console.log(d);
-                draw_protDomains("d" + d.gene, d, 1000, 700, 20);
+                draw_protDomains("d" + d.gene, d.doms, 1000, 700, 20);
             });
         },
     },

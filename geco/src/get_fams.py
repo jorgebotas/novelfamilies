@@ -56,11 +56,12 @@ def get_fam_info(identifier, is_gf=True):
                 except:
                     end = int(c[0])
                 dms.append({
-                    'gene' : gene,
                     'start' : start,
-                    'end' : end
+                    'end' : end,
+                    'class' : 'helix'
                 })
-            domains = dms
+            domains.append({ 'gene' : gene,
+                             'doms' : dms})
     print(domains)
 
     data = {
