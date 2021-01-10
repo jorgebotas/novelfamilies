@@ -45,14 +45,12 @@ def get_fam_info(identifier, is_gf=True):
                 'class' : sp_p,
                 'shape' : 'circle'
             })
-            print(sp_p)
         if sp_n != "OTHER":
             dms.append({
                 'c' : 0,
                 'class' : sp_n,
                 'shape' : 'circle'
             })
-            print(sp_n)
         doms = d['topo_h']
         if len(doms) < 2:
             dms.append({
@@ -82,7 +80,6 @@ def get_fam_info(identifier, is_gf=True):
         domains.append({ 'gene' : gene,
                          'doms' : dms
                         })
-
     data = {
         'name':  identifier,
         'gf' : gmgcv1_data['gf'],
@@ -103,7 +100,6 @@ def get_fam_info(identifier, is_gf=True):
         'p_exp' : gf_data['p_exp'],
         'align' : gf_data['algstats'],
     }
-    print(data['domains'])
     return data
 
 def get_neighborhood(identifier, origin):
