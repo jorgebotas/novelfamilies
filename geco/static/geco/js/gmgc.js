@@ -46,7 +46,11 @@ var draw_protDomains = function(id, domains, lenseq, width, height, palette) {
          .append("div")
          .attr("class", "d-inline px-3");
         var doms = new Set();
-        domains.forEach(d => doms.add(d.class))
+        domains.forEach(d => {
+            if (d.class && d.class != "") {
+                doms.add(d.class)
+            }
+        })
         doms.forEach(d => {
             let l = legend.append("div")
                      .attr('class', 'd-inline px-2');
@@ -183,11 +187,7 @@ var renderDomains = function(domains) {
             }
         })
         var doms = new Set();
-        domains.forEach(d => {
-            if (d.class && d.class != "" && d.class != " ") {
-                doms.add(d.class)
-            }
-        })
+        domains.forEach(d => doms.add(d.class))
         var colors = [
             '#e6ac00',
             '#6574cd',
