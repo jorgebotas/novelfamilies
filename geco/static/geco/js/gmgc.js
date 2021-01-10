@@ -184,12 +184,13 @@ var renderDomains = function(domains) {
         })
         var doms = new Set();
         domains.forEach(d => {
-            if (d.class && d.class != "") {
+            if (d.class && d.class != "" && d.class != " ") {
                 doms.add(d.class)
             }
         })
-        console.log(doms)
         var colors = [
+            '#e6ac00',
+            '#6574cd',
             "#abfdcb",
             "#c9b2fd",
             "#fcaf81",
