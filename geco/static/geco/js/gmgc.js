@@ -189,10 +189,10 @@ var renderDomains = function(domains) {
         var doms = new Set();
         domains.forEach(d => doms.add(d.class))
         var colors = [
+            "#c9b2fd",
             '#e6ac00',
             '#6574cd',
             "#abfdcb",
-            "#c9b2fd",
             "#fcaf81",
             "#a9dff7",
             "#254F93",
