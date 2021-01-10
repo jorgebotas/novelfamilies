@@ -188,6 +188,7 @@ var renderDomains = function(domains) {
                 doms.add(d.class)
             }
         })
+        console.log(doms)
         var colors = [
             "#abfdcb",
             "#c9b2fd",
@@ -229,7 +230,6 @@ var renderDomains = function(domains) {
                         .domain(doms)
                         .range(colors);
         domains.forEach(d => {
-            console.log(d)
             selector = "d" + d.gene
             draw_protDomains(selector, d.doms, 1000, 600, 10, palette);
         });
