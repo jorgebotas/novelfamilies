@@ -195,7 +195,7 @@ var renderDomains = function(domains) {
         var colors = [
             '#6574cd',
             '#e6ac00',
-            '#ff7088',
+            '#ffa3b2',
             "#254F93",
             "#c9b2fd",
             "#fcaf81",
