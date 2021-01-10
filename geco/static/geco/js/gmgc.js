@@ -184,7 +184,7 @@ var renderDomains = function(domains) {
         })
         var doms = new Set();
         domains.forEach(d => {
-            if (d.class) {
+            if (d.class || d.class != "") {
                 doms.add(d.class)
             }
         })
