@@ -193,6 +193,7 @@ var renderDomains = function(domains) {
             }
         })
         var colors = [
+            "gray",
             '#e6ac00',
             '#6574cd',
             "#abfdcb",
