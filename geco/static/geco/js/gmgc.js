@@ -194,16 +194,16 @@ var renderDomains = function(domains) {
         })
         var colors = [
             '#6574cd',
+            "#254F93",
             '#e6ac00',
-            "#abfdcb",
             "#c9b2fd",
             "#fcaf81",
             "#a9dff7",
-            "#254F93",
             "#FF5C8D",
             "#838383",
             "#5F33FF",
             "#c7e3aa",
+            "#abfdcb",
             "#D81E5B",
             "#47DAFF",
             "#c4ab77",
