@@ -78,7 +78,8 @@ def get_fam_info(identifier, is_gf=True):
                     'shape' : 'rect'
                 })
         domains.append({ 'gene' : gene,
-                         'doms' : dms
+                         'doms' : dms,
+                         'lenseq' : d['genel']
                         })
     data = {
         'name':  identifier,
@@ -91,7 +92,6 @@ def get_fam_info(identifier, is_gf=True):
         'keggp' : gmgcv1_data['p_keggp'],
         'cogp' : gmgcv1_data['p_cogp'],
         'sstr' : gmgcv1_data['sstr'],
-        'lenseq' : gmgcv1_data['domains']['genel'],
         'domains' : domains,
         'ampred' : gmgcv1_data['ampred'],
         'biomes' : gmgcv1_data['biomep'],

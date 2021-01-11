@@ -181,7 +181,7 @@ var renderDonut = function(id, labels, vals, colors) {
 
 }
 
-var renderDomains = function(domains, lenseq) {
+var renderDomains = function(domains) {
         document.querySelectorAll('.domains').forEach(div => {
             if (div.children.length > 0) {
                 div.firstChild.remove();
@@ -238,7 +238,7 @@ var renderDomains = function(domains, lenseq) {
                         .range(colors);
         domains.forEach(d => {
             selector = "d" + d.gene
-            draw_protDomains(selector, d.doms, lenseq, 600, 10, palette);
+            draw_protDomains(selector, d.doms, d.lenseq, 600, 10, palette);
         });
 }
 
@@ -298,7 +298,7 @@ var gmgc_vueapp = new Vue({
                 .then(() => {
                     Object.entries(this.show_items).forEach(([f, data]) => {
                         drawDonuts(f, data);
-                        renderDomains(data.domains, data.lenseq);
+                        renderDomains(data.domains);
                     });
                     $('.tab-content').collapse('show');
                 })
