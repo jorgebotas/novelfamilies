@@ -156,18 +156,20 @@
                                text-center mb-0">
                                <thead>
                                    <tr>
-                                       <th>Members (unigene)
-                                       </th>
-                                       <!--<th>Number of helices</th>-->
+                                       <th>Members (unigene)</th>
+                                       <th>Gene length</th>
                                        <th class="text-left pl-4">Topology</th>
-                                       <!--<th>Gram + signal peptide prediction</th>-->
-                                       <!--<th>Gram - signal peptide prediction</th>-->
                                    </tr>
                                </thead>
                                <tbody>
                                    <tr v-for="m in tdata.members">
                                        <th class="p-1">
                                            [[ m ]]
+                                       </th>
+                                       <th class="p-1">
+                                           [[
+                                           tdata.domains[m].lenseq
+                                           ]]
                                        </th>
                                        <th class="domains p-1 pl-3 text-left" :id="'d' + m">
                                        </th>
