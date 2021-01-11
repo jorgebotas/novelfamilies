@@ -77,6 +77,7 @@ def get_fam_info(identifier, is_gf=True):
                     'class' : 'helix',
                     'shape' : 'rect'
                 })
+        print(d['genel'])
         domains.append({ 'gene' : gene,
                          'doms' : dms,
                          'lenseq' : d['genel']
