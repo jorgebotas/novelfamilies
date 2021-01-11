@@ -328,5 +328,8 @@ var gmgc_vueapp = new Vue({
         getKeyByValue : function(value, object) {
             return Object.keys(object).find(key => object[key] === value);
         },
+        getLen : function(domains, gene) {
+            return domains.filter(d => d.gene == gene)[0].lenseq
+        },
     },
 });
