@@ -33,6 +33,7 @@ def get_fam_info(identifier, is_gf=True):
     mags = {}
     for k, v in mags_raw.items():
         mags[k] = len(v.split(','))
+        print(v.split(','))
     ds = gmgcv1_data['domains']
     domains = [];
     for gene, d in ds.items():
