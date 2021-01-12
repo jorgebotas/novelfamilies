@@ -124,10 +124,10 @@ def get_neighborhood(identifier, origin):
         data = human_gut_neighs.find(search)[0]['neigh']
     elif origin == "tara":
         print(tara_mags_neighs.find()[0])
-        data = tara_mags_neighs.find(search)[0]['neigh']
+        # data = tara_mags_neighs.find(search)[0]['neigh']
     elif origin == "earth":
         print(earth_mags_neighs.find()[0])
-        data = earth_mags_neighs.find(search)[0]['neigh']
+        # data = earth_mags_neighs.find(search)[0]['neigh']
     else:
         data = {}
     return data
