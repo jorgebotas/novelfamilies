@@ -112,20 +112,16 @@ def get_neighborhood(identifier, origin):
         earth_mags_neighs = mongo_connect_context()
     # gf = str(get_gf(identifier)).zfill(9)
     # gf = gf[:3] + "_" + gf[3:6] + "_" + gf[6:]
-    # try:
-        # identifier = int(identifier)
-        # gf = int(get_gf(identifier))
-    # except:
     gf = int(str(identifier).replace("_", ""))
-    print(gf)
+    if len(str(gf)) < len(str(identifier)):
+        identifier = int(identifier)
+        gf = int(get_gf(identifier))
     search = {'gf' : gf}
     if origin == "gmgc":
         data = gmgcv1_neighs.find(search)[0]['neigh']
     elif origin == "human-gut":
         data = human_gut_neighs.find(search)[0]['neigh']
     elif origin == "tara":
-        for t in tara_mags_neighs.find(search):
-            print(t)
         data = tara_mags_neighs.find(search)[0]['neigh']
     elif origin == "earth":
         data = earth_mags_neighs.find(search)[0]['neigh']
