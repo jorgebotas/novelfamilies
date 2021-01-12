@@ -28,7 +28,7 @@ def mongo_connect_context():
     gmgcv1_neighs = db.gmgcv1_neighs
     human_gut_neighs = db.neighs_human_gut
     tara_mags_neighs = db.tara_mags_neighs
-    earth_mags_neighs = db.earth_mags_neigs
+    earth_mags_neighs = db.earth_mags_neighs
     return db, \
            gmgcv1_neighs, \
            human_gut_neighs, \
