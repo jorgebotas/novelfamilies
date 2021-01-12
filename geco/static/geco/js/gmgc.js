@@ -287,6 +287,10 @@ var gmgc_vueapp = new Vue({
             }
         },
 
+        refreshGeCo : function (selector) {
+            $(selector + " button[type='submit']").click();
+        },
+
         searchFams : function() {
             $("#search-fams").blur();
             let val = $("#search-fams").val();

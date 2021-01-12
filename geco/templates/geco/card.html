@@ -522,7 +522,7 @@
                                role="tab" 
                                aria-controls="pills-geco-gmgc"
                                aria-selected="true"
-                               @click="toggleGeCo('#f'+tid+'-gmgcGeCo', tid, 'gmgc');">
+                               @click="refreashGeCo('#f'+tid+'-gmgcGeCo');">
                                 GMGC</a>
                           </li>
                           <li class="nav-item mx-2">
@@ -533,7 +533,7 @@
                                role="tab" 
                                aria-controls="pills-geco-humangut"
                                aria-selected="false"
-                               @click="toggleGeCo('#f'+tid+'-humangutGeCo', tid, 'humangut');">
+                               @click="refreshGeCo('#f'+tid+'-humangutGeCo');">
                                Human gut MAGs</a>
                           </li>
                           <li class="nav-item mx-2">
@@ -544,7 +544,7 @@
                                 role="tab" 
                                 aria-controls="pills-geco-ocean"
                                 aria-selected="false"
-                               @click="toggleGeCo('#f'+tid+'-taraGeCo', tid, 'tara');">
+                               @click="refreshGeCo('#f'+tid+'-taraGeCo');">
                                 Ocean MAGs</a>
                           </li>
                           <li class="nav-item mx-2">
@@ -555,7 +555,7 @@
                                 role="tab" 
                                 aria-controls="pills-geco-earth"
                                 aria-selected="false"
-                               @click="toggleGeCo('#f'+tid+'-earthGeCo', tid, 'earth');">
+                               @click="refreshGeCo('#f'+tid+'-earthGeCo');">
                                 Earth MAGs</a>
                           </li>
                         </ul>
