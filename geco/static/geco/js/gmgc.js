@@ -144,6 +144,7 @@ var drawDonuts = async function(f, data) {
                 ],
                 Object.values(mags).map(m => m.length),
                 colors.slice(0, 4))
+    console.log(Object.values(mags).map(m => m.length))
 }
 
 var renderDonut = function(id, labels, vals, colors) {
