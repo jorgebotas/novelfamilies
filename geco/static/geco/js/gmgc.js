@@ -289,6 +289,7 @@ var gmgc_vueapp = new Vue({
 
         refreshGeCo : function (selector) {
             $(selector + " button[type='submit']").click();
+            console.log(selector)
         },
 
         searchFams : function() {
