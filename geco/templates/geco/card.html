@@ -521,7 +521,9 @@
                                :href="'#f' + tid + '-geco-gmgc'" 
                                role="tab" 
                                aria-controls="pills-geco-gmgc"
-                               aria-selected="true">Human gut MAGs</a>
+                               aria-selected="true"
+                               @click="toggleGeCo('#f'+tid+'-gmgcGeCo', tid, 'gmgc');">
+                                GMGC</a>
                           </li>
                           <li class="nav-item mx-2">
                             <a class="nav-link btn-sm" 
@@ -530,7 +532,10 @@
                                :href="'#f' + tid + '-geco-humangut'" 
                                role="tab" 
                                aria-controls="pills-geco-humangut"
-                               aria-selected="true">Human gut MAGs</a>
+                               aria-selected="false"
+                               @click="toggleGeCo('#f'+tid+'-humangutGeCo', tid,
+                               'humangut');">
+                               Human gut MAGs</a>
                           </li>
                           <li class="nav-item mx-2">
                             <a class="nav-link btn-sm" 
@@ -539,7 +544,10 @@
                                :href="'#f' + tid + '-geco-ocean'"
                                 role="tab" 
                                 aria-controls="pills-geco-ocean"
-                                aria-selected="false">Ocean MAGs</a>
+                                aria-selected="false"
+                               @click="toggleGeCo('#f'+tid+'-taraGeCo', tid,
+                               'tara');">
+                                Ocean MAGs</a>
                           </li>
                           <li class="nav-item mx-2">
                             <a class="nav-link btn-sm" 
@@ -548,7 +556,10 @@
                                :href="'#f' + tid + '-geco-earth'"
                                 role="tab" 
                                 aria-controls="pills-geco-earth"
-                                aria-selected="false">Earth MAGs</a>
+                                aria-selected="false"
+                               @click="toggleGeCo('#f'+tid+'-earthGeCo', tid,
+                               'earth');">
+                                Earth MAGs</a>
                           </li>
                         </ul>
                    </div>
