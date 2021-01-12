@@ -131,5 +131,4 @@ def get_neighborhood(identifier, origin):
         data = earth_mags_neighs.find(search)[0]['neigh']
     else:
         data = {}
-    print(data)
     return data
