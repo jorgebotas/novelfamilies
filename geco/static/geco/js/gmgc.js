@@ -142,7 +142,7 @@ var drawDonuts = async function(f, data) {
                 "TARA Eukaryote",
                 "Earth",
                 ],
-                Object.values(mags),
+                Object.values(mags).map(m => m.length),
                 colors.slice(0, 4))
 }
 
