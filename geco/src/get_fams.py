@@ -113,7 +113,7 @@ def get_neighborhood(identifier, origin):
     # gf = str(get_gf(identifier)).zfill(9)
     # gf = gf[:3] + "_" + gf[3:6] + "_" + gf[6:]
     gf = int(str(identifier).replace("_", ""))
-    if len(str(gf)) < len(str(identifier)):
+    if len(str(gf)) == len(str(identifier)):
         identifier = int(identifier)
         gf = int(get_gf(identifier))
     search = {'gf' : gf}
