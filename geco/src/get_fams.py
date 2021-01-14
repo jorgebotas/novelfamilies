@@ -60,7 +60,7 @@ def get_fam_info(identifier, is_gf=True):
                         'number' : num
                     })
             mtax.append(t)
-            mtax = {
+            mags_tax = {
                   'lca_gtdb' : mannot[origin]['tax']['lca_gtdb'],
                   'ta_gtdb' : mtax
             }
