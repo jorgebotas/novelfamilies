@@ -39,6 +39,13 @@ def get_fam_info(identifier, is_gf=True):
             if s != '':
                 m.append(s)
         mags[k] = m
+    mannot = mags_annot.find({'gf' : gf_data['gf']})[0]
+    mags_annot = [
+        { 'origin' : 'human gut', **mannot['human_gut'] },
+        { 'origin' : 'tara_p', **mannot['tara_p'] },
+        { 'origin' : 'tara_e', **mannot['tara_e'] },
+        { 'origin' : 'earth', **mannot['earth'] },
+    ]
     ds = gmgcv1_data['domains']
     domains = [];
     for gene, d in ds.items():
@@ -103,12 +110,11 @@ def get_fam_info(identifier, is_gf=True):
         'biomes' : gmgcv1_data['biomep'],
         'taxp' :  gmgcv1_data['p_taxp'],
         'mags' : mags,
-        'mags_annot' : mags_annot.find({'gf' : gf_data['gf']})[0],
+        'mags_annot' : mags_annot,
         'dnds' : gf_data['dnds'],
         'p_exp' : gf_data['p_exp'],
         'align' : gf_data['algstats'],
     }
-    print(data['mags_annot'])
     return data
 
 def get_neighborhood(identifier, origin):
