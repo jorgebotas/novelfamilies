@@ -48,8 +48,9 @@ def get_fam_info(identifier, is_gf=True):
         'earth' : 'Earth'
     }
     for origin in origin_dict.keys():
-        t = []
+        mags_tax = []
         if mannot[origin]['tax'] != {}:
+            t = []
             for k, v in mannot[origin]['tax']['ta_gtdb'].items():
                 for name, num in v.items():
                     t.append({
@@ -61,8 +62,6 @@ def get_fam_info(identifier, is_gf=True):
                   'lca_gtdb' : mannot[origin]['tax']['lca_gtdb'],
                   'ta_gtdb' : t
                  })
-        else:
-            mags_tax = {}
         mags_annot.append({
             'origin' : origin_dict[origin],
             'function' : mannot[origin]['function'],
