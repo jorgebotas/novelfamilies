@@ -107,7 +107,7 @@ def get_fam_info(identifier, is_gf=True):
         'p_exp' : gf_data['p_exp'],
         'align' : gf_data['algstats'],
     }
-    print(mags_annot.find({'gf' : gf_data['gf']}))
+    print(mags_annot.find({'gf' : gf_data['gf']})[0])
     return data
 
 def get_neighborhood(identifier, origin):
