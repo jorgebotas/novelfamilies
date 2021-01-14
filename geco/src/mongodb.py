@@ -18,7 +18,7 @@ def mongo_connect_famInfo():
     db = client.novel_fam
     gf = db.gene_families
     gmgcv1_gf = db.gf_profile_gmgcv1
-    mags_annot = db.MAGa_annot
+    mags_annot = db.MAGs_annot
     return db, \
            gf, \
            gmgcv1_gf, \
