@@ -21,7 +21,8 @@ def get_fam_info(identifier, is_gf=True):
     # Connect to MongoDB
     db,\
         gf,\
-        gmgcv1_gf = mongo_connect_famInfo()
+        gmgcv1_gf,\
+        mags_annot = mongo_connect_famInfo()
     if is_gf:
         identifier = int(identifier.replace("_", ""))
         gf_search = {'gf' : int(identifier)}
