@@ -12,7 +12,8 @@ def get_gf(gfn):
     # Connect to MongoDB
     db,\
         gf,\
-        gmgcv1_gf = mongo_connect_famInfo()
+        gmgcv1_gf,\
+        mags_annot = mongo_connect_famInfo()
     gf = gf.find({'gfn' : int(gfn)})[0]['gf']
     return gf
 

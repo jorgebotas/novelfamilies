@@ -18,9 +18,11 @@ def mongo_connect_famInfo():
     db = client.novel_fam
     gf = db.gene_families
     gmgcv1_gf = db.gf_profile_gmgcv1
+    mags_annot = db.MAGa_annot
     return db, \
            gf, \
-           gmgcv1_gf
+           gmgcv1_gf, \
+           mags_annot
 
 def mongo_connect_context():
     client = MongoClient('10.0.3.1', 27017, maxPoolSize=10)
