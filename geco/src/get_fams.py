@@ -58,14 +58,14 @@ def get_fam_info(identifier, is_gf=True):
                         'name' : name,
                         'number' : num
                     })
-            mags_tax.append({
-                  'lca_gtdb' : mannot[origin]['tax']['lca_gtdb'],
-                  'ta_gtdb' : t
-                 })
+            mags_tax.append(t)
         mags_annot.append({
             'origin' : origin_dict[origin],
             'function' : mannot[origin]['function'],
-            'tax' : mags_tax
+            'tax' : {
+                  'lca_gtdb' : mannot[origin]['tax']['lca_gtdb'],
+                  'ta_gtdb' : mags_tax
+            }
         })
     ds = gmgcv1_data['domains']
     domains = [];
