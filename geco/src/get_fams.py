@@ -103,11 +103,12 @@ def get_fam_info(identifier, is_gf=True):
         'biomes' : gmgcv1_data['biomep'],
         'taxp' :  gmgcv1_data['p_taxp'],
         'mags' : mags,
+        'mags_annot' : mags_annot.find({'gf' : gf_data['gf']})[0],
         'dnds' : gf_data['dnds'],
         'p_exp' : gf_data['p_exp'],
         'align' : gf_data['algstats'],
     }
-    print(mags_annot.find({'gf' : gf_data['gf']})[0])
+    print()
     return data
 
 def get_neighborhood(identifier, origin):

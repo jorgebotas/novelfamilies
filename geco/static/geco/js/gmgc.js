@@ -337,5 +337,6 @@ var gmgc_vueapp = new Vue({
         getLen : function(domains, gene) {
             return domains.filter(d => d.gene == gene)[0].lenseq
         },
+
     },
 });
