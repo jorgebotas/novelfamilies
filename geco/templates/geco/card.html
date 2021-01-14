@@ -395,7 +395,7 @@
               aria-labelledby="pills-mags-function-tab">
            <div v-for="origin in tdata.mags_annot">
                <div class="card col-md-12 p-0"
-                    v-if="origin.function != {}">
+                    v-if="origin.function.length > 0">
                    <div class="card-header text-primary font-weight-bold">
                         [[ origin.origin ]]
                    </div>
