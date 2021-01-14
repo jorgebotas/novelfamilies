@@ -49,19 +49,24 @@ def get_fam_info(identifier, is_gf=True):
     }
     for origin in origin_dict.keys():
         t = []
-        print(mannot[origin]['tax'])
-        for k, v in mannot[origin]['tax']['ta_gtdb'].items():
-            for name, num in v.items():
-                t.append({
-                    'level' : k,
-                    'name' : name,
-                    'number' : num
-                })
+        if mannot[origin]['tax'] != {}:
+            for k, v in mannot[origin]['tax']['ta_gtdb'].items():
+                for name, num in v.items():
+                    t.append({
+                        'level' : k,
+                        'name' : name,
+                        'number' : num
+                    })
+            mags_tax.append({
+                  'lca_gtdb' : mannot[origin]['tax']['lca_gtdb'],
+                  'ta_gtdb' : t
+                 })
+        else:
+            mags_tax = {}
         mags_annot.append({
             'origin' : origin_dict[origin],
             'function' : mannot[origin]['function'],
-            'tax' : { 'lca_gtdb' : mannot[origin]['tax']['lca_gtdb'],
-                      'ta_gtdb' : t}
+            'tax' : mags_tax
         })
     ds = gmgcv1_data['domains']
     domains = [];
