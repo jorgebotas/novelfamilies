@@ -334,7 +334,7 @@
                <div class="card col-md-12 p-0"
                     v-if="origin.function != {}">
                    <div class="card-header text-primary font-weight-bold">
-                        [[ origin | getKeyByValue(tdata.mags_annot) ]]
+                        [[ origin.origin ]]
                    </div>
                 <div class="card-body">
                    <div class="card p-0 mx-4 fam-table">
@@ -359,10 +359,10 @@
                                            [[ m.vcons | toFixed ]]
                                        </th>
                                        <th class="p-1">
-                                           [[ m.maxhcons ]]
+                                           [[ m.maxhcons | toFixed ]]
                                        </th>
                                        <th class="p-1">
-                                           [[ m.meanhcons ]]
+                                           [[ m.meanhcons | toFixed ]]
                                        </th>
                                        <th class="p-1">
                                            [[ m.description ]]
@@ -375,7 +375,6 @@
                    </div>
                 </div>
                </div>
-           </div>
            
           </div>
 
