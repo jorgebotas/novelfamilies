@@ -332,7 +332,7 @@
                                role="tab" 
                                aria-controls="pills-mags-samples"
                                aria-selected="false">
-                               Human gut MAGs</a>
+                               Samples</a>
                           </li>
                           <li class="nav-item mx-2">
                             <a class="nav-link btn-sm" 
@@ -342,7 +342,7 @@
                                 role="tab" 
                                 aria-controls="pills-magsFunction-tab"
                                 aria-selected="false">
-                                Ocean MAGs</a>
+                                Functional assigation</a>
                           </li>
                           <li class="nav-item mx-2">
                             <a class="nav-link btn-sm" 
@@ -352,7 +352,7 @@
                                 role="tab" 
                                 aria-controls="pills-magsTax-tab"
                                 aria-selected="false">
-                                Earth MAGs</a>
+                                Taxonomic assignation</a>
                           </li>
                         </ul>
                    </div>
@@ -440,6 +440,57 @@
                </div>
 
            </div>
+
+  <!--         <div class="tab-pane fade" :id="'f' + tid +-->
+                      <!--'-magsFunction-tab'" role="tabpanel"-->
+              <!--aria-labelledby="pills-mags-function-tab">-->
+           <!--<div v-for="origin in tdata.mags_annot">-->
+               <!--<div class="card col-md-12 p-0"-->
+                    <!--v-if="origin.tax != {}">-->
+                   <!--<div class="card-header text-primary font-weight-bold">-->
+                        <!--[[ origin.origin ]]-->
+                   <!--</div>-->
+                <!--<div class="card-body">-->
+                   <!--<div class="card p-0 mx-4 fam-table">-->
+                       <!--<div class="table-responsive">-->
+                           <!--<table class="table table-vcenter card-table-->
+                               <!--text-center mb-0">-->
+                               <!--<thead>-->
+                                   <!--<tr>-->
+                                       <!--<th>KEGG</th>-->
+                                       <!--<th>Description</th>-->
+                                       <!--<th>vcons</th>-->
+                                       <!--<th>meanhcons</th>-->
+                                       <!--<th>maxhcons</th>-->
+                                   <!--</tr>-->
+                               <!--</thead>-->
+                               <!--<tbody>-->
+                                   <!--<tr v-for="m in origin.function">-->
+                                       <!--<th class="p-1">-->
+                                           <!--[[ m | getKeyByValue(origin.function) ]]-->
+                                       <!--</th>-->
+                                       <!--<th class="p-1">-->
+                                           <!--[[ m.vcons | toFixed ]]-->
+                                       <!--</th>-->
+                                       <!--<th class="p-1">-->
+                                           <!--[[ m.maxhcons | toFixed ]]-->
+                                       <!--</th>-->
+                                       <!--<th class="p-1">-->
+                                           <!--[[ m.meanhcons | toFixed ]]-->
+                                       <!--</th>-->
+                                       <!--<th class="p-1">-->
+                                           <!--[[ m.description ]]-->
+                                       <!--</th>-->
+                                   <!--</tr>-->
+                               <!--</tbody>-->
+                           <!--</table>-->
+                       <!--</div>-->
+                   <!--</div>-->
+                   <!--</div>-->
+                <!--</div>-->
+               <!--</div>-->
+
+           <!--</div>-->
        </div>
        </div>
        </div>
