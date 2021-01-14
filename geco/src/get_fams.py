@@ -54,7 +54,7 @@ def get_fam_info(identifier, is_gf=True):
                 t.append({
                     'level' : k,
                     'name' : name,
-                    'number' : number
+                    'number' : num
                 })
         mags_annot.append({
             'origin' : origin_dict[origin],
