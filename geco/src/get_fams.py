@@ -41,10 +41,10 @@ def get_fam_info(identifier, is_gf=True):
         mags[k] = m
     mannot = mags_annot.find({'gf' : gf_data['gf']})[0]
     mags_annot = [
-        { 'origin' : 'human gut', **mannot['human_gut'] },
-        { 'origin' : 'tara_p', **mannot['tara_p'] },
-        { 'origin' : 'tara_e', **mannot['tara_e'] },
-        { 'origin' : 'earth', **mannot['earth'] },
+        { 'origin' : 'Human gut', **mannot['human_gut'] },
+        { 'origin' : 'TARA P', **mannot['tara_p'] },
+        { 'origin' : 'TARA E', **mannot['tara_e'] },
+        { 'origin' : 'Earth', **mannot['earth'] },
     ]
     ds = gmgcv1_data['domains']
     domains = [];
