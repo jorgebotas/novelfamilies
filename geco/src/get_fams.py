@@ -49,7 +49,7 @@ def get_fam_info(identifier, is_gf=True):
     }
     for origin in origin_dict.keys():
         t = []
-        print(mannot[origin]['tax']['ta_gtdb'])
+        print(mannot[origin]['tax'])
         for k, v in mannot[origin]['tax']['ta_gtdb'].items():
             for name, num in v.items():
                 t.append({
