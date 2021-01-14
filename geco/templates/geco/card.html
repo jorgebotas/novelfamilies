@@ -464,15 +464,15 @@
                                    </tr>
                                </thead>
                                <tbody>
-                                   <tr v-for="i in m">
+                                   <tr>
                                        <th class="p-1">
-                                           [[ m | getKeyByValue(origin.tax) ]]
+                                           [[ m.level ]]
                                        </th>
                                        <th class="p-1">
-                                           [[ i | getKeyByValue(m) ]]
+                                           [[ m.name ]]
                                        </th>
                                        <th class="p-1">
-                                           [[ i  ]]
+                                           [[ m.number ]]
                                        </th>
                                    </tr>
                                </tbody>

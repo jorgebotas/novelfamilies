@@ -22,7 +22,7 @@ def get_fam_info(identifier, is_gf=True):
     db,\
         gf,\
         gmgcv1_gf,\
-        mags_annot = mongo_connect_famInfo()
+        mags_annot_coll = mongo_connect_famInfo()
     if is_gf:
         identifier = int(identifier.replace("_", ""))
         gf_search = {'gf' : int(identifier)}
@@ -39,13 +39,29 @@ def get_fam_info(identifier, is_gf=True):
             if s != '':
                 m.append(s)
         mags[k] = m
-    mannot = mags_annot.find({'gf' : gf_data['gf']})[0]
-    mags_annot = [
-        { 'origin' : 'Human gut', **mannot['human_gut'] },
-        { 'origin' : 'TARA P', **mannot['tara_p'] },
-        { 'origin' : 'TARA E', **mannot['tara_e'] },
-        { 'origin' : 'Earth', **mannot['earth'] },
-    ]
+    mannot = mags_annot_coll.find({'gf' : gf_data['gf']})[0]
+    mags_annot = []
+    origin_dict = {
+        'human_gut' : 'Human gut',
+        'tara_p' : 'TARA P',
+        'tara_e' : 'TARA E',
+        'earth' : 'Earth'
+    }
+    for origin in origin_dict.keys():
+        t = []
+        for k, v in mannot[origin]['tax']['ta_gtdb'].items():
+            for name, num in v.items():
+                t.append({
+                    'level' : k,
+                    'name' : name,
+                    'number' : number
+                })
+        mags_annot.append({
+            'origin' : origin_dict[origin],
+            'function' : mannot[origin]['function'],
+            'tax' : { 'lca_gtdb' : mannot[origin]['tax']['lca_gtdb'],
+                      'ta_gtdb' : t}
+        })
     ds = gmgcv1_data['domains']
     domains = [];
     for gene, d in ds.items():
