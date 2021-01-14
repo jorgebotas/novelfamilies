@@ -463,8 +463,7 @@
                                    </tr>
                                </thead>
                                <tbody>
-                                   <div v-for="m in origin.tax">
-                                   <tr v-for="i in m">
+                                   <tr v-for="i in m for m in origin.tax">
                                        <th class="p-1">
                                            [[ m | getKeyByValue(origin.tax) ]]
                                        </th>
@@ -475,7 +474,6 @@
                                            [[ i | toFixed ]]
                                        </th>
                                    </tr>
-                                   </div>
                                </tbody>
                            </table>
                        </div>
