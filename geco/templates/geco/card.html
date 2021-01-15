@@ -83,7 +83,8 @@
                                 toggleGeCo('#f'+tid+'-gmgcGeCo', tid, 'gmgc');
                                 toggleGeCo('#f'+tid+'-humanGutGeco', tid, 'human-gut');
                                 toggleGeCo('#f'+tid+'-taraGeco', tid, 'tara');
-                                toggleGeCo('#f'+tid+'-earthGeco', tid, 'earth')"
+                                toggleGeCo('#f'+tid+'-earthGeco', tid, 'earth');
+                                toggleGeCo('#f'+tid+'-taraEukMagsGeco', tid, 'tara-euk')"
                         >GeCoViz</a>
                   </li>
                   <li class="nav-item mx-3 position-absolute"
@@ -747,6 +748,17 @@
                                @click="refreshGeCo('#f'+tid+'-earthGeCo');">
                                 Earth MAGs</a>
                           </li>
+                          <li class="nav-item mx-2">
+                            <a class="nav-link btn-sm" 
+                               id="pills-geco-taraEukMags-tab" 
+                               data-toggle="pill"
+                               :href="'#f' + tid + '-geco-taraEukMags'"
+                                role="tab" 
+                                aria-controls="pills-geco-taraEukMags"
+                                aria-selected="false"
+                               @click="refreshGeCo('#f'+tid+'-taraEukMagsGeco');">
+                                TARA Eukaryote MAGs</a>
+                          </li>
                         </ul>
                    </div>
            <div class="card-body p-2 rounded bg-light">
@@ -804,6 +816,20 @@
                </div>
                <div class="card-body overflow-auto rounded" 
                     :id="'f' + tid + '-earthGeco'"
+                    style="height:1600px;resize:vertical;">
+                   {% include 'geco/geco.html' %}
+               </div>
+           </div>
+           </div>
+
+           <div class="tab-pane fade" :id="'f' + tid + '-geco-taraEukMags'" role="tabpanel"
+              aria-labelledby="pills-taraeuk-mags-tab">
+           <div class="card">
+               <div class="card-header text-primary font-weight-bold">
+                   Genomic context from TARA Eukaryote MAGs
+               </div>
+               <div class="card-body overflow-auto rounded" 
+                    :id="'f' + tid + '-taraEukMagsGeco'"
                     style="height:1600px;resize:vertical;">
                    {% include 'geco/geco.html' %}
                </div>

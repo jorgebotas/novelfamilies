@@ -40,6 +40,7 @@ def get_fam_info(identifier, is_gf=True):
                 m.append(s)
         mags[k] = m
     mannot = mags_annot_coll.find({'gf' : gf_data['gf']})[0]
+    print(mannot)
     mags_annot = []
     origin_dict = {
         'human_gut' : 'Human gut',
@@ -144,7 +145,8 @@ def get_neighborhood(identifier, origin):
         gmgcv1_neighs, \
         human_gut_neighs, \
         tara_mags_neighs, \
-        earth_mags_neighs = mongo_connect_context()
+        earth_mags_neighs, \
+        tara_euk_mags_neighs = mongo_connect_context()
     # gf = str(get_gf(identifier)).zfill(9)
     # gf = gf[:3] + "_" + gf[3:6] + "_" + gf[6:]
     gf = int(str(identifier).replace("_", ""))
@@ -160,6 +162,8 @@ def get_neighborhood(identifier, origin):
         data = tara_mags_neighs.find(search)[0]['neigh']
     elif origin == "earth":
         data = earth_mags_neighs.find(search)[0]['neigh']
+    elif origin == "tara-euk":
+        data = tara_euk__mags_neighs.find(search)[0]['neigh']
     else:
         data = {}
     return data

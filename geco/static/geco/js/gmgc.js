@@ -243,7 +243,6 @@ var renderDomains = function(domains) {
         });
 }
 
-
 var gmgc_vueapp = new Vue({
     delimiters: ['[[', ']]'],
     el: '#NovelFams',
