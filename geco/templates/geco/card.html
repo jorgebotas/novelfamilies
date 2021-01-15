@@ -387,6 +387,48 @@
                    </ul>
                </div>
            </div>
+           <div class="card col-md-12 p-0">
+                   <div class="card-header text-primary font-weight-bold">
+                        MAG samples
+                   </div>
+                <div class="card-body">
+                   <div class="card p-0 mx-4 fam-table">
+                       <div class="table-responsive">
+                           <table class="table table-vcenter card-table
+                               text-center mb-0">
+                               <thead>
+                                   <tr>
+                                       <th>Human gut</th>
+                                       <th>Marine</th>
+                                       <th>TARA Eukaryote</th>
+                                       <th>Earth</th>
+                                   </tr>
+                               </thead>
+                               <tbody>
+                                   <tr 
+                                    v-for="i in max(tdata.mags.almeida,
+                                                tdata.mags.paoli,
+                                                tdata.mags.delmon,
+                                                tdata.mags.naychaf)">
+                                       <th class="p-1">
+                                           [[ tdata.mags.almeida[i] ]]
+                                       </th>
+                                       <th class="p-1">
+                                           [[ tdata.mags.paoli[i] ]]
+                                       </th>
+                                       <th class="p-1">
+                                           [[ tdata.mags.delmont[i] ]]
+                                       </th>
+                                       <th class="p-1">
+                                           [[ tdata.mags.naychaf[i] ]]
+                                       </th>
+                                   </tr>
+                               </tbody>
+                           </table>
+                       </div>
+                   </div>
+                   </div>
+                </div>
 
            </div>
 

@@ -43,8 +43,8 @@ def get_fam_info(identifier, is_gf=True):
     mags_annot = []
     origin_dict = {
         'human_gut' : 'Human gut',
-        'tara_p' : 'TARA P',
-        'tara_e' : 'TARA E',
+        'tara_p' : 'TARA Prokaryote',
+        'tara_e' : 'TARA Eukaryote',
         'earth' : 'Earth'
     }
     for origin in origin_dict.keys():
