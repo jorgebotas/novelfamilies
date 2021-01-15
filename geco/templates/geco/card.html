@@ -405,7 +405,7 @@
                                    </tr>
                                </thead>
                                <tbody>
-                                   <tr 
+                                   <tr v-if="tdata.mags"
                                     v-for="i in Math.max(
                                             tdata.mags.almeida.length,
                                             tdata.mags.paoli.length,
