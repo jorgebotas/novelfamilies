@@ -406,10 +406,11 @@
                                </thead>
                                <tbody>
                                    <tr 
-                                    v-for="i in Math.max(tdata.mags.almeida,
-                                                tdata.mags.paoli,
-                                                tdata.mags.delmon,
-                                                tdata.mags.naychaf)">
+                                    v-for="i in Math.max(
+                                            tdata.mags.almeida.length,
+                                            tdata.mags.paoli.length,
+                                            tdata.mags.delmon.length,
+                                            tdata.mags.naychaf.length)">
                                        <th class="p-1">
                                            [[ tdata.mags.almeida[i] ]]
                                        </th>
