@@ -40,7 +40,6 @@ def get_fam_info(identifier, is_gf=True):
                 m.append(s)
         mags[k] = m
     mannot = mags_annot_coll.find({'gf' : gf_data['gf']})[0]
-    print(mannot)
     mags_annot = []
     origin_dict = {
         'human_gut' : 'Human gut',
@@ -137,6 +136,7 @@ def get_fam_info(identifier, is_gf=True):
         'p_exp' : gf_data['p_exp'],
         'align' : gf_data['algstats'],
     }
+   print(data['keggp'])
     return data
 
 def get_neighborhood(identifier, origin):
