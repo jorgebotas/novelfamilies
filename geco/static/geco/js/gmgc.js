@@ -17,6 +17,7 @@ var get_context = async (query, origin, cutoff) => {
          .then(response => response.json())
         .then(data => {
             async function swapData(unprocessedData) {
+                console.log(unprocessedData)
                 var  swappedData = Object.assign({}, unprocessedData);
                 await Object.values(Object.assign({}, unprocessedData))
                     .forEach(d => {
@@ -52,7 +53,7 @@ var get_context = async (query, origin, cutoff) => {
                 })
                 return swappedData;
             }
-            return swapData(data)
+            return swapData(Object.assign({}, data))
         })
          .then(data => context = data)
          .catch(e => console.log(e));
