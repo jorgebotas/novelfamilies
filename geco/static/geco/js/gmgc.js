@@ -12,6 +12,7 @@ var get_newick = async (query) => {
 
 var get_context = async (query, origin, cutoff) => {
     let context;
+    console.log(origin)
     await fetch(API_BASE_URL + '/context/' + origin + '/' + query + '/' + cutoff + '/')
          .then(response => response.json())
          .then(data => context = data)
