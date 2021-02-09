@@ -16,7 +16,44 @@ var get_context = async (query, origin, cutoff) => {
          .then(response => response.json())
          .then(data => context = data)
          .catch(e => console.log(e));
-    return context;
+        async function swapData(unprocessedData) {
+        var  swappedData = Object.assign({}, unprocessedData);
+        await Object.entries(Object.assign({}, unprocessedData))
+            .forEach((central_gene, d) => {
+        function swap_strand(s, reference_s) {
+            if (reference_s == "+" || +reference_s > 0){
+                return s;
+            } else {
+                if (s == "+"){
+                    return "-";
+                } else if(s == "-") {
+                    return "+";
+                }
+            }
+        }
+        if (d.neighbourhood[0].strand == "-" || +d.neighbourhood[0].strand < 0) {
+            console.log(d.neighbourhood[0])
+            let swapped = {};
+            for(let p = -nenv; p <= nenv; p++) {
+                let swapped_neigh  = d.neighbourhood[p];
+                if (swapped_neigh) {
+                    let n_strand  = swapped_neigh.strand ? swapped_neigh.strand : "+";
+                    if (swapped_neigh.gene != "NA") {
+                        swapped_neigh.strand = swap_strand(n_strand,
+                                                    d.neighbourhood[0].strand);
+                    } else {
+                        swapped_neigh.strand = "+";
+                    }
+                }
+                swapped[-p] = swapped_neigh;
+            }
+            d.neighbourhood = swapped;
+        }
+        })
+        return swappedData;
+    }
+    var processedData = await swapData(context);
+    return processedData;
 }
 
 var get_colors = async () => {
