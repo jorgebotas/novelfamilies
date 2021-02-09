@@ -53,6 +53,7 @@ var get_context = async (query, origin, cutoff) => {
         return swappedData;
     }
     var processedData = await swapData(context);
+    console.log(processedData)
     return processedData;
 }
 
