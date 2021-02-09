@@ -57,9 +57,7 @@ var get_context = async (query, origin, cutoff) => {
          .then(data => context = data)
          .catch(e => console.log(e));
     console.log(context)
-    var processedData = await swapData(context);
-    console.log(processedData)
-    return processedData;
+    return context;
 }
 
 var get_colors = async () => {
