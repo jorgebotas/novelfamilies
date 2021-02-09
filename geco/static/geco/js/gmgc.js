@@ -18,8 +18,8 @@ var get_context = async (query, origin, cutoff) => {
          .catch(e => console.log(e));
         async function swapData(unprocessedData) {
         var  swappedData = Object.assign({}, unprocessedData);
-        await Object.entries(Object.assign({}, unprocessedData))
-            .forEach((central_gene, d) => {
+        await Object.values(Object.assign({}, unprocessedData))
+            .forEach(d => {
         function swap_strand(s, reference_s) {
             if (reference_s == "+" || +reference_s > 0){
                 return s;
