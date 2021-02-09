@@ -19,6 +19,7 @@ var get_context = async (query, origin, cutoff) => {
             async function swapData(unprocessedData) {
                 console.log(unprocessedData)
                 var  swappedData = Object.assign({}, unprocessedData);
+                console.log(swappedData)
                 await Object.values(Object.assign({}, unprocessedData))
                     .forEach(d => {
                 function swap_strand(s, reference_s) {
