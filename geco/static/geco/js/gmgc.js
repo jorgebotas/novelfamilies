@@ -23,12 +23,12 @@ var get_context = async (query, origin, cutoff) => {
                 await Object.values(Object.assign({}, unprocessedData))
                     .forEach(d => {
                 function swap_strand(s, reference_s) {
-                    if (reference_s == "+" || +reference_s > 0){
+                    if (reference_s == "+"){
                         return s;
                     } else {
-                        if (s == "+"){
+                        if (s == "+" || +s > 0){
                             return "-";
-                        } else if(s == "-") {
+                        } else if(s == "-" || +s < 0) {
                             return "+";
                         }
                     }
@@ -41,8 +41,7 @@ var get_context = async (query, origin, cutoff) => {
                         if (swapped_neigh) {
                             let n_strand  = swapped_neigh.strand ? swapped_neigh.strand : "+";
                             if (swapped_neigh.gene != "NA") {
-                                swapped_neigh.strand = swap_strand(n_strand,
-                                                            d.neighbourhood[0].strand);
+                                swapped_neigh.strand = swap_strand(n_strand, "-");
                             } else {
                                 swapped_neigh.strand = "+";
                             }
