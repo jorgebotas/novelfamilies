@@ -36,7 +36,7 @@ var get_context = async (query, origin, cutoff) => {
                 if (d.neighbourhood[0].strand == "-" || +d.neighbourhood[0].strand < 0) {
                     console.log(d.neighbourhood[0])
                     let swapped = {};
-                    for(let p = -nenv; p <= nenv; p++) {
+                    for(let p = -20; p <= 20; p++) {
                         let swapped_neigh  = d.neighbourhood[p];
                         if (swapped_neigh) {
                             let n_strand  = swapped_neigh.strand ? swapped_neigh.strand : "+";
