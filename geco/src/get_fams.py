@@ -161,8 +161,6 @@ def get_neighborhood(identifier, origin):
     elif origin == "tara":
         data = tara_mags_neighs.find(search)[0]['neigh']
     elif origin == "earth":
-        print(list(earth_mags_neighs.find(search)))
-        print(earth_mags_neighs.find()[0])
         data = earth_mags_neighs.find(search)[0]['neigh']
     elif origin == "tara-euk":
         data = tara_euk_mags_neighs.find(search)[0]['neigh']
