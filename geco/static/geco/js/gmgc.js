@@ -13,7 +13,10 @@ var get_newick = async (query) => {
 var get_context = async (query, origin, cutoff) => {
     let context;
     await fetch(API_BASE_URL + '/context/' + origin + '/' + query + '/' + cutoff + '/')
-         .then(response => response.json())
+        .then(response => {
+                if (origin == 'earth') console.log(response)
+                response.json()
+        })
         .then(data => {
             async function swapData(unprocessedData) {
                 var  swappedData = Object.assign({}, unprocessedData);
