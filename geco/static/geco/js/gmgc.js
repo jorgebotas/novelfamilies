@@ -12,14 +12,11 @@ var get_newick = async (query) => {
 
 var get_context = async (query, origin, cutoff) => {
     let context;
-    console.log(origin)
     await fetch(API_BASE_URL + '/context/' + origin + '/' + query + '/' + cutoff + '/')
          .then(response => response.json())
         .then(data => {
             async function swapData(unprocessedData) {
-                console.log(unprocessedData)
                 var  swappedData = Object.assign({}, unprocessedData);
-                console.log(swappedData)
                 await Object.values(Object.assign({}, unprocessedData))
                     .forEach(d => {
                 function swap_strand(s, reference_s) {
@@ -34,7 +31,6 @@ var get_context = async (query, origin, cutoff) => {
                     }
                 }
                 if (d.neighbourhood[0].strand == "-" || +d.neighbourhood[0].strand < 0) {
-                    console.log(d.neighbourhood[0])
                     let swapped = {};
                     for(let p = -20; p <= 20; p++) {
                         let swapped_neigh  = d.neighbourhood[p];
@@ -57,7 +53,6 @@ var get_context = async (query, origin, cutoff) => {
         })
          .then(data => context = data)
          .catch(e => console.log(e));
-    console.log(context)
     return context;
 }
 
