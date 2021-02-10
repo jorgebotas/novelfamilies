@@ -14,7 +14,8 @@ var get_context = async (query, origin, cutoff) => {
     let context;
     await fetch(API_BASE_URL + '/context/' + origin + '/' + query + '/' + cutoff + '/')
         .then(response => {
-                if (origin == 'earth') console.log(response)
+                console.log(origin)
+                console.log(response)
                 response.json()
         })
         .then(data => {
