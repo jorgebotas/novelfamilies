@@ -37,7 +37,6 @@ def mongo_orf_find(GMGC,max_gmgc_genes,coll_unigenes):
                         print("ERROR retrieving ORF info from gmgc cluster")
         return GMGC_dict
 
-
 def mongo_functional_find(GMGC, coll_clusters):
         """ get functional information from mongo.clusters db for gmgc element"""
         kegg_list = [] # store the keggs
@@ -61,7 +60,6 @@ def mongo_functional_find(GMGC, coll_clusters):
 
         return GMGC_function_list
 
-
 def retrieve_gmgc(gene, coll_unigenes, limit=True):
         """ retrieve gmgc for every orf from unigenes db """
         if limit:
@@ -81,7 +79,6 @@ def retrieve_gmgc(gene, coll_unigenes, limit=True):
             gmgc = selected
         return gmgc
 
-
 def retrieve_gene_info(gene, coll_unigenes):
     """ retrieve start, end and strand data from gene name """
 
@@ -99,7 +96,6 @@ def retrieve_gene_info(gene, coll_unigenes):
         "size" : int(end) - int(start),
         "strand" : strand
     }
-
 
 def retrieve_neighbors(gmgc_cluster,neighbor_range):
         """ get a dict containing -2-1+1+2 neighbor genes list surrounding
@@ -130,7 +126,6 @@ def retrieve_neighbors(gmgc_cluster,neighbor_range):
 
         return neigh_dict
 
-
 def retrieve_functional_data(unigene, coll_clusters, coll_e5):
     kegg_ids, egg_ids = mongo_functional_find(unigene, coll_clusters)
     keggs = {
@@ -157,7 +152,6 @@ def retrieve_functional_data(unigene, coll_clusters, coll_e5):
             'eggNOG' : eggs
     }
 
-
 def get_unigene_info(unigene, db, coll_clusters, coll_e5, ncbi):
     info = {
         'gene' : unigene,
@@ -171,7 +165,6 @@ def get_unigene_info(unigene, db, coll_clusters, coll_e5, ncbi):
                                              coll_e5)
     return { **info, **functional_data }
 
-
 def get_pickle(filepath):
     """generate kegg pathway dictionary containning kegg descriptions"""
     # read dictionary from pickle file
@@ -179,13 +172,11 @@ def get_pickle(filepath):
         pdict = pickle.load(pickle_in)
     return pdict
 
-
 def get_kegg_description(kegg):
         """retrieve kegg description from kegg_dict hash """
         description = kegg_dict[kegg]
 
         return description
-
 
 def get_egg_description(Egg, coll_e5):
 	""" connect to mongo eggnog5 database
@@ -199,14 +190,12 @@ def get_egg_description(Egg, coll_e5):
 
 	return description
 
-
 def clean_unigene(gmgc):
         '''in case GMGC nomeclature was used in the input example,
          GMGC.100_000_123.UNKNOWN words after/before . are removed'''
         gmgc_clean = gmgc.split(".")[1]
 
         return gmgc_clean
-
 
 def summarize_neighborhood(gmgc, neighborhood, orf_data, n_contig):
     # Retrieve most frequent unigene in each position
@@ -254,7 +243,6 @@ def summarize_neighborhood(gmgc, neighborhood, orf_data, n_contig):
                         }
     return dict(neighborhood)
 
-
 def swap_strand(s, reference_s):
     if reference_s == "+":
         return s
@@ -264,7 +252,6 @@ def swap_strand(s, reference_s):
         elif s == "-":
             return "+"
     return "NA"
-
 
 def format_neighborhood(gmgc,
                         neighborhood_genes,
@@ -346,7 +333,6 @@ def format_neighborhood(gmgc,
         return dict(unique_contigs)
     else:
         return summarize_neighborhood(gmgc, neighborhood, orf_data, n_contig)
-
 
 def compute_neigh_cogs_assignation(neighbor_genes,
                                    neighbor_range,
@@ -432,7 +418,6 @@ def compute_neigh_cogs_assignation(neighbor_genes,
         unigenes_function_list
         ]
 
-
 def get_neigh_orf_with_cogs(cogs_organizacion_list):
 	""" calculate number of unigenes with at least
 	one neigh genes with cog assignation"""
@@ -445,7 +430,6 @@ def get_neigh_orf_with_cogs(cogs_organizacion_list):
 	neigh_orf_with_cogs = len(cog_depured_list)
 
 	return neigh_orf_with_cogs
-
 
 def neigh_scores(hits,
                  num_query_cog,
@@ -478,7 +462,6 @@ def neigh_scores(hits,
                 accuracy_value,
                 func_conservation
                 ]
-
 
 def subject_cog_description(subject_cog_dict,
                              query_list,
@@ -521,7 +504,6 @@ def subject_cog_description(subject_cog_dict,
     except:
         pass
     return hits, query_list, cog_dict
-
 
 def subject_functional_data(gmgc,
                             neighborhood_genes,
@@ -607,7 +589,6 @@ def subject_functional_data(gmgc,
     else:
         return {}
 
-
 def get_cluster(unigene, db):
     try:
         cluster = db.clusters.find({'u':unigene}, {'cl':1})[0]['cl']
@@ -615,14 +596,12 @@ def get_cluster(unigene, db):
         cluster = "NA"
     return cluster
 
-
 def get_preferred_name(unigene, db):
     try:
         p_n = db.emapper_v2.find({"u":unigene}, {'p_n':1})[0]['p_n']
     except:
         p_n = "NA"
     return p_n
-
 
 def get_taxonomic_prediction(unigene, db, ncbi):
     tax_pred = {}
@@ -644,7 +623,6 @@ def get_taxonomic_prediction(unigene, db, ncbi):
 
     except: pass
     return tax_pred
-
 
 def neighbor_analysis(gmgc, unique_contigs=False, json=True):
     data = {}
@@ -692,7 +670,6 @@ def neighbor_analysis(gmgc, unique_contigs=False, json=True):
         return dumps(data)
     return data
 
-
 def get_unigenes_and_tree(query_cluster, results_dir, client):
     treedb = client.trees
     fs = gridfs.GridFS(treedb)
@@ -715,7 +692,6 @@ def get_unigenes_and_tree(query_cluster, results_dir, client):
         outputfile.write(newick)
     return cluster_unigenes
 
-
 def get_newick(query, client):
     treedb = client.trees
     fs = gridfs.GridFS(treedb)
@@ -730,7 +706,6 @@ def get_newick(query, client):
         node.name = node.name.split('.')[1]
     newick = t.write()
     return newick
-
 
 def get_context(query, n_range, cutoff, cluster=True, isList=False, json=False):
 
