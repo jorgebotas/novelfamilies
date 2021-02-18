@@ -15,12 +15,10 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+# Secret key (hidden)
+with open(BASE_DIR + '/.env/secretKey.txt') as f:
+    SECRET_KEY = f.read().strip()
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'yay-j5o!p90@o5j3by3+)!!=#pmbi)3lv*bsq&jkiau#my8(xz'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
