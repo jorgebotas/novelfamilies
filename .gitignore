@@ -3,6 +3,8 @@ myenv
 pyenv.cfg
 */__pycache__/*
 
+.gitignore
+
 .env/*
 
 .geco/src/mongodb.py
