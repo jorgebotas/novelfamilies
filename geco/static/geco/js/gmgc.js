@@ -311,7 +311,7 @@ var gmgc_vueapp = new Vue({
                 newick = await get_newick(query);
                 context = await get_context(query);
                 let graph = GeCoViz(selector)
-                            .data(data)
+                            .data(context)
                             .nSide(2)
                             .tree(newick, fields);
                 d3.select(selector)
