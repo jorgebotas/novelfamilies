@@ -84,7 +84,8 @@ def get_fam(fam):
         taxa = get_taxonomy(genome)
 
         # First, give me neighbours and their positions/strands. The result includes the anchor
-        mini_contig = get_mini_contig(gene, window=10)
+        window = 10
+        mini_contig = get_mini_contig(gene, window=window)
 
         # extract gene names from the mini contig
         mini_contig_genes = list(set([n['g'] for n in mini_contig]))
@@ -101,7 +102,7 @@ def get_fam(fam):
                         "start":orf['s'],
                         "end":orf['e'],
                         "strand":orf['o'],
-                        "pos":orf['p'],
+                        "pos": int(orf['p']) - (window+1),
                         "taxonomy":taxa,
                         "Orthologous groups": gene2annot[orf['g']].get('ogs', []),
                         "KEGG pathways": gene2annot[orf['g']].get('kpath', []),
