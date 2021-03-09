@@ -25,8 +25,29 @@ def random_items(request, nitems):
 
 def info(request, search_type, query):
     data = { "show_items" : {
-        'name' : query,
+        query : {
+        'name':  query,
+        'gf' : query,
+        'source' : '',
+        'ftype' : '',
+        'hom' : '',
+        'flength' : '',
+        'members': [],
+        'keggp' : [],
+        'cogp' : [],
+        'sstr' : '',
+        'domains' : [],
+        'ampred' : '',
+        'biomes' : {},
+        'taxp' :  '',
+        'mags' : [],
+        'mags_annot' : [],
+        'dnds' : '',
+        'p_exp' : '',
+        'align' : {},
+        }
     } }
+
     # if search_type == "gmgc":
         # data["show_items"] = { query : get_fam_info(query, True) }
     # elif search_type == "novelfam":
