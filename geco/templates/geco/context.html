@@ -1,5 +1,5 @@
 {% extends 'geco/base.html' %}
-{% block content %}
+{% block styles %}
 {% load static %}
     <link rel="stylesheet" type="text/css" 
         href="{% static "geco/assets/tabler/css/tabler-vendors.min.css" %}"/>
@@ -13,6 +13,8 @@
         href="{% static "geco/GeCoVizjs/static/css/popper.css" %}"/>
     <link rel="stylesheet" type="text/css" 
         href="{% static "geco/GeCoVizjs/static/css/gecoviz.css" %}"/>
+{% endblock %}
+{% block content %}
 
 {% include 'geco/searchbar.html'%}
 
