@@ -8,9 +8,9 @@
                   <li class="nav-item mx-2">
                     <a class="nav-link active btn-sm" 
                        id="pills-info-tab" 
-                       @click="toggleFam('f' + tid + '-tab-content')"
+                       @click="toggleFam('f' + index + '-tab-content')"
                        data-toggle="pill"
-                       :href="'#f' + tid + '-info'" 
+                       :href="'#f' + index + '-info'" 
                        role="tab" 
                        aria-controls="pills-info"
                        aria-selected="true">Info</a>
@@ -18,9 +18,9 @@
                   <li class="nav-item mx-2">
                     <a class="nav-link btn-sm" 
                        id="pills-domains-tab" 
-                       @click="toggleFam('f' + tid + '-tab-content')"
+                       @click="toggleFam('f' + index + '-tab-content')"
                        data-toggle="pill"
-                       :href="'#f' + tid + '-domains'"
+                       :href="'#f' + index + '-domains'"
                         role="tab" 
                         aria-controls="pills-domains"
                         aria-selected="false">Domains</a>
@@ -28,9 +28,9 @@
                   <li class="nav-item mx-2">
                     <a class="nav-link btn-sm" 
                        id="pills-stats-tab" 
-                       @click="toggleFam('f' + tid + '-tab-content')"
+                       @click="toggleFam('f' + index + '-tab-content')"
                        data-toggle="pill"
-                       :href="'#f' + tid + '-stats'"
+                       :href="'#f' + index + '-stats'"
                         role="tab" 
                         aria-controls="pills-stats"
                         aria-selected="false">Stats</a>
@@ -38,9 +38,9 @@
                   <li class="nav-item mx-2">
                     <a class="nav-link btn-sm" 
                        id="pills-mappings-tab" 
-                        @click="toggleFam('f' + tid + '-tab-content')"
+                        @click="toggleFam('f' + index + '-tab-content')"
                        data-toggle="pill"
-                       :href="'#f' + tid + '-mappings'"
+                       :href="'#f' + index + '-mappings'"
                         role="tab" 
                         aria-controls="pills-mappings"
                         aria-selected="false">MAG mapping</a>
@@ -49,8 +49,8 @@
                     <a class="nav-link btn-sm" 
                        id="pills-biomes-tab" 
                        data-toggle="pill"
-                       :href="'#f' + tid + '-biomes'"
-                        @click="toggleFam('f' + tid + '-tab-content')"
+                       :href="'#f' + index + '-biomes'"
+                        @click="toggleFam('f' + index + '-tab-content')"
                         role="tab" 
                         aria-controls="pills-biomes"
                         aria-selected="false">Biomes</a>
@@ -58,9 +58,9 @@
                   <li class="nav-item mx-2">
                     <a class="nav-link btn-sm" 
                        id="pills-functionp-tab" 
-                       @click="toggleFam('f' + tid + '-tab-content')"
+                       @click="toggleFam('f' + index + '-tab-content')"
                        data-toggle="pill"
-                       :href="'#f' + tid + '-functionp'"
+                       :href="'#f' + index + '-functionp'"
                         role="tab" 
                         aria-controls="pills-functionp"
                         aria-selected="false">Functional assignation</a>
@@ -68,27 +68,27 @@
                   <li class="nav-item mx-2">
                     <a class="nav-link btn-sm" 
                        id="pills-taxp-tab" 
-                       @click="toggleFam('f' + tid + '-tab-content')"
+                       @click="toggleFam('f' + index + '-tab-content')"
                        data-toggle="pill"
-                       :href="'#f' + tid + '-taxp'"
+                       :href="'#f' + index + '-taxp'"
                         role="tab" 
                         aria-controls="pills-taxp"
                         aria-selected="false">Taxonomic assignation</a>
                   </li>
                   <li class="nav-item mx-2">
                     <a class="nav-link btn-sm" id="pills-gecoviz-tab" data-toggle="pill"
-                        :href="'#f' + tid + '-gecoviz'" role="tab"
+                        :href="'#f' + index + '-gecoviz'" role="tab"
                         aria-controls="pills-gecoviz"
                         aria-selected="false"
-                        @click="toggleFam('f' + tid + '-tab-content');
-                                toggleGeCoViz('#f'+tid+'-GeCoViz', tid);"
+                        @click="toggleFam('f' + index + '-tab-content');
+                                toggleGeCoViz('#f'+index+'-GeCoViz', tid);"
                         >GeCoViz</a>
                   </li>
                   <li class="nav-item mx-3 position-absolute"
                       style="right:20px; top:10px;">
                         <a class="btn btn-primary btn-sm fam-toggle" 
                            data-toggle="collapse" 
-                           :href="'#f' + tid + '-tab-content'" 
+                           :href="'#f' + index + '-tab-content'" 
                            aria-expanded="true" 
                            aria-controls="tab-content"
                            ><i class="fas fa-angle-down"></i></a>
@@ -97,9 +97,9 @@
                 </ul>
            </div>
            <div class="card-body p-2 rounded bg-light">
-        <div class="tab-content collapse" :id="'f' + tid + '-tab-content'">
+        <div class="tab-content collapse" :id="'f' + index + '-tab-content'">
 
-          <div class="tab-pane fade show active" :id="'f' + tid + '-info'" role="tabpanel"
+          <div class="tab-pane fade show active" :id="'f' + index + '-info'" role="tabpanel"
               aria-labelledby="pills-info-tab">
            <div class="card m-0">
                <div class="card-body rounded">
@@ -141,7 +141,7 @@
           </div>
 
           <div class="tab-pane fade" 
-               :id="'f' + tid + '-domains'" 
+               :id="'f' + index + '-domains'" 
                role="tabpanel"
                aria-labelledby="pills-domains-tab">
                    <div class="card">
@@ -229,7 +229,7 @@
 
           </div>
 
-          <div class="tab-pane fade" :id="'f' + tid + '-stats'" role="tabpanel"
+          <div class="tab-pane fade" :id="'f' + index + '-stats'" role="tabpanel"
               aria-labelledby="pills-stats-tab">
            <div class="card">
                <div class="card-body rounded">
@@ -305,7 +305,7 @@
                </div>
            </div>
           </div>
-          <div class="tab-pane fade" :id="'f' + tid + '-mappings'" role="tabpanel"
+          <div class="tab-pane fade" :id="'f' + index + '-mappings'" role="tabpanel"
               aria-labelledby="pills-mappings-tab">
             <div class="card">
                <div class="card-header">
@@ -316,7 +316,7 @@
                             <a class="nav-link active btn-sm" 
                                id="pills-mags-donut-tab" 
                                data-toggle="pill"
-                               :href="'#f' + tid + '-magsDonut-tab'" 
+                               :href="'#f' + index + '-magsDonut-tab'" 
                                role="tab" 
                                aria-controls="pills-magsDonut-tab"
                                aria-selected="true">
@@ -326,7 +326,7 @@
                             <a class="nav-link btn-sm" 
                                id="pills-mags-samples-tab" 
                                data-toggle="pill"
-                               :href="'#f' + tid + '-magsSamples-tab'" 
+                               :href="'#f' + index + '-magsSamples-tab'" 
                                role="tab" 
                                aria-controls="pills-mags-samples"
                                aria-selected="false">
@@ -336,7 +336,7 @@
                             <a class="nav-link btn-sm" 
                                id="pills-mags-function-tab" 
                                data-toggle="pill"
-                               :href="'#f' + tid + '-magsFunction-tab'"
+                               :href="'#f' + index + '-magsFunction-tab'"
                                 role="tab" 
                                 aria-controls="pills-magsFunction-tab"
                                 aria-selected="false">
@@ -346,7 +346,7 @@
                             <a class="nav-link btn-sm" 
                                id="pills-mags-tax-tab" 
                                data-toggle="pill"
-                               :href="'#f' + tid + '-magsTax-tab'"
+                               :href="'#f' + index + '-magsTax-tab'"
                                 role="tab" 
                                 aria-controls="pills-magsTax-tab"
                                 aria-selected="false">
@@ -357,7 +357,7 @@
            <div class="card-body p-2 rounded bg-light">
         <div class="tab-content">
 
-<!--          <div class="tab-pane fade show active" :id="'f' + tid +-->
+<!--          <div class="tab-pane fade show active" :id="'f' + index +-->
                       <!--'-magsDonut-tab'" role="tabpanel"-->
               <!--aria-labelledby="pills-mags-donut-tab">-->
            <!--<div class="card">-->
@@ -366,13 +366,13 @@
                <!--</div>-->
                <!--<div class="card-body rounded">-->
                     <!--<div class="bg-white rounded col-md-6 mx-auto" -->
-                         <!--:id="'f' + tid + '-magsDonut'">-->
+                         <!--:id="'f' + index + '-magsDonut'">-->
                     <!--</div>-->
                <!--</div>-->
            <!--</div>-->
            <!--</div>-->
 
-          <!--<div class="tab-pane fade" :id="'f' + tid +-->
+          <!--<div class="tab-pane fade" :id="'f' + index +-->
                       <!--'-magsSamples-tab'" role="tabpanel"-->
               <!--aria-labelledby="pills-mags-samples-tab">-->
            <!--<div class="card col-md-12 p-0">-->
@@ -421,7 +421,7 @@
 
            <!--</div>-->
 
-          <!--<div class="tab-pane fade" :id="'f' + tid +-->
+          <!--<div class="tab-pane fade" :id="'f' + index +-->
                       <!--'-magsFunction-tab'" role="tabpanel"-->
               <!--aria-labelledby="pills-mags-function-tab">-->
            <!--<div v-for="origin in tdata.mags_annot">-->
@@ -472,7 +472,7 @@
 
            <!--</div>-->
 
-           <!--<div class="tab-pane fade" :id="'f' + tid +-->
+           <!--<div class="tab-pane fade" :id="'f' + index +-->
                       <!--'-magsTax-tab'" role="tabpanel"-->
               <!--aria-labelledby="pills-mags-tax-tab">-->
            <!--<div v-for="origin in tdata.mags_annot">-->
@@ -520,7 +520,7 @@
        <!--</div>-->
 
 
-          <!--<div class="tab-pane fade" :id="'f' + tid + '-biomes'" role="tabpanel"-->
+          <!--<div class="tab-pane fade" :id="'f' + index + '-biomes'" role="tabpanel"-->
               <!--aria-labelledby="pills-biomes-tab">-->
            <!--<div class="card">-->
                <!--<div class="card-header text-primary font-weight-bold">-->
@@ -528,13 +528,13 @@
                <!--</div>-->
                <!--<div class="card-body rounded">-->
                     <!--<div class="bg-white rounded col-md-6 mx-auto" -->
-                         <!--:id="'f' + tid + '-biomesViz'">-->
+                         <!--:id="'f' + index + '-biomesViz'">-->
                     <!--</div>-->
                <!--</div>-->
            <!--</div>-->
           <!--</div>-->
 
-          <!--<div class="tab-pane fade" :id="'f' + tid + '-functionp'" role="tabpanel"-->
+          <!--<div class="tab-pane fade" :id="'f' + index + '-functionp'" role="tabpanel"-->
               <!--aria-labelledby="pills-functionp-tab">-->
 
                <!--<div class="card-body rounded row">-->
@@ -657,7 +657,7 @@
 
            <!--</div>-->
           <!--</div>-->
-          <!--<div class="tab-pane fade" :id="'f' + tid + '-taxp'" role="tabpanel"-->
+          <!--<div class="tab-pane fade" :id="'f' + index + '-taxp'" role="tabpanel"-->
               <!--aria-labelledby="pills-taxp-tab">-->
            <!--<div class="card">-->
                <!--<div class="card-body rounded">-->
@@ -698,7 +698,7 @@
            <!--</div>-->
           <!--</div>-->
 
-          <div class="tab-pane fade" :id="'f' + tid + '-gecoviz'" role="tabpanel"
+          <div class="tab-pane fade" :id="'f' + index + '-gecoviz'" role="tabpanel"
               aria-labelledby="pills-gecoviz-tab">
 
            <div class="card">
@@ -711,7 +711,7 @@
                           </div>
                       </div>
                      </div>
-                     <div :id="'f' + tid + '-GeCoViz'">
+                     <div :id="'f' + index + '-GeCoViz'">
                          
                      </div>
 
