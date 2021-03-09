@@ -292,6 +292,7 @@ var gmgc_vueapp = new Vue({
             let newick, context;
             newick = this.show_items[query].newick;
             context = this.show_items[query].context;
+            console.log(context)
             if (context) {
                 window.onload = async () => {
                     await $(selector + " .gecoviz-progress").show().delay(2000);
