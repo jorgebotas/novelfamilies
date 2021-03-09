@@ -7,14 +7,14 @@
                     id="pills-tab" role="tablist">
 
                   <li class="nav-item mx-2">
-                    <a class="nav-link active btn-sm" 
+                    <a class="nav-link btn-sm" 
                        id="pills-info-tab" 
                        @click="toggleFam('f' + index + '-tab-content')"
                        data-toggle="pill"
                        :href="'#f' + index + '-info'" 
                        role="tab" 
                        aria-controls="pills-info"
-                       aria-selected="true">Info</a>
+                       aria-selected="false">Info</a>
                   </li>
                   <li class="nav-item mx-2">
                     <a class="nav-link btn-sm" 
@@ -67,14 +67,14 @@
                         aria-selected="false">Functional assignation</a>
                   </li>
                   <li class="nav-item mx-2">
-                    <a class="nav-link btn-sm" 
+                    <a class="nav-link btn-sm active" 
                        id="pills-taxp-tab" 
                        @click="toggleFam('f' + index + '-tab-content')"
                        data-toggle="pill"
                        :href="'#f' + index + '-taxp'"
                         role="tab" 
                         aria-controls="pills-taxp"
-                        aria-selected="false">Taxonomic assignation</a>
+                        aria-selected="true">Taxonomic assignation</a>
                   </li>
                   <li class="nav-item mx-2">
                     <a class="nav-link btn-sm" id="pills-gecoviz-tab" data-toggle="pill"
@@ -699,9 +699,9 @@
            <!--</div>-->
           <!--</div>-->
 
-          <div class="tab-pane fade" :id="'f' + index + '-gecoviz'" role="tabpanel"
+          <div class="tab-pane fade show active" 
+               :id="'f' + index + '-gecoviz'" role="tabpanel"
               aria-labelledby="pills-gecoviz-tab">
-
            <div class="card">
                <div class="card-body p-2 rounded"
                         :id="'f' + index + '-GeCoViz'"
