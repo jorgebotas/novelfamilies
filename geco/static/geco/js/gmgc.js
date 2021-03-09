@@ -287,7 +287,7 @@ var gmgc_vueapp = new Vue({
         show_items: {},
     },
     methods: {
-        toggleGeCo : async function(selector, query) {
+    toggleGeCoViz : async function(selector, query) {
             //let colors = await get_colors();
             let newick, context;
             newick = this.show_items[query].newick;
