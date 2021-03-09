@@ -75,6 +75,7 @@ def get_cards(names):
 def get_fam(fam):
     match = col_fams.find_one({'gf': fam})
     family_doc = {'gf': fam, 'neighs': [], 'size':match['nseqs'], 'ntaxa': match['nspcs']}
+    neighborhood = []
 
     # process each member of the family
     for gene_entry in match['members']:
@@ -95,7 +96,6 @@ def get_fam(fam):
         gene2card = get_cards(mini_contig_genes)
 
         # creates a document with the extended info of each gene
-        neighborhood = []
         for orf in mini_contig:
             gene_doc = {"gene": orf['g'],
                         "anchor":gene,
@@ -113,7 +113,7 @@ def get_fam(fam):
                         "CARD":gene2card[orf['g']]
                 }
             neighborhood.append(gene_doc)
-        family_doc['neighs'] = neighborhood
+    family_doc['neighs'] = neighborhood
     return json.dumps(neighborhood)
     # return json.dumps(family_doc)
 
