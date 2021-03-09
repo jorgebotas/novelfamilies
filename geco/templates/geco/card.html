@@ -67,20 +67,22 @@
                         aria-selected="false">Functional assignation</a>
                   </li>
                   <li class="nav-item mx-2">
-                    <a class="nav-link btn-sm active" 
+                    <a class="nav-link btn-sm" 
                        id="pills-taxp-tab" 
                        @click="toggleFam('f' + index + '-tab-content')"
                        data-toggle="pill"
                        :href="'#f' + index + '-taxp'"
                         role="tab" 
                         aria-controls="pills-taxp"
-                        aria-selected="true">Taxonomic assignation</a>
+                        aria-selected="false">Taxonomic assignation</a>
                   </li>
                   <li class="nav-item mx-2">
-                    <a class="nav-link btn-sm" id="pills-gecoviz-tab" data-toggle="pill"
+                    <a class="nav-link btn-sm active" 
+                       id="pills-gecoviz-tab" 
+                       data-toggle="pill"
                         :href="'#f' + index + '-gecoviz'" role="tab"
                         aria-controls="pills-gecoviz"
-                        aria-selected="false"
+                        aria-selected="true"
                         @click="toggleFam('f' + index + '-tab-content');
                                 toggleGeCoViz('#f'+index+'-GeCoViz', tid);"
                         >GeCoViz</a>
