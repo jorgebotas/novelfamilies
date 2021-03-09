@@ -99,263 +99,263 @@
            <div class="card-body p-2 rounded bg-light">
         <div class="tab-content collapse" :id="'f' + index + '-tab-content'">
 
-          <div class="tab-pane fade show active" :id="'f' + index + '-info'" role="tabpanel"
-              aria-labelledby="pills-info-tab">
-           <div class="card m-0">
-               <div class="card-body rounded">
+          <!--<div class="tab-pane fade show active" :id="'f' + index + '-info'" role="tabpanel"-->
+              <!--aria-labelledby="pills-info-tab">-->
+           <!--<div class="card m-0">-->
+               <!--<div class="card-body rounded">-->
 
-                   <div class="card p-0 mx-2 fam-table">
-                       <div class="table-responsive">
-                           <table class="table table-vcenter card-table
-                               text-center mb-0">
-                               <thead>
-                                   <tr>
-                                       <th>Source</th>
-                                       <th>Family type</th>
-                                       <th>Closest homologue</th>
-                                       <th>Longest gene family representative</th>
-                                   </tr>
-                               </thead>
-                               <tbody>
-                                   <tr>
-                                       <th class="p-1">
-                                           [[ tdata.source ]]
-                                       </th>
-                                       <th class="p-1">
-                                           [[ tdata.ftype ]]
-                                       </th>
-                                       <th class="p-1">
-                                           [[ tdata.hom ]]
-                                       </th>
-                                       <th class="p-1">
-                                           [[ tdata.flength ]]
-                                       </th>
-                                   </tr>
-                               </tbody>
-                           </table>
-                       </div>
-                   </div>
+                   <!--<div class="card p-0 mx-2 fam-table">-->
+                       <!--<div class="table-responsive">-->
+                           <!--<table class="table table-vcenter card-table-->
+                               <!--text-center mb-0">-->
+                               <!--<thead>-->
+                                   <!--<tr>-->
+                                       <!--<th>Source</th>-->
+                                       <!--<th>Family type</th>-->
+                                       <!--<th>Closest homologue</th>-->
+                                       <!--<th>Longest gene family representative</th>-->
+                                   <!--</tr>-->
+                               <!--</thead>-->
+                               <!--<tbody>-->
+                                   <!--<tr>-->
+                                       <!--<th class="p-1">-->
+                                           <!--[[ tdata.source ]]-->
+                                       <!--</th>-->
+                                       <!--<th class="p-1">-->
+                                           <!--[[ tdata.ftype ]]-->
+                                       <!--</th>-->
+                                       <!--<th class="p-1">-->
+                                           <!--[[ tdata.hom ]]-->
+                                       <!--</th>-->
+                                       <!--<th class="p-1">-->
+                                           <!--[[ tdata.flength ]]-->
+                                       <!--</th>-->
+                                   <!--</tr>-->
+                               <!--</tbody>-->
+                           <!--</table>-->
+                       <!--</div>-->
+                   <!--</div>-->
 
-               </div>
-           </div>
-          </div>
+               <!--</div>-->
+           <!--</div>-->
+          <!--</div>-->
 
-          <div class="tab-pane fade" 
-               :id="'f' + index + '-domains'" 
-               role="tabpanel"
-               aria-labelledby="pills-domains-tab">
-                   <div class="card">
-                       <div class="card-header text-primary font-weight-bold">
-                           Domains
-                       </div>
-               <div class="card-body rounded">
-                   <div class="card p-0 fam-table">
-                       <div class="table-responsive">
-                           <table class="table table-vcenter card-table
-                               text-center mb-0">
-                               <thead>
-                                   <tr>
-                                       <th>Members (unigene)</th>
-                                       <th>Gene length</th>
-                                       <th class="text-left pl-4">Topology</th>
-                                   </tr>
-                               </thead>
-                               <tbody>
-                                   <tr v-for="m in tdata.members">
-                                       <th class="p-1">
-                                           [[ m ]]
-                                       </th>
-                                       <th class="p-1">
-                                           [[
-                                           tdata.domains | getLen(m)
-                                           ]]
-                                       </th>
-                                       <th class="domains p-1 pl-3 text-left" :id="'d' + m">
-                                       </th>
-                                   </tr>
-                               </tbody>
-                           </table>
-                       </div>
-                   </div>
-                   </div>
-                   </div>
+          <!--<div class="tab-pane fade" -->
+               <!--:id="'f' + index + '-domains'" -->
+               <!--role="tabpanel"-->
+               <!--aria-labelledby="pills-domains-tab">-->
+                   <!--<div class="card">-->
+                       <!--<div class="card-header text-primary font-weight-bold">-->
+                           <!--Domains-->
+                       <!--</div>-->
+               <!--<div class="card-body rounded">-->
+                   <!--<div class="card p-0 fam-table">-->
+                       <!--<div class="table-responsive">-->
+                           <!--<table class="table table-vcenter card-table-->
+                               <!--text-center mb-0">-->
+                               <!--<thead>-->
+                                   <!--<tr>-->
+                                       <!--<th>Members (unigene)</th>-->
+                                       <!--<th>Gene length</th>-->
+                                       <!--<th class="text-left pl-4">Topology</th>-->
+                                   <!--</tr>-->
+                               <!--</thead>-->
+                               <!--<tbody>-->
+                                   <!--<tr v-for="m in tdata.members">-->
+                                       <!--<th class="p-1">-->
+                                           <!--[[ m ]]-->
+                                       <!--</th>-->
+                                       <!--<th class="p-1">-->
+                                           <!--[[-->
+                                           <!--tdata.domains | getLen(m)-->
+                                           <!--]]-->
+                                       <!--</th>-->
+                                       <!--<th class="domains p-1 pl-3 text-left" :id="'d' + m">-->
+                                       <!--</th>-->
+                                   <!--</tr>-->
+                               <!--</tbody>-->
+                           <!--</table>-->
+                       <!--</div>-->
+                   <!--</div>-->
+                   <!--</div>-->
+                   <!--</div>-->
 
-                   <div class="card">
-                       <div class="card-header text-primary font-weight-bold">
-                           Antimicrobial prediction
-                       </div>
-                   <div class="card-body rounded">
-                   <div class="card p-0 fam-table">
-                       <div class="table-responsive">
-                           <table class="table table-vcenter card-table
-                               text-center mb-0">
-                               <thead>
-                                   <tr>
-                                       <th>Antibacterial</th>
-                                       <th>Antiviral</th>
-                                       <th>Antifungal</th>
-                                       <th>Antimicrobial probability</th>
-                                       <th>Antimicrobial family</th>
-                                       <th>Hemolitic probability</th>
-                                   </tr>
-                               </thead>
-                               <tbody>
-                                   <tr>
-                                       <th class="p-1">
-                                           [[ tdata.ampred.ab ]]
-                                       </th>
-                                       <th class="p-1">
-                                           [[ tdata.ampred.av ]]
-                                       </th>
-                                       <th class="p-1">
-                                           [[ tdata.ampred.af ]]
-                                       </th>
-                                       <th class="p-1">
-                                           [[ tdata.ampred.pam ]]
-                                       </th>
-                                       <th class="p-1">
-                                           [[ tdata.ampred.ampf ]]
-                                       </th>
-                                       <th class="p-1">
-                                           [[ tdata.ampred.phem ]]
-                                       </th>
-                                   </tr>
-                               </tbody>
-                           </table>
-                       </div>
-                   </div>
-                   </div>
-                   </div>
+                   <!--<div class="card">-->
+                       <!--<div class="card-header text-primary font-weight-bold">-->
+                           <!--Antimicrobial prediction-->
+                       <!--</div>-->
+                   <!--<div class="card-body rounded">-->
+                   <!--<div class="card p-0 fam-table">-->
+                       <!--<div class="table-responsive">-->
+                           <!--<table class="table table-vcenter card-table-->
+                               <!--text-center mb-0">-->
+                               <!--<thead>-->
+                                   <!--<tr>-->
+                                       <!--<th>Antibacterial</th>-->
+                                       <!--<th>Antiviral</th>-->
+                                       <!--<th>Antifungal</th>-->
+                                       <!--<th>Antimicrobial probability</th>-->
+                                       <!--<th>Antimicrobial family</th>-->
+                                       <!--<th>Hemolitic probability</th>-->
+                                   <!--</tr>-->
+                               <!--</thead>-->
+                               <!--<tbody>-->
+                                   <!--<tr>-->
+                                       <!--<th class="p-1">-->
+                                           <!--[[ tdata.ampred.ab ]]-->
+                                       <!--</th>-->
+                                       <!--<th class="p-1">-->
+                                           <!--[[ tdata.ampred.av ]]-->
+                                       <!--</th>-->
+                                       <!--<th class="p-1">-->
+                                           <!--[[ tdata.ampred.af ]]-->
+                                       <!--</th>-->
+                                       <!--<th class="p-1">-->
+                                           <!--[[ tdata.ampred.pam ]]-->
+                                       <!--</th>-->
+                                       <!--<th class="p-1">-->
+                                           <!--[[ tdata.ampred.ampf ]]-->
+                                       <!--</th>-->
+                                       <!--<th class="p-1">-->
+                                           <!--[[ tdata.ampred.phem ]]-->
+                                       <!--</th>-->
+                                   <!--</tr>-->
+                               <!--</tbody>-->
+                           <!--</table>-->
+                       <!--</div>-->
+                   <!--</div>-->
+                   <!--</div>-->
+                   <!--</div>-->
 
-          </div>
+          <!--</div>-->
 
-          <div class="tab-pane fade" :id="'f' + index + '-stats'" role="tabpanel"
-              aria-labelledby="pills-stats-tab">
-           <div class="card">
-               <div class="card-body rounded">
+          <!--<div class="tab-pane fade" :id="'f' + index + '-stats'" role="tabpanel"-->
+              <!--aria-labelledby="pills-stats-tab">-->
+           <!--<div class="card">-->
+               <!--<div class="card-body rounded">-->
 
-                   <div class="card p-0 mx-2 fam-table">
-                       <div class="table-responsive">
-                           <table class="table table-vcenter card-table
-                               text-center mb-0">
-                               <thead>
-                                   <tr>
-                                       <th>Members</th>
-                                       <th>Conserved domain length</th>
-                                       <th>Aminoacids in members</th>
-                                       <th>Smallest sequence</th>
-                                       <th>Largest sequence</th>
-                                       <th>Average sequence</th>
-                                       <th>Alignment length</th>
-                                       <th>Average identity</th>
-                                       <th>Most related pair identity</th>
-                                       <th>Least related pair identity</th>
-                                       <th>Most distant member identity</th>
-                                       <th>dN/dS</th>
-                                       <th>p-val RNA code</th>
-                                   </tr>
-                               </thead>
-                               <tbody>
-                                   <tr>
-                                       <th class="p-1">
-                                           [[ tdata.align.esize | toFixed ]]
-                                       </th>
-                                       <th class="p-1">
-                                           [[ tdata.align.cdl | toFixed ]]
-                                       </th>
-                                       <th class="p-1">
-                                           [[ tdata.align.naa | toFixed ]]
-                                       </th>
-                                       <th class="p-1">
-                                           [[ tdata.align.sm | toFixed ]]
-                                       </th>
-                                       <th class="p-1">
-                                           [[ tdata.align.lg | toFixed ]]
-                                       </th>
-                                       <th class="p-1">
-                                           [[ tdata.align.avl | toFixed ]]
-                                       </th>
-                                       <th class="p-1">
-                                           [[ tdata.align.al | toFixed ]]
-                                       </th>
-                                       <th class="p-1">
-                                           [[ tdata.align.avi | toFixed ]]
-                                       </th>
-                                       <th class="p-1">
-                                           [[ tdata.align.mrp | toFixed ]]
-                                       </th>
-                                       <th class="p-1">
-                                           [[ tdata.align.mup | toFixed ]]
-                                       </th>
-                                       <th class="p-1">
-                                           [[ tdata.align.mds | toFixed ]]
-                                       </th>
-                                       <th class="p-1">
-                                           [[ tdata.dnds | toFixed ]]
-                                       </th>
-                                       <th class="p-1">
-                                           [[ tdata.p_exp | toFixed ]]
-                                       </th>
-                                   </tr>
-                               </tbody>
-                           </table>
-                       </div>
-                   </div>
+                   <!--<div class="card p-0 mx-2 fam-table">-->
+                       <!--<div class="table-responsive">-->
+                           <!--<table class="table table-vcenter card-table-->
+                               <!--text-center mb-0">-->
+                               <!--<thead>-->
+                                   <!--<tr>-->
+                                       <!--<th>Members</th>-->
+                                       <!--<th>Conserved domain length</th>-->
+                                       <!--<th>Aminoacids in members</th>-->
+                                       <!--<th>Smallest sequence</th>-->
+                                       <!--<th>Largest sequence</th>-->
+                                       <!--<th>Average sequence</th>-->
+                                       <!--<th>Alignment length</th>-->
+                                       <!--<th>Average identity</th>-->
+                                       <!--<th>Most related pair identity</th>-->
+                                       <!--<th>Least related pair identity</th>-->
+                                       <!--<th>Most distant member identity</th>-->
+                                       <!--<th>dN/dS</th>-->
+                                       <!--<th>p-val RNA code</th>-->
+                                   <!--</tr>-->
+                               <!--</thead>-->
+                               <!--<tbody>-->
+                                   <!--<tr>-->
+                                       <!--<th class="p-1">-->
+                                           <!--[[ tdata.align.esize | toFixed ]]-->
+                                       <!--</th>-->
+                                       <!--<th class="p-1">-->
+                                           <!--[[ tdata.align.cdl | toFixed ]]-->
+                                       <!--</th>-->
+                                       <!--<th class="p-1">-->
+                                           <!--[[ tdata.align.naa | toFixed ]]-->
+                                       <!--</th>-->
+                                       <!--<th class="p-1">-->
+                                           <!--[[ tdata.align.sm | toFixed ]]-->
+                                       <!--</th>-->
+                                       <!--<th class="p-1">-->
+                                           <!--[[ tdata.align.lg | toFixed ]]-->
+                                       <!--</th>-->
+                                       <!--<th class="p-1">-->
+                                           <!--[[ tdata.align.avl | toFixed ]]-->
+                                       <!--</th>-->
+                                       <!--<th class="p-1">-->
+                                           <!--[[ tdata.align.al | toFixed ]]-->
+                                       <!--</th>-->
+                                       <!--<th class="p-1">-->
+                                           <!--[[ tdata.align.avi | toFixed ]]-->
+                                       <!--</th>-->
+                                       <!--<th class="p-1">-->
+                                           <!--[[ tdata.align.mrp | toFixed ]]-->
+                                       <!--</th>-->
+                                       <!--<th class="p-1">-->
+                                           <!--[[ tdata.align.mup | toFixed ]]-->
+                                       <!--</th>-->
+                                       <!--<th class="p-1">-->
+                                           <!--[[ tdata.align.mds | toFixed ]]-->
+                                       <!--</th>-->
+                                       <!--<th class="p-1">-->
+                                           <!--[[ tdata.dnds | toFixed ]]-->
+                                       <!--</th>-->
+                                       <!--<th class="p-1">-->
+                                           <!--[[ tdata.p_exp | toFixed ]]-->
+                                       <!--</th>-->
+                                   <!--</tr>-->
+                               <!--</tbody>-->
+                           <!--</table>-->
+                       <!--</div>-->
+                   <!--</div>-->
 
-               </div>
-           </div>
-          </div>
-          <div class="tab-pane fade" :id="'f' + index + '-mappings'" role="tabpanel"
-              aria-labelledby="pills-mappings-tab">
-            <div class="card">
-               <div class="card-header">
-                        <ul class="nav nav-pills justify-content-center mx-4"
-                            id="pills-tab" role="tablist">
+               <!--</div>-->
+           <!--</div>-->
+          <!--</div>-->
+          <!--<div class="tab-pane fade" :id="'f' + index + '-mappings'" role="tabpanel"-->
+              <!--aria-labelledby="pills-mappings-tab">-->
+            <!--<div class="card">-->
+               <!--<div class="card-header">-->
+                        <!--<ul class="nav nav-pills justify-content-center mx-4"-->
+                            <!--id="pills-tab" role="tablist">-->
 
-                          <li class="nav-item mx-2">
-                            <a class="nav-link active btn-sm" 
-                               id="pills-mags-donut-tab" 
-                               data-toggle="pill"
-                               :href="'#f' + index + '-magsDonut-tab'" 
-                               role="tab" 
-                               aria-controls="pills-magsDonut-tab"
-                               aria-selected="true">
-                                Origin</a>
-                          </li>
-                          <li class="nav-item mx-2">
-                            <a class="nav-link btn-sm" 
-                               id="pills-mags-samples-tab" 
-                               data-toggle="pill"
-                               :href="'#f' + index + '-magsSamples-tab'" 
-                               role="tab" 
-                               aria-controls="pills-mags-samples"
-                               aria-selected="false">
-                               Samples</a>
-                          </li>
-                          <li class="nav-item mx-2">
-                            <a class="nav-link btn-sm" 
-                               id="pills-mags-function-tab" 
-                               data-toggle="pill"
-                               :href="'#f' + index + '-magsFunction-tab'"
-                                role="tab" 
-                                aria-controls="pills-magsFunction-tab"
-                                aria-selected="false">
-                                Functional assignation</a>
-                          </li>
-                          <li class="nav-item mx-2">
-                            <a class="nav-link btn-sm" 
-                               id="pills-mags-tax-tab" 
-                               data-toggle="pill"
-                               :href="'#f' + index + '-magsTax-tab'"
-                                role="tab" 
-                                aria-controls="pills-magsTax-tab"
-                                aria-selected="false">
-                                Taxonomic assignation</a>
-                          </li>
-                        </ul>
-                   </div>
-           <div class="card-body p-2 rounded bg-light">
-        <div class="tab-content">
+                          <!--<li class="nav-item mx-2">-->
+                            <!--<a class="nav-link active btn-sm" -->
+                               <!--id="pills-mags-donut-tab" -->
+                               <!--data-toggle="pill"-->
+                               <!--:href="'#f' + index + '-magsDonut-tab'" -->
+                               <!--role="tab" -->
+                               <!--aria-controls="pills-magsDonut-tab"-->
+                               <!--aria-selected="true">-->
+                                <!--Origin</a>-->
+                          <!--</li>-->
+                          <!--<li class="nav-item mx-2">-->
+                            <!--<a class="nav-link btn-sm" -->
+                               <!--id="pills-mags-samples-tab" -->
+                               <!--data-toggle="pill"-->
+                               <!--:href="'#f' + index + '-magsSamples-tab'" -->
+                               <!--role="tab" -->
+                               <!--aria-controls="pills-mags-samples"-->
+                               <!--aria-selected="false">-->
+                               <!--Samples</a>-->
+                          <!--</li>-->
+                          <!--<li class="nav-item mx-2">-->
+                            <!--<a class="nav-link btn-sm" -->
+                               <!--id="pills-mags-function-tab" -->
+                               <!--data-toggle="pill"-->
+                               <!--:href="'#f' + index + '-magsFunction-tab'"-->
+                                <!--role="tab" -->
+                                <!--aria-controls="pills-magsFunction-tab"-->
+                                <!--aria-selected="false">-->
+                                <!--Functional assignation</a>-->
+                          <!--</li>-->
+                          <!--<li class="nav-item mx-2">-->
+                            <!--<a class="nav-link btn-sm" -->
+                               <!--id="pills-mags-tax-tab" -->
+                               <!--data-toggle="pill"-->
+                               <!--:href="'#f' + index + '-magsTax-tab'"-->
+                                <!--role="tab" -->
+                                <!--aria-controls="pills-magsTax-tab"-->
+                                <!--aria-selected="false">-->
+                                <!--Taxonomic assignation</a>-->
+                          <!--</li>-->
+                        <!--</ul>-->
+                   <!--</div>-->
+           <!--<div class="card-body p-2 rounded bg-light">-->
+        <!--<div class="tab-content">-->
 
 <!--          <div class="tab-pane fade show active" :id="'f' + index +-->
                       <!--'-magsDonut-tab'" role="tabpanel"-->
@@ -716,9 +716,6 @@
                      </div>
 
                 </div>
-           </div>
-           </div>
-           </div>
            </div>
            </div>
            </div>
