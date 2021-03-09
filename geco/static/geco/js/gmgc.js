@@ -276,7 +276,7 @@ var gmgc_vueapp = new Vue({
                 let graph = GeCoViz(selector)
                             .data(context)
                             .nSide(2)
-                            .tree(newick, fields);
+                            .tree(newick, undefined);
                 d3.select(selector)
                          .call(graph);
                 d3.select(selector)
