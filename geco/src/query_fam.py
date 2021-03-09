@@ -96,13 +96,13 @@ def get_fam(fam):
         gene2card = get_cards(mini_contig_genes)
 
         # creates a document with the extended info of each gene
-        for orf in mini_contig:
+        for (idx, orf) in enumerate(mini_contig):
             gene_doc = {"gene": orf['g'],
                         "anchor":gene,
                         "start":orf['s'],
                         "end":orf['e'],
                         "strand":orf['o'],
-                        "pos": int(orf['p']) - (window+1),
+                        "pos": idx - window,
                         "taxonomy":taxa,
                         "Orthologous groups": gene2annot[orf['g']].get('ogs', []),
                         "KEGG pathways": gene2annot[orf['g']].get('kpath', []),
