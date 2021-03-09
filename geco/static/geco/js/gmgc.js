@@ -144,7 +144,6 @@ var drawDonuts = async function(f, data) {
                 ],
                 Object.values(mags).map(m => m.length),
                 colors.slice(0, 4))
-    console.log(Object.values(mags).map(m => m.length))
 }
 
 var renderDonut = function(id, labels, vals, colors) {
@@ -292,7 +291,6 @@ var gmgc_vueapp = new Vue({
 
         refreshGeCo : function (selector) {
             $(String(selector) + " button[type='submit']").click();
-            console.log(selector)
         },
 
         searchFams : function() {
