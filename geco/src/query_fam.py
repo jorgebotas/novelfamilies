@@ -60,10 +60,12 @@ def get_mini_contig(gene_name, window=10):
         # extract region from the whole contig
         anchor = next(x for x in match['genes'] if x['g'] == gene_name)['p']
         start = max(0, anchor-window)
-        end = anchor+window
+        end = min(anchor+window+1, len(match['genes']))
         mini_contig = match['genes'][start:end]
         print(len(mini_contig))
-        for orf in mini_contig: orf['p'] = orf['p'] - start
+        for orf in mini_contig:
+            print(orf['p'])
+            orf['p'] = orf['p'] - start
         return mini_contig
     else:
         return []
