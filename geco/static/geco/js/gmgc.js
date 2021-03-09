@@ -14,7 +14,7 @@ var get_context = async (query) => {
     let context;
     await fetch(API_BASE_URL + '/context/'+ query + '/')
         .then(response => response.json())
-         .then(data => context = data.context)
+         .then(data => context = eval(data.context))
          .catch(e => console.log(e));
     return context;
 }
