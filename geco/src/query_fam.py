@@ -105,7 +105,7 @@ def get_fam(fam):
                         "start":orf['s'],
                         "end":orf['e'],
                         "strand":orf['o'],
-                        "pos": idx - window,
+                        "pos": orf['p'],
                         "taxonomy":taxa,
                         "Orthologous groups": gene2annot[orf['g']].get('ogs', []),
                         "KEGG pathways": gene2annot[orf['g']].get('kpath', []),
