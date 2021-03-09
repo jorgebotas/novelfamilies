@@ -55,16 +55,19 @@ def get_mini_contig(gene_name, window=10):
     match = col_neighs.find_one(
         {"genes.g": gene_name},
         {"c":1, "genes":1})
+    # Fix unordered contig problem
+    sorted_genes = sorted(match['genes'], key=lambda x: x['s'])
+    for pos, g in enumerate(sorted_genes):
+        g['p'] = pos
 
     if match:
         # extract region from the whole contig
-        anchor = next(x for x in match['genes'] if x['g'] == gene_name)['p']
+        anchor = next(pos for pos, g in enumerate(sorted_genes) if g['g'] == gene_name)
         start = max(0, anchor-window)
         end = min(anchor+window+1, len(match['genes']))
-        mini_contig = match['genes'][start:end]
-        print(len(mini_contig))
+        mini_contig = sorted_genes[start:end]
         for orf in mini_contig:
-            orf['p'] = orf['p'] - 2 * start
+            orf['p'] = orf['p'] - anchor
             print(orf['p'])
         return mini_contig
     else:
