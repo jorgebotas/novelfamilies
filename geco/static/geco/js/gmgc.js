@@ -14,44 +14,7 @@ var get_context = async (query) => {
     let context;
     await fetch(API_BASE_URL + '/context/'+ query + '/')
         .then(response => response.json())
-        //.then(data => {
-            //async function swapData(unprocessedData) {
-                //var  swappedData = Object.assign({}, unprocessedData);
-                //await Object.values(Object.assign({}, unprocessedData))
-                    //.forEach(d => {
-                //function swap_strand(s, reference_s) {
-                    //if (reference_s == "+"){
-                        //return s;
-                    //} else {
-                        //if (s == "+" || +s > 0){
-                            //return "-";
-                        //} else if(s == "-" || +s < 0) {
-                            //return "+";
-                        //}
-                    //}
-                //}
-                //if (d.neighbourhood[0].strand == "-" || +d.neighbourhood[0].strand < 0) {
-                    //let swapped = {};
-                    //for(let p = -20; p <= 20; p++) {
-                        //let swapped_neigh  = d.neighbourhood[p];
-                        //if (swapped_neigh) {
-                            //let n_strand  = swapped_neigh.strand ? swapped_neigh.strand : "+";
-                            //if (swapped_neigh.gene != "NA") {
-                                //swapped_neigh.strand = swap_strand(n_strand, "-");
-                            //} else {
-                                //swapped_neigh.strand = "+";
-                            //}
-                        //}
-                        //swapped[-p] = swapped_neigh;
-                    //}
-                    //d.neighbourhood = swapped;
-                //}
-                //})
-                //return swappedData;
-            //}
-            //return swapData(Object.assign({}, data))
-        //})
-         .then(data => context = data)
+         .then(data => context = data.context)
          .catch(e => console.log(e));
     return context;
 }
@@ -292,7 +255,6 @@ var gmgc_vueapp = new Vue({
             let newick, context;
             newick = this.show_items[query].newick;
             context = this.show_items[query].context;
-            console.log(context)
             if (context) {
                 window.onload = async () => {
                     await $(selector + " .gecoviz-progress").show().delay(2000);
@@ -311,8 +273,6 @@ var gmgc_vueapp = new Vue({
                 await $(selector + " .gecoviz-progress").show();
                 newick = await get_newick(query);
                 context = await get_context(query);
-                console.log('in')
-                console.log(context)
                 let graph = GeCoViz(selector)
                             .data(context)
                             .nSide(2)

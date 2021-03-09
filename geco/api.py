@@ -66,5 +66,5 @@ def newick(request, query):
     return HttpResponseNotFound()
 
 def context(request, query):
-    analysis = get_neighborhood(query)
-    return JsonResponse(analysis, safe=False)
+    analysis = { 'context' : get_neighborhood(query) }
+    return JsonResponse(analysis)
