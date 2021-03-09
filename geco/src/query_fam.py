@@ -61,7 +61,9 @@ def get_mini_contig(gene_name, window=10):
         anchor = next(x for x in match['genes'] if x['g'] == gene_name)['p']
         start = max(0, anchor-window)
         end = anchor+window
-        return match['genes'][start:end]
+        mini_contig = match['genes'][start:end]
+        print(mini_contig)
+        return
     else:
         return []
 
@@ -96,7 +98,9 @@ def get_fam(fam):
         gene2card = get_cards(mini_contig_genes)
 
         # creates a document with the extended info of each gene
+        contig_window = len(mini_contig)
         for (idx, orf) in enumerate(mini_contig):
+            print(idx)
             gene_doc = {"gene": orf['g'],
                         "anchor":gene,
                         "start":orf['s'],
