@@ -357,346 +357,347 @@
            <div class="card-body p-2 rounded bg-light">
         <div class="tab-content">
 
-          <div class="tab-pane fade show active" :id="'f' + tid +
-                      '-magsDonut-tab'" role="tabpanel"
-              aria-labelledby="pills-mags-donut-tab">
-           <div class="card">
-               <div class="card-header text-primary font-weight-bold">
-                   MAG mapping
-               </div>
-               <div class="card-body rounded">
-                    <div class="bg-white rounded col-md-6 mx-auto" 
-                         :id="'f' + tid + '-magsDonut'">
-                    </div>
-               </div>
-           </div>
-           </div>
+<!--          <div class="tab-pane fade show active" :id="'f' + tid +-->
+                      <!--'-magsDonut-tab'" role="tabpanel"-->
+              <!--aria-labelledby="pills-mags-donut-tab">-->
+           <!--<div class="card">-->
+               <!--<div class="card-header text-primary font-weight-bold">-->
+                   <!--MAG mapping-->
+               <!--</div>-->
+               <!--<div class="card-body rounded">-->
+                    <!--<div class="bg-white rounded col-md-6 mx-auto" -->
+                         <!--:id="'f' + tid + '-magsDonut'">-->
+                    <!--</div>-->
+               <!--</div>-->
+           <!--</div>-->
+           <!--</div>-->
 
-          <div class="tab-pane fade" :id="'f' + tid +
-                      '-magsSamples-tab'" role="tabpanel"
-              aria-labelledby="pills-mags-samples-tab">
-           <div class="card col-md-12 p-0">
-                   <div class="card-header text-primary font-weight-bold">
-                        MAG samples
-                   </div>
-                <div class="card-body">
-                   <div class="card p-0 mx-4 fam-table">
-                       <div class="table-responsive">
-                           <table class="table table-vcenter card-table
-                               text-center mb-0">
-                               <thead>
-                                   <tr>
-                                       <th>Human gut</th>
-                                       <th>Marine</th>
-                                       <th>TARA Eukaryote</th>
-                                       <th>Earth</th>
-                                   </tr>
-                               </thead>
-                               <tbody>
-                                   <tr v-if="tdata.mags"
-                                    v-for="i in Math.max(
-                                            tdata.mags.almeida.length,
-                                            tdata.mags.paoli.length,
-                                            tdata.mags.delmont.length,
-                                            tdata.mags.naychaf.length)">
-                                       <th class="p-1">
-                                           [[ tdata.mags.almeida[i] ]]
-                                       </th>
-                                       <th class="p-1">
-                                           [[ tdata.mags.paoli[i] ]]
-                                       </th>
-                                       <th class="p-1">
-                                           [[ tdata.mags.delmont[i] ]]
-                                       </th>
-                                       <th class="p-1">
-                                           [[ tdata.mags.naychaf[i] ]]
-                                       </th>
-                                   </tr>
-                               </tbody>
-                           </table>
-                       </div>
-                   </div>
-                   </div>
-                </div>
+          <!--<div class="tab-pane fade" :id="'f' + tid +-->
+                      <!--'-magsSamples-tab'" role="tabpanel"-->
+              <!--aria-labelledby="pills-mags-samples-tab">-->
+           <!--<div class="card col-md-12 p-0">-->
+                   <!--<div class="card-header text-primary font-weight-bold">-->
+                        <!--MAG samples-->
+                   <!--</div>-->
+                <!--<div class="card-body">-->
+                   <!--<div class="card p-0 mx-4 fam-table">-->
+                       <!--<div class="table-responsive">-->
+                           <!--<table class="table table-vcenter card-table-->
+                               <!--text-center mb-0">-->
+                               <!--<thead>-->
+                                   <!--<tr>-->
+                                       <!--<th>Human gut</th>-->
+                                       <!--<th>Marine</th>-->
+                                       <!--<th>TARA Eukaryote</th>-->
+                                       <!--<th>Earth</th>-->
+                                   <!--</tr>-->
+                               <!--</thead>-->
+                               <!--<tbody>-->
+                                   <!--<tr v-if="tdata.mags"-->
+                                    <!--v-for="i in Math.max(-->
+                                            <!--tdata.mags.almeida.length,-->
+                                            <!--tdata.mags.paoli.length,-->
+                                            <!--tdata.mags.delmont.length,-->
+                                            <!--tdata.mags.naychaf.length)">-->
+                                       <!--<th class="p-1">-->
+                                           <!--[[ tdata.mags.almeida[i] ]]-->
+                                       <!--</th>-->
+                                       <!--<th class="p-1">-->
+                                           <!--[[ tdata.mags.paoli[i] ]]-->
+                                       <!--</th>-->
+                                       <!--<th class="p-1">-->
+                                           <!--[[ tdata.mags.delmont[i] ]]-->
+                                       <!--</th>-->
+                                       <!--<th class="p-1">-->
+                                           <!--[[ tdata.mags.naychaf[i] ]]-->
+                                       <!--</th>-->
+                                   <!--</tr>-->
+                               <!--</tbody>-->
+                           <!--</table>-->
+                       <!--</div>-->
+                   <!--</div>-->
+                   <!--</div>-->
+                <!--</div>-->
 
-           </div>
+           <!--</div>-->
 
-          <div class="tab-pane fade" :id="'f' + tid +
-                      '-magsFunction-tab'" role="tabpanel"
-              aria-labelledby="pills-mags-function-tab">
-           <div v-for="origin in tdata.mags_annot">
-               <div class="card col-md-12 p-0"
-                    v-if="origin.function != {}">
-                   <div class="card-header text-primary font-weight-bold">
-                        [[ origin.origin ]]
-                   </div>
-                <div class="card-body">
-                   <div class="card p-0 mx-4 fam-table">
-                       <div class="table-responsive">
-                           <table class="table table-vcenter card-table
-                               text-center mb-0">
-                               <thead>
-                                   <tr>
-                                       <th>KEGG</th>
-                                       <th>Description</th>
-                                       <th>vcons</th>
-                                       <th>meanhcons</th>
-                                       <th>maxhcons</th>
-                                   </tr>
-                               </thead>
-                               <tbody>
-                                   <tr v-for="m in origin.function">
-                                       <th class="p-1">
-                                           [[ m | getKeyByValue(origin.function) ]]
-                                       </th>
-                                       <th class="p-1">
-                                           [[ m.description ]]
-                                       </th>
-                                       <th class="p-1">
-                                           [[ m.vcons | toFixed ]]
-                                       </th>
-                                       <th class="p-1">
-                                           [[ m.maxhcons | toFixed ]]
-                                       </th>
-                                       <th class="p-1">
-                                           [[ m.meanhcons | toFixed ]]
-                                       </th>
-                                   </tr>
-                               </tbody>
-                           </table>
-                       </div>
-                   </div>
-                   </div>
-                </div>
-               </div>
+          <!--<div class="tab-pane fade" :id="'f' + tid +-->
+                      <!--'-magsFunction-tab'" role="tabpanel"-->
+              <!--aria-labelledby="pills-mags-function-tab">-->
+           <!--<div v-for="origin in tdata.mags_annot">-->
+               <!--<div class="card col-md-12 p-0"-->
+                    <!--v-if="origin.function != {}">-->
+                   <!--<div class="card-header text-primary font-weight-bold">-->
+                        <!--[[ origin.origin ]]-->
+                   <!--</div>-->
+                <!--<div class="card-body">-->
+                   <!--<div class="card p-0 mx-4 fam-table">-->
+                       <!--<div class="table-responsive">-->
+                           <!--<table class="table table-vcenter card-table-->
+                               <!--text-center mb-0">-->
+                               <!--<thead>-->
+                                   <!--<tr>-->
+                                       <!--<th>KEGG</th>-->
+                                       <!--<th>Description</th>-->
+                                       <!--<th>vcons</th>-->
+                                       <!--<th>meanhcons</th>-->
+                                       <!--<th>maxhcons</th>-->
+                                   <!--</tr>-->
+                               <!--</thead>-->
+                               <!--<tbody>-->
+                                   <!--<tr v-for="m in origin.function">-->
+                                       <!--<th class="p-1">-->
+                                           <!--[[ m | getKeyByValue(origin.function) ]]-->
+                                       <!--</th>-->
+                                       <!--<th class="p-1">-->
+                                           <!--[[ m.description ]]-->
+                                       <!--</th>-->
+                                       <!--<th class="p-1">-->
+                                           <!--[[ m.vcons | toFixed ]]-->
+                                       <!--</th>-->
+                                       <!--<th class="p-1">-->
+                                           <!--[[ m.maxhcons | toFixed ]]-->
+                                       <!--</th>-->
+                                       <!--<th class="p-1">-->
+                                           <!--[[ m.meanhcons | toFixed ]]-->
+                                       <!--</th>-->
+                                   <!--</tr>-->
+                               <!--</tbody>-->
+                           <!--</table>-->
+                       <!--</div>-->
+                   <!--</div>-->
+                   <!--</div>-->
+                <!--</div>-->
+               <!--</div>-->
 
-           </div>
+           <!--</div>-->
 
-           <div class="tab-pane fade" :id="'f' + tid +
-                      '-magsTax-tab'" role="tabpanel"
-              aria-labelledby="pills-mags-tax-tab">
-           <div v-for="origin in tdata.mags_annot">
-               <div class="card col-md-12 p-0"
-                    v-if="origin.tax != {}">
-                   <div class="card-header text-primary font-weight-bold">
-                        [[ origin.origin ]]
-                   </div>
-                <div class="card-body">
-                   <div class="card p-0 mx-4 fam-table">
-                       <div class="table-responsive">
-                           <table class="table table-vcenter card-table
-                               text-center mb-0">
-                               <thead>
-                                   <tr>
-                                       <th>Tax level</th>
-                                       <th>Name</th>
-                                       <th>Number</th>
-                                   </tr>
-                               </thead>
-                               <tbody>
-                                   <tr v-for="m in origin.tax.ta_gtdb">
-                                       <th class="p-1">
-                                           [[ m.level ]]
-                                       </th>
-                                       <th class="p-1">
-                                           [[ m.name ]]
-                                       </th>
-                                       <th class="p-1">
-                                           [[ m.number ]]
-                                       </th>
-                                   </tr>
-                               </tbody>
-                           </table>
-                       </div>
-                   </div>
-                   </div>
-                </div>
-               </div>
+           <!--<div class="tab-pane fade" :id="'f' + tid +-->
+                      <!--'-magsTax-tab'" role="tabpanel"-->
+              <!--aria-labelledby="pills-mags-tax-tab">-->
+           <!--<div v-for="origin in tdata.mags_annot">-->
+               <!--<div class="card col-md-12 p-0"-->
+                    <!--v-if="origin.tax != {}">-->
+                   <!--<div class="card-header text-primary font-weight-bold">-->
+                        <!--[[ origin.origin ]]-->
+                   <!--</div>-->
+                <!--<div class="card-body">-->
+                   <!--<div class="card p-0 mx-4 fam-table">-->
+                       <!--<div class="table-responsive">-->
+                           <!--<table class="table table-vcenter card-table-->
+                               <!--text-center mb-0">-->
+                               <!--<thead>-->
+                                   <!--<tr>-->
+                                       <!--<th>Tax level</th>-->
+                                       <!--<th>Name</th>-->
+                                       <!--<th>Number</th>-->
+                                   <!--</tr>-->
+                               <!--</thead>-->
+                               <!--<tbody>-->
+                                   <!--<tr v-for="m in origin.tax.ta_gtdb">-->
+                                       <!--<th class="p-1">-->
+                                           <!--[[ m.level ]]-->
+                                       <!--</th>-->
+                                       <!--<th class="p-1">-->
+                                           <!--[[ m.name ]]-->
+                                       <!--</th>-->
+                                       <!--<th class="p-1">-->
+                                           <!--[[ m.number ]]-->
+                                       <!--</th>-->
+                                   <!--</tr>-->
+                               <!--</tbody>-->
+                           <!--</table>-->
+                       <!--</div>-->
+                   <!--</div>-->
+                   <!--</div>-->
+                <!--</div>-->
+               <!--</div>-->
 
-           </div>
-       </div>
-       </div>
-       </div>
-       </div>
+           <!--</div>-->
+       <!--</div>-->
+       <!--</div>-->
+       <!--</div>-->
+       <!--</div>-->
 
 
-          <div class="tab-pane fade" :id="'f' + tid + '-biomes'" role="tabpanel"
-              aria-labelledby="pills-biomes-tab">
-           <div class="card">
-               <div class="card-header text-primary font-weight-bold">
-                   Biome mapping
-               </div>
-               <div class="card-body rounded">
-                    <div class="bg-white rounded col-md-6 mx-auto" 
-                         :id="'f' + tid + '-biomesViz'">
-                    </div>
-               </div>
-           </div>
-          </div>
+          <!--<div class="tab-pane fade" :id="'f' + tid + '-biomes'" role="tabpanel"-->
+              <!--aria-labelledby="pills-biomes-tab">-->
+           <!--<div class="card">-->
+               <!--<div class="card-header text-primary font-weight-bold">-->
+                   <!--Biome mapping-->
+               <!--</div>-->
+               <!--<div class="card-body rounded">-->
+                    <!--<div class="bg-white rounded col-md-6 mx-auto" -->
+                         <!--:id="'f' + tid + '-biomesViz'">-->
+                    <!--</div>-->
+               <!--</div>-->
+           <!--</div>-->
+          <!--</div>-->
 
-          <div class="tab-pane fade" :id="'f' + tid + '-functionp'" role="tabpanel"
-              aria-labelledby="pills-functionp-tab">
+          <!--<div class="tab-pane fade" :id="'f' + tid + '-functionp'" role="tabpanel"-->
+              <!--aria-labelledby="pills-functionp-tab">-->
 
-               <div class="card-body rounded row">
-                   <div class="card col-md-12 p-0">
-                       <div class="card-header text-primary font-weight-bold">
-                           KEGG assignation
-                       </div>
-                   <div class="card p-0 m-4 fam-table">
-                       <div class="table-responsive">
-                           <table class="table table-vcenter card-table
-                               text-center mb-0">
-                               <thead>
-                                   <tr>
-                                       <th>kegg
-                                       </th>
-                                       <th>vertical conservation</th>
-                                       <th>Max horizontal conservation</th>
-                                       <th>Max immediate neighbor horizontal
-                                           conservation</th>
-                                       <th>Mean surrounding KEGGs</th>
-                                       <th>Description</th>
-                                   </tr>
-                               </thead>
-                               <tbody>
-                                   <tr v-for="m in tdata.keggp">
-                                       <th class="p-1">
-                                           [[ m | getKeyByValue(tdata.keggp) ]]
-                                       </th>
-                                       <th class="p-1">
-                                           [[ m.vc | tofixed ]]
-                                       </th>
-                                       <th class="p-1">
-                                           [[ m.hc | tofixed ]]
-                                       </th>
-                                       <th class="p-1">
-                                           [[ m.hci | tofixed ]]
-                                       </th>
-                                       <th class="p-1">
-                                           [[ m.hcm | toFixed ]]
-                                       </th>
-                                       <th class="p-1">
-                                           [[ m.desc_k ]]
-                                       </th>
-                                   </tr>
-                               </tbody>
-                           </table>
-                       </div>
-                   </div>
-                   </div>
+               <!--<div class="card-body rounded row">-->
+                   <!--<div class="card col-md-12 p-0">-->
+                       <!--<div class="card-header text-primary font-weight-bold">-->
+                           <!--KEGG assignation-->
+                       <!--</div>-->
+                   <!--<div class="card p-0 m-4 fam-table">-->
+                       <!--<div class="table-responsive">-->
+                           <!--<table class="table table-vcenter card-table-->
+                               <!--text-center mb-0">-->
+                               <!--<thead>-->
+                                   <!--<tr>-->
+                                       <!--<th>kegg-->
+                                       <!--</th>-->
+                                       <!--<th>vertical conservation</th>-->
+                                       <!--<th>Max horizontal conservation</th>-->
+                                       <!--<th>Max immediate neighbor horizontal-->
+                                           <!--conservation</th>-->
+                                       <!--<th>Mean surrounding KEGGs</th>-->
+                                       <!--<th>Description</th>-->
+                                   <!--</tr>-->
+                               <!--</thead>-->
+                               <!--<tbody>-->
+                                   <!--<tr v-for="m in tdata.keggp">-->
+                                       <!--<th class="p-1">-->
+                                           <!--[[ m | getKeyByValue(tdata.keggp) ]]-->
+                                       <!--</th>-->
+                                       <!--<th class="p-1">-->
+                                           <!--[[ m.vc | tofixed ]]-->
+                                       <!--</th>-->
+                                       <!--<th class="p-1">-->
+                                           <!--[[ m.hc | tofixed ]]-->
+                                       <!--</th>-->
+                                       <!--<th class="p-1">-->
+                                           <!--[[ m.hci | tofixed ]]-->
+                                       <!--</th>-->
+                                       <!--<th class="p-1">-->
+                                           <!--[[ m.hcm | toFixed ]]-->
+                                       <!--</th>-->
+                                       <!--<th class="p-1">-->
+                                           <!--[[ m.desc_k ]]-->
+                                       <!--</th>-->
+                                   <!--</tr>-->
+                               <!--</tbody>-->
+                           <!--</table>-->
+                       <!--</div>-->
+                   <!--</div>-->
+                   <!--</div>-->
 
-                   <div class="card col-md-12 p-0">
-                       <div class="card-header text-primary font-weight-bold">
-                           eggNOG assignation
-                       </div>
-                   <div class="text-muted font-weight-bold mt-4 ml-4 mb-2">STRING scores
-                       on COG set</div>
-                   <div class="card p-0 mx-4 fam-table">
-                       <div class="table-responsive">
-                           <table class="table table-vcenter card-table
-                               text-center mb-0">
-                               <thead>
-                                   <tr>
-                                       <th>STRING score
-                                       </th>
-                                       <th>Number of comparisons</th>
-                                       <th>Number of cogs assigned</th>
-                                   </tr>
-                               </thead>
-                               <tbody>
-                                   <tr>
-                                       <th class="p-1">
-                                           [[ tdata.sstr.sstr_v | toFixed ]]
-                                       </th>
-                                       <th class="p-1">
-                                           [[ tdata.sstr.ncstr ]]
-                                       </th>
-                                       <th class="p-1">
-                                           [[ tdata.sstr.p_cogp_n ]]
-                                       </th>
-                                   </tr>
-                               </tbody>
-                           </table>
-                       </div>
-                   </div>
-                   <div class="text-muted font-weight-bold mt-4 ml-4 mb-2">eggNOG
-                       assignation based on neighborhood</div>
-                   <div class="card p-0 mx-4 fam-table">
-                       <div class="table-responsive">
-                           <table class="table table-vcenter card-table
-                               text-center mb-0">
-                               <thead>
-                                   <tr>
-                                       <th>eggNOG
-                                       </th>
-                                       <th>Vertical conservation</th>
-                                       <th>Taxonomic level</th>
-                                       <th>Description</th>
-                                   </tr>
-                               </thead>
-                               <tbody>
-                                   <tr v-for="m in tdata.cogp">
-                                       <th class="p-1">
-                                           [[ m | getKeyByValue(tdata.cogp) ]]
-                                       </th>
-                                       <th class="p-1">
-                                           [[ m.vcc | toFixed ]]
-                                       </th>
-                                       <th class="p-1">
-                                           [[ m.taxl_c ]]
-                                       </th>
-                                       <th class="p-1">
-                                           [[ m.desc_c ]]
-                                       </th>
-                                   </tr>
-                               </tbody>
-                           </table>
-                       </div>
-                   </div>
-                   </div>
+                   <!--<div class="card col-md-12 p-0">-->
+                       <!--<div class="card-header text-primary font-weight-bold">-->
+                           <!--eggNOG assignation-->
+                       <!--</div>-->
+                   <!--<div class="text-muted font-weight-bold mt-4 ml-4 mb-2">STRING scores-->
+                       <!--on COG set</div>-->
+                   <!--<div class="card p-0 mx-4 fam-table">-->
+                       <!--<div class="table-responsive">-->
+                           <!--<table class="table table-vcenter card-table-->
+                               <!--text-center mb-0">-->
+                               <!--<thead>-->
+                                   <!--<tr>-->
+                                       <!--<th>STRING score-->
+                                       <!--</th>-->
+                                       <!--<th>Number of comparisons</th>-->
+                                       <!--<th>Number of cogs assigned</th>-->
+                                   <!--</tr>-->
+                               <!--</thead>-->
+                               <!--<tbody>-->
+                                   <!--<tr>-->
+                                       <!--<th class="p-1">-->
+                                           <!--[[ tdata.sstr.sstr_v | toFixed ]]-->
+                                       <!--</th>-->
+                                       <!--<th class="p-1">-->
+                                           <!--[[ tdata.sstr.ncstr ]]-->
+                                       <!--</th>-->
+                                       <!--<th class="p-1">-->
+                                           <!--[[ tdata.sstr.p_cogp_n ]]-->
+                                       <!--</th>-->
+                                   <!--</tr>-->
+                               <!--</tbody>-->
+                           <!--</table>-->
+                       <!--</div>-->
+                   <!--</div>-->
+                   <!--<div class="text-muted font-weight-bold mt-4 ml-4 mb-2">eggNOG-->
+                       <!--assignation based on neighborhood</div>-->
+                   <!--<div class="card p-0 mx-4 fam-table">-->
+                       <!--<div class="table-responsive">-->
+                           <!--<table class="table table-vcenter card-table-->
+                               <!--text-center mb-0">-->
+                               <!--<thead>-->
+                                   <!--<tr>-->
+                                       <!--<th>eggNOG-->
+                                       <!--</th>-->
+                                       <!--<th>Vertical conservation</th>-->
+                                       <!--<th>Taxonomic level</th>-->
+                                       <!--<th>Description</th>-->
+                                   <!--</tr>-->
+                               <!--</thead>-->
+                               <!--<tbody>-->
+                                   <!--<tr v-for="m in tdata.cogp">-->
+                                       <!--<th class="p-1">-->
+                                           <!--[[ m | getKeyByValue(tdata.cogp) ]]-->
+                                       <!--</th>-->
+                                       <!--<th class="p-1">-->
+                                           <!--[[ m.vcc | toFixed ]]-->
+                                       <!--</th>-->
+                                       <!--<th class="p-1">-->
+                                           <!--[[ m.taxl_c ]]-->
+                                       <!--</th>-->
+                                       <!--<th class="p-1">-->
+                                           <!--[[ m.desc_c ]]-->
+                                       <!--</th>-->
+                                   <!--</tr>-->
+                               <!--</tbody>-->
+                           <!--</table>-->
+                       <!--</div>-->
+                   <!--</div>-->
+                   <!--</div>-->
 
-           </div>
-          </div>
-          <div class="tab-pane fade" :id="'f' + tid + '-taxp'" role="tabpanel"
-              aria-labelledby="pills-taxp-tab">
-           <div class="card">
-               <div class="card-body rounded">
+           <!--</div>-->
+          <!--</div>-->
+          <!--<div class="tab-pane fade" :id="'f' + tid + '-taxp'" role="tabpanel"-->
+              <!--aria-labelledby="pills-taxp-tab">-->
+           <!--<div class="card">-->
+               <!--<div class="card-body rounded">-->
                    
-                   <div class="card p-0 mx-2 fam-table">
-                       <div class="table-responsive">
-                           <table class="table table-vcenter card-table
-                               text-center mb-0">
-                               <thead>
-                                   <tr>
-                                       <th>Taxomic id</th>
-                                       <th>Taxomic name</th>
-                                       <th>Number of genes annotated</th>
-                                       <th>Mean identity</th>
-                                   </tr>
-                               </thead>
-                               <tbody>
-                                   <tr v-for="m in tdata.taxp">
-                                       <th class="p-1">
-                                           [[ m.p_taxp_in ]]
-                                       </th>
-                                       <th class="p-1">
-                                           [[ m.p_taxp_name ]]
-                                       </th>
-                                       <th class="p-1">
-                                           [[ m.p_taxp_in_c | toFixed ]]
-                                       </th>
-                                       <th class="p-1">
-                                           [[ m.p_taxp_id | toFixed ]]
-                                       </th>
-                                   </tr>
-                               </tbody>
-                           </table>
-                       </div>
-                   </div>
+                   <!--<div class="card p-0 mx-2 fam-table">-->
+                       <!--<div class="table-responsive">-->
+                           <!--<table class="table table-vcenter card-table-->
+                               <!--text-center mb-0">-->
+                               <!--<thead>-->
+                                   <!--<tr>-->
+                                       <!--<th>Taxomic id</th>-->
+                                       <!--<th>Taxomic name</th>-->
+                                       <!--<th>Number of genes annotated</th>-->
+                                       <!--<th>Mean identity</th>-->
+                                   <!--</tr>-->
+                               <!--</thead>-->
+                               <!--<tbody>-->
+                                   <!--<tr v-for="m in tdata.taxp">-->
+                                       <!--<th class="p-1">-->
+                                           <!--[[ m.p_taxp_in ]]-->
+                                       <!--</th>-->
+                                       <!--<th class="p-1">-->
+                                           <!--[[ m.p_taxp_name ]]-->
+                                       <!--</th>-->
+                                       <!--<th class="p-1">-->
+                                           <!--[[ m.p_taxp_in_c | toFixed ]]-->
+                                       <!--</th>-->
+                                       <!--<th class="p-1">-->
+                                           <!--[[ m.p_taxp_id | toFixed ]]-->
+                                       <!--</th>-->
+                                   <!--</tr>-->
+                               <!--</tbody>-->
+                           <!--</table>-->
+                       <!--</div>-->
+                   <!--</div>-->
 
-               </div>
-           </div>
-          </div>
+               <!--</div>-->
+           <!--</div>-->
+          <!--</div>-->
+
           <div class="tab-pane fade" :id="'f' + tid + '-gecoviz'" role="tabpanel"
               aria-labelledby="pills-gecoviz-tab">
 
