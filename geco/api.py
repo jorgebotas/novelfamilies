@@ -67,4 +67,4 @@ def newick(request, query):
 
 def context(request, query):
     analysis = get_neighborhood(query)
-    return JsonResponse(analysis)
+    return JsonResponse(analysis, safe=False)
