@@ -10,9 +10,9 @@ var get_newick = async (query) => {
     return newick;
 }
 
-var get_context = async (query, origin, cutoff) => {
+var get_context = async (query) => {
     let context;
-    await fetch(API_BASE_URL + '/context/' + origin + '/' + query + '/' + cutoff + '/')
+    await fetch(API_BASE_URL + '/context/'+ query + '/')
         .then(response => response.json())
         .then(data => {
             async function swapData(unprocessedData) {
@@ -287,39 +287,42 @@ var gmgc_vueapp = new Vue({
         show_items: {},
     },
     methods: {
-        get_random_items: function(n) {
-
-            fetch(API_BASE_URL + '/random_items/' + n + '/')
-                .then(response => response.json())
-                .then(data => {
-                    this.show_items = data.show_items;
-                })
-                .catch(error => console.log(error));
-        },
-
-        toggleGeCo : async function(selector, query, origin) {
-            let colors = await get_colors();
+        toggleGeCo : async function(selector, query) {
+            //let colors = await get_colors();
             let newick, context;
-            try {
-                newick = this.show_items[query][origin].newick;
-                context = this.show_items[query][origin].context;
-            } catch {
-                context = undefined;
-            }
+            newick = this.show_items[query].newick;
+            context = this.show_items[query].context;
             if (context) {
                 window.onload = async () => {
-                    await $(selector + " .geco-progress").show().delay(2000);
-                    await window.launch_GeCo(selector, context, newick, 41, colors);
-                    await $(selector + " .geco-progress").hide();
+                    await $(selector + " .gecoviz-progress").show().delay(2000);
+                    let graph = GeCoViz(selector)
+                                .data(data)
+                                .nSide(2)
+                                .tree(newick, fields);
+                    d3.select(selector)
+                             .call(graph);
+                    d3.select(selector)
+                        .style('opacity', 1)
+                        .style('visibility', 'visible');
+                    await $(selector + " .gecoviz-progress").hide();
                 }
             } else {
-                await $(selector + " .geco-progress").show();
+                await $(selector + " .gecoviz-progress").show();
                 newick = await get_newick(query);
-                context = await get_context(query, origin, 30);
-                await window.launch_GeCo(selector, context, newick, 41, colors);
-                await $(selector + " .geco-progress").hide();
-                this.show_items[query][origin].newick = newick;
-                this.show_items[query][origin].context = context;
+                context = await get_context(query);
+                let graph = GeCoViz(selector)
+                            .data(data)
+                            .nSide(2)
+                            .tree(newick, fields);
+                d3.select(selector)
+                         .call(graph);
+                d3.select(selector)
+                    .style('opacity', 1)
+                    .style('visibility', 'visible');
+                //await window.launch_GeCo(selector, context, newick, 41, colors);
+                await $(selector + " .gecoviz-progress").hide();
+                this.show_items[query].newick = newick;
+                this.show_items[query].context = context;
             }
         },
 

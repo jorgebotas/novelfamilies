@@ -3,7 +3,8 @@ import json
 
 from .src.mongodb import mongo_connect
 from .src.get_context import get_context, get_newick
-from .src.get_fams import get_fam_info, get_neighborhood
+from .src.get_fams import get_fam_info
+from .src.query_fam import get_fam as get_neighborhood
 
 def random_items(request, nitems):
     import random
@@ -23,13 +24,15 @@ def random_items(request, nitems):
     return JsonResponse(data)
 
 def info(request, search_type, query):
-    data = { "show_items" : {} }
-    if search_type == "gmgc":
-        data["show_items"] = { query : get_fam_info(query, True) }
-    elif search_type == "novelfam":
-        data["show_items"]  = { query : get_fam_info(query, False) }
-    elif search_type == "function":
-        pass
+    data = { "show_items" : {
+        'name' : query,
+    } }
+    # if search_type == "gmgc":
+        # data["show_items"] = { query : get_fam_info(query, True) }
+    # elif search_type == "novelfam":
+        # data["show_items"]  = { query : get_fam_info(query, False) }
+    # elif search_type == "function":
+        # pass
     return JsonResponse(data)
 
 def newick(request, query):
@@ -41,6 +44,6 @@ def newick(request, query):
         # print("NO TREE for specified cluster: " + str(query))
     return HttpResponseNotFound()
 
-def context(request, origin, query, cutoff):
-    analysis = get_neighborhood(query, origin)
+def context(request, query):
+    analysis = get_neighborhood(query)
     return JsonResponse(analysis)

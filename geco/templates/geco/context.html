@@ -1,14 +1,18 @@
 {% extends 'geco/base.html' %}
 {% block content %}
 {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static '/geco/css/geco.css' %}"/>
-    <link rel="stylesheet" type="text/css" href="{% static '/geco/css/colors.css' %}"/>
-    <link rel="stylesheet" type="text/css" href="{% static '/geco/css/scrollbar.css' %}"/>
-    <link rel="stylesheet" type="text/css" href="{% static '/geco/css/forms.css' %}"/>
-    <link rel="stylesheet" type="text/css" href="{% static '/geco/css/params.css' %}"/>
-    <link rel="stylesheet" type="text/css" href="{% static '/geco/css/popper.css' %}"/>
-    <link rel="stylesheet" type="text/css" href="{% static '/geco/css/select_box.css' %}"/>
-
+    <link rel="stylesheet" type="text/css" 
+        href="{% static "geco/assets/tabler/css/tabler-vendors.min.css" %}"/>
+    <link rel="stylesheet" type="text/css" 
+        href="{% static "geco/GeCoVizjs/static/css/scrollbar.css" %}"/>
+    <link rel="stylesheet" type="text/css" 
+        href="{% static "geco/GeCoVizjs/static/css/selectBox.css" %}"/>
+    <link rel="stylesheet" type="text/css" 
+        href="{% static "geco/GeCoVizjs/static/css/customBar.css" %}"/>
+    <link rel="stylesheet" type="text/css" 
+        href="{% static "geco/GeCoVizjs/static/css/popper.css" %}"/>
+    <link rel="stylesheet" type="text/css" 
+        href="{% static "geco/GeCoVizjs/static/css/gecoviz.css" %}"/>
 
 {% include 'geco/searchbar.html'%}
 
@@ -20,7 +24,21 @@
 
 {% endblock %}
 {% block scripts %}
-    <script src="{% static "geco/js/geco.js" %}"></script>
+    <script src = "https://unpkg.com/@popperjs/core@2"></script>
+    <script src="{% static "geco/assets/tabler/libs/nouislider/distribute/nouislider.min.js" %}"></script>
+    <script src="{% static "geco/GeCoVizjs/src/html2canvas.min.js" %}"></script>
+    <script src="{% static "geco/GeCoVizjs/src/FileSaver.min.js" %}"></script>
+    <script src="{% static "geco/GeCoVizjs/src/colors269.js" %}"></script>
+    <script src="{% static "geco/GeCoVizjs/src/palette.js" %}"></script>
+    <script src="{% static "geco/GeCoVizjs/src/helpers.js" %}"></script>
+    <script src="{% static "geco/GeCoVizjs/src/selectBox.js" %}"></script>
+    <script src="{% static "geco/GeCoVizjs/src/slider.js" %}"></script>
+    <script src="{% static "geco/GeCoVizjs/src/customBar.js" %}"></script>
+    <script src="{% static "geco/GeCoVizjs/src/domains.js" %}"></script>
+    <script src="{% static "geco/GeCoVizjs/src/popper.js" %}"></script>
+    <script src="{% static "geco/GeCoVizjs/src/newick.js" %}"></script>
+    <script src="{% static "geco/GeCoVizjs/src/tree.js" %}"></script>
+    <script src="{% static "geco/GeCoVizjs/src/gecoviz.js" %}"></script>
     <script src="{% static "geco/js/gmgc.js" %}"></script>
     <script charset="utf-8">
       $(document).ready(function () {

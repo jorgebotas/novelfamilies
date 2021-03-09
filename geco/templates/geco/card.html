@@ -76,15 +76,12 @@
                         aria-selected="false">Taxonomic assignation</a>
                   </li>
                   <li class="nav-item mx-2">
-                    <a class="nav-link btn-sm" id="pills-geco-tab" data-toggle="pill"
-                        :href="'#f' + tid + '-geco'" role="tab" aria-controls="pills-geco"
+                    <a class="nav-link btn-sm" id="pills-gecoviz-tab" data-toggle="pill"
+                        :href="'#f' + tid + '-gecoviz'" role="tab"
+                        aria-controls="pills-gecoviz"
                         aria-selected="false"
                         @click="toggleFam('f' + tid + '-tab-content');
-                                toggleGeCo('#f'+tid+'-gmgcGeCo', tid, 'gmgc');
-                                toggleGeCo('#f'+tid+'-humanGutGeco', tid, 'human-gut');
-                                toggleGeCo('#f'+tid+'-taraGeco', tid, 'tara');
-                                toggleGeCo('#f'+tid+'-earthGeco', tid, 'earth');
-                                toggleGeCo('#f'+tid+'-taraEukMagsGeco', tid, 'tara-euk')"
+                                toggleGeCoViz('#f'+tid+'-GeCoViz', tid);"
                         >GeCoViz</a>
                   </li>
                   <li class="nav-item mx-3 position-absolute"
@@ -700,146 +697,24 @@
                </div>
            </div>
           </div>
-          <div class="tab-pane fade" :id="'f' + tid + '-geco'" role="tabpanel"
-              aria-labelledby="pills-geco-tab">
+          <div class="tab-pane fade" :id="'f' + tid + '-gecoviz'" role="tabpanel"
+              aria-labelledby="pills-gecoviz-tab">
 
-            <div class="card">
-               <div class="card-header">
-                        <ul class="nav nav-pills justify-content-center mx-4"
-                            id="pills-tab" role="tablist">
-
-                          <li class="nav-item mx-2">
-                            <a class="nav-link active btn-sm" 
-                               id="pills-geco-gmgc-tab" 
-                               data-toggle="pill"
-                               :href="'#f' + tid + '-geco-gmgc'" 
-                               role="tab" 
-                               aria-controls="pills-geco-gmgc"
-                               aria-selected="true"
-                               @click="refreshGeCo('#f'+tid+'-gmgcGeCo');">
-                                GMGC</a>
-                          </li>
-                          <li class="nav-item mx-2">
-                            <a class="nav-link btn-sm" 
-                               id="pills-geco-humangut-tab" 
-                               data-toggle="pill"
-                               :href="'#f' + tid + '-geco-humangut'" 
-                               role="tab" 
-                               aria-controls="pills-geco-humangut"
-                               aria-selected="false"
-                               @click="refreshGeCo('#f'+tid+'-humangutGeCo');">
-                               Human gut MAGs</a>
-                          </li>
-                          <li class="nav-item mx-2">
-                            <a class="nav-link btn-sm" 
-                               id="pills-geco-ocean-tab" 
-                               data-toggle="pill"
-                               :href="'#f' + tid + '-geco-ocean'"
-                                role="tab" 
-                                aria-controls="pills-geco-ocean"
-                                aria-selected="false"
-                               @click="refreshGeCo('#f'+tid+'-taraGeCo');">
-                                Ocean MAGs</a>
-                          </li>
-                          <li class="nav-item mx-2">
-                            <a class="nav-link btn-sm" 
-                               id="pills-geco-earth-tab" 
-                               data-toggle="pill"
-                               :href="'#f' + tid + '-geco-earth'"
-                                role="tab" 
-                                aria-controls="pills-geco-earth"
-                                aria-selected="false"
-                               @click="refreshGeCo('#f'+tid+'-earthGeCo');">
-                                Earth MAGs</a>
-                          </li>
-                          <li class="nav-item mx-2">
-                            <a class="nav-link btn-sm" 
-                               id="pills-geco-taraEukMags-tab" 
-                               data-toggle="pill"
-                               :href="'#f' + tid + '-geco-taraEukMags'"
-                                role="tab" 
-                                aria-controls="pills-geco-taraEukMags"
-                                aria-selected="false"
-                               @click="refreshGeCo('#f'+tid+'-taraEukMagsGeco');">
-                                TARA Eukaryote MAGs</a>
-                          </li>
-                        </ul>
-                   </div>
-           <div class="card-body p-2 rounded bg-light">
-        <div class="tab-content">
-
-          <div class="tab-pane fade show active" :id="'f' + tid +
-                      '-geco-gmgc'" role="tabpanel"
-              aria-labelledby="pills-gmgc-tab">
            <div class="card">
-               <div class="card-header text-primary font-weight-bold">
-                   Genomic context from GMGC database
-               </div>
-               <div class="card-body overflow-auto rounded" 
-                    :id="'f' + tid + '-gmgcGeCo'"
-                    style="height:1600px;resize:vertical;">
-                   {% include 'geco/geco.html' %}
-               </div>
-           </div>
-           </div>
+               <div class="card-body p-2 rounded overflow-auto"
+                        style="height:1600px;resize:vertical;">
 
-          <div class="tab-pane fade show" :id="'f' + tid +
-                      '-geco-humangut'" role="tabpanel"
-              aria-labelledby="pills-humangut-tab">
-           <div class="card">
-               <div class="card-header text-primary font-weight-bold">
-                   Genomic context from human gut MAGs
-               </div>
-               <div class="card-body overflow-auto rounded" 
-                    :id="'f' + tid + '-humanGutGeco'"
-                    style="height:1600px;resize:vertical;">
-                   {% include 'geco/geco.html' %}
-               </div>
-           </div>
-           </div>
+                     <div class='row justify-content-center'>
+                      <div class='progress gecoviz-progress w-75 mt-6'>
+                          <div class='progress-bar progress-bar-indeterminate'>
+                          </div>
+                      </div>
+                     </div>
+                     <div :id="'f' + tid + '-GeCoViz'">
+                         
+                     </div>
 
-          <div class="tab-pane fade" :id="'f' + tid + '-geco-ocean'" role="tabpanel"
-              aria-labelledby="pills-humangut-tab">
-           <div class="card">
-               <div class="card-header text-primary font-weight-bold">
-                   Genomic context from ocean MAGs
-               </div>
-               <div class="card-body overflow-auto rounded" 
-                    :id="'f' + tid + '-taraGeco'"
-                    style="height:1600px;resize:vertical;">
-                   {% include 'geco/geco.html' %}
-               </div>
-           </div>
-           </div>
-
-          <div class="tab-pane fade" :id="'f' + tid + '-geco-earth'" role="tabpanel"
-              aria-labelledby="pills-humangut-tab">
-           <div class="card">
-               <div class="card-header text-primary font-weight-bold">
-                   Genomic context from earth MAGs
-               </div>
-               <div class="card-body overflow-auto rounded" 
-                    :id="'f' + tid + '-earthGeco'"
-                    style="height:1600px;resize:vertical;">
-                   {% include 'geco/geco.html' %}
-               </div>
-           </div>
-           </div>
-
-           <div class="tab-pane fade" :id="'f' + tid + '-geco-taraEukMags'" role="tabpanel"
-              aria-labelledby="pills-taraeuk-mags-tab">
-           <div class="card">
-               <div class="card-header text-primary font-weight-bold">
-                   Genomic context from TARA Eukaryote MAGs
-               </div>
-               <div class="card-body overflow-auto rounded" 
-                    :id="'f' + tid + '-taraEukMagsGeco'"
-                    style="height:1600px;resize:vertical;">
-                   {% include 'geco/geco.html' %}
-               </div>
-           </div>
-           </div>
-
+                </div>
            </div>
            </div>
            </div>
