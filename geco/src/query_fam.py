@@ -64,8 +64,8 @@ def get_mini_contig(gene_name, window=10):
         mini_contig = match['genes'][start:end]
         print(len(mini_contig))
         for orf in mini_contig:
-            print(orf['p'])
             orf['p'] = orf['p'] - start
+            print(orf['p'])
         return mini_contig
     else:
         return []
