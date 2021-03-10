@@ -249,45 +249,45 @@ var gmgc_vueapp = new Vue({
         show_items: {},
     },
     methods: {
-    toggleGeCoViz : async function(selector, query) {
-            //let colors = await get_colors();
-            let newick, context;
-            newick = this.show_items[query].newick;
-            context = this.show_items[query].context;
-            if (context) {
-                window.onload = async () => {
-                    await $(selector + " .gecoviz-progress").show().delay(2000);
+        toggleGeCoViz : async function(selector, query) {
+                //let colors = await get_colors();
+                let newick, context;
+                newick = this.show_items[query].newick;
+                context = this.show_items[query].context;
+                if (context) {
+                    window.onload = async () => {
+                        await $(selector + " .gecoviz-progress").show().delay(2000);
+                        let graph = GeCoViz(selector)
+                                    .data(data)
+                                    .nSide(2)
+                                    .tree(newick, fields);
+                        d3.select(selector)
+                                 .call(graph);
+                        d3.select(selector)
+                            .style('opacity', 1)
+                            .style('visibility', 'visible');
+                        await $(selector + " .gecoviz-progress").hide();
+                    }
+                } else {
+                    await $(selector + " .gecoviz-progress").show();
+                    newick = await get_newick(query);
+                    context = await get_context(query);
+                    console.log(context)
                     let graph = GeCoViz(selector)
-                                .data(data)
+                                .data(context)
                                 .nSide(2)
-                                .tree(newick, fields);
+                                .tree(newick, undefined);
                     d3.select(selector)
                              .call(graph);
                     d3.select(selector)
                         .style('opacity', 1)
                         .style('visibility', 'visible');
+                    //await window.launch_GeCo(selector, context, newick, 41, colors);
                     await $(selector + " .gecoviz-progress").hide();
+                    this.show_items[query].newick = newick;
+                    this.show_items[query].context = context;
                 }
-            } else {
-                await $(selector + " .gecoviz-progress").show();
-                newick = await get_newick(query);
-                context = await get_context(query);
-                console.log(context)
-                let graph = GeCoViz(selector)
-                            .data(context)
-                            .nSide(2)
-                            .tree(newick, undefined);
-                d3.select(selector)
-                         .call(graph);
-                d3.select(selector)
-                    .style('opacity', 1)
-                    .style('visibility', 'visible');
-                //await window.launch_GeCo(selector, context, newick, 41, colors);
-                await $(selector + " .gecoviz-progress").hide();
-                this.show_items[query].newick = newick;
-                this.show_items[query].context = context;
-            }
-        },
+            },
 
         refreshGeCo : function (selector) {
             $(String(selector) + " button[type='submit']").click();
@@ -303,9 +303,12 @@ var gmgc_vueapp = new Vue({
                     this.show_items = data.show_items
                 })
                 .then(() => {
-                    Object.entries(this.show_items).forEach(([f, data]) => {
+                    Object.entries(this.show_items).forEach(([f, idx,  data]) => {
+                        console.log(idx)
+                        console.log(data)
                         drawDonuts(f, data);
                         renderDomains(data.domains);
+                        toggleGeCoViz(`#${idx}-GeCoViz`, f)
                     });
                     $('.tab-content').collapse('show');
                 })

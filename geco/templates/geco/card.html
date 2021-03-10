@@ -8,13 +8,25 @@
 
                   <li class="nav-item mx-2">
                     <a class="nav-link active btn-sm" 
+                       id="pills-gecoviz-tab" 
+                       data-toggle="pill"
+                        :href="'#f' + index + '-gecoviz'" 
+                       role="tab"
+                        aria-controls="pills-gecoviz"
+                        aria-selected="tru"
+                        @click="toggleFam('f' + index + '-tab-content');
+                                toggleGeCoViz('#f'+index+'-GeCoViz', tid);"
+                        >Genomic Context</a>
+                  </li>
+                  <li class="nav-item mx-2">
+                    <a class="nav-link btn-sm" 
                        id="pills-info-tab" 
                        @click="toggleFam('f' + index + '-tab-content')"
                        data-toggle="pill"
                        :href="'#f' + index + '-info'" 
                        role="tab" 
                        aria-controls="pills-info"
-                       aria-selected="true">Info</a>
+                       aria-selected="false">Info</a>
                   </li>
                   <li class="nav-item mx-2">
                     <a class="nav-link btn-sm" 
@@ -76,15 +88,7 @@
                         aria-controls="pills-taxp"
                         aria-selected="false">Taxonomic assignation</a>
                   </li>
-                  <li class="nav-item mx-2">
-                    <a class="nav-link btn-sm" id="pills-gecoviz-tab" data-toggle="pill"
-                        :href="'#f' + index + '-gecoviz'" role="tab"
-                        aria-controls="pills-gecoviz"
-                        aria-selected="false"
-                        @click="toggleFam('f' + index + '-tab-content');
-                                toggleGeCoViz('#f'+index+'-GeCoViz', tid);"
-                        >GeCoViz</a>
-                  </li>
+
                   <li class="nav-item mx-3 position-absolute"
                       style="right:20px; top:10px;">
                         <a class="btn btn-primary btn-sm fam-toggle" 
