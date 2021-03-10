@@ -15087,6 +15087,10 @@ a:hover {
   padding: 5px 15px;
 }
 
+.form-control:focus {
+  background: initial;
+}
+
 .form-check-input {
   margin-top: 2px !important;
 }
