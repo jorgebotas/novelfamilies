@@ -52,13 +52,13 @@
             maxItems: 20,
             plugins: ['remove_button'],
             });
-          ["specifity", "coverage"].forEach(id => {
+          ["specificity", "coverage"].forEach(id => {
               let slider = document.getElementById(id);
               noUiSlider.create(slider,
                 {
                     start: .5,
                     connect: [true, false],
-                    step: 1,
+                    step: .01,
                     range: {
                         min: 0,
                         max: 1
