@@ -63,7 +63,7 @@
                             min: 0,
                             max: 1
                     }});
-                let sliderLabel = document.querySelector(`.${id} label`);
+                let sliderLabel = d3.select(`.${id} label`);
                 slider = slider.noUiSlider;
                 slider.on('update', () => {
                     let name =  id.trim().replace(/^\w/, c => c.toUpperCase());
