@@ -66,9 +66,7 @@ def get_mini_contig(gene_name, window=10):
         start = max(0, anchor-window)
         end = min(anchor+window+1, len(match['genes']))
         mini_contig = sorted_genes[start:end]
-        for orf in mini_contig:
-            orf['p'] = orf['p'] - anchor
-            print(orf['p'])
+        for orf in mini_contig: orf['p'] = orf['p'] - anchor
         return mini_contig
     else:
         return []
@@ -77,7 +75,8 @@ def get_cards(names):
     matches = col_cards.find({'q_g': {'$in': names} })
     gene2card = defaultdict(list)
     for m in matches:
-        gene2card[m['q_g']].append([m['card'], m['pident'], m['evalue']])
+        # gene2card[m['q_g']].append([m['card'], m['pident'], m['evalue']])
+        gene2card[m['q_g']].append({'id' : m['card']})
     return gene2card
 
 def get_fam(fam):

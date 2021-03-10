@@ -15087,6 +15087,10 @@ a:hover {
   padding: 5px 15px;
 }
 
+.form-control {
+  color: rgba(248, 249, 250, 0.64);
+}
+
 .form-control:focus {
   background: initial;
 }
