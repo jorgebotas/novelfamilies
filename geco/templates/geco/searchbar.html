@@ -5,10 +5,13 @@
     <div class="form-group">
     <div class="w-50 m-1">
         <input type="text" 
-               class="form-control text-left w-100"
+               class="form-control text-left"
                id="search-fams"
                @keypress.enter.prevent="searchFams()"
-               placeholder="Browse novel family..."/>
+               placeholder="Search family"/>
+        <span class="input-icon-addon">
+            <i class="fa fa-search" aria-hidden="true"></i>
+        </span>
     </div>
 
     <div class="w-25 m-1">
