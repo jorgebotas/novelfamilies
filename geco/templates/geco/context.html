@@ -53,16 +53,22 @@
             plugins: ['remove_button'],
             });
           ["specificity", "coverage"].forEach(id => {
-              let slider = document.getElementById(id);
-              noUiSlider.create(slider,
-                {
-                    start: .5,
-                    connect: [true, false],
-                    step: .01,
-                    range: {
-                        min: 0,
-                        max: 1
-                }});
+                let slider = document.getElementById(id);
+                noUiSlider.create(slider,
+                    {
+                        start: .5,
+                        connect: [true, false],
+                        step: .01,
+                        range: {
+                            min: 0,
+                            max: 1
+                    }});
+                slider = slider.noUiSlider;
+                slider.on('update', () => {
+                    let name =  id.trim().replace(/^\w/, c => c.toUpperCase());
+                    nSideSliderLabel.html(name+': '+slider.get());
+                })
+
           })
       });
     </script>
