@@ -36,10 +36,10 @@
     </head>
     <body>
         {% include 'geco/navbar.html' %}
-        <body class="antialiased NovelFams" id="NovelFams">
+        <body class="antialiased">
         <div class="page">
                 <div class="content">
-                        <div class="container-fluid">
+                        <div class="container-fluid" id="NovelFams">
                                 {% block content %}
                                 {% endblock %}
                         </div>
