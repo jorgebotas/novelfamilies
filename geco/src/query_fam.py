@@ -66,6 +66,7 @@ def get_emapper_annotations(names):
         for kp in m.get('kpath', []):
             # Get kegg description
             try:
+                print(kp[-5:])
                 desc = kegg_dict[kp[-5:]]
             except:
                 desc = ""
