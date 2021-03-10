@@ -259,7 +259,7 @@ var gmgc_vueapp = new Vue({
                         await $(selector + " .gecoviz-progress").show().delay(2000);
                         let graph = GeCoViz(selector)
                                     .data(data)
-                                    .nSide(2)
+                                    .nSide(10)
                                     .tree(newick, fields);
                         d3.select(selector)
                                  .call(graph);
@@ -274,7 +274,7 @@ var gmgc_vueapp = new Vue({
                     context = await get_context(query);
                     let graph = GeCoViz(selector)
                                 .data(context)
-                                .nSide(2)
+                                .nSide(10)
                                 .tree(newick, undefined);
                     d3.select(selector)
                              .call(graph);
