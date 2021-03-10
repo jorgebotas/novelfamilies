@@ -260,6 +260,7 @@ var gmgc_vueapp = new Vue({
                         let graph = GeCoViz(selector)
                                     .data(data)
                                     .nSide(10)
+                                    .notation("Orthologous groups", 2)
                                     .tree(newick, fields);
                         d3.select(selector)
                                  .call(graph);
@@ -275,6 +276,7 @@ var gmgc_vueapp = new Vue({
                     let graph = GeCoViz(selector)
                                 .data(context)
                                 .nSide(10)
+                                .notation("Orthologous groups", 2)
                                 .tree(newick, undefined);
                     d3.select(selector)
                              .call(graph);
