@@ -16,9 +16,9 @@ col_fams = db.nfam_v2_members
 col_taxonomy = db.genome_taxonomy
 
 STATIC_PATH = settings.BASE_DIR + '/static/geco/'
-keggDict = getPickle(STATIC_PATH + "pickle/KEGG_DESCRIPTION.pickle")
+keggDict = get_pickle(STATIC_PATH + "pickle/KEGG_DESCRIPTION.pickle")
 
-def getPickle(filePath):
+def get_pickle(filePath):
     """
     Return dict contained in pickle file
 
