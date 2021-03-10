@@ -28,7 +28,7 @@ def get_pickle(filePath):
         pdict = pickle.load(pickle_in)
     return pdict
 
-keggDict = get_pickle(STATIC_PATH + "pickle/KEGG_DESCRIPTION.pickle")
+kegg_dict = get_pickle(STATIC_PATH + "pickle/KEGG_DESCRIPTION.pickle")
 
 # Preloads taxonomy info per genome
 def get_taxonomy(genome):
@@ -66,7 +66,6 @@ def get_emapper_annotations(names):
         for kp in m.get('kpath', []):
             # Get kegg description
             try:
-                print(kp[-5:])
                 desc = kegg_dict[kp[-5:]]
             except:
                 desc = ""
