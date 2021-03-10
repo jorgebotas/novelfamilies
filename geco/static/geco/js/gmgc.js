@@ -272,7 +272,6 @@ var gmgc_vueapp = new Vue({
                     await $(selector + " .gecoviz-progress").show();
                     newick = await get_newick(query);
                     context = await get_context(query);
-                    console.log(context)
                     let graph = GeCoViz(selector)
                                 .data(context)
                                 .nSide(2)
