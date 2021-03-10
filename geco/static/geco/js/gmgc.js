@@ -303,7 +303,7 @@ var gmgc_vueapp = new Vue({
                 })
                 .then(() => {
                     Object.entries(this.show_items).forEach(([f, data]) => {
-                        let idx = this.show_items.indexOf(f);
+                        let idx = Object.values(this.show_items).indexOf(f);
                         drawDonuts(f, data);
                         renderDomains(data.domains);
                         toggleGeCoViz(`#${idx}-GeCoViz`, f)
