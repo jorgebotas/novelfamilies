@@ -15138,10 +15138,6 @@ a:hover {
   background: #212833;
 }
 
-.nav-item a {
-  color: lightgray;
-}
-
 .link-secondary {
   transition: color 0.5s;
 }
