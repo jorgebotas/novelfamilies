@@ -58,7 +58,7 @@ def get_emapper_annotations(names):
             name, level = og.split('@')
             ogs_by_level.append({'id':name,
                                  'level':level,
-                                 'description':get_egg_description(name)
+                                 'description':get_egg_description(name[:-5])
                                  })
             # ogs_by_level.setdefault(level, []).append(name)
         m['ogs'] = ogs_by_level
