@@ -244,7 +244,7 @@ var renderDomains = function(domains) {
 
 var gmgc_vueapp = new Vue({
     delimiters: ['[[', ']]'],
-    el: '#NovelFams',
+    el: '.NovelFams',
     data: {
         show_items: {},
     },
