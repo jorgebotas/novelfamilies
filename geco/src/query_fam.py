@@ -58,14 +58,20 @@ def get_emapper_annotations(names):
             name, level = og.split('@')
             ogs_by_level.append({'id':name,
                                  'level':level,
-                                 'description':get_egg_description(name[:-5])
+                                 'description':get_egg_description(name)
                                  })
             # ogs_by_level.setdefault(level, []).append(name)
         m['ogs'] = ogs_by_level
         kpath = []
         for kp in m.get('kpath', []):
             # Get kegg description
-            kpath.append({'id':kp})
+            try:
+                print(kp[:-5])
+                desc = kegg_dict[kp[:-5]]
+            except:
+                desc = ""
+            kpath.append({'id':kp,
+                          'description': desc})
         m['kpath'] = kpath
         gene2annot[m['q_g']] = m
 
