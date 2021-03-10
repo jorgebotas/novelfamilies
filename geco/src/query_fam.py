@@ -3,6 +3,9 @@ import json
 from collections import defaultdict
 from pymongo import MongoClient
 import time
+from django.conf import settings
+import pickle
+
 
 client = MongoClient('10.0.3.1')
 db = client['mgv1']
@@ -11,6 +14,20 @@ col_neighs = db.neighs
 col_cards = db.card
 col_fams = db.nfam_v2_members
 col_taxonomy = db.genome_taxonomy
+
+STATIC_PATH = settings.BASE_DIR + '/static/geco/'
+keggDict = getPickle(STATIC_PATH + "pickle/KEGG_DESCRIPTION.pickle")
+
+def getPickle(filePath):
+    """
+    Return dict contained in pickle file
+
+    :filePath: path to pickle file
+    :returns: dictionary
+    """
+    with open(filePath, 'rb') as pickle_in:
+        pdict = pickle.load(pickle_in)
+    return pdict
 
 # Preloads taxonomy info per genome
 def get_taxonomy(genome):
@@ -38,7 +55,10 @@ def get_emapper_annotations(names):
         ogs_by_level = []
         for og in m.get('ogs', []):
             name, level = og.split('@')
-            ogs_by_level.append({'id':name, 'level':level})
+            ogs_by_level.append({'id':name,
+                                 'level':level,
+                                 'description':get_egg_description(name)
+                                 })
             # ogs_by_level.setdefault(level, []).append(name)
         m['ogs'] = ogs_by_level
         kpath = []
@@ -49,6 +69,21 @@ def get_emapper_annotations(names):
         gene2annot[m['q_g']] = m
 
     return gene2annot
+
+def get_egg_description(eggnog):
+    """
+    Get eggnog OG description
+
+    :eggnog: eggNOG id (OG)
+    :db: MongoDB
+    :returns: string with description,
+              empty string if not found
+    """
+    try:
+        description = client.gmgc_unigenes.eggnog_v5.find({"e" : eggnog})[0]["d"]
+    except:
+        description = ""
+    return description
 
 def get_mini_contig(gene_name, window=10):
     # finds the contig containing the gene, and retreives the whole contig array
