@@ -16,7 +16,6 @@ col_fams = db.nfam_v2_members
 col_taxonomy = db.genome_taxonomy
 
 STATIC_PATH = settings.BASE_DIR + '/static/geco/'
-keggDict = get_pickle(STATIC_PATH + "pickle/KEGG_DESCRIPTION.pickle")
 
 def get_pickle(filePath):
     """
@@ -28,6 +27,8 @@ def get_pickle(filePath):
     with open(filePath, 'rb') as pickle_in:
         pdict = pickle.load(pickle_in)
     return pdict
+
+keggDict = get_pickle(STATIC_PATH + "pickle/KEGG_DESCRIPTION.pickle")
 
 # Preloads taxonomy info per genome
 def get_taxonomy(genome):
