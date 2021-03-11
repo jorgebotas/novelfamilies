@@ -340,10 +340,15 @@ var gmgc_vueapp = new Vue({
                     });
                     $('.tab-content').collapse('show');
                 })
+            this.hideAllFams();
         },
 
         showAllFams : function() {
             $('.tab-content').collapse('show');
+        },
+
+        hideAllFams : function() {
+            $('.tab-content').collapse('hide');
         },
 
         toggleFam : function(id) {
