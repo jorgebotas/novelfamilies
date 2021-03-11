@@ -338,11 +338,11 @@ var gmgc_vueapp = new Vue({
                     this.show_items = data.show_items
                 })
                 .then(() => {
-                    Object.entries(this.show_items).forEach(([f, data]) => {
+                    //Object.entries(this.show_items).forEach(([f, data]) => {
                         //let idx = Object.values(this.show_items).indexOf(f);
                         //drawDonuts(f, data);
                         //renderDomains(data.domains);
-                    });
+                    //});
                     $('.tab-content').collapse('show');
                     $('.search-spinner').hide();
                     this.hideAllFams();
