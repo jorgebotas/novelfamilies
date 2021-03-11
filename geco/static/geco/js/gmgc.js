@@ -315,7 +315,8 @@ var gmgc_vueapp = new Vue({
                     $('.tab-content').collapse('show');
                 })
             } else {
-                searchFamByTaxa('#search-fams', '')
+                console.log(query)
+                this.searchFamByTaxa('#search-fams', '')
             }
         },
 
