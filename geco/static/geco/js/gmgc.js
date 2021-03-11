@@ -298,12 +298,12 @@ var gmgc_vueapp = new Vue({
 
         searchFams : function() {
             $("#search-fams").blur();
-            this.show_items = {}
             let query = $("#search-fams").val();
             if (query.split("|").length > 1) {
                 fetch(API_BASE_URL + `/info/${query}/`)
                 .then(response => response.json())
                 .then(data => {
+                    this.show_items = {}
                     this.show_items = data.show_items
                 })
                 .then(() => {
