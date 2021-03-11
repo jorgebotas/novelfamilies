@@ -12,8 +12,8 @@
                    id="domain-input"
                    class="form-control m-1"
                    placeholder="Domain"
-                   @keypress.enter.prevent="searchFamByTaxa('d__',
-                                            '#domain-input')"
+                   @keypress.enter.prevent="searchFamByTaxa('#domain-input',
+                                             'd__')"
                    />
             <input type="text" 
                    value="" 
@@ -21,6 +21,8 @@
                    id="phylum-input"
                    class="form-control m-1"
                    placeholder="Phylum"
+                   @keypress.enter.prevent="searchFamByTaxa('#phylum-input',
+                                             'p__')"
                    />
             <input type="text" 
                    value="" 
