@@ -4,7 +4,7 @@ from . import views
 
 urlpatterns = [
     path('', views.context, name='context'),
-    path(r'api/info/<str:search_type>/<str:query>/',
+    path(r'api/info/<str:query>/',
          api.info),
     path(r'api/newick/<str:query>/', api.newick),
     path(r'api/context/<str:query>/', api.context),

@@ -23,7 +23,7 @@ def random_items(request, nitems):
         data["show_items"]["tree_%d"%(i)] = doc
     return JsonResponse(data)
 
-def info(request, search_type, query):
+def info(request, query):
     data = { "show_items" : {
         query : {
         'name':  query,

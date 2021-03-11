@@ -298,9 +298,8 @@ var gmgc_vueapp = new Vue({
 
         searchFams : function() {
             $("#search-fams").blur();
-            let val = $("#search-fams").val();
-            let type = $("#search-fams-type").val();
-            fetch(API_BASE_URL + '/info/' + type + '/' + val + '/')
+            let query = $("#search-fams").val();
+            fetch(API_BASE_URL + `/info/${query}/`)
                 .then(response => response.json())
                 .then(data => {
                     this.show_items = data.show_items
