@@ -709,15 +709,16 @@
                :id="'f' + index + '-gecoviz'" role="tabpanel"
               aria-labelledby="pills-gecoviz-tab">
            <div class="card">
-               <div class="card-body p-2 rounded GeCoViz"
-                        :id="'f' + index + '-GeCoViz'"
+               <div class="card-body p-2 rounded"
                         style="resize:vertical;font-size:.8em">
-                     <div class='row justify-content-center'>
-                      <div class='progress gecoviz-progress w-75 mt-6'>
-                          <div class='progress-bar progress-bar-indeterminate'>
-                          </div>
+                   <div class="GeCoViz" :id="'f' + index + '-GeCoViz'">
+                   </div>
+                 <div class='row justify-content-center'>
+                  <div class='progress gecoviz-progress w-75 mt-6'>
+                      <div class='progress-bar progress-bar-indeterminate'>
                       </div>
-                     </div>
+                  </div>
+                 </div>
 
                 </div>
            </div>
