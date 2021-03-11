@@ -256,15 +256,15 @@ var gmgc_vueapp = new Vue({
                 context = this.show_items[query].context;
                 if (context) {
                     window.onload = async () => {
-                        await $(selector + " .gecoviz-progress").show().delay(2000);
-                        let graph = GeCoViz(selector)
-                                    .data(data)
-                                    .nSide(10)
-                                    .showName("Gene name")
-                                    .notation("Orthologous groups", 2)
-                                    .tree(newick, fields);
-                        d3.select(selector)
-                                 .call(graph);
+                        //await $(selector + " .gecoviz-progress").show().delay(2000);
+                        //let graph = GeCoViz(selector)
+                                    //.data(data)
+                                    //.nSide(10)
+                                    //.showName("Gene name")
+                                    //.notation("Orthologous groups", 2)
+                                    //.tree(newick, fields);
+                        //d3.select(selector)
+                                 //.call(graph);
                         d3.select(selector)
                             .style('opacity', 1)
                             .style('visibility', 'visible');
