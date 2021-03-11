@@ -329,6 +329,7 @@ var gmgc_vueapp = new Vue({
             fetch(API_BASE_URL + `/taxafams/${query}/${spec}/${cov}/`)
                 .then(response => response.json())
                 .then(data => {
+                    this.show_items = {}
                     this.show_items = data.show_items
                 })
                 .then(() => {
