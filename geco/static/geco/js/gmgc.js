@@ -316,11 +316,11 @@ var gmgc_vueapp = new Vue({
                         this.toggleGeCoViz(`#f${idx}-GeCoViz`, f)
                     });
                     $('.tab-content').collapse('show');
+                    $('.search-spinner').hide();
                 })
             } else {
                 this.searchFamByTaxa('#search-fams', '')
             }
-            $('.search-spinner').hide();
         },
 
         searchFamByTaxa : function(selector, prefix) {
@@ -343,9 +343,9 @@ var gmgc_vueapp = new Vue({
                         renderDomains(data.domains);
                     });
                     $('.tab-content').collapse('show');
+                    $('.search-spinner').hide();
                 })
             d3.selectAll('.GeCoViz').selectAll('*').remove();
-            $('.search-spinner').hide();
             this.hideAllFams();
         },
 
