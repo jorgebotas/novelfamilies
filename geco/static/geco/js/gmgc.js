@@ -268,10 +268,10 @@ var gmgc_vueapp = new Vue({
                         d3.select(selector)
                             .style('opacity', 1)
                             .style('visibility', 'visible');
-                        await $(selector + " + .gecoviz-progress").hide();
+                        await $(selector + " + div .gecoviz-progress").hide();
                     }
                 } else {
-                    await $(selector + " + .gecoviz-progress").show();
+                    await $(selector + " + div .gecoviz-progress").show();
                     newick = await get_newick(query);
                     context = await get_context(query);
                     let graph = GeCoViz(selector)
@@ -286,7 +286,7 @@ var gmgc_vueapp = new Vue({
                         .style('opacity', 1)
                         .style('visibility', 'visible');
                     //await window.launch_GeCo(selector, context, newick, 41, colors);
-                    await $(selector + " + .gecoviz-progress").hide();
+                    await $(selector + " + div .gecoviz-progress").hide();
                     this.show_items[query].newick = newick;
                     this.show_items[query].context = context;
                 }
