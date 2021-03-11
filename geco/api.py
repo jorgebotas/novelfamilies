@@ -6,23 +6,6 @@ from .src.get_context import get_context, get_newick
 from .src.get_fams import get_fam_info
 from .src.query_fam import fams_by_taxa, get_fam
 
-def random_items(request, nitems):
-    import random
-    data = {"show_items": {}}
-    names = ["Bacteria", "Euk", "Archaea", "Firmicutes", "Clostridia", "LUCA",
-             "Primates", "Metazoa", "Apicomplexa", "Viridiplantae"]
-    for i in range(nitems):
-        doc = {
-                "newick": "(A, B);",
-                "tags": ["tag", "tag100"],
-                "ntips": random.randint(1, 100),
-                "nnodes": random.randint(1, 100),
-                "taxscope": random.sample(names, 1),
-                "desc": " Some description %d " %(i),
-            }
-        data["show_items"]["tree_%d"%(i)] = doc
-    return JsonResponse(data)
-
 def info(request, query):
     data = { "show_items" : {
         query : {
