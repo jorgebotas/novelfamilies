@@ -310,12 +310,11 @@ var gmgc_vueapp = new Vue({
                         let idx = Object.values(this.show_items).indexOf(f);
                         drawDonuts(f, data);
                         renderDomains(data.domains);
-                        toggleGeCoViz(`#${idx}-GeCoViz`, f)
+                        this.toggleGeCoViz(`#${idx}-GeCoViz`, f)
                     });
                     $('.tab-content').collapse('show');
                 })
             } else {
-                console.log(query)
                 this.searchFamByTaxa('#search-fams', '')
             }
         },
