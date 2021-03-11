@@ -316,10 +316,10 @@ var gmgc_vueapp = new Vue({
                 })
         },
 
-        searchFamByTaxa : function(selector) {
+        searchFamByTaxa : function(selector, prefix) {
             let search = $(selector);
             search.blur();
-            let query = search.val();
+            let query = prefix + search.val();
             let spec = $("#specifity").noUISlider.get();
             let cov = $("#coverage").noUISlider.get();
             fetch(API_BASE_URL + `taxafams/${query}/${spec}/${cov}/`)
