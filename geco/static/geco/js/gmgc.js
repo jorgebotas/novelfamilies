@@ -345,8 +345,8 @@ var gmgc_vueapp = new Vue({
                     //});
                     $('.tab-content').collapse('show');
                     $('.search-spinner').hide();
-                    this.hideAllFams();
                 })
+            this.hideAllFams();
         },
 
         showAllFams : function() {
