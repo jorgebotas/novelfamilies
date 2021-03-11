@@ -299,7 +299,7 @@ var gmgc_vueapp = new Vue({
         searchFams : function() {
             $("#search-fams").blur();
             $('.search-spinner').show();
-            let query = $("#search-fams").val();
+            let query = $("#search-fams").val().trim();
             if (query.split("|").length > 1) {
                 fetch(API_BASE_URL + `/info/${query}/`)
                 .then(response => response.json())
@@ -328,7 +328,7 @@ var gmgc_vueapp = new Vue({
             d3.selectAll('.GeCoViz').selectAll('*').remove();
             let search = $(selector);
             search.blur();
-            let query = prefix + search.val();
+            let query = prefix + search.val().trim();
             let spec = document.querySelector("#specificity").noUiSlider.get();
             let cov = document.querySelector("#coverage").noUiSlider.get();
             fetch(API_BASE_URL + `/taxafams/${query}/${spec}/${cov}/`)
@@ -343,8 +343,8 @@ var gmgc_vueapp = new Vue({
                         //drawDonuts(f, data);
                         //renderDomains(data.domains);
                     //});
-                    $('.search-spinner').hide();
                     this.hideAllFams();
+                    $('.search-spinner').hide();
                 })
         },
 
