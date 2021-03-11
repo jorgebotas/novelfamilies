@@ -59,7 +59,7 @@ def info(request, search_type, query):
 def fam_by_taxa(request, query, spec, cov):
     """Return list with fams that match taxa search
     """
-    fams = fams_by_taxa(query, spec, cov)
+    fams = fams_by_taxa(query, float(spec), float(cov))
     print(fams)
     fams = { 'show_items' : fams }
     return JsonResponse(fams)
