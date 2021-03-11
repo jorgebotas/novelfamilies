@@ -324,8 +324,9 @@ var gmgc_vueapp = new Vue({
         },
 
         searchFamByTaxa : function(selector, prefix) {
-            let search = $(selector);
             $('.search-spinner').show();
+            d3.selectAll('.GeCoViz').selectAll('*').remove();
+            let search = $(selector);
             search.blur();
             let query = prefix + search.val();
             let spec = document.querySelector("#specificity").noUiSlider.get();
@@ -344,9 +345,8 @@ var gmgc_vueapp = new Vue({
                     });
                     $('.tab-content').collapse('show');
                     $('.search-spinner').hide();
+                    this.hideAllFams();
                 })
-            d3.selectAll('.GeCoViz').selectAll('*').remove();
-            this.hideAllFams();
         },
 
         showAllFams : function() {
