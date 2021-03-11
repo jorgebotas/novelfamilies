@@ -30,6 +30,8 @@
                    id="class-input"
                    class="form-control m-1"
                    placeholder="Class"
+                   @keypress.enter.prevent="searchFamByTaxa('#class-input',
+                                             'c__')"
                    />
             <input type="text" 
                    value="" 
@@ -37,6 +39,8 @@
                    id="order-input"
                    class="form-control m-1"
                    placeholder="Order"
+                   @keypress.enter.prevent="searchFamByTaxa('#order-input',
+                                             'o__')"
                    />
             <input type="text" 
                    value="" 
@@ -44,6 +48,8 @@
                    id="family-input"
                    class="form-control m-1"
                    placeholder="Family"
+                   @keypress.enter.prevent="searchFamByTaxa('#family-input',
+                                             'f__')"
                    />
             <input type="text" 
                    value="" 
@@ -51,6 +57,8 @@
                    id="genus-input"
                    class="form-control m-1"
                    placeholder="Genus"
+                   @keypress.enter.prevent="searchFamByTaxa('#genus-input',
+                                             'g__')"
                    />
         </div>
         <div class="col-md-4">
