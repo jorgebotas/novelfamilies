@@ -340,6 +340,7 @@ var gmgc_vueapp = new Vue({
                     });
                     $('.tab-content').collapse('show');
                 })
+            d3.selectAll('.GeCoViz').selectAll('*').remove();
             this.hideAllFams();
         },
 
