@@ -345,6 +345,7 @@ var gmgc_vueapp = new Vue({
                     //});
                     this.hideAllFams();
                     $('.search-spinner').hide();
+                    $('.gecoviz-tab').click();
                 })
         },
 
