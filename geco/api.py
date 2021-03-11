@@ -4,7 +4,7 @@ import json
 from .src.mongodb import mongo_connect
 from .src.get_context import get_context, get_newick
 from .src.get_fams import get_fam_info
-from .src.query_fam import get_fam as get_neighborhood
+from .src.query_fam import fams_by_taxa, get_fam
 
 def random_items(request, nitems):
     import random
@@ -56,6 +56,14 @@ def info(request, search_type, query):
         # pass
     return JsonResponse(data)
 
+def fam_by_taxa(request, query, spec, cov):
+    """Return list with fams that match taxa search
+    """
+    fams = fams_by_taxa(query, spec, cov)
+    print(fams)
+    fams = { 'show_items' : fams }
+    return JsonResponse(fams)
+
 def newick(request, query):
     # try:
         # client = mongo_connect()[0]
@@ -66,6 +74,6 @@ def newick(request, query):
     return HttpResponseNotFound()
 
 def context(request, query):
-    context = get_neighborhood(query)
+    context = get_fam(query)
     analysis = { 'context' : context }
     return JsonResponse(analysis)

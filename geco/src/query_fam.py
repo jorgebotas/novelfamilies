@@ -13,6 +13,7 @@ col_emapper = db.emapper2
 col_neighs = db.neighs
 col_cards = db.card
 col_fams = db.nfam_v2_members
+col_faminfo = db.faminfo
 col_taxonomy = db.genome_taxonomy
 
 STATIC_PATH = settings.BASE_DIR + '/static/geco/'
@@ -119,6 +120,24 @@ def get_cards(names):
         # gene2card[m['q_g']].append([m['card'], m['pident'], m['evalue']])
         gene2card[m['q_g']].append({'id' : m['card']})
     return gene2card
+
+def fams_by_taxa(taxa, spec=0.9, cov=0.9):
+    matches = []
+    wanted_keys = ['name', 'n_genomes', 'n_taxa', 'n_members', 'clade_counter', 'emapper_hits', 'sources']
+    for fam in col_faminfo.find({'clade_counter': {'$elemMatch': {
+                                                'term':taxa,
+                                                'specificity':{'$gte': spec},
+                                                'coverage':{'$gte': cov}}}
+                                    },  wanted_keys):
+
+        clade_match = next(clade for clade in fam['clade_counter'] if clade['term'] == taxa)
+
+        del fam['clade_counter']
+        fam['clade_info'] = clade_match
+
+        if fam['emapper_hits'] == 0:
+            matches.append(fam)
+    return matches
 
 def get_fam(fam):
     match = col_fams.find_one({'gf': fam})

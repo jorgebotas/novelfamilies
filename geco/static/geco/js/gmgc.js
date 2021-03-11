@@ -316,6 +316,27 @@ var gmgc_vueapp = new Vue({
                 })
         },
 
+        searchFamByTaxa : function(selector) {
+            let search = $(selector);
+            search.blur();
+            let query = search.val();
+            let spec = $("#specifity").noUISlider.get();
+            let cov = $("#coverage").noUISlider.get();
+            fetch(API_BASE_URL + `taxafams/${query}/${spec}/${cov}/`)
+                .then(response => response.json())
+                .then(data => {
+                    this.show_items = data.show_items
+                })
+                .then(() => {
+                    Object.entries(this.show_items).forEach(([f, data]) => {
+                        let idx = Object.values(this.show_items).indexOf(f);
+                        drawDonuts(f, data);
+                        renderDomains(data.domains);
+                    });
+                    $('.tab-content').collapse('show');
+                })
+        },
+
         showAllFams : function() {
             $('.tab-content').collapse('show');
         },

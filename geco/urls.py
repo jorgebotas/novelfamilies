@@ -8,5 +8,7 @@ urlpatterns = [
          api.info),
     path(r'api/newick/<str:query>/', api.newick),
     path(r'api/context/<str:query>/', api.context),
+    path(r'api/taxafams/<str:query>/<float:spec>/<float:cov>/',
+         api.fam_by_taxa),
 ]
 
