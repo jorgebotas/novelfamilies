@@ -12,6 +12,8 @@
                    id="domain-input"
                    class="form-control m-1"
                    placeholder="Domain"
+                   @keypress.enter.prevent="searchFamByTaxa('d__',
+                                            '#domain-input')"
                    />
             <input type="text" 
                    value="" 
