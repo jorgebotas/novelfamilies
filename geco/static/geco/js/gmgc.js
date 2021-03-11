@@ -311,7 +311,7 @@ var gmgc_vueapp = new Vue({
                         let idx = Object.keys(this.show_items).indexOf(f);
                         drawDonuts(f, data);
                         renderDomains(data.domains);
-                        this.toggleGeCoViz(`#${idx}-GeCoViz`, f)
+                        this.toggleGeCoViz(`#f${idx}-GeCoViz`, f)
                     });
                     $('.tab-content').collapse('show');
                 })
