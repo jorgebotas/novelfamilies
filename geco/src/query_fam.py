@@ -132,11 +132,13 @@ def fams_by_taxa(taxa, spec=0.9, cov=0.9):
 
         clade_match = next(clade for clade in fam['clade_counter'] if clade['term'] == taxa)
 
+        del fam['_id']
         del fam['clade_counter']
         fam['clade_info'] = clade_match
 
         if fam['emapper_hits'] == 0:
             matches.append(fam)
+    matches = { m['name'] : m for m in matches }
     return matches
 
 def get_fam(fam):
