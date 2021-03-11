@@ -340,8 +340,8 @@ var gmgc_vueapp = new Vue({
                 .then(() => {
                     Object.entries(this.show_items).forEach(([f, data]) => {
                         //let idx = Object.values(this.show_items).indexOf(f);
-                        drawDonuts(f, data);
-                        renderDomains(data.domains);
+                        //drawDonuts(f, data);
+                        //renderDomains(data.domains);
                     });
                     $('.tab-content').collapse('show');
                     $('.search-spinner').hide();
