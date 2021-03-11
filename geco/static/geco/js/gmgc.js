@@ -343,10 +343,9 @@ var gmgc_vueapp = new Vue({
                         //drawDonuts(f, data);
                         //renderDomains(data.domains);
                     //});
-                    $('.tab-content').collapse('show');
                     $('.search-spinner').hide();
+                    this.hideAllFams();
                 })
-            this.hideAllFams();
         },
 
         showAllFams : function() {
