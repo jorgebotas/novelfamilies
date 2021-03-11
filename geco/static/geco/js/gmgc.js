@@ -320,8 +320,8 @@ var gmgc_vueapp = new Vue({
             let search = $(selector);
             search.blur();
             let query = prefix + search.val();
-            let spec = $("#specifity").noUISlider.get();
-            let cov = $("#coverage").noUISlider.get();
+            let spec = document.querySelector("#specifity").noUISlider.get();
+            let cov = document.querySelector("#coverage").noUISlider.get();
             fetch(API_BASE_URL + `taxafams/${query}/${spec}/${cov}/`)
                 .then(response => response.json())
                 .then(data => {
