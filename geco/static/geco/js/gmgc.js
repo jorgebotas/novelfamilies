@@ -298,6 +298,7 @@ var gmgc_vueapp = new Vue({
 
         searchFams : function() {
             $("#search-fams").blur();
+            d3.selectAll('.fam-card').selectAll('*').remove();
             let query = $("#search-fams").val();
             if (query.split("|").length > 1) {
                 fetch(API_BASE_URL + `/info/${query}/`)
