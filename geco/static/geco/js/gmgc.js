@@ -330,14 +330,13 @@ var gmgc_vueapp = new Vue({
                 })
         },
 
-        showAllFams : async function() {
-            Object.keys(this.show_items).forEach((f, idx) => {
+        showAllFams : function() {
+            Object.keys(this.show_items).forEach(async (f, idx) => {
                 let selector = `#f${idx}-GeCoViz`;
-                this.toggleGeCoViz(selector, f)
-                $(`#f${idx}-GeCoViz .toggleLegend`).click();
+                await this.toggleGeCoViz(selector, f)
+                await $(`#f${idx}-GeCoViz .toggleLegend`).click();
             });
             $('.tab-content').collapse('show');
-            await $('.toggleLegend').click();
         },
 
         hideAllFams : function() {
