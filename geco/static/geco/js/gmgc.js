@@ -331,8 +331,7 @@ var gmgc_vueapp = new Vue({
         },
 
         showAllFams : function() {
-            Object.keys(this.show_items).forEach((f) => {
-                let idx = Object.values(this.show_items).indexOf(f);
+            Object.keys(this.show_items).forEach((f, idx) => {
                 this.toggleGeCoViz(`#f${idx}-GeCoViz`, f)
             });
             $('.tab-content').collapse('show');
