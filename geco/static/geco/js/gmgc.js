@@ -332,7 +332,7 @@ var gmgc_vueapp = new Vue({
 
         showAllFams : async function() {
             Object.keys(this.show_items).forEach((f, idx) => {
-                await this.toggleGeCoViz(`#f${idx}-GeCoViz`, f)
+                this.toggleGeCoViz(`#f${idx}-GeCoViz`, f)
             });
             $('.tab-content').collapse('show');
             await $('.toggleLegend').click();
