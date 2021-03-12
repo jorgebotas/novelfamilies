@@ -19,15 +19,6 @@ var get_context = async (query) => {
     return context;
 }
 
-var get_colors = async () => {
-    let colors;
-    await fetch(STATIC_URL + '/txt/colors.txt/')
-          .then(response => response.text())
-          .then(data => colors = eval(data))
-          .catch(e => console.log(e));
-    return colors;
-}
-
 var draw_protDomains = function(id, domains, lenseq, width, height, palette) {
     function scale(num, inSize, outSize) {
         return +num * outSize / inSize;
