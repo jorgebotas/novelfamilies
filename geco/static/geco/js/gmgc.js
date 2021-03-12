@@ -338,19 +338,16 @@ var gmgc_vueapp = new Vue({
                     this.show_items = data.show_items
                 })
                 .then(() => {
-                    Object.entries(this.show_items).forEach(([f, data]) => {
-                        let idx = Object.values(this.show_items).indexOf(f);
-                        //drawDonuts(f, data);
-                        //renderDomains(data.domains);
-                        this.toggleGeCoViz(`#f${idx}-GeCoViz`, f)
-                    });
-                    this.showAllFams();
+                    this.hideAllFams();
                     $('.search-spinner').hide();
-                    $('.gecoviz-tab').click();
                 })
         },
 
         showAllFams : function() {
+            Object.keys(this.show_items).forEach((f) => {
+                let idx = Object.values(this.show_items).indexOf(f);
+                this.toggleGeCoViz(`#f${idx}-GeCoViz`, f)
+            });
             $('.tab-content').collapse('show');
         },
 
