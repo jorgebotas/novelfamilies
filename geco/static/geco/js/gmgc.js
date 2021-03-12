@@ -250,21 +250,11 @@ var gmgc_vueapp = new Vue({
     },
     methods: {
         toggleGeCoViz : async function(selector, query) {
-                //let colors = await get_colors();
                 let newick, context;
                 newick = this.show_items[query].newick;
                 context = this.show_items[query].context;
                 if (context) {
                     window.onload = async () => {
-                        //await $(selector + " .gecoviz-progress").show().delay(2000);
-                        //let graph = GeCoViz(selector)
-                                    //.data(data)
-                                    //.nSide(10)
-                                    //.showName("Gene name")
-                                    //.notation("Orthologous groups", 2)
-                                    //.tree(newick, fields);
-                        //d3.select(selector)
-                                 //.call(graph);
                         d3.select(selector)
                             .style('opacity', 1)
                             .style('visibility', 'visible');
@@ -272,6 +262,7 @@ var gmgc_vueapp = new Vue({
                     }
                 } else {
                     await $(selector + " + div .gecoviz-progress").show();
+                    console.log(selector)
                     newick = await get_newick(query);
                     context = await get_context(query);
                     let graph = GeCoViz(selector)
@@ -291,10 +282,6 @@ var gmgc_vueapp = new Vue({
                     this.show_items[query].context = context;
                 }
             },
-
-        refreshGeCo : function (selector) {
-            $(String(selector) + " button[type='submit']").click();
-        },
 
         searchFams : function() {
             $("#search-fams").blur();
