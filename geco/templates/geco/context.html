@@ -2,8 +2,6 @@
 {% block styles %}
 {% load static %}
     <link rel="stylesheet" type="text/css" 
-        href="{% static "geco/assets/tabler/css/tabler-vendors.min.css" %}"/>
-    <link rel="stylesheet" type="text/css" 
         href="{% static "geco/GeCoVizjs/static/css/colors.css" %}"/>
     <link rel="stylesheet" type="text/css" 
         href="{% static "geco/GeCoVizjs/static/css/scrollbar.css" %}"/>
@@ -62,14 +60,14 @@
                         range: {
                             min: 0,
                             max: 1
-                    }});
+                    }
+                    });
                 let sliderLabel = d3.select(`.${id} label`);
                 slider = slider.noUiSlider;
                 slider.on('update', () => {
                     let name =  id.trim().replace(/^\w/, c => c.toUpperCase());
                     sliderLabel.html(name+': '+slider.get());
                 })
-
           })
       });
     </script>

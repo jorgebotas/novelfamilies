@@ -258,7 +258,7 @@ var gmgc_vueapp = new Vue({
                     context = await get_context(query);
                     let graph = GeCoViz(selector)
                                 .data(context)
-                                .nSide(10)
+                                .nSide(4)
                                 .showName("Gene name")
                                 .notation("Orthologous groups", 2)
                                 .tree(newick, undefined);
