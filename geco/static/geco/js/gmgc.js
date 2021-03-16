@@ -279,8 +279,6 @@ var gmgc_vueapp = new Vue({
         searchFams : function() {
             $("#search-fams").blur();
             $('.search-spinner').show();
-            $('.search-filters').collapse('hide');
-            $('#example-cards').collapse('hide');
             let query = $("#search-fams").val().trim();
             let type = $("#search-type").val();
             if (type == 'fam') {
@@ -298,6 +296,8 @@ var gmgc_vueapp = new Vue({
                         d3.selectAll('.GeCoViz').selectAll('*').remove();
                         this.toggleGeCoViz(`#f${idx}-GeCoViz`, f)
                     });
+                    $('.search-filters').collapse('hide');
+                    $('#example-cards').collapse('hide');
                     $('.tab-content').collapse('show');
                     $('.search-spinner').hide();
                 })
