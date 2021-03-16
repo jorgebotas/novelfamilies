@@ -121,6 +121,28 @@ def get_cards(names):
         gene2card[m['q_g']].append({'id' : m['card']})
     return gene2card
 
+def fams_by_neigh_og(ogname, score=0.9):
+    matched_fams = []
+    fam2score = {}
+    for fam in col_og_neigh_scores.find({'ogs': {'$elemMatch': {'n': ogname,'score':{'$gte': score}}}}):
+        matched_fams.append(fam['fam'])
+        og_match = next(og for og in fam['ogs'] if og['n'] == ogname)
+        fam2score[fam['fam']] = (og_match['n'], og_match['score'])
+
+    wanted_keys = ['name', 'n_genomes', 'n_taxa', 'n_members', 'emapper_hits', 'sources']
+
+    # collects more info from the families
+    selected_fams = []
+    for fam in col_faminfo.find({'name': {'$in': matched_fams}, }, wanted_keys):
+        if fam['emapper_hits'] > 0:
+            continue
+
+        fam['match_og'] = fam2score[fam['name']]
+        selected_fams.append(fam)
+
+    return selected_fams
+
+
 def fams_by_taxa(taxa, spec=0.9, cov=0.9):
     matches = []
     wanted_keys = ['name', 'n_genomes', 'n_taxa', 'n_members', 'clade_counter', 'emapper_hits', 'sources']

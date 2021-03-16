@@ -4,7 +4,9 @@ import json
 from .src.mongodb import mongo_connect
 from .src.get_context import get_context, get_newick
 from .src.get_fams import get_fam_info
-from .src.query_fam import fams_by_taxa, get_fam
+from .src.query_fam import fams_by_taxa,\
+                           fams_by_neigh_og,\
+                           get_fam
 
 def info(request, query):
     data = { "show_items" : {
@@ -38,6 +40,14 @@ def info(request, query):
     # elif search_type == "function":
         # pass
     return JsonResponse(data)
+
+def fam_by_function(request, query, score):
+    """Return list with fams that match taxa search
+    """
+    fams = fams_by_neigh_og(query, float(score))
+    print(fams)
+    fams = { 'show_items' : fams }
+    return JsonResponse(fams)
 
 def fam_by_taxa(request, query, spec, cov):
     """Return list with fams that match taxa search

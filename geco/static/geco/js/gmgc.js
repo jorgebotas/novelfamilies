@@ -305,6 +305,8 @@ var gmgc_vueapp = new Vue({
                 this.searchFamByTaxa('#search-fams', '');
             } else if (type == 'function') {
                 this.searchFamByFunction();
+            }  else if (type == 'biome') {
+                this.searchFamByBiome();
             }
             $('.search-filters').collapse('hide');
             $('#example-cards').collapse('hide');
@@ -348,6 +350,10 @@ var gmgc_vueapp = new Vue({
 
         },
 
+        searchFamByBiome : function(selector) {
+
+        },
+
         showAllFams : function() {
             Object.keys(this.show_items).forEach(async (f, idx) => {
                 let selector = `#f${idx}-GeCoViz`;
@@ -366,6 +372,9 @@ var gmgc_vueapp = new Vue({
                 val = 'p__Dormibacterota';
             }
             if (type == 'function') {
+                val = '';
+            }
+            if (type == 'biome') {
                 val = '';
             }
             $('#search-fams').val(val);
