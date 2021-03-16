@@ -278,7 +278,8 @@ var gmgc_vueapp = new Vue({
             $("#search-fams").blur();
             $('.search-spinner').show();
             let query = $("#search-fams").val().trim();
-            if (query.split("|").length > 1) {
+            let type = $("#search-type").val();
+            if (type == 'fam') {
                 fetch(API_BASE_URL + `/info/${query}/`)
                 .then(response => response.json())
                 .then(data => {
@@ -296,8 +297,10 @@ var gmgc_vueapp = new Vue({
                     $('.tab-content').collapse('show');
                     $('.search-spinner').hide();
                 })
-            } else {
-                this.searchFamByTaxa('#search-fams', '')
+            } else if (type == 'taxa'){
+                this.searchFamByTaxa('#search-fams', '');
+            } else if (type == 'function') {
+                this.searchFamByFunction();
             }
         },
 
@@ -319,6 +322,10 @@ var gmgc_vueapp = new Vue({
                     this.hideAllFams();
                     $('.search-spinner').hide();
                 })
+        },
+
+        searchFamByFunction : function(selector) {
+
         },
 
         showAllFams : function() {
