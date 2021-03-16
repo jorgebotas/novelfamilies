@@ -337,6 +337,14 @@ var gmgc_vueapp = new Vue({
             $('.tab-content').collapse('show');
         },
 
+        showExample : function(type) {
+            if (type == 'fam') val = 'GTDBiso@GB_GCA_003164475@PLTL01000334.1_2@d__Bacteria|p__Dormibacterota';
+            if (type == 'taxa') val = 'p__Riflebacteria';
+            if (type == 'function') val = '';
+            $('#search-bar').val(val);
+            this.searchFams();
+        },
+
         hideAllFams : function() {
             $('.tab-content').collapse('hide');
         },
