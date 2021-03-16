@@ -279,6 +279,8 @@ var gmgc_vueapp = new Vue({
         searchFams : function(searchType=undefined) {
             $("#search-fams").blur();
             $('.search-spinner').show();
+            d3.selectAll('.GeCoViz').selectAll('*').remove();
+            d3.selectAll('.donut-sources').selectAll('*').remove();
             let query = $("#search-fams").val().trim();
             let type = searchType || $("#search-type").val();
             if (type == 'fam') {
@@ -310,7 +312,6 @@ var gmgc_vueapp = new Vue({
 
         searchFamByTaxa : function(selector, prefix) {
             $('.search-spinner').show();
-            d3.selectAll('.GeCoViz').selectAll('*').remove();
             let search = $(selector);
             search.blur();
             let query = prefix + search.val().trim();
