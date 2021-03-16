@@ -343,7 +343,7 @@ var gmgc_vueapp = new Vue({
             if (type == 'taxa') val = 'p__Riflebacteria';
             if (type == 'function') val = '';
             console.log(val)
-            $('#search-bar').val(val);
+            $('#search-fams').val(val);
             this.searchFams();
         },
 
