@@ -15065,6 +15065,7 @@ a {
 
 a:hover {
   opacity: 0.7;
+  color: inherit;
 }
 
 .btn-secondary {
