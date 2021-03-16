@@ -1,6 +1,21 @@
 API_BASE_URL = "/api"
 STATIC_URL = "/static/geco"
 
+var colors = ["#abfdcb",
+                "#c9b2fd",
+                "#fcaf81",
+                "#a9dff7",
+                "#254F93",
+                "#FF5C8D",
+                "#838383",
+                "#5F33FF",
+                "#c7e3aa",
+                "#D81E5B",
+                "#47DAFF",
+                "#c4ab77",
+                "#A1A314",
+                "#fff600"];
+
 var get_newick = async (query) => {
     let newick;
     await fetch(API_BASE_URL + '/newick/' + query + '/')
@@ -93,20 +108,6 @@ var drawDonuts = async function(f, data) {
     var biomes = data.biomes;
     var mags_id = 'f' + f + '-magsDonut';
     var mags = data.mags;
-    var colors = ["#abfdcb",
-                    "#c9b2fd",
-                    "#fcaf81",
-                    "#a9dff7",
-                    "#254F93",
-                    "#FF5C8D",
-                    "#838383",
-                    "#5F33FF",
-                    "#c7e3aa",
-                    "#D81E5B",
-                    "#47DAFF",
-                    "#c4ab77",
-                    "#A1A314",
-                    "#fff600"];
     renderDonut(biomes_id,
                 [
                 "Marine",
@@ -137,13 +138,13 @@ var drawDonuts = async function(f, data) {
                 colors.slice(0, 4))
 }
 
-var renderDonut = function(id, labels, vals, colors) {
+var renderDonut = function(id, labels, vals, colors, height=240) {
     let div = document.getElementById(id);
     options = {
         chart: {
             type: "donut",
             fontFamily: 'inherit',
-            height: 240,
+            height: height,
             sparkline: {
                 enabled: true
             },
@@ -321,6 +322,19 @@ var gmgc_vueapp = new Vue({
                 .then(() => {
                     this.hideAllFams();
                     $('.search-spinner').hide();
+                    Object.entries(this.show_items).forEach(([f, data]) => {
+                        let idx = Object.keys(this.show_items).indexOf(f);
+                        let sources = data.sources;
+                        renderDonut('f'+idx,
+                            Object.keys(sources),
+                            Object.values(sources),
+                            colors,
+                            100)
+                        //drawDonuts(f, data);
+                        //renderDomains(data.domains);
+                        d3.selectAll('.GeCoViz').selectAll('*').remove();
+                        this.toggleGeCoViz(`#f${idx}-GeCoViz`, f)
+                    });
                 })
         },
 
