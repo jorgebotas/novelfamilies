@@ -296,8 +296,6 @@ var gmgc_vueapp = new Vue({
                         d3.selectAll('.GeCoViz').selectAll('*').remove();
                         this.toggleGeCoViz(`#f${idx}-GeCoViz`, f)
                     });
-                    $('.search-filters').collapse('hide');
-                    $('#example-cards').collapse('hide');
                     $('.tab-content').collapse('show');
                     $('.search-spinner').hide();
                 })
@@ -306,6 +304,8 @@ var gmgc_vueapp = new Vue({
             } else if (type == 'function') {
                 this.searchFamByFunction();
             }
+            $('.search-filters').collapse('hide');
+            $('#example-cards').collapse('hide');
         },
 
         searchFamByTaxa : function(selector, prefix) {
