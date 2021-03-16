@@ -138,7 +138,7 @@ var drawDonuts = async function(f, data) {
                 colors.slice(0, 4))
 }
 
-var renderDonut = function(id, labels, vals, colors, height=240) {
+var renderDonut = function(id, labels, vals, colors, legend='bottom', height=240) {
     let div = document.getElementById(id);
     options = {
         chart: {
@@ -162,7 +162,7 @@ var renderDonut = function(id, labels, vals, colors, height=240) {
         },
         colors: colors,
         legend: {
-            show : 'bottom',
+            show : legend,
         },
         tooltip: {
             fillSeriesColor: false
@@ -329,6 +329,7 @@ var gmgc_vueapp = new Vue({
                             Object.keys(sources),
                             Object.values(sources),
                             colors,
+                            'false',
                             50)
                         //drawDonuts(f, data);
                         //renderDomains(data.domains);
