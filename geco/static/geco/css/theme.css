@@ -15058,6 +15058,8 @@ Antialiasing
 }
 a {
   text-decoration: none !important;
+  color: #6574cd;
+  cursor: pointer;
   transition: color 0.5s, opacity 0.5s, background-color 0.5s !important;
 }
 
