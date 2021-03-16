@@ -283,6 +283,7 @@ var gmgc_vueapp = new Vue({
             d3.selectAll('.donut-sources').selectAll('*').remove();
             let query = $("#search-fams").val().trim();
             let type = searchType || $("#search-type").val();
+            let selector = '#search-fams'
             if (type == 'fam') {
                 fetch(API_BASE_URL + `/info/${query}/`)
                 .then(response => response.json())
@@ -302,11 +303,11 @@ var gmgc_vueapp = new Vue({
                     $('.search-spinner').hide();
                 })
             } else if (type == 'taxa'){
-                this.searchFamByTaxa('#search-fams', '');
+                this.searchFamByTaxa(selector, '');
             } else if (type == 'function') {
-                this.searchFamByFunction();
+                this.searchFamByFunction(selector);
             }  else if (type == 'biome') {
-                this.searchFamByBiome();
+                this.searchFamByBiome(selector);
             }
             $('.search-filters').collapse('hide');
             $('#example-cards').collapse('hide');
@@ -355,6 +356,7 @@ var gmgc_vueapp = new Vue({
             fetch(API_BASE_URL + `/ogfams/${query}/${conservation}/`)
                 .then(response => response.json())
                 .then(data => {
+                    console.log(data)
                     this.show_items = {}
                     this.show_items = data.show_items
                 })
