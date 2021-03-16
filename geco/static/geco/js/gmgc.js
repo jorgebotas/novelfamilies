@@ -338,9 +338,11 @@ var gmgc_vueapp = new Vue({
         },
 
         showExample : function(type) {
+            console.log(type)
             if (type == 'fam') val = 'GTDBiso@GB_GCA_003164475@PLTL01000334.1_2@d__Bacteria|p__Dormibacterota';
             if (type == 'taxa') val = 'p__Riflebacteria';
             if (type == 'function') val = '';
+            console.log(val)
             $('#search-bar').val(val);
             this.searchFams();
         },
