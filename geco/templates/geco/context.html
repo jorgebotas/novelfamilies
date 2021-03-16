@@ -65,11 +65,11 @@
                 { value: 'function', label: 'Functional context' },
             ]
           });
-          d3.select('[data-value="taxa"]')
-            .attr('data-toggle', 'collapse')
-            .attr('href', '#filter-cards')
-            .attr('aria-expanded', 'false')
-            .attr('aria-controls', 'filter-cards');
+          searchType = $('#search-type')
+          searchType.change(() => {
+            let val = searchType.val();
+            console.log(val)
+          })
           ["specificity", "coverage"].forEach(id => {
                 let slider = document.getElementById(id);
                 noUiSlider.create(slider,
