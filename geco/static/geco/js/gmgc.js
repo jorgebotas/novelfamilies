@@ -337,7 +337,6 @@ var gmgc_vueapp = new Vue({
         toggleFam : function(id) {
             $("#" + id).collapse('show');
         },
-
     },
     filters : {
         filterBlank : function (value) {

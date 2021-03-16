@@ -45,11 +45,28 @@
     <script charset="utf-8">
       $(document).ready(function () {
           $(".form-help").popover();
-          $("#search-fams-type").selectize();
-          $('#search-filters').selectize({
-            maxItems: 20,
-            plugins: ['remove_button'],
-            });
+          let searchType = document.getElementById('searchType');
+          let choices = new Choices(searchType, {
+            classNames: {
+                containerInner: searchType.className,
+                input: 'form-control',
+                inputCloned: 'form-control-sm',
+                listDropdown: 'dropdown-menu',
+                itemChoice: 'dropdown-item',
+                activeState: 'show',
+                selectedState: 'active',
+                placeholder: 'choices__placeholder',
+            },
+            shouldSort: false,
+            searchEnabled: false,
+            placeholder: true,
+            placeholderValue: placeholder,
+            choices : [
+                { value: 'fam', label: 'Family name', selected: true },
+                { value: 'taxa', label: 'Taxon name' },
+                { value: 'function', label: 'Functional context' },
+            ]
+          });
           ["specificity", "coverage"].forEach(id => {
                 let slider = document.getElementById(id);
                 noUiSlider.create(slider,
