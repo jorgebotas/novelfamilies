@@ -334,7 +334,7 @@ var gmgc_vueapp = new Vue({
                             Object.values(sources),
                             colors,
                             'bottom',
-                            50,
+                            55,
                             250)
                         //drawDonuts(f, data);
                         //renderDomains(data.domains);
@@ -360,7 +360,7 @@ var gmgc_vueapp = new Vue({
         showExample : function(type) {
             let val;
             if (type == 'fam') {
-                val = 'GTDBiso@GB_GCA_003164475@PLTL01000334.1_2@d__Bacteria|p__Dormibacterota';
+                val = 'GEM@3300027962_19@3300027962_19_00254@d__Bacteria|p__Fermentibacterota';
             }
             if (type == 'taxa') {
                 val = 'p__Riflebacteria';

@@ -15152,4 +15152,13 @@ a:hover {
   width: 150px !important;
 }
 
+.apexcharts-legend-marker {
+  width: 10px !important;
+  height: 10px !important;
+}
+
+.apexcharts-legend-text {
+  font-size: 0.9em !important;
+}
+
 /*# sourceMappingURL=theme.css.map */
