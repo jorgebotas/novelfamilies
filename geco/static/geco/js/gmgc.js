@@ -279,6 +279,8 @@ var gmgc_vueapp = new Vue({
         searchFams : function() {
             $("#search-fams").blur();
             $('.search-spinner').show();
+            $('.search-filters').collapse('hide');
+            $('#example-cards').collapse('hide');
             let query = $("#search-fams").val().trim();
             let type = $("#search-type").val();
             if (type == 'fam') {
@@ -355,7 +357,6 @@ var gmgc_vueapp = new Vue({
         },
 
         showExample : function(type) {
-            console.log(type)
             let val, choice;
             if (type == 'fam') {
                 val = 'GTDBiso@GB_GCA_003164475@PLTL01000334.1_2@d__Bacteria|p__Dormibacterota';
