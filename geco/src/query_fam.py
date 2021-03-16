@@ -142,7 +142,10 @@ def fams_by_neigh_og(ogname, score=0.9):
         del fam['_id']
         selected_fams.append(fam)
 
-    return selected_fams
+    matches = selected_fams
+    matches = matches[:min(len(matches), 100)]
+    matches = { m['name'] : m for m in matches }
+    return matches
 
 
 def fams_by_taxa(taxa, spec=0.9, cov=0.9):
