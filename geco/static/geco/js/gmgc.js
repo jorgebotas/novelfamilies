@@ -276,11 +276,11 @@ var gmgc_vueapp = new Vue({
                 }
             },
 
-        searchFams : function() {
+        searchFams : function(searchType=undefined) {
             $("#search-fams").blur();
             $('.search-spinner').show();
             let query = $("#search-fams").val().trim();
-            let type = $("#search-type").val();
+            let type = searchType || $("#search-type").val();
             if (type == 'fam') {
                 fetch(API_BASE_URL + `/info/${query}/`)
                 .then(response => response.json())
@@ -308,7 +308,7 @@ var gmgc_vueapp = new Vue({
             $('#example-cards').collapse('hide');
         },
 
-        searchFamByTaxa : async function(selector, prefix) {
+        searchFamByTaxa : function(selector, prefix) {
             $('.search-spinner').show();
             d3.selectAll('.GeCoViz').selectAll('*').remove();
             let search = $(selector);
@@ -316,7 +316,7 @@ var gmgc_vueapp = new Vue({
             let query = prefix + search.val().trim();
             let spec = document.querySelector("#specificity").noUiSlider.get();
             let cov = document.querySelector("#coverage").noUiSlider.get();
-            await fetch(API_BASE_URL + `/taxafams/${query}/${spec}/${cov}/`)
+            fetch(API_BASE_URL + `/taxafams/${query}/${spec}/${cov}/`)
                 .then(response => response.json())
                 .then(data => {
                     this.show_items = {}
@@ -357,22 +357,18 @@ var gmgc_vueapp = new Vue({
         },
 
         showExample : function(type) {
-            let val, choice;
+            let val;
             if (type == 'fam') {
                 val = 'GTDBiso@GB_GCA_003164475@PLTL01000334.1_2@d__Bacteria|p__Dormibacterota';
-                choice = 1;
             }
             if (type == 'taxa') {
                 val = 'p__Riflebacteria';
-                choice = 2;
             }
             if (type == 'function') {
                 val = '';
-                choice = 3;
             }
-            new Choices('#search-type').setChoiceByValue(val)
             $('#search-fams').val(val);
-            this.searchFams();
+            this.searchFams(type);
         },
 
         hideAllFams : function() {
