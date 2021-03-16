@@ -339,10 +339,21 @@ var gmgc_vueapp = new Vue({
 
         showExample : function(type) {
             console.log(type)
-            if (type == 'fam') val = 'GTDBiso@GB_GCA_003164475@PLTL01000334.1_2@d__Bacteria|p__Dormibacterota';
-            if (type == 'taxa') val = 'p__Riflebacteria';
-            if (type == 'function') val = '';
-            console.log(val)
+            let val, choice;
+            if (type == 'fam') {
+                val = 'GTDBiso@GB_GCA_003164475@PLTL01000334.1_2@d__Bacteria|p__Dormibacterota';
+                choice = 1;
+            }
+            if (type == 'taxa') {
+                val = 'p__Riflebacteria';
+                choice = 2;
+            }
+            if (type == 'function') {
+                val = '';
+                choice = 3;
+            }
+            $('#choices--search-type-item-choice-' + choice).click()
+            $('body').click()
             $('#search-fams').val(val);
             this.searchFams();
         },
