@@ -370,8 +370,7 @@ var gmgc_vueapp = new Vue({
                 val = '';
                 choice = 3;
             }
-            $('#choices--search-type-item-choice-' + choice).click()
-            $('body').click()
+            new Choices('#search-type').setChoiceByValue(val)
             $('#search-fams').val(val);
             this.searchFams();
         },
