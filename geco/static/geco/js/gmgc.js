@@ -347,6 +347,36 @@ var gmgc_vueapp = new Vue({
         },
 
         searchFamByFunction : function(selector) {
+            $('.search-spinner').show();
+            let search = $(selector);
+            search.blur();
+            let query = prefix + search.val().trim();
+            let conservation = document.querySelector("#conservation").noUiSlider.get();
+            fetch(API_BASE_URL + `/ogfams/${query}/${conservation}/`)
+                .then(response => response.json())
+                .then(data => {
+                    this.show_items = {}
+                    this.show_items = data.show_items
+                })
+                .then(() => {
+                    this.hideAllFams();
+                    $('.search-spinner').hide();
+                    Object.entries(this.show_items).forEach(([f, data]) => {
+                        let idx = Object.keys(this.show_items).indexOf(f);
+                        let sources = data.sources;
+                        renderDonut('f'+idx+'-sources',
+                            Object.keys(sources),
+                            Object.values(sources),
+                            colors,
+                            'bottom',
+                            55,
+                            250)
+                        //drawDonuts(f, data);
+                        //renderDomains(data.domains);
+                        //d3.selectAll('.GeCoViz').selectAll('*').remove();
+                        //this.toggleGeCoViz(`#f${idx}-GeCoViz`, f)
+                    });
+                })
 
         },
 

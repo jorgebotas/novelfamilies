@@ -15,6 +15,7 @@ col_cards = db.card
 col_fams = db.nfam_v2_members
 col_faminfo = db.faminfo
 col_taxonomy = db.genome_taxonomy
+col_og_neigh_scores = db.og_neigh_scores
 
 STATIC_PATH = settings.BASE_DIR + '/static/geco/'
 

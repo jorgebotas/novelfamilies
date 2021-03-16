@@ -41,7 +41,7 @@ def info(request, query):
         # pass
     return JsonResponse(data)
 
-def fam_by_function(request, query, score):
+def fam_by_og(request, query, score):
     """Return list with fams that match taxa search
     """
     fams = fams_by_neigh_og(query, float(score))
