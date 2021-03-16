@@ -329,7 +329,7 @@ var gmgc_vueapp = new Vue({
                             Object.keys(sources),
                             Object.values(sources),
                             colors,
-                            'bottom,
+                            'bottom',
                             50)
                         //drawDonuts(f, data);
                         //renderDomains(data.domains);
