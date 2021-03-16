@@ -66,13 +66,13 @@
             ]
           });
           searchType = $('#search-type')
-          searchType.change(() => {
-            $('.search-filters').toggle('hide');
+          searchType.change(async function(){
+            await $('.search-filters').toggle('hide');
             let val = searchType.val();
             if (val == 'taxa') {
-                $('#taxa-filters').toggle('show');
+                await $('#taxa-filters').toggle('show');
             } else if (val == 'function') {
-                $('#function-filters').toggle('show');
+                await $('#function-filters').toggle('show');
             }
           });
           ["specificity", "coverage", "conservation"].forEach(id => {
