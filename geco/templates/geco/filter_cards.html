@@ -1,67 +1,10 @@
-<div class='collapse filter-cards row justify-content-center'
-    id="filter-cards">
-<div class="card col-md-4 col-sm-11 mx-3 p-0">
+<div class='collapse search-filters row justify-content-center'
+    id="taxa-filters">
+<div class="card col-md-8 col-sm-11 mx-3 p-0">
     <div class="card-header">
-        Taxonomy
+        Adjustable parameters
     </div>
     <div class="card-body row">
-        <div class="col-md-8">
-            <input type="text" 
-                   value="" 
-                   name="domain-input" 
-                   id="domain-input"
-                   class="form-control m-1"
-                   placeholder="Domain"
-                   @keypress.enter.prevent="searchFamByTaxa('#domain-input',
-                                             'd__')"
-                   />
-            <input type="text" 
-                   value="" 
-                   name="phylum-input" 
-                   id="phylum-input"
-                   class="form-control m-1"
-                   placeholder="Phylum"
-                   @keypress.enter.prevent="searchFamByTaxa('#phylum-input',
-                                             'p__')"
-                   />
-            <input type="text" 
-                   value="" 
-                   name="class-input" 
-                   id="class-input"
-                   class="form-control m-1"
-                   placeholder="Class"
-                   @keypress.enter.prevent="searchFamByTaxa('#class-input',
-                                             'c__')"
-                   />
-            <input type="text" 
-                   value="" 
-                   name="order-input" 
-                   id="order-input"
-                   class="form-control m-1"
-                   placeholder="Order"
-                   @keypress.enter.prevent="searchFamByTaxa('#order-input',
-                                             'o__')"
-                   />
-            <input type="text" 
-                   value="" 
-                   name="family-input" 
-                   id="family-input"
-                   class="form-control m-1"
-                   placeholder="Family"
-                   @keypress.enter.prevent="searchFamByTaxa('#family-input',
-                                             'f__')"
-                   />
-            <input type="text" 
-                   value="" 
-                   name="genus-input" 
-                   id="genus-input"
-                   class="form-control m-1"
-                   placeholder="Genus"
-                   @keypress.enter.prevent="searchFamByTaxa('#genus-input',
-                                             'g__')"
-                   />
-        </div>
-        <div class="col-md-4">
         <div class='specificity'>
             <label class="form-label"
                 style='font-size:.8em'>
@@ -78,46 +21,148 @@
             <div class='form-range' id='coverage'>
             </div>
         </div>
-        </div>
     </div>
 </div>
-<div class="card col-md-3 col-sm-11 mx-3 p-0">
-    <div class="card-header">
-        Function
-    </div>
-    <div class="card-body">
-        <div class="my-3">
-            <label class='form-label mx-2'>
-                KEGG pathway
-            </label>
-            <input type="text" 
-                   value="" 
-                   name="kpath-input" 
-                   id="kpath-input"
-                   class="form-control m-1"
-                   placeholder=""
-                   />
-        </div>
-        <div class='my-3'>
-            <label class='form-label mx-2'>
-                CARD
-            </label>
-            <input type="text" 
-                   value="" 
-                   name="card-input" 
-                   id="card-input"
-                   class="form-control m-1"
-                   placeholder=""
-                   />
-        </div>
-    </div>
 </div>
-<div class="card col-md-3 col-sm-11 mx-3 p-0">
-    <div class="card-header">
-        Ecology
-    </div>
-    <div class="card-body">
 
+<div class='collapse search-filters row justify-content-center'
+    id="function-filters">
+<div class="card col-md-8 col-sm-11 mx-3 p-0">
+    <div class="card-header">
+        Adjustable parameters
+    </div>
+    <div class="card-body row">
+        <div class='conservation'>
+            <label class="form-label"
+                style='font-size:.8em'>
+                Conservation
+            </label>
+            <div class='form-range' id='conservation'>
+            </div>
+        </div>
     </div>
 </div>
 </div>
+<!--<div class='collapse filter-cards row justify-content-center'-->
+    <!--id="filter-cards">-->
+<!--<div class="card col-md-4 col-sm-11 mx-3 p-0">-->
+    <!--<div class="card-header">-->
+        <!--Taxonomy-->
+    <!--</div>-->
+    <!--<div class="card-body row">-->
+        <!--<div class="col-md-8">-->
+            <!--<input type="text" -->
+                   <!--value="" -->
+                   <!--name="domain-input" -->
+                   <!--id="domain-input"-->
+                   <!--class="form-control m-1"-->
+                   <!--placeholder="Domain"-->
+                   <!--@keypress.enter.prevent="searchFamByTaxa('#domain-input',-->
+                                             <!--'d__')"-->
+                   <!--/>-->
+            <!--<input type="text" -->
+                   <!--value="" -->
+                   <!--name="phylum-input" -->
+                   <!--id="phylum-input"-->
+                   <!--class="form-control m-1"-->
+                   <!--placeholder="Phylum"-->
+                   <!--@keypress.enter.prevent="searchFamByTaxa('#phylum-input',-->
+                                             <!--'p__')"-->
+                   <!--/>-->
+            <!--<input type="text" -->
+                   <!--value="" -->
+                   <!--name="class-input" -->
+                   <!--id="class-input"-->
+                   <!--class="form-control m-1"-->
+                   <!--placeholder="Class"-->
+                   <!--@keypress.enter.prevent="searchFamByTaxa('#class-input',-->
+                                             <!--'c__')"-->
+                   <!--/>-->
+            <!--<input type="text" -->
+                   <!--value="" -->
+                   <!--name="order-input" -->
+                   <!--id="order-input"-->
+                   <!--class="form-control m-1"-->
+                   <!--placeholder="Order"-->
+                   <!--@keypress.enter.prevent="searchFamByTaxa('#order-input',-->
+                                             <!--'o__')"-->
+                   <!--/>-->
+            <!--<input type="text" -->
+                   <!--value="" -->
+                   <!--name="family-input" -->
+                   <!--id="family-input"-->
+                   <!--class="form-control m-1"-->
+                   <!--placeholder="Family"-->
+                   <!--@keypress.enter.prevent="searchFamByTaxa('#family-input',-->
+                                             <!--'f__')"-->
+                   <!--/>-->
+            <!--<input type="text" -->
+                   <!--value="" -->
+                   <!--name="genus-input" -->
+                   <!--id="genus-input"-->
+                   <!--class="form-control m-1"-->
+                   <!--placeholder="Genus"-->
+                   <!--@keypress.enter.prevent="searchFamByTaxa('#genus-input',-->
+                                             <!--'g__')"-->
+                   <!--/>-->
+        <!--</div>-->
+        <!--<div class="col-md-4">-->
+        <!--<div class='specificity'>-->
+            <!--<label class="form-label"-->
+                <!--style='font-size:.8em'>-->
+                <!--Specificity-->
+            <!--</label>-->
+            <!--<div class='form-range' id='specificity'>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class='coverage'>-->
+            <!--<label class="form-label"-->
+                <!--style='font-size:.8em'>-->
+                <!--Coverage-->
+            <!--</label>-->
+            <!--<div class='form-range' id='coverage'>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+<!--<div class="card col-md-3 col-sm-11 mx-3 p-0">-->
+    <!--<div class="card-header">-->
+        <!--Function-->
+    <!--</div>-->
+    <!--<div class="card-body">-->
+        <!--<div class="my-3">-->
+            <!--<label class='form-label mx-2'>-->
+                <!--KEGG pathway-->
+            <!--</label>-->
+            <!--<input type="text" -->
+                   <!--value="" -->
+                   <!--name="kpath-input" -->
+                   <!--id="kpath-input"-->
+                   <!--class="form-control m-1"-->
+                   <!--placeholder=""-->
+                   <!--/>-->
+        <!--</div>-->
+        <!--<div class='my-3'>-->
+            <!--<label class='form-label mx-2'>-->
+                <!--CARD-->
+            <!--</label>-->
+            <!--<input type="text" -->
+                   <!--value="" -->
+                   <!--name="card-input" -->
+                   <!--id="card-input"-->
+                   <!--class="form-control m-1"-->
+                   <!--placeholder=""-->
+                   <!--/>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+<!--<div class="card col-md-3 col-sm-11 mx-3 p-0">-->
+    <!--<div class="card-header">-->
+        <!--Ecology-->
+    <!--</div>-->
+    <!--<div class="card-body">-->
+
+    <!--</div>-->
+<!--</div>-->
+<!--</div>-->
