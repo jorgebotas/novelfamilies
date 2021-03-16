@@ -325,15 +325,15 @@ var gmgc_vueapp = new Vue({
                     Object.entries(this.show_items).forEach(([f, data]) => {
                         let idx = Object.keys(this.show_items).indexOf(f);
                         let sources = data.sources;
-                        renderDonut('f'+idx,
+                        renderDonut('f'+idx+'-sources',
                             Object.keys(sources),
                             Object.values(sources),
                             colors,
-                            100)
+                            50)
                         //drawDonuts(f, data);
                         //renderDomains(data.domains);
-                        d3.selectAll('.GeCoViz').selectAll('*').remove();
-                        this.toggleGeCoViz(`#f${idx}-GeCoViz`, f)
+                        //d3.selectAll('.GeCoViz').selectAll('*').remove();
+                        //this.toggleGeCoViz(`#f${idx}-GeCoViz`, f)
                     });
                 })
         },
