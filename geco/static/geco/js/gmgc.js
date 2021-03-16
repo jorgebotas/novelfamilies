@@ -243,6 +243,7 @@ var gmgc_vueapp = new Vue({
     },
     methods: {
         toggleGeCoViz : async function(selector, query) {
+            console.log(query)
                 let newick, context;
                 newick = this.show_items[query].newick;
                 context = this.show_items[query].context;
