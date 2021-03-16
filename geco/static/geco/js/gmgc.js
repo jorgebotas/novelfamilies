@@ -350,7 +350,7 @@ var gmgc_vueapp = new Vue({
             $('.search-spinner').show();
             let search = $(selector);
             search.blur();
-            let query = prefix + search.val().trim();
+            let query = search.val().trim();
             let conservation = document.querySelector("#conservation").noUiSlider.get();
             fetch(API_BASE_URL + `/ogfams/${query}/${conservation}/`)
                 .then(response => response.json())
