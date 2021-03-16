@@ -61,15 +61,15 @@
             searchEnabled: false,
             choices : [
                 { value: 'fam', label: 'Family name', selected: true },
-                { value: 'taxa', label: 'Taxon name', 
-                    'data-toggle': 'collapse',
-                    'href': '#filter-taxa',
-                    'aria-expanded': 'false',
-                    'aria-controls': 'filter-taxa'
-                },
+                { value: 'taxa', id: 'taxa', label: 'Taxon name' },
                 { value: 'function', label: 'Functional context' },
             ]
           });
+          d3.select('#taxa')
+            .attr('data-toggle', 'collapse')
+            .attr('href', '#filter-cards')
+            .attr('aria-expanded', 'false')
+            .attr('aria-controls', 'filter-cards')
           ["specificity", "coverage"].forEach(id => {
                 let slider = document.getElementById(id);
                 noUiSlider.create(slider,
