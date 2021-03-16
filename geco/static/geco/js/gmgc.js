@@ -308,7 +308,7 @@ var gmgc_vueapp = new Vue({
             $('#example-cards').collapse('hide');
         },
 
-        searchFamByTaxa : function(selector, prefix) {
+        searchFamByTaxa : async function(selector, prefix) {
             $('.search-spinner').show();
             d3.selectAll('.GeCoViz').selectAll('*').remove();
             let search = $(selector);
@@ -316,7 +316,7 @@ var gmgc_vueapp = new Vue({
             let query = prefix + search.val().trim();
             let spec = document.querySelector("#specificity").noUiSlider.get();
             let cov = document.querySelector("#coverage").noUiSlider.get();
-            fetch(API_BASE_URL + `/taxafams/${query}/${spec}/${cov}/`)
+            await fetch(API_BASE_URL + `/taxafams/${query}/${spec}/${cov}/`)
                 .then(response => response.json())
                 .then(data => {
                     this.show_items = {}
