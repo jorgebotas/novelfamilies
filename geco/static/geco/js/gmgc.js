@@ -337,7 +337,7 @@ var gmgc_vueapp = new Vue({
             $('.tab-content').collapse('show');
         },
 
-        showExample : async function(type) {
+        showExample : function(type) {
             console.log(type)
             let val, choice;
             if (type == 'fam') {
@@ -352,9 +352,9 @@ var gmgc_vueapp = new Vue({
                 val = '';
                 choice = 3;
             }
+            $('#choices--search-type-item-choice-' + choice).click()
+            $('body').click()
             $('#search-fams').val(val);
-            await $('#choices--search-type-item-choice-' + choice).click()
-            await $('body').click()
             this.searchFams();
         },
 
