@@ -15147,4 +15147,9 @@ a:hover {
   transition: color 0.5s;
 }
 
+.apexcharts-legend {
+  top: 5px !important;
+  width: 150px !important;
+}
+
 /*# sourceMappingURL=theme.css.map */
