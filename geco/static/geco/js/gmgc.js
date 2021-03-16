@@ -138,12 +138,13 @@ var drawDonuts = async function(f, data) {
                 colors.slice(0, 4))
 }
 
-var renderDonut = function(id, labels, vals, colors, legend='bottom', height=240) {
+var renderDonut = function(id, labels, vals, colors, legend='bottom', height=240, width=450) {
     let div = document.getElementById(id);
     options = {
         chart: {
             type: "donut",
             fontFamily: 'inherit',
+            width: width,
             height: height,
             sparkline: {
                 enabled: true
@@ -330,7 +331,8 @@ var gmgc_vueapp = new Vue({
                             Object.values(sources),
                             colors,
                             'bottom',
-                            50)
+                            50,
+                            250)
                         //drawDonuts(f, data);
                         //renderDomains(data.domains);
                         //d3.selectAll('.GeCoViz').selectAll('*').remove();
