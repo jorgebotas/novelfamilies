@@ -363,7 +363,7 @@ var gmgc_vueapp = new Vue({
                 val = 'GEM@3300027962_19@3300027962_19_00254@d__Bacteria|p__Fermentibacterota';
             }
             if (type == 'taxa') {
-                val = 'p__Riflebacteria';
+                val = 'p__Dormibacterota';
             }
             if (type == 'function') {
                 val = '';
