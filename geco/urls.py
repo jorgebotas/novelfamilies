@@ -13,4 +13,3 @@ urlpatterns = [
     path(r'api/ogfams/<str:query>/<str:score>/',
          api.fam_by_og),
 ]
-
