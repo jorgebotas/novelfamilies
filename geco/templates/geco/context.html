@@ -61,7 +61,14 @@
             searchEnabled: false,
             choices : [
                 { value: 'fam', label: 'Family name', selected: true },
-                { value: 'taxa', label: 'Taxon name' },
+                { value: 'taxa', label: 'Taxon name', 
+                  customProperties: {
+                    data-toggle: 'collapse',
+                    href: '#filter-taxa',
+                    aria-expanded: 'false',
+                    aria-controls: 'filter-taxa'
+                  }
+                },
                 { value: 'function', label: 'Functional context' },
             ]
           });
