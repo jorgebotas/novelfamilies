@@ -139,6 +139,7 @@ def fams_by_neigh_og(ogname, score=0.9):
             continue
 
         fam['match_og'] = fam2score[fam['name']]
+        del fam['_id']
         selected_fams.append(fam)
 
     return selected_fams
