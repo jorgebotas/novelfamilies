@@ -1,10 +1,11 @@
 import ApexCharts from 'apexcharts';
 import Vue from 'vue';
 import GeCoViz from 'gecoviz.js';
+import noUiSlider from 'nouislider';
 
 
-API_BASE_URL = "/api"
-STATIC_URL = "/static/geco"
+var API_BASE_URL = "/api"
+var STATIC_URL = "/static/geco"
 
 var colors = ["#abfdcb",
                 "#c9b2fd",
