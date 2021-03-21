@@ -1,7 +1,7 @@
-import ApexCharts from 'apexcharts';
-import Vue from 'vue';
-import GeCoViz from 'gecoviz.js';
-import noUiSlider from 'nouislider';
+//import ApexCharts from 'apexcharts';
+//import Vue from 'vue';
+//import GeCoViz from 'gecoviz.js';
+//import noUiSlider from 'nouislider';
 
 
 var API_BASE_URL = "/api"
@@ -449,5 +449,3 @@ var gmgc_vueapp = new Vue({
 
     },
 });
-
-export default gmgc_vueapp
