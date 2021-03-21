@@ -249,16 +249,15 @@ var gmgc_vueapp = new Vue({
     },
     methods: {
         toggleGeCoViz : async function(selector, query) {
-            console.log(query)
                 let newick, context;
                 newick = this.show_items[query].newick;
                 context = this.show_items[query].context;
                 if (context) {
-                    window.onload = async () => {
+                    window.onload = () => {
                         d3.select(selector)
                             .style('opacity', 1)
                             .style('visibility', 'visible');
-                        await $(selector + " + div .gecoviz-progress").hide();
+                        $(selector + " + div .gecoviz-progress").hide();
                     }
                 } else {
                     $(selector + " + div .gecoviz-progress").show();
