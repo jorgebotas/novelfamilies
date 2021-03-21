@@ -449,3 +449,5 @@ var gmgc_vueapp = new Vue({
 
     },
 });
+
+export default gmgc_vueapp
