@@ -11006,6 +11006,7 @@ eval("/**\n * Copyright (c) 2014-present, Facebook, Inc.\n *\n * This source cod
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
 /******/ 	var __webpack_exports__ = __webpack_require__("./src/gecoviz.js");
+/******/ 	__webpack_exports__ = __webpack_exports__.default;
 /******/ 	
 /******/ 	return __webpack_exports__;
 /******/ })()
