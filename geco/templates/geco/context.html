@@ -27,24 +27,25 @@
 
 {% endblock %}
 {% block scripts %}
-    <script src = "https://unpkg.com/@popperjs/core@2"></script>
+    {% comment %}<script src = "https://unpkg.com/@popperjs/core@2"></script>{% endcomment %}
     <script src="{% static "geco/assets/tabler/libs/nouislider/distribute/nouislider.min.js" %}"></script>
-    <script src="{% static "geco/GeCoVizjs/src/html2canvas.min.js" %}"></script>
-    <script src="{% static "geco/GeCoVizjs/src/FileSaver.min.js" %}"></script>
-    <script src="{% static "geco/GeCoVizjs/src/colors269.js" %}"></script>
-    <script src="{% static "geco/GeCoVizjs/src/palette.js" %}"></script>
-    <script src="{% static "geco/GeCoVizjs/src/helpers.js" %}"></script>
-    <script src="{% static "geco/GeCoVizjs/src/Sorter.js" %}"></script>
-    <script src="{% static "geco/GeCoVizjs/src/selectBox.js" %}"></script>
-    <script src="{% static "geco/GeCoVizjs/src/slider.js" %}"></script>
-    <script src="{% static "geco/GeCoVizjs/src/customBar.js" %}"></script>
-    <script src="{% static "geco/GeCoVizjs/src/domains.js" %}"></script>
-    <script src="{% static "geco/GeCoVizjs/src/popper.js" %}"></script>
-    <script src="{% static "geco/GeCoVizjs/src/newick.js" %}"></script>
-    <script src="{% static "geco/GeCoVizjs/src/tree.js" %}"></script>
-    <script src="{% static "geco/GeCoVizjs/src/gecoviz.js" %}"></script>
+    {% comment %}<script src="{% static "geco/GeCoVizjs/src/html2canvas.min.js" %}"></script>{% endcomment %}
+    {% comment %}<script src="{% static "geco/GeCoVizjs/src/FileSaver.min.js" %}"></script>{% endcomment %}
+    {% comment %}<script src="{% static "geco/GeCoVizjs/src/colors269.js" %}"></script>{% endcomment %}
+    {% comment %}<script src="{% static "geco/GeCoVizjs/src/palette.js" %}"></script>{% endcomment %}
+    {% comment %}<script src="{% static "geco/GeCoVizjs/src/helpers.js" %}"></script>{% endcomment %}
+    {% comment %}<script src="{% static "geco/GeCoVizjs/src/Sorter.js" %}"></script>{% endcomment %}
+    {% comment %}<script src="{% static "geco/GeCoVizjs/src/selectBox.js" %}"></script>{% endcomment %}
+    {% comment %}<script src="{% static "geco/GeCoVizjs/src/slider.js" %}"></script>{% endcomment %}
+    {% comment %}<script src="{% static "geco/GeCoVizjs/src/customBar.js" %}"></script>{% endcomment %}
+    {% comment %}<script src="{% static "geco/GeCoVizjs/src/domains.js" %}"></script>{% endcomment %}
+    {% comment %}<script src="{% static "geco/GeCoVizjs/src/popper.js" %}"></script>{% endcomment %}
+    {% comment %}<script src="{% static "geco/GeCoVizjs/src/newick.js" %}"></script>{% endcomment %}
+    {% comment %}<script src="{% static "geco/GeCoVizjs/src/tree.js" %}"></script>{% endcomment %}
+    {% comment %}<script src="{% static "geco/GeCoVizjs/src/gecoviz.js" %}"></script>{% endcomment %}
     {% comment %}{% compress js %}{% endcomment %}
-        <script type="module" src="{% static "geco/js/gmgc.js" %}"></script>
+    <script src="{% static "geco/js/gecoviz_bundle.js" %}"></script>
+    <script src="{% static "geco/js/gmgc.js" %}"></script>
     {% comment %}{% endcompress %}{% endcomment %}
     <script charset="utf-8">
       $(document).ready(function () {
