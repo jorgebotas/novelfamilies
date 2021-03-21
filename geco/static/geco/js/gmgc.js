@@ -1,3 +1,8 @@
+import ApexCharts from 'apexcharts';
+import Vue from 'vue';
+import GeCoViz from 'gecoviz.js';
+
+
 API_BASE_URL = "/api"
 STATIC_URL = "/static/geco"
 
@@ -255,7 +260,7 @@ var gmgc_vueapp = new Vue({
                         await $(selector + " + div .gecoviz-progress").hide();
                     }
                 } else {
-                    await $(selector + " + div .gecoviz-progress").show();
+                    $(selector + " + div .gecoviz-progress").show();
                     console.log(selector)
                     newick = await get_newick(query);
                     context = await get_context(query);
@@ -271,7 +276,7 @@ var gmgc_vueapp = new Vue({
                         .style('opacity', 1)
                         .style('visibility', 'visible');
                     //await window.launch_GeCo(selector, context, newick, 41, colors);
-                    await $(selector + " + div .gecoviz-progress").hide();
+                    $(selector + " + div .gecoviz-progress").hide();
                     this.show_items[query].newick = newick;
                     this.show_items[query].context = context;
                 }
