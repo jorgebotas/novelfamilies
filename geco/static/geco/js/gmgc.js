@@ -264,7 +264,7 @@ var gmgc_vueapp = new Vue({
                     console.log(selector)
                     newick = await get_newick(query);
                     context = await get_context(query);
-                    let graph = GeCoViz.GeCoViz(selector)
+                    let graph = GeCoViz(selector)
                                 .data(context)
                                 .nSide(4)
                                 .showName("Gene name")
