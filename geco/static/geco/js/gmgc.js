@@ -265,7 +265,7 @@ var gmgc_vueapp = new Vue({
                     console.log(selector)
                     newick = await get_newick(query);
                     context = await get_context(query);
-                    let graph = GeCoViz(selector)
+                    let graph = GeCoViz.GeCoViz(selector)
                                 .data(context)
                                 .nSide(4)
                                 .showName("Gene name")
@@ -397,7 +397,7 @@ var gmgc_vueapp = new Vue({
             Object.keys(this.show_items).forEach(async (f, idx) => {
                 let selector = `#f${idx}-GeCoViz`;
                 await this.toggleGeCoViz(selector, f)
-                await $(`#f${idx}-GeCoViz .toggleLegend`).click();
+                $(`#f${idx}-GeCoViz .toggleLegend`).click();
             });
             $('.tab-content').collapse('show');
         },
