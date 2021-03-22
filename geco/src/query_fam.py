@@ -84,6 +84,7 @@ def get_emapper_annotations(names):
             kos.append({'id':ko,
                           'description': desc})
         m['kos'] = kos
+        print(kos)
 
         gene2annot[m['q_g']] = m
     return gene2annot
