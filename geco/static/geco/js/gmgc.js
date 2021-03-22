@@ -358,8 +358,9 @@ var gmgc_vueapp = new Vue({
             let search = $(selector);
             search.blur();
             let query = search.val().trim();
+            let queryType = $('.term-type input:checked').val();
             let conservation = document.querySelector("#conservation").noUiSlider.get();
-            fetch(API_BASE_URL + `/ogfams/${query}/${conservation}/`)
+            fetch(API_BASE_URL + `/fnfams/${queryType}/${query}/${conservation}/`)
                 .then(response => response.json())
                 .then(data => {
                     console.log(data)

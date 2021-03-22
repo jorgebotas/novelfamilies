@@ -41,7 +41,7 @@ def info(request, query):
         # pass
     return JsonResponse(data)
 
-def fam_by_annotation(request, query_type,  query, score):
+def fam_by_annotation(request, query_type, query, score):
     """Return list with fams that match neighbor annotation search
     """
     fams = fams_by_neigh_annotation(query_type, query, float(score))
