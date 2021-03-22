@@ -78,7 +78,7 @@ def get_emapper_annotations(names):
         for ko in m.get('kos', []):
             # Get kegg description
             try:
-                desc = kegg_dict[str(ko[-4:])]
+                desc = kegg_dict[int(ko[-4:])]
             except:
                 desc = ""
             kos.append({'id':ko,
