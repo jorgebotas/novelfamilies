@@ -32,7 +32,55 @@
         Adjustable parameters
     </div>
     <div class="card-body row">
-        <div class='conservation'>
+        <div class='term-type col-md-7 mr-2 d-flex'>
+            <label class="form-selectgroup-item m-1">
+                <input type="radio"
+                       name="term-type" 
+                       value="ogs" 
+                       class="form-selectgroup-input" 
+                       checked="">
+                <span class="form-selectgroup-label">
+                    Orthologous group
+                </span>
+            </label>
+            <label class="form-selectgroup-item m-1">
+                <input type="radio"
+                       name="term-type" 
+                       value="kos" 
+                       class="form-selectgroup-input">
+                <span class="form-selectgroup-label">
+                    KEGG Orthologue
+                </span>
+            </label>
+            <label class="form-selectgroup-item m-1">
+                <input type="radio"
+                       name="term-type" 
+                       value="kpath" 
+                       class="form-selectgroup-input">
+                <span class="form-selectgroup-label">
+                    KEGG Pathway
+                </span>
+            </label>
+            <label class="form-selectgroup-item m-1">
+                <input type="radio"
+                       name="term-type" 
+                       value="CARD" 
+                       class="form-selectgroup-input">
+                <span class="form-selectgroup-label">
+                    CARD
+                </span>
+            </label>
+            <label class="form-selectgroup-item m-1">
+                <input type="radio"
+                       name="term-type" 
+                       value="pname" 
+                       class="form-selectgroup-input">
+                <span class="form-selectgroup-label">
+                    pname
+                </span>
+            </label>
+        </div>
+        <div class='conservation col-md-4'>
             <label class="form-label"
                 style='font-size:.8em'>
                 Conservation
@@ -47,6 +95,18 @@
 
 <div class='collapse example-cards row justify-content-center'
     id="example-cards">
+<div class="card col-md-4 col-sm-11 mx-3 p-0">
+    <div class="card-header">
+        Simple examples
+    </div>
+    <div class="card-body row">
+        <p>
+        <a @click="showExample('fam')">Family name</a>,
+        <a @click="showExample('taxa')">taxon name</a>,
+        <a @click="showExample('function')">functional context</a>.
+        </p>
+    </div>
+</div>
 <div class="card col-md-4 col-sm-11 mx-3 p-0">
     <div class="card-header">
         Simple examples

@@ -41,10 +41,10 @@ def info(request, query):
         # pass
     return JsonResponse(data)
 
-def fam_by_og(request, query, score):
-    """Return list with fams that match taxa search
+def fam_by_annotation(request, query_type,  query, score):
+    """Return list with fams that match neighbor annotation search
     """
-    fams = fams_by_neigh_og(query, float(score))
+    fams = fams_by_neigh_og(query_type, query, float(score))
     print(fams)
     fams = { 'show_items' : fams }
     return JsonResponse(fams)

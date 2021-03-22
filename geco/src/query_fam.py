@@ -122,12 +122,19 @@ def get_cards(names):
         gene2card[m['q_g']].append({'id' : m['card']})
     return gene2card
 
-def fams_by_neigh_og(ogname, score=0.9):
+def fams_by_neigh_annotation(term_type, term, score=0.9):
+    # term_type, one of: og, kos, CARD, kpath, pname
     matched_fams = []
     fam2score = {}
-    for fam in col_og_neigh_scores.find({'ogs': {'$elemMatch': {'n': ogname,'score':{'$gte': score}}}}):
+    for fam in col_og_neigh_scores.find({term_type: {'$elemMatch': {
+                                                'n': term,
+                                                'score':{'$gte': score},
+                                                'opposite_strand':'0',
+                                                }}}):
+
+
         matched_fams.append(fam['fam'])
-        og_match = next(og for og in fam['ogs'] if og['n'] == ogname)
+        og_match = next(og for og in fam[term_type] if og['n'] == term)
         fam2score[fam['fam']] = (og_match['n'], og_match['score'])
 
     wanted_keys = ['name', 'n_genomes', 'n_taxa', 'n_members', 'emapper_hits', 'sources']
@@ -137,16 +144,14 @@ def fams_by_neigh_og(ogname, score=0.9):
     for fam in col_faminfo.find({'name': {'$in': matched_fams}, }, wanted_keys):
         if fam['emapper_hits'] > 0:
             continue
-
-        fam['match_og'] = fam2score[fam['name']]
-        del fam['_id']
+        fam['match'] = fam2score[fam['name']]
         selected_fams.append(fam)
+    selected_fams.sort(key=lambda x: x['n_taxa'], reverse=True)
 
     matches = selected_fams
     matches = matches[:min(len(matches), 100)]
     matches = { m['name'] : m for m in matches }
     return matches
-
 
 def fams_by_taxa(taxa, spec=0.9, cov=0.9):
     matches = []
