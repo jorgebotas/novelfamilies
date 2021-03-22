@@ -78,7 +78,7 @@ def get_emapper_annotations(names):
         for ko in m.get('kos', []):
             # Get kegg description
             try:
-                desc = kegg_dict[int(ko[-4:])]
+                desc = kegg_dict['0'+str(ko[-4:])]
             except:
                 desc = ""
             kos.append({'id':ko,
@@ -231,7 +231,6 @@ def get_fam(fam):
                 }
             neighborhood.append(gene_doc)
     family_doc['neighs'] = neighborhood
-    print(list(kegg_dict.keys()))
     return json.dumps(neighborhood)
     # return json.dumps(family_doc)
 
