@@ -5,7 +5,7 @@ from .src.mongodb import mongo_connect
 from .src.get_context import get_context, get_newick
 from .src.get_fams import get_fam_info
 from .src.query_fam import fams_by_taxa,\
-                           fams_by_neigh_og,\
+                           fams_by_neigh_annotation,\
                            get_fam
 
 def info(request, query):
@@ -44,7 +44,7 @@ def info(request, query):
 def fam_by_annotation(request, query_type,  query, score):
     """Return list with fams that match neighbor annotation search
     """
-    fams = fams_by_neigh_og(query_type, query, float(score))
+    fams = fams_by_neigh_annotation(query_type, query, float(score))
     print(fams)
     fams = { 'show_items' : fams }
     return JsonResponse(fams)
