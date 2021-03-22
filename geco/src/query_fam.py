@@ -152,6 +152,7 @@ def fams_by_neigh_annotation(term_type, term, score=0.9):
         if fam['emapper_hits'] > 0:
             continue
         fam['match'] = fam2score[fam['name']]
+        del fam['_id']
         selected_fams.append(fam)
     selected_fams.sort(key=lambda x: x['n_taxa'], reverse=True)
 
