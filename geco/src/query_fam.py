@@ -73,9 +73,18 @@ def get_emapper_annotations(names):
                 desc = ""
             kpath.append({'id':kp,
                           'description': desc})
-        m['kpath'] = kpath
-        gene2annot[m['q_g']] = m
+        kos = []
+        for ko in m.get('kos', []):
+            # Get kegg description
+            try:
+                desc = kegg_dict[ko[-5:]]
+            except:
+                desc = ""
+            kpath.append({'id':ko,
+                          'description': desc})
+        m['kpos'] = kos
 
+        gene2annot[m['q_g']] = m
     return gene2annot
 
 def get_egg_description(eggnog):
