@@ -82,7 +82,7 @@ def get_emapper_annotations(names):
                 desc = ""
             kpath.append({'id':ko,
                           'description': desc})
-        m['kpos'] = kos
+        m['kos'] = kos
 
         gene2annot[m['q_g']] = m
     return gene2annot
