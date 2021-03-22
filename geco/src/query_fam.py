@@ -126,6 +126,9 @@ def fams_by_neigh_annotation(term_type, term, score=0.9):
     # term_type, one of: og, kos, CARD, kpath, pname
     matched_fams = []
     fam2score = {}
+    print(term_type)
+    print(term)
+    print(score)
     for fam in col_og_neigh_scores.find({term_type: {'$elemMatch': {
                                                 'n': term,
                                                 'score':{'$gte': score},
