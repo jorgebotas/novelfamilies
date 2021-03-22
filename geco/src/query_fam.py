@@ -78,13 +78,12 @@ def get_emapper_annotations(names):
         for ko in m.get('kos', []):
             # Get kegg description
             try:
-                desc = kegg_dict[ko[-5:]]
+                desc = kegg_dict[ko[-4:]]
             except:
                 desc = ""
             kos.append({'id':ko,
                           'description': desc})
         m['kos'] = kos
-        print(kos)
 
         gene2annot[m['q_g']] = m
     return gene2annot
