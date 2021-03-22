@@ -129,9 +129,13 @@ def fams_by_neigh_annotation(term_type, term, score=0.9):
     for fam in col_og_neigh_scores.find({term_type: {'$elemMatch': {
                                                 'n': term,
                                                 'score':{'$gte': score},
-                                                'opposite_strand':'0',
+                                                # 'opposite_strand':'0',
                                                 }}}):
 
+
+        matched_fams.append(fam['fam'])
+        annot_match = next(annot for annot in fam[term_type] if annot['n'] == term)
+        fam2score[fam['fam']] = (annot_match['n'], annot_match['score'])
 
         matched_fams.append(fam['fam'])
         og_match = next(og for og in fam[term_type] if og['n'] == term)
