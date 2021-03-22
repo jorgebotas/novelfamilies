@@ -139,7 +139,7 @@ def fams_by_neigh_annotation(term_type, term, score=0.9):
     for fam in col_og_neigh_scores.find({term_type: {'$elemMatch': {
                                                 'n': term,
                                                 'score':{'$gte': score},
-                                                # 'opposite_strand':'0',
+                                                'opposite_strand':'0',
                                                 }}}):
 
 
