@@ -15122,6 +15122,10 @@ a:hover {
   background-color: #6574cd;
 }
 
+.form-selectgroup-label {
+  font-size: 1em;
+}
+
 .fam-table {
   font-size: 80%;
 }
