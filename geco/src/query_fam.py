@@ -149,9 +149,9 @@ def fams_by_neigh_annotation(term_type, term, score=0.9):
     selected_fams.sort(key=lambda x: x['n_taxa'], reverse=True)
 
     print(selected_fams)
-    matches = selected_fams
-    matches = matches[:min(len(matches), 100)]
-    matches = { m['name'] : m for m in matches }
+    # matches = selected_fams
+    # matches = matches[:min(len(matches), 100)]
+    # matches = { m['name'] : m for m in matches }
     print(matches)
     return matches
 
