@@ -428,6 +428,7 @@ var gmgc_vueapp = new Vue({
         },
 
         getSeq : function(query) {
+            console.log(query)
             fetch(API_BASE_URL + `/seq/${query}/`)
                 .then(response => response.blob())
                 .then(blob => {
