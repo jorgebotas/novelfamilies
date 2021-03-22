@@ -212,6 +212,7 @@ def get_fam(fam):
                         "taxonomy":taxa,
                         "Orthologous groups": gene2annot[orf['g']].get('ogs', []),
                         "KEGG pathways": gene2annot[orf['g']].get('kpath', []),
+                        "KEGG orthologues": gene2annot[orf['g']].get('kos', []),
                         "Gene name": gene2annot[orf['g']].get('pname', ''),
 			# Best OG description
                         "Description": gene2annot[orf['g']].get('bod', ''),

@@ -15122,8 +15122,8 @@ a:hover {
   background-color: #6574cd;
 }
 
-.form-selectgroup-label {
-  font-size: 1em;
+.term-type .form-selectgroup-label {
+  font-size: 0.9em;
 }
 
 .fam-table {
