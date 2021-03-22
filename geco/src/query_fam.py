@@ -73,6 +73,7 @@ def get_emapper_annotations(names):
                 desc = ""
             kpath.append({'id':kp,
                           'description': desc})
+        m['kpath'] = kpath
         kos = []
         for ko in m.get('kos', []):
             # Get kegg description
@@ -80,7 +81,7 @@ def get_emapper_annotations(names):
                 desc = kegg_dict[ko[-5:]]
             except:
                 desc = ""
-            kpath.append({'id':ko,
+            kos.append({'id':ko,
                           'description': desc})
         m['kos'] = kos
 
