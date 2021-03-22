@@ -231,6 +231,7 @@ def get_fam(fam):
                 }
             neighborhood.append(gene_doc)
     family_doc['neighs'] = neighborhood
+    print(list(kegg_dict.keys()))
     return json.dumps(neighborhood)
     # return json.dumps(family_doc)
 
