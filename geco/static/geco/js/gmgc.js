@@ -386,7 +386,6 @@ var gmgc_vueapp = new Vue({
                         //this.toggleGeCoViz(`#f${idx}-GeCoViz`, f)
                     });
                 })
-
         },
 
         searchFamByBiome : function(selector) {
@@ -427,6 +426,15 @@ var gmgc_vueapp = new Vue({
         toggleFam : function(id) {
             $("#" + id).collapse('show');
         },
+
+        getSeq : function(query) {
+            fetch(API_BASE_URL + `/seq/${query}/`)
+                .then(response => response.blob())
+                .then(blob => {
+                    let file = window.URL.createObjectURL(blob);
+                    window.location.assign(file);
+                })
+        }
     },
     filters : {
         filterBlank : function (value) {
