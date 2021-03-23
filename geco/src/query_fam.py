@@ -217,6 +217,7 @@ def get_fam(fam):
         # creates a document with the extended info of each gene
         for orf in mini_contig:
             gene_doc = {"gene": orf['g'],
+                        "id": gene_entry,
                         "anchor": gene,
                         "start": orf['s'],
                         "end": orf['e'],
@@ -232,7 +233,6 @@ def get_fam(fam):
                         #"emapper": gene2annot[orf['g']],
                         "CARD": gene2card[orf['g']]
                 }
-            if int(orf['p']) == 0: gene_doc["id"]: gene_entry
             neighborhood.append(gene_doc)
     family_doc['neighs'] = neighborhood
     return json.dumps(neighborhood)
