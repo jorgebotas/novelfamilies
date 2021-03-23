@@ -196,6 +196,7 @@ def get_fam(fam):
     match = col_fams.find_one({'gf': fam})
     family_doc = {'gf': fam, 'neighs': [], 'size':match['nseqs'], 'ntaxa': match['nspcs']}
     neighborhood = []
+    print(match)
 
     # process each member of the family
     for gene_entry in match['members']:
@@ -207,7 +208,6 @@ def get_fam(fam):
         # First, give me neighbours and their positions/strands. The result includes the anchor
         window = 10
         mini_contig = get_mini_contig(gene, window=window)
-        print(mini_contig)
 
         # extract gene names from the mini contig
         mini_contig_genes = list(set([n['g'] for n in mini_contig]))
