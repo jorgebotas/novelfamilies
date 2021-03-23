@@ -219,6 +219,7 @@ def get_fam(fam):
         # creates a document with the extended info of each gene
         for orf in mini_contig:
             gene_doc = {"gene": orf['g'],
+                        "id": gene_entry,
                         "anchor": gene,
                         "start": orf['s'],
                         "end": orf['e'],
