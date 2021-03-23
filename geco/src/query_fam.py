@@ -34,7 +34,7 @@ def get_pickle(filePath):
 kegg_dict = get_pickle(STATIC_PATH + "pickle/KEGG_DESCRIPTION.pickle")
 
 def get_sequence(query):
-    return col_proteins.find_one({'n': query})
+    return col_proteins.find_one({'n': query}).get('aa', 'Sequence not found')
 
 # Preloads taxonomy info per genome
 def get_taxonomy(genome):
