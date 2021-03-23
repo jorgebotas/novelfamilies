@@ -196,8 +196,6 @@ def get_fam(fam):
     match = col_fams.find_one({'gf': fam})
     family_doc = {'gf': fam, 'neighs': [], 'size':match['nseqs'], 'ntaxa': match['nspcs']}
     neighborhood = []
-    print(match['members'])
-
     # process each member of the family
     for gene_entry in match['members']:
         src, genome, gene, taxa = gene_entry.split('@')
