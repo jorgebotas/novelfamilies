@@ -22,6 +22,15 @@ var colors = ["#abfdcb",
                 "#A1A314",
                 "#fff600"];
 
+var cleanString = function(s) {
+    let clean = String(s);
+    let dirt = " \t.,;:_/\\'@<>?()[]{}#%!*|".split("");
+    dirt.forEach(d => {
+        clean = clean.replaceAll(d, "");
+    })
+    return String(clean)
+}
+
 var get_newick = async (query) => {
     let newick;
     await fetch(API_BASE_URL + '/newick/' + query + '/')
@@ -280,6 +289,10 @@ var gmgc_vueapp = new Vue({
                     this.show_items[query].newick = newick;
                     this.show_items[query].context = context;
                 }
+                this.show_items[query].members.forEach(m => {
+                    let downloadSeq = d3.select(`${selector} #downloadSeq${cleanString(m)}`);
+                    downloadSeq.on('click', () => this.getSeq(m))
+            })
             },
 
         searchFams : function(searchType=undefined) {
