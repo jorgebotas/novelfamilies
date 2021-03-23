@@ -207,6 +207,7 @@ def get_fam(fam):
         # First, give me neighbours and their positions/strands. The result includes the anchor
         window = 10
         mini_contig = get_mini_contig(gene, window=window)
+        print(mini_contig)
 
         # extract gene names from the mini contig
         mini_contig_genes = list(set([n['g'] for n in mini_contig]))
@@ -218,12 +219,12 @@ def get_fam(fam):
         # creates a document with the extended info of each gene
         for orf in mini_contig:
             gene_doc = {"gene": orf['g'],
-                        "anchor":gene,
-                        "start":orf['s'],
-                        "end":orf['e'],
-                        "strand":orf['o'],
+                        "anchor": gene,
+                        "start": orf['s'],
+                        "end": orf['e'],
+                        "strand": orf['o'],
                         "pos": orf['p'],
-                        "taxonomy":taxa,
+                        "taxonomy": taxa,
                         "Orthologous groups": gene2annot[orf['g']].get('ogs', []),
                         "KEGG pathways": gene2annot[orf['g']].get('kpath', []),
                         "KEGG orthologues": gene2annot[orf['g']].get('kos', []),
@@ -231,7 +232,7 @@ def get_fam(fam):
 			# Best OG description
                         "Description": gene2annot[orf['g']].get('bod', ''),
                         #"emapper": gene2annot[orf['g']],
-                        "CARD":gene2card[orf['g']]
+                        "CARD": gene2card[orf['g']]
                 }
             neighborhood.append(gene_doc)
     family_doc['neighs'] = neighborhood
