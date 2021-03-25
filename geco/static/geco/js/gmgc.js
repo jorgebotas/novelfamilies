@@ -273,14 +273,13 @@ var gmgc_vueapp = new Vue({
                     console.log(selector)
                     newick = await get_newick(query);
                     context = await get_context(query);
-                    let graph = GeCoViz(selector)
-                                .data(context)
-                                .nSide(4)
-                                .showName("Gene name")
-                                .notation("Orthologous groups", 2)
-                                .tree(newick, undefined);
-                    d3.select(selector)
-                             .call(graph);
+                    GeCoViz(selector)
+                        .contextData(context)
+                        .nSide(4)
+                        .geneText("Gene name")
+                        .annotation("Orthologous groups", 2)
+                        .tree(newick, undefined)
+                        .draw();
                     d3.select(selector)
                         .style('opacity', 1)
                         .style('visibility', 'visible');
