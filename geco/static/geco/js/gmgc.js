@@ -274,11 +274,11 @@ var gmgc_vueapp = new Vue({
                     newick = await get_newick(query);
                     context = await get_context(query);
                     GeCoViz(selector)
+                        .treeData(newick, undefined)
                         .contextData(context)
                         .nSide(4)
                         .geneText("Gene name")
                         .annotation("Orthologous groups", 2)
-                        .tree(newick, undefined)
                         .draw();
                     d3.select(selector)
                         .style('opacity', 1)
@@ -288,10 +288,10 @@ var gmgc_vueapp = new Vue({
                     this.show_items[query].newick = newick;
                     this.show_items[query].context = context;
                 }
-                this.show_items[query].members.forEach(m => {
-                    let downloadSeq = d3.select(`${selector} #downloadSeq${cleanString(m)}`);
-                    downloadSeq.on('click', () => this.getSeq(m))
-            })
+                //this.show_items[query].members.forEach(m => {
+                    //let downloadSeq = d3.select(`${selector} #downloadSeq${cleanString(m)}`);
+                    //downloadSeq.on('click', () => this.getSeq(m))
+                //})
             },
 
         searchFams : function(searchType=undefined) {
