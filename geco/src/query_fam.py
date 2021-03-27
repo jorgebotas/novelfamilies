@@ -33,8 +33,12 @@ def get_pickle(filePath):
 
 kegg_dict = get_pickle(STATIC_PATH + "pickle/KEGG_DESCRIPTION.pickle")
 
-def get_sequence(query):
-    return col_proteins.find_one({'n': query}).get('aa', 'Sequence not found')
+def get_sequence(query, fasta=True):
+    seq = col_proteins.find_one({'n': query}).get('aa', 'Sequence not found')
+    if fasta:
+        return '>{}\n{}'.format(query, seq)
+    return seq
+
 
 # Preloads taxonomy info per genome
 def get_taxonomy(genome):
@@ -218,7 +222,6 @@ def get_fam(fam):
         # creates a document with the extended info of each gene
         for orf in mini_contig:
             gene_doc = {"gene": orf['g'],
-                        "id": gene_entry,
                         "anchor": gene,
                         "start": orf['s'],
                         "end": orf['e'],
@@ -234,6 +237,8 @@ def get_fam(fam):
                         #"emapper": gene2annot[orf['g']],
                         "CARD": gene2card[orf['g']]
                 }
+            if int(gene_doc['pos']) == 0:
+                gene_doc["seqID"] = gene_entry
             neighborhood.append(gene_doc)
     family_doc['neighs'] = neighborhood
     return json.dumps(neighborhood)
