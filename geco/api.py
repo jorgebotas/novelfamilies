@@ -72,7 +72,5 @@ def context(request, query):
     return JsonResponse(analysis)
 
 def sequence(request, query):
-    print(query)
     seq = get_sequence(query)
-    print(seq)
     return HttpResponse(seq)
