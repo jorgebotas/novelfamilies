@@ -15151,6 +15151,11 @@ a:hover {
   background: #212833;
 }
 
+navbar input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+  -webkit-text-fill-color: white;
+}
+
 .search-icon {
   z-index: 10;
   pointer-events: all;
