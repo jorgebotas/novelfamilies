@@ -187,7 +187,7 @@ def fams_by_taxa(taxa, spec=0.9, cov=0.9):
                                                 'term':taxa,
                                                 'specificity':{'$gte': spec},
                                                 'coverage':{'$gte': cov}}}
-                                    },  wanted_keys):
+                                 }):
 
         clade_match = next(clade for clade in fam['clade_counter'] if clade['term'] == taxa)
 

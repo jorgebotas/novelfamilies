@@ -493,48 +493,57 @@
 
            <!--</div>-->
 
-           <!--<div class="tab-pane fade" :id="'f' + index +-->
-                      <!--'-magsTax-tab'" role="tabpanel"-->
-              <!--aria-labelledby="pills-mags-tax-tab">-->
-           <!--<div v-for="origin in tdata.mags_annot">-->
-               <!--<div class="card col-md-12 p-0"-->
-                    <!--v-if="origin.tax != {}">-->
-                   <!--<div class="card-header text-primary font-weight-bold">-->
-                        <!--[[ origin.origin ]]-->
-                   <!--</div>-->
-                <!--<div class="card-body">-->
-                   <!--<div class="card p-0 mx-4 fam-table">-->
-                       <!--<div class="table-responsive">-->
-                           <!--<table class="table table-vcenter card-table-->
-                               <!--text-center mb-0">-->
-                               <!--<thead>-->
-                                   <!--<tr>-->
-                                       <!--<th>Tax level</th>-->
-                                       <!--<th>Name</th>-->
-                                       <!--<th>Number</th>-->
-                                   <!--</tr>-->
-                               <!--</thead>-->
-                               <!--<tbody>-->
-                                   <!--<tr v-for="m in origin.tax.ta_gtdb">-->
-                                       <!--<th class="p-1">-->
-                                           <!--[[ m.level ]]-->
-                                       <!--</th>-->
-                                       <!--<th class="p-1">-->
-                                           <!--[[ m.name ]]-->
-                                       <!--</th>-->
-                                       <!--<th class="p-1">-->
-                                           <!--[[ m.number ]]-->
-                                       <!--</th>-->
-                                   <!--</tr>-->
-                               <!--</tbody>-->
-                           <!--</table>-->
-                       <!--</div>-->
-                   <!--</div>-->
-                   <!--</div>-->
-                <!--</div>-->
-               <!--</div>-->
+           <div class="tab-pane fade" :id="'f' + index +
+                      '-tax-tab'" role="tabpanel"
+              aria-labelledby="pills-tax-tab">
+               <div class="card col-md-12 p-0">
+                   <div class="card-header text-primary font-weight-bold">
+                        [[ Taxonmic assignation ]]
+                   </div>
+                <div class="card-body">
+                   <div class="card p-0 mx-4 fam-table">
+                       <div class="table-responsive">
+                           <table class="table table-vcenter card-table
+                               text-center mb-0">
+                               <thead>
+                                   <tr>
+                                       <th>Taxonomic level</th>
+                                       <th>Number</th>
+                                       <th>Most common</th>
+                                       <th>Coverage</th>
+                                       <th>Specificity</th>
+                                       <th>Score</th>
+                                       <th>Total genomes</th>
+                                       <th>RefSeq genomes</th>
+                                   </tr>
+                               </thead>
+                               <tbody>
+                                   <tr v-for="l in [
+                                               'domain',
+                                               'phylum',
+                                               'class',
+                                               'order',
+                                               'family',
+                                               'genus']">
+                                       <th class="p-1">
+                                           [[ tdata.l[0]_n ]]
+                                       </th>
+                                       <th class="p-1">
+                                           [[ tdata.l[0]_mostcommon ]]
+                                       </th>
+                                       <th class="p-1">
+                                           [[ tdata.l[0]_coverage ]]
+                                       </th>
+                                   </tr>
+                               </tbody>
+                           </table>
+                       </div>
+                   </div>
+                   </div>
+               </div>
 
-           <!--</div>-->
+           </div>
+
        <!--</div>-->
        <!--</div>-->
        <!--</div>-->
