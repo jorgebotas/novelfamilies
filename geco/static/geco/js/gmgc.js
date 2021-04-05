@@ -356,7 +356,7 @@ var gmgc_vueapp = new Vue({
                             colors,
                             'bottom',
                             55,
-                            250)
+                            275)
                         //drawDonuts(f, data);
                         //renderDomains(data.domains);
                         //d3.selectAll('.GeCoViz').selectAll('*').remove();
