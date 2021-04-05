@@ -180,7 +180,9 @@ def fams_by_neigh_annotation(term_type, term, score=0.9):
 
 def fams_by_taxa(taxa, spec=0.9, cov=0.9):
     matches = []
-    wanted_keys = ['name', 'n_genomes', 'n_taxa', 'n_members', 'clade_counter', 'emapper_hits', 'sources']
+    wanted_keys = ['name', 'n_genomes', 'n_taxa',
+                   'n_members',  'members', 'clade_counter',
+                   'emapper_hits', 'sources']
     for fam in col_faminfo.find({'clade_counter': {'$elemMatch': {
                                                 'term':taxa,
                                                 'specificity':{'$gte': spec},
