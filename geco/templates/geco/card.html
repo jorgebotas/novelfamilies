@@ -1,14 +1,11 @@
 <div class="mt-4 mx-3  card fam-card" :id="'f'+index">
-       <div class="card-header">
-              <h2 class="mx-3 my-1 col-md-3"
+       <div class="card-header row">
+              <h2 class="px-3 my-1 col-md-3"
                   style='font-size:.8em'>
                   [[ tdata.name ]]
                   <br>[[ tdata.n_members ]] members, [[ tdata.n_taxa ]] taxa.
-                  <div class='donut-sources mt-1'
-                      :id="'f'+index+'-sources'">
-                      
-                  </div>
               </h2>
+              <div class='col-md-9'>
                 <ul class="nav nav-pills justify-content-center mx-4"
                     id="pills-tab" role="tablist">
 
@@ -106,6 +103,11 @@
                   </li>
 
                 </ul>
+                  
+                  <div class='donut-sources mt-1'
+                      :id="'f'+index+'-sources'">
+                  </div>
+              </div>
            </div>
            <div class="card-body p-2 rounded bg-light">
         <div class="tab-content collapse" :id="'f' + index + '-tab-content'">
