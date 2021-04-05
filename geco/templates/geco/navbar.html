@@ -46,7 +46,9 @@
                            @keypress.enter.prevent="searchFams()"
                            placeholder="Search family"/>
                     <span class="input-icon-addon">
-                        <i class="fa fa-search" aria-hidden="true"></i>
+                        <i class="fa fa-search" aria-hidden="true"
+                           @keypress.enter.prevent="searchFams()">
+                        </i>
                     </span>
                 </div>
                 <button class="btn btn-primary btn-sm mx-1 my-auto"
