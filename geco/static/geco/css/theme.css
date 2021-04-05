@@ -15152,8 +15152,8 @@ a:hover {
 }
 
 navbar input:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0px 1000px white inset;
-  -webkit-text-fill-color: white;
+  -webkit-box-shadow: 0 0 0px 1000px var(--dark) inset !important;
+  -webkit-text-fill-color: var(--sand) !important;
 }
 
 .search-icon {
