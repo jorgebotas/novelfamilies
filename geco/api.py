@@ -46,6 +46,7 @@ def fam_by_annotation(request, query_type, query, score):
     """Return list with fams that match neighbor annotation search
     """
     fams = fams_by_neigh_annotation(query_type, query, float(score))
+    print(fams)
     fams = { 'show_items' : fams }
     return JsonResponse(fams)
 
@@ -53,7 +54,6 @@ def fam_by_taxa(request, query, spec, cov):
     """Return list with fams that match taxa search
     """
     fams = fams_by_taxa(query, float(spec), float(cov))
-    print(fams)
     fams = { 'show_items' : fams }
     return JsonResponse(fams)
 

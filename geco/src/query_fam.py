@@ -160,7 +160,9 @@ def fams_by_neigh_annotation(term_type, term, score=0.9):
         og_match = next(og for og in fam[term_type] if og['n'] == term)
         fam2score[fam['fam']] = (og_match['n'], og_match['score'])
 
-    wanted_keys = ['name', 'n_genomes', 'n_taxa', 'n_members', 'emapper_hits', 'sources']
+    wanted_keys = ['name', 'n_genomes', 'n_taxa',
+                   'n_members', 'members', 'emapper_hits',
+                   'sources']
 
     # collects more info from the families
     selected_fams = []

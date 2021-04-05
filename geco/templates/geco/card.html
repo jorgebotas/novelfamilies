@@ -36,13 +36,13 @@
                   </li>
                   <li class="nav-item mx-2">
                     <a class="nav-link btn-sm" 
-                       id="pills-domains-tab" 
+                       id="pills-seqs-tab" 
                        @click="toggleFam('f' + index + '-tab-content')"
                        data-toggle="pill"
-                       :href="'#f' + index + '-domains'"
+                       :href="'#f' + index + '-seqs'"
                         role="tab" 
-                        aria-controls="pills-domains"
-                        aria-selected="false">Domains</a>
+                        aria-controls="pills-seqs"
+                        aria-selected="false">Sequences</a>
                   </li>
                   <li class="nav-item mx-2">
                     <a class="nav-link btn-sm" 
@@ -151,94 +151,101 @@
            <!--</div>-->
           <!--</div>-->
 
-          <!--<div class="tab-pane fade" -->
-               <!--:id="'f' + index + '-domains'" -->
-               <!--role="tabpanel"-->
-               <!--aria-labelledby="pills-domains-tab">-->
-                   <!--<div class="card">-->
-                       <!--<div class="card-header text-primary font-weight-bold">-->
-                           <!--Domains-->
-                       <!--</div>-->
-               <!--<div class="card-body rounded">-->
-                   <!--<div class="card p-0 fam-table">-->
-                       <!--<div class="table-responsive">-->
-                           <!--<table class="table table-vcenter card-table-->
-                               <!--text-center mb-0">-->
-                               <!--<thead>-->
-                                   <!--<tr>-->
-                                       <!--<th>Members (unigene)</th>-->
-                                       <!--<th>Gene length</th>-->
-                                       <!--<th class="text-left pl-4">Topology</th>-->
-                                   <!--</tr>-->
-                               <!--</thead>-->
-                               <!--<tbody>-->
-                                   <!--<tr v-for="m in tdata.members">-->
-                                       <!--<th class="p-1">-->
-                                           <!--[[ m ]]-->
-                                       <!--</th>-->
-                                       <!--<th class="p-1">-->
-                                           <!--[[-->
-                                           <!--tdata.domains | getLen(m)-->
-                                           <!--]]-->
-                                       <!--</th>-->
-                                       <!--<th class="domains p-1 pl-3 text-left" :id="'d' + m">-->
-                                       <!--</th>-->
-                                   <!--</tr>-->
-                               <!--</tbody>-->
-                           <!--</table>-->
-                       <!--</div>-->
-                   <!--</div>-->
-                   <!--</div>-->
-                   <!--</div>-->
+          <div class="tab-pane fade" 
+               :id="'f' + index + '-seqs'" 
+               role="tabpanel"
+               aria-labelledby="pills-seqs-tab">
+                   <div class="card">
+                       <div class="card-header text-primary font-weight-bold">
+                           Domains
+                       </div>
+               <div class="card-body rounded">
+                   <div class="card p-0 fam-table">
+                       <div class="table-responsive">
+                           <table class="table table-vcenter card-table
+                               text-center mb-0">
+                               <thead>
+                                   <tr>
+                                       <th>Members (unigene)</th>
+                                       <th>Gene length</th>
+                                       <th class="text-left pl-4">Topology</th>
+                                       <th>Sequence</th>
+                                   </tr>
+                               </thead>
+                               <tbody>
+                                   <tr v-for="m in tdata.members">
+                                       <th class="p-1">
+                                           [[ m ]]
+                                       </th>
+                                       <th class="p-1">
+                                           [[
+                                           tdata.domains | getLen(m)
+                                           ]]
+                                       </th>
+                                       <th class="domains p-1 pl-3 text-left" :id="'d' + m">
+                                       </th>
+                                       <th>
+                                           <button class='btn btn-primary'
+                                               @click="getSeq(m)">
+                                               Sequence
+                                           </button>
+                                       </th>
+                                   </tr>
+                               </tbody>
+                           </table>
+                       </div>
+                   </div>
+                   </div>
+                   </div>
 
-                   <!--<div class="card">-->
-                       <!--<div class="card-header text-primary font-weight-bold">-->
-                           <!--Antimicrobial prediction-->
-                       <!--</div>-->
-                   <!--<div class="card-body rounded">-->
-                   <!--<div class="card p-0 fam-table">-->
-                       <!--<div class="table-responsive">-->
-                           <!--<table class="table table-vcenter card-table-->
-                               <!--text-center mb-0">-->
-                               <!--<thead>-->
-                                   <!--<tr>-->
-                                       <!--<th>Antibacterial</th>-->
-                                       <!--<th>Antiviral</th>-->
-                                       <!--<th>Antifungal</th>-->
-                                       <!--<th>Antimicrobial probability</th>-->
-                                       <!--<th>Antimicrobial family</th>-->
-                                       <!--<th>Hemolitic probability</th>-->
-                                   <!--</tr>-->
-                               <!--</thead>-->
-                               <!--<tbody>-->
-                                   <!--<tr>-->
-                                       <!--<th class="p-1">-->
-                                           <!--[[ tdata.ampred.ab ]]-->
-                                       <!--</th>-->
-                                       <!--<th class="p-1">-->
-                                           <!--[[ tdata.ampred.av ]]-->
-                                       <!--</th>-->
-                                       <!--<th class="p-1">-->
-                                           <!--[[ tdata.ampred.af ]]-->
-                                       <!--</th>-->
-                                       <!--<th class="p-1">-->
-                                           <!--[[ tdata.ampred.pam ]]-->
-                                       <!--</th>-->
-                                       <!--<th class="p-1">-->
-                                           <!--[[ tdata.ampred.ampf ]]-->
-                                       <!--</th>-->
-                                       <!--<th class="p-1">-->
-                                           <!--[[ tdata.ampred.phem ]]-->
-                                       <!--</th>-->
-                                   <!--</tr>-->
-                               <!--</tbody>-->
-                           <!--</table>-->
-                       <!--</div>-->
-                   <!--</div>-->
-                   <!--</div>-->
-                   <!--</div>-->
+                   <div class="card">
+                       <div class="card-header text-primary font-weight-bold">
+                           Antimicrobial prediction
+                       </div>
+                   <div class="card-body rounded">
+                   <div class="card p-0 fam-table">
+                       <div class="table-responsive">
+                           <table class="table table-vcenter card-table
+                               text-center mb-0">
+                               <thead>
+                                   <tr>
+                                       <th>Antibacterial</th>
+                                       <th>Antiviral</th>
+                                       <th>Antifungal</th>
+                                       <th>Antimicrobial probability</th>
+                                       <th>Antimicrobial family</th>
+                                       <th>Hemolitic probability</th>
+                                   </tr>
+                               </thead>
+                               <tbody>
+                                   <tr>
+                                       <th class="p-1">
+                                           [[ tdata.ampred.ab ]]
+                                       </th>
+                                       <th class="p-1">
+                                           [[ tdata.ampred.av ]]
+                                       </th>
+                                       <th class="p-1">
+                                           [[ tdata.ampred.af ]]
+                                       </th>
+                                       <th class="p-1">
+                                           [[ tdata.ampred.pam ]]
+                                       </th>
+                                       <th class="p-1">
+                                           [[ tdata.ampred.ampf ]]
+                                       </th>
+                                       <th class="p-1">
+                                           [[ tdata.ampred.phem ]]
+                                       </th>
+                                   </tr>
+                               </tbody>
+                           </table>
+                       </div>
+                   </div>
+                   </div>
+                   </div>
 
-          <!--</div>-->
+          </div>
 
           <!--<div class="tab-pane fade" :id="'f' + index + '-stats'" role="tabpanel"-->
               <!--aria-labelledby="pills-stats-tab">-->
