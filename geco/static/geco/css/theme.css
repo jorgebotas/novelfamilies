@@ -15151,6 +15151,12 @@ a:hover {
   background: #212833;
 }
 
+.search-icon {
+  z-index: 10;
+  pointer-events: all;
+  cursor: pointer;
+}
+
 .link-secondary {
   transition: color 0.5s;
 }
