@@ -6,7 +6,7 @@ urlpatterns = [
     path('', views.context, name='context'),
     path(r'api/info/<str:query>/',
          api.info),
-    path(r'api/newick/<str:query>/', api.newick),
+    path(r'api/tree/<str:query>/', api.tree),
     path(r'api/context/<str:query>/', api.context),
     path(r'api/seq/<str:query>/', api.sequence),
     path(r'api/taxafams/<str:query>/<str:spec>/<str:cov>/',

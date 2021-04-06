@@ -17,6 +17,7 @@ col_faminfo = db.faminfo
 col_taxonomy = db.genome_taxonomy
 col_og_neigh_scores = db.og_neigh_scores
 col_proteins = db.proteins
+col_trees = db.trees
 
 STATIC_PATH = settings.BASE_DIR + '/static/geco/'
 
@@ -200,6 +201,10 @@ def fams_by_taxa(taxa, spec=0.9, cov=0.9):
     matches = matches[:max(len(matches), 100)]
     matches = { m['name'] : m for m in matches }
     return matches
+
+def get_newick(fam):
+    match = col_trees.find_one({'fam': fam}) or {}
+    return match.get('tree', False)
 
 def get_fam(fam):
     match = col_fams.find_one({'gf': fam})

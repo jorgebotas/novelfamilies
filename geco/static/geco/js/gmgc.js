@@ -33,7 +33,7 @@ var cleanString = function(s) {
 
 var get_newick = async (query) => {
     let newick;
-    await fetch(API_BASE_URL + '/newick/' + query + '/')
+    await fetch(API_BASE_URL + '/tree/' + query + '/')
          .then(response => response.text())
          .then(tree => newick = tree)
          .catch(e => console.log(e))

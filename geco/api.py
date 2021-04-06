@@ -7,7 +7,8 @@ from .src.get_fams import get_fam_info
 from .src.query_fam import fams_by_taxa,\
                            fams_by_neigh_annotation,\
                            get_fam,\
-                           get_sequence
+                           get_sequence, \
+                           get_newick
 
 def info(request, query):
     data = { "show_items" : {
@@ -57,13 +58,11 @@ def fam_by_taxa(request, query, spec, cov):
     fams = { 'show_items' : fams }
     return JsonResponse(fams)
 
-def newick(request, query):
-    # try:
-        # client = mongo_connect()[0]
-        # tree = get_newick(query, client)
-        # return HttpResponse(tree, content_type='text/plain')
-    # except:
-        # print("NO TREE for specified cluster: " + str(query))
+def tree(request, query):
+    tree = get_newick(query)
+    if tree:
+        return HttpResponse(tree, content_type='text/plain')
+    print("NO TREE for specified cluster: " + str(query))
     return HttpResponseNotFound()
 
 def context(request, query):
