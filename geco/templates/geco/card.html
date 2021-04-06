@@ -3,7 +3,13 @@
               <h2 class="px-3 my-1 col-md-3"
                   style='font-size:.8em'>
                   [[ tdata.name ]]
-                  <br>[[ tdata.n_members ]] members, [[ tdata.n_taxa ]] taxa.
+                  <br>
+                  <span class='btn btn-sm bg-orange'>
+                    [[ tdata.n_members ]] members
+                  </span>
+                  <span class='btn btn-sm bg-green'>
+                    [[ tdata.n_taxa ]] taxa.
+                  </span>
               </h2>
                 <ul class="nav nav-pills justify-content-center px-4 col-md-9"
                     id="pills-tab" role="tablist">
@@ -103,7 +109,7 @@
 
                 </ul>
                   
-              <div class='col-md-12'>
+              <div class='fam-summary col-md-12'>
                   <div class='donut-sources mt-1'
                       :id="'f'+index+'-sources'">
                   </div>
