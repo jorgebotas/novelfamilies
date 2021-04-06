@@ -274,6 +274,7 @@ var gmgc_vueapp = new Vue({
                     newick = await get_newick(query);
                     context = await get_context(query);
                     newickFields = [
+                        'showName',
                         'name',
                         'domain',
                         'phylum',
