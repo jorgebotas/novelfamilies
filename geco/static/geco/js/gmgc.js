@@ -393,26 +393,47 @@ var gmgc_vueapp = new Vue({
                 .then(() => {
                     this.hideAllFams();
                     $('.search-spinner').hide();
-                    Object.entries(this.show_items).forEach(([f, data]) => {
-                        let idx = Object.keys(this.show_items).indexOf(f);
-                        let sources = data.sources;
-                        renderDonut('f'+idx+'-sources',
-                            Object.keys(sources),
-                            Object.values(sources),
-                            colors,
-                            'bottom',
-                            65,
-                            250)
-                        //drawDonuts(f, data);
-                        //renderDomains(data.domains);
-                        //d3.selectAll('.GeCoViz').selectAll('*').remove();
-                        //this.toggleGeCoViz(`#f${idx}-GeCoViz`, f)
-                    });
+                    this.renderFamSummaries();
                 })
         },
 
         searchFamByBiome : function(selector) {
 
+        },
+
+        renderFamSummary : function() {
+            Object.entries(this.show_items).forEach(([f, data]) => {
+                let idx = Object.keys(this.show_items).indexOf(f);
+                // Sources donut
+                let sources = data.sources;
+                renderDonut('f'+idx+'-sources',
+                    Object.keys(sources),
+                    Object.values(sources),
+                    colors,
+                    'bottom',
+                    65,
+                    250)
+                // Genomic context overview
+                let gecovizSelector = `#f${idx}-GeCoViz-summary`
+                GeCoViz(gecovizSelector)
+                    .contextData(data.context_summary)
+                    .nSide(4)
+                    .geneText("Conservation")
+                    .annotation("Orthologous groups", 2)
+                    .options({
+                        'showBar': false,
+                        'showLegend': false
+                    })
+                    .draw();
+                d3.select(gecovizSelector)
+                    .style('opacity', 1)
+                    .style('visibility', 'visible');
+
+                //drawDonuts(f, data);
+                //renderDomains(data.tm);
+                //d3.selectAll('.GeCoViz').selectAll('*').remove();
+                //this.toggleGeCoViz(`#f${idx}-GeCoViz`, f)
+            });
         },
 
         showAllFams : function() {
