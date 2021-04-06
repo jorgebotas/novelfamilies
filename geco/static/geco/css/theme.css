@@ -6,7 +6,7 @@
   --bs-purple: #a55eea;
   --bs-pink: #f66d9b;
   --bs-red: #cd201f;
-  --bs-orange: #ff8514;
+  --bs-orange: #ff9f48;
   --bs-yellow: #fab005;
   --bs-lime: #94d82d;
   --bs-green: #5eba00;
@@ -13377,10 +13377,10 @@ Dimmer
   border-color: #d13231 !important;
 }
 .ribbon.bg-orange {
-  border-color: #ff8514;
+  border-color: #ff9f48;
 }
 .ribbon.bg-orange-lt {
-  border-color: #ff8f27 !important;
+  border-color: #ffa757 !important;
 }
 .ribbon.bg-yellow {
   border-color: #fab005;
@@ -13625,11 +13625,11 @@ Dimmer
 
 .steps-orange .step-item:after, .steps-orange .step-item:before {
   color: white;
-  background: #ff8514;
+  background: #ff9f48;
 }
 .steps-orange .step-item.active:before {
   color: inherit;
-  border-color: #ff8514;
+  border-color: #ff9f48;
 }
 
 .steps-yellow .step-item:after, .steps-yellow .step-item:before {
@@ -14499,16 +14499,16 @@ SOCIAL COLORS
 }
 
 .bg-orange {
-  background: #ff8514;
+  background: #ff9f48;
 }
 
 .text-orange {
-  color: #ff8514 !important;
+  color: #ff9f48 !important;
 }
 
 .bg-orange-lt {
-  color: #ff8514 !important;
-  background: #ff8f27 !important;
+  color: #ff9f48 !important;
+  background: #ffa757 !important;
 }
 
 .bg-yellow {
@@ -15057,11 +15057,13 @@ Antialiasing
   }
 }
 .bg-green {
-  background-color: #009f6c;
+  background-color: #5eba00;
+  color: var(--sand) !important;
 }
 
 .bg-orange {
-  background-color: #ff8514;
+  background-color: #ff9f48;
+  color: var(--sand) !important;
 }
 
 a {
