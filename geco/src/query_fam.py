@@ -211,7 +211,7 @@ def get_newick(fam):
         lname = str(leaf.name).replace(' ', '_')
         nsplit = lname.split('.')
         showName = nsplit[0] + nsplit[1]
-        name = name.split('@')[2]
+        name = showName.split('@')[2]
         tax = nsplit[2:]
         leaf.name = '.'.join([showName, name, *tax])
     return tree.write()
