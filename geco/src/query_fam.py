@@ -1,11 +1,11 @@
-import sys
-import json
 from collections import defaultdict
-from pymongo import MongoClient
-import time
 from django.conf import settings
+from ete3 import Tree
+import json
 import pickle
-
+from pymongo import MongoClient
+import sys
+import time
 
 client = MongoClient('10.0.3.1')
 db = client['mgv1']
@@ -204,7 +204,16 @@ def fams_by_taxa(taxa, spec=0.9, cov=0.9):
 
 def get_newick(fam):
     match = col_trees.find_one({'fam': fam}) or {}
-    return match.get('tree', False)
+    tree = match.get('tree', False)
+    if not tree: return False
+    tree = Tree(tree)
+    for leaf in tree.iter_leaves():
+        lname = str(leaf.name).replace(' ', '_')
+        nsplit = lname.split('.')
+        name = nsplit[0] + nsplit[1]
+        tax = nsplit[2:]
+        leaf.name = '.'.join([name, *tax])
+    return tree.write()
 
 def get_fam(fam):
     match = col_fams.find_one({'gf': fam})
