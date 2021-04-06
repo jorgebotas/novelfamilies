@@ -273,6 +273,16 @@ var gmgc_vueapp = new Vue({
                     console.log(selector)
                     newick = await get_newick(query);
                     context = await get_context(query);
+                    newickFields = [
+                        'name',
+                        'domain',
+                        'phylum',
+                        'class',
+                        'order',
+                        'family',
+                        'genus',
+                        'species'
+                    ]
                     GeCoViz(selector)
                         .treeData(newick, undefined)
                         .contextData(context)
