@@ -241,7 +241,8 @@ var renderDomains = function(domains) {
                         .range(colors);
         domains.forEach(d => {
             selector = "#d" + cleanString(d.gene);
-            draw_protDomains(selector, d.doms, d.lenseq, 600, 10, palette);
+            if (d.doms.length > 0)
+                draw_protDomains(selector, d.doms, d.lenseq, 600, 10, palette);
         });
 }
 
