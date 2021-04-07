@@ -195,6 +195,7 @@ def fams_by_taxa(taxa, spec=0.9, cov=0.9, pagination=[0,10]):
         if fam['emapper_hits'] == 0:
             matches.append(fam)
     matches = get_more_faminfo(matches)
+    print(matches)
     matches = { m['name'] : m for m in matches }
     return matches
 
