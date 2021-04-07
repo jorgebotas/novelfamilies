@@ -244,8 +244,8 @@ var renderDomains = function(domains) {
         var palette = d3.scaleOrdinal()
                         .domain(doms)
                         .range(colors);
-    console.log(domains)
         domains.forEach(d => {
+            console.log(d)
             selector = "d" + cleanString(d.gene);
             draw_protDomains(selector, d.doms, d.lenseq, 600, 10, palette);
         });
