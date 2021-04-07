@@ -308,7 +308,7 @@ def get_more_faminfo(fams):
         domains = []
         for m in fam['members']:
             m_topo = tm.get(m, {'top':''})['top']
-            m_sp= list(sp.get(m, {}).values())
+            m_sp = list(sp['genes'].get(m, {}).values())
             domains.append({
                 'gene': m,
                 'doms': get_domains(m_topo, m_sp),
