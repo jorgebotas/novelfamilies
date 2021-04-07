@@ -18,6 +18,8 @@ col_taxonomy = db.genome_taxonomy
 col_og_neigh_scores = db.og_neigh_scores
 col_proteins = db.proteins
 col_trees = db.trees
+col_signalp = db.signalp
+col_tm = db.tm
 
 STATIC_PATH = settings.BASE_DIR + '/static/geco/'
 
@@ -171,7 +173,7 @@ def fams_by_neigh_annotation(term_type, term, score=0.9, pagination=[0,10]):
         selected_fams.append(fam)
     selected_fams.sort(key=lambda x: x['n_taxa'], reverse=True)
     matches = selected_fams
-    # matches = matches[:min(len(matches), 100)]
+    matches = get_more_faminfo(matches)
     matches = { m['name'] : m for m in matches }
     return matches
 
@@ -192,6 +194,7 @@ def fams_by_taxa(taxa, spec=0.9, cov=0.9, pagination=[0,10]):
         fam['clade_info'] = clade_match
         if fam['emapper_hits'] == 0:
             matches.append(fam)
+    matches = get_more_faminfo(matches)
     matches = { m['name'] : m for m in matches }
     return matches
 
@@ -249,6 +252,22 @@ def get_neighborhood(fam, members=None):
             neighborhood.append(gene_doc)
     return neighborhood
 
+def get_more_faminfo(fams):
+    fnames = [f['name'] for f in fams]
+    # Signal peptides
+    signalp = col_signalp.find({'fam': {'$in': fnames}}, {'_id': 0})
+    signalp = { s['fam']: s for s in signalp }
+    # Transmembrane domains
+    transm = col_tm.find({'fam': {'$in': fnames}}, {'_id': 0})
+    transm = { t['fam']: t for t in transm }
+    extended_fams = []
+    for fam in fams:
+        fname = fam['name']
+        sp = signalp[fname]
+        tm = transm[fname]
+        extended_fams.append({ *fam, *sp, *tm })
+    return extended_fams
+
 def get_fam(fam):
     # wanted_keys = ['name', 'n_genomes', 'n_taxa',
                    # 'n_members',  'members', 'clade_counter',
@@ -263,7 +282,8 @@ def get_fam(fam):
     del fam_info['_id']
     # Get neighborhood
     fam_info['neighs'] = get_neighborhood(fam, fam_info['members'])
-    return json.dumps(fam_info)
+    fam_info = get_more_faminfo([fam])[0]
+    return fam_info
 
 if __name__ == '__main__':
     t1 = time.time()
