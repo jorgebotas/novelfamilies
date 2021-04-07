@@ -49,7 +49,7 @@ var get_context = async (query) => {
     return context;
 }
 
-var draw_protDomains = function(id, domains, lenseq, width, height, palette) {
+var draw_protDomains = function(selector, domains, lenseq, width, height, palette) {
     function scale(num, inSize, outSize) {
         return +num * outSize / inSize;
     }
@@ -106,8 +106,7 @@ var draw_protDomains = function(id, domains, lenseq, width, height, palette) {
             .attr("height", height)
             .attr("fill", d => { return palette(d.class) });
     }
-    console.log(id)
-    var g = d3.select('#' + id)
+    var g = d3.select(selector)
               .append("div")
               .append('svg:svg')
               .attr("width", width)
@@ -116,7 +115,7 @@ var draw_protDomains = function(id, domains, lenseq, width, height, palette) {
                 .attr("transform", "translate(" + 5 + ", 0)");
     draw_seqLine(g, width, height);
     draw_domains(g, domains, lenseq, width, height, palette);
-    draw_legend('#' + id + ' div', domains, palette);
+    draw_legend(selector + ' div', domains, palette);
 }
 
 var drawDonuts = async function(f, data) {
@@ -191,11 +190,6 @@ var renderDonut = function(id, labels, vals, colors, legend='bottom', height=240
 }
 
 var renderDomains = function(domains) {
-        document.querySelectorAll('.domains').forEach(div => {
-            if (div.children.length > 0) {
-                div.firstChild.remove();
-            }
-        })
         var doms = new Set();
         domains.forEach(d => {
             if (d.class && d.class != "") {
@@ -246,7 +240,7 @@ var renderDomains = function(domains) {
                         .domain(doms)
                         .range(colors);
         domains.forEach(d => {
-            selector = "d" + cleanString(d.gene);
+            selector = "#d" + cleanString(d.gene);
             draw_protDomains(selector, d.doms, d.lenseq, 600, 10, palette);
         });
 }
@@ -488,7 +482,8 @@ var gmgc_vueapp = new Vue({
                     .style('visibility', 'visible');
 
                 // Render protein topologies
-                renderDomains(data.domains)
+                d3.selectAll('.domains').selectAll('*').remove();
+                renderDomains(selector, data.domains);
                 //drawDonuts(f, data);
                 //renderDomains(data.tm);
                 //d3.selectAll('.GeCoViz').selectAll('*').remove();
