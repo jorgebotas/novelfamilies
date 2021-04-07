@@ -214,8 +214,9 @@ def get_newick(fam):
 
 def get_neighborhood(fam, members=None):
     if not members:
-        members = col_fams.find_one({'gf': fam},
-                                    ['members']).get(['members'] ,[])
+        members = col_fams.find_one({'gf': fam}) or {}
+        print(members)
+        members = members.get(['members'] ,[])
     neighborhood = []
     # process each member of the family
     for gene_entry in members:
@@ -305,6 +306,7 @@ def get_more_faminfo(fams):
         ext_fam['signalp'] = sp
         tm = transm[fname]['per_g_pred']
         domains = []
+        ext_fam['domains'] = domains
         extended_fams.append(ext_fam)
     return extended_fams
 
