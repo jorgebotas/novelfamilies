@@ -557,7 +557,7 @@ var gmgc_vueapp = new Vue({
         },
         signalp: function(sp, gram) {
             if(!!sp)
-                return sp[gram] || ''
+                return sp[gram] == 'OTHER' ? '-' : sp[gram]
             else
                 return ''
         },
