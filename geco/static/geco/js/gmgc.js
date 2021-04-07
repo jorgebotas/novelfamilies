@@ -65,7 +65,7 @@ var draw_protDomains = function(id, domains, lenseq, width, height, palette) {
     function draw_legend(selector, domains, palette) {
         var legend = d3.select(selector)
          .append("div")
-         .attr("class", "d-inline px-3");
+         .attr("class", "d-block px-3");
         var doms = new Set();
         domains.forEach(d => {
             if (d.class && d.class != "") {
