@@ -382,6 +382,7 @@ var gmgc_vueapp = new Vue({
         },
 
         renderFamSummaries : function() {
+            d3.selectAll('.fam-summary').selectAll('*').remove();
             Object.entries(this.show_items).forEach(([f, data]) => {
                 let idx = Object.keys(this.show_items).indexOf(f);
                 // Sources donut
@@ -466,15 +467,14 @@ var gmgc_vueapp = new Vue({
                 let gecovizSelector = `#f${idx}-GeCoViz-summary`
                 GeCoViz(gecovizSelector)
                     .contextData(summary)//data.context_summary)
-                    .nSide(3)
+                    .nSide(2)
                     .geneText("Gene name")
                     .annotation("eggNOG", 2)
                     .options({
                         'showBar': false,
                         'showLegend': false
                     })
-                    .draw()
-                    .nSide(3);
+                    .draw();
                 d3.select(gecovizSelector)
                     .style('opacity', 1)
                     .style('visibility', 'visible');
