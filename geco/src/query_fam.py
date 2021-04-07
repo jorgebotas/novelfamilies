@@ -40,7 +40,6 @@ def get_sequence(query, fasta=True):
         return '>{}\n{}'.format(query, seq)
     return seq
 
-
 # Preloads taxonomy info per genome
 def get_taxonomy(genome):
     match = col_taxonomy.find_one({'genome': genome})
@@ -159,18 +158,12 @@ def fams_by_neigh_annotation(term_type, term, score=0.9, pagination=[0,10]):
         matched_fams.append(fam['fam'])
         annot_match = next(annot for annot in fam[term_type] if annot['n'] == term)
         fam2score[fam['fam']] = (annot_match['n'], annot_match['score'])
-
         matched_fams.append(fam['fam'])
         og_match = next(og for og in fam[term_type] if og['n'] == term)
         fam2score[fam['fam']] = (og_match['n'], og_match['score'])
-
-    wanted_keys = ['name', 'n_genomes', 'n_taxa',
-                   'n_members',  'members', 'clade_counter',
-                   'emapper_hits', 'sources']
-
     # collects more info from the families
     selected_fams = []
-    for fam in col_faminfo.find({'name': {'$in': matched_fams}, }, wanted_keys):
+    for fam in col_faminfo.find({'name': {'$in': matched_fams}, }):
         if fam['emapper_hits'] > 0:
             continue
         fam['match'] = fam2score[fam['name']]
@@ -223,21 +216,16 @@ def get_neighborhood(fam, members=None):
     # process each member of the family
     for gene_entry in members:
         src, genome, gene, taxa = gene_entry.split('@')
-
         # find taxa lineage by genome name
         taxa = get_taxonomy(genome)
-
         # First, give me neighbours and their positions/strands. The result includes the anchor
         window = 10
         mini_contig = get_mini_contig(gene, window=window)
-
         # extract gene names from the mini contig
         mini_contig_genes = list(set([n['g'] for n in mini_contig]))
-
         # query their annotations
         gene2annot = get_emapper_annotations(mini_contig_genes)
         gene2card = get_cards(mini_contig_genes)
-
         # creates a document with the extended info of each gene
         for orf in mini_contig:
             gene_doc = {"gene": orf['g'],
@@ -265,15 +253,17 @@ def get_fam(fam):
     # wanted_keys = ['name', 'n_genomes', 'n_taxa',
                    # 'n_members',  'members', 'clade_counter',
                    # 'emapper_hits', 'sources']
-    match = col_fams.find_one({'gf': fam})
-    family_doc = {'gf': fam,
-                  'neighs': [],
-                  'size': match['nseqs'],
-                  'ntaxa': match['nspcs'],
-                  }
-    neighborhood = get_neighborhood(fam, family_doc['members'])
-    family_doc['neighs'] = neighborhood
-    return json.dumps(family_doc)
+    # match = col_fams.find_one({'gf': fam})
+    # family_doc = {'gf': fam,
+                  # 'neighs': [],
+                  # 'size': match['nseqs'],
+                  # 'ntaxa': match['nspcs'],
+                  # }
+    fam_info = col_faminfo.find_one({'name': fam})
+    del fam_info['_id']
+    # Get neighborhood
+    fam_info['neighs'] = get_neighborhood(fam, fam_info['members'])
+    return json.dumps(fam_info)
 
 if __name__ == '__main__':
     t1 = time.time()
