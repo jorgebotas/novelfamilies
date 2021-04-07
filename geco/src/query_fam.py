@@ -267,7 +267,7 @@ def get_more_faminfo(fams):
         sp = signalp[fname]
         tm = transm[fname]
         ext_fam = fam
-        ext_fam['sp'] = sp
+        ext_fam['signalp'] = sp
         ext_fam['tm'] = tm
         extended_fams.append(ext_fam)
     return extended_fams
