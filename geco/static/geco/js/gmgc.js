@@ -486,6 +486,8 @@ var gmgc_vueapp = new Vue({
                     .style('opacity', 1)
                     .style('visibility', 'visible');
 
+                // Render protein topologies
+                renderDomains(data.domains)
                 //drawDonuts(f, data);
                 //renderDomains(data.tm);
                 //d3.selectAll('.GeCoViz').selectAll('*').remove();
