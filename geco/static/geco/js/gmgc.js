@@ -547,8 +547,8 @@ var gmgc_vueapp = new Vue({
             ]
             return blank.indexOf(value) > -1 ? value : "-";
         },
-        toFixed : function (value) {
-            return +(+value).toFixed(3);
+        toFixed : function (value, decimal=3) {
+            return +(+value).toFixed(decimal);
         },
         getKeyByValue : function(value, object) {
             return Object.keys(object).find(key => object[key] === value);
