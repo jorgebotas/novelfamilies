@@ -562,5 +562,8 @@ var gmgc_vueapp = new Vue({
             else
                 return ''
         },
+        trimTaxa: function(str) {
+            return str.splice(3);
+        }
     },
 });
