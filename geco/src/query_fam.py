@@ -309,7 +309,11 @@ def get_more_faminfo(fams):
         for m in fam['members']:
             m_topo = tm.get(m, {'top':''})['top']
             m_sp= list(sp.get(m, {}).values())
-            domains.append(get_domains(m_topo, m_sp))
+            domains.append({
+                'gene': m,
+                'doms': get_domains(m_topo, m_sp),
+                'lenseq': 1000
+            })
         ext_fam['domains'] = domains
         extended_fams.append(ext_fam)
     return extended_fams
