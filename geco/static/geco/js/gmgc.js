@@ -316,7 +316,7 @@ var gmgc_vueapp = new Vue({
                     this.show_items = data.show_items
                 })
                 .then(() => {
-                    this.renderFamSummaries();
+                    this.renderFamInfo();
                     $('.tab-content').collapse('show');
                     $('.search-spinner').hide();
                 })
@@ -346,7 +346,7 @@ var gmgc_vueapp = new Vue({
                 })
                 .then(() => {
                     this.hideAllFams();
-                    this.renderFamSummaries();
+                    this.renderFamInfo();
                     $('.search-spinner').hide();
                 })
         },
@@ -367,7 +367,7 @@ var gmgc_vueapp = new Vue({
                 })
                 .then(() => {
                     this.hideAllFams();
-                    this.renderFamSummaries();
+                    this.renderFamInfo();
                     $('.search-spinner').hide();
                 })
         },
@@ -376,8 +376,11 @@ var gmgc_vueapp = new Vue({
 
         },
 
-        renderFamSummaries : function() {
+        renderFamInfo : function() {
+            // Remove summaries
             d3.selectAll('.fam-summary > div').selectAll('*').remove();
+            // Remove domain representation
+            d3.selectAll('.domains').selectAll('*').remove();
             Object.entries(this.show_items).forEach(([f, data]) => {
                 let idx = Object.keys(this.show_items).indexOf(f);
                 // Sources donut
@@ -482,7 +485,6 @@ var gmgc_vueapp = new Vue({
                     .style('visibility', 'visible');
 
                 // Render protein topologies
-                d3.selectAll('.domains').selectAll('*').remove();
                 renderDomains(data.domains);
                 //drawDonuts(f, data);
                 //renderDomains(data.tm);
