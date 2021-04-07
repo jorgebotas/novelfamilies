@@ -321,13 +321,7 @@ var gmgc_vueapp = new Vue({
                     this.show_items = data.show_items
                 })
                 .then(() => {
-                    Object.entries(this.show_items).forEach(([f, data]) => {
-                        let idx = Object.keys(this.show_items).indexOf(f);
-                        //drawDonuts(f, data);
-                        //renderDomains(data.domains);
-                        d3.selectAll('.GeCoViz').selectAll('*').remove();
-                        this.toggleGeCoViz(`#f${idx}-GeCoViz`, f)
-                    });
+                    this.renderFamSummaries();
                     $('.tab-content').collapse('show');
                     $('.search-spinner').hide();
                 })
@@ -357,22 +351,8 @@ var gmgc_vueapp = new Vue({
                 })
                 .then(() => {
                     this.hideAllFams();
+                    this.renderFamSummaries();
                     $('.search-spinner').hide();
-                    Object.entries(this.show_items).forEach(([f, data]) => {
-                        let idx = Object.keys(this.show_items).indexOf(f);
-                        let sources = data.sources;
-                        renderDonut('f'+idx+'-sources',
-                            Object.keys(sources),
-                            Object.values(sources),
-                            colors,
-                            'bottom',
-                            65,
-                            250)
-                        //drawDonuts(f, data);
-                        //renderDomains(data.domains);
-                        //d3.selectAll('.GeCoViz').selectAll('*').remove();
-                        //this.toggleGeCoViz(`#f${idx}-GeCoViz`, f)
-                    });
                 })
         },
 
@@ -392,8 +372,8 @@ var gmgc_vueapp = new Vue({
                 })
                 .then(() => {
                     this.hideAllFams();
-                    $('.search-spinner').hide();
                     this.renderFamSummaries();
+                    $('.search-spinner').hide();
                 })
         },
 
@@ -401,7 +381,7 @@ var gmgc_vueapp = new Vue({
 
         },
 
-        renderFamSummary : function() {
+        renderFamSummaries : function() {
             Object.entries(this.show_items).forEach(([f, data]) => {
                 let idx = Object.keys(this.show_items).indexOf(f);
                 // Sources donut
