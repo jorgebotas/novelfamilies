@@ -467,8 +467,8 @@ var gmgc_vueapp = new Vue({
                 GeCoViz(gecovizSelector)
                     .contextData(summary)//data.context_summary)
                     .nSide(3)
-                    .geneText("Conservation")
-                    .annotation("Orthologous groups", 2)
+                    .geneText("Gene name")
+                    .annotation("eggNOG", 2)
                     .options({
                         'showBar': false,
                         'showLegend': false
