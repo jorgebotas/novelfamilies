@@ -472,7 +472,7 @@ var gmgc_vueapp = new Vue({
                     .annotation("eggnog", 2)
                     .options({
                         'showBar': false,
-                        'showLegend': true
+                        'showLegend': false
                     })
                     .draw();
                 let gecovizSummary = d3.select(gecovizSelector);
