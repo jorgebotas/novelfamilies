@@ -475,7 +475,14 @@ var gmgc_vueapp = new Vue({
                         'showLegend': false
                     })
                     .draw();
-                d3.select(gecovizSelector)
+                let gecovizSummary = d3.select(gecovizSelector);
+                gecovizSummary
+                    .select('.graph-container')
+                    .style('max-height', '50px');
+                gecovizSummary
+                    .select('.innerContainer')
+                    .style('border', 'none');
+                gecovizSummary
                     .style('opacity', 1)
                     .style('visibility', 'visible');
 
