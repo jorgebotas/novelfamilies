@@ -263,12 +263,6 @@ def get_domains(topology, signalp=[]):
                 'class' : sp,
                 'shape' : 'circle'
             })
-    # if len(topology) < 2:
-        # domains.append({
-                # 'start' : 0,
-                # 'end' : 0,
-                # 'shape' : 'rect'
-            # })
     if len(topology) > 1:
         topo = str(topology).split('-')
         for i in range(1, len(topo)):
@@ -319,15 +313,6 @@ def get_more_faminfo(fams):
     return extended_fams
 
 def get_fam(fam):
-    # wanted_keys = ['name', 'n_genomes', 'n_taxa',
-                   # 'n_members',  'members', 'clade_counter',
-                   # 'emapper_hits', 'sources']
-    # match = col_fams.find_one({'gf': fam})
-    # family_doc = {'gf': fam,
-                  # 'neighs': [],
-                  # 'size': match['nseqs'],
-                  # 'ntaxa': match['nspcs'],
-                  # }
     fam_info = col_faminfo.find_one({'name': fam})
     del fam_info['_id']
     # Get neighborhood

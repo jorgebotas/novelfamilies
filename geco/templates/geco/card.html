@@ -178,28 +178,29 @@
                                <thead>
                                    <tr>
                                        <th>Members</th>
+                                       <!--<th>Sequence length</th>-->
                                        <th>Signal peptide (Gram+)</th>
                                        <th>Signal peptide (Gram-)</th>
-                                       <th class="text-left pl-4">Topology</th>
+                                       <th>Topology</th>
                                        <th>Sequence</th>
                                    </tr>
                                </thead>
                                <tbody>
                                    <tr v-for="m in tdata.members">
-                                       <th class="p-1">
+                                       <th class="p-1 text-align-left">
                                            [[ m ]]
-                                       </th>
-                                       <th class="p-1">
-                                           [[ tdata.signalp.genes[m] | signalp('pos') ]]
-                                       </th>
-                                       <th class="p-1">
-                                           [[ tdata.signalp.genes[m] | signalp('neg') ]]
                                        </th>
                                        <!--<th class="p-1">-->
                                            <!--[[-->
                                            <!--tdata.domains | getLen(m)-->
                                            <!--]]-->
                                        <!--</th>-->
+                                       <th class="p-1">
+                                           [[ tdata.signalp.genes[m] | signalp('pos') ]]
+                                       </th>
+                                       <th class="p-1">
+                                           [[ tdata.signalp.genes[m] | signalp('neg') ]]
+                                       </th>
                                        <th class="domains p-1 pl-3 text-left" 
                                            :id="'d' + cleanString(m)">
                                        </th>
