@@ -263,13 +263,13 @@ def get_domains(topology, signalp=[]):
                 'class' : sp,
                 'shape' : 'circle'
             })
-    if len(topology) < 2:
-        domains.append({
-                'start' : 0,
-                'end' : 0,
-                'shape' : 'rect'
-            })
-    else:
+    # if len(topology) < 2:
+        # domains.append({
+                # 'start' : 0,
+                # 'end' : 0,
+                # 'shape' : 'rect'
+            # })
+    if len(topology) > 1:
         topo = str(topology).split('-')
         for i in range(1, len(topo)):
             p = str(topo[i-1])
