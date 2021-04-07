@@ -242,7 +242,6 @@ var renderDomains = function(domains) {
         domains.forEach(d => {
             selector = "#d" + cleanString(d.gene);
             if (d.doms.length > 0)
-                console.log(d.doms)
                 draw_protDomains(selector, d.doms, d.lenseq, 600, 10, palette);
         });
 }
