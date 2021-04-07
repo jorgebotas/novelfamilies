@@ -382,7 +382,7 @@ var gmgc_vueapp = new Vue({
         },
 
         renderFamSummaries : function() {
-            d3.selectAll('.fam-summary div').selectAll('*').remove();
+            d3.selectAll('.fam-summary > div').selectAll('*').remove();
             Object.entries(this.show_items).forEach(([f, data]) => {
                 let idx = Object.keys(this.show_items).indexOf(f);
                 // Sources donut
