@@ -563,7 +563,7 @@ var gmgc_vueapp = new Vue({
                 return ''
         },
         trimTaxa: function(str) {
-            return str.splice(3);
+            return str.toString().slice(3);
         }
     },
 });
