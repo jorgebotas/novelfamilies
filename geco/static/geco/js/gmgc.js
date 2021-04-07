@@ -480,7 +480,7 @@ var gmgc_vueapp = new Vue({
                     .select('.graph-container')
                     .style('max-height', '50px');
                 gecovizSummary
-                    .select('.innerContainer')
+                    .selectAll('.innerContainer')
                     .style('border', 'none');
                 gecovizSummary
                     .style('opacity', 1)
