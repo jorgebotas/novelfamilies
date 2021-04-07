@@ -468,8 +468,8 @@ var gmgc_vueapp = new Vue({
                 GeCoViz(gecovizSelector)
                     .contextData(summary)//data.context_summary)
                     .nSide(2)
-                    .geneText("Gene name")
-                    .annotation("eggNOG", 2)
+                    .geneText("gene")
+                    .annotation("eggnog", 2)
                     .options({
                         'showBar': false,
                         'showLegend': false
