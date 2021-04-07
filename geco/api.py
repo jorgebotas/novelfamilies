@@ -1,5 +1,4 @@
 from django.http import HttpResponse, HttpResponseNotFound, JsonResponse
-from ete3 import Tree
 import json
 
 from .src.mongodb import mongo_connect
@@ -8,40 +7,12 @@ from .src.get_fams import get_fam_info
 from .src.query_fam import fams_by_taxa,\
                            fams_by_neigh_annotation,\
                            get_fam,\
-                           get_sequence, \
-                           get_newick
+                           get_sequence,\
+                           get_newick,\
+                           get_neighborhood
 
 def info(request, query):
-    data = { "show_items" : {
-        query : {
-        'name':  query,
-        'gf' : query,
-        'source' : '',
-        'ftype' : '',
-        'hom' : '',
-        'flength' : '',
-        'members': [],
-        'keggp' : [],
-        'cogp' : [],
-        'sstr' : '',
-        'domains' : [],
-        'ampred' : '',
-        'biomes' : {},
-        'taxp' :  '',
-        'mags' : [],
-        'mags_annot' : [],
-        'dnds' : '',
-        'p_exp' : '',
-        'align' : {},
-        }
-    } }
-
-    # if search_type == "gmgc":
-        # data["show_items"] = { query : get_fam_info(query, True) }
-    # elif search_type == "novelfam":
-        # data["show_items"]  = { query : get_fam_info(query, False) }
-    # elif search_type == "function":
-        # pass
+    data = { 'show_items' : { query :  get_fam(query) }}
     return JsonResponse(data)
 
 def fam_by_annotation(request, query_type, query, score):
@@ -67,7 +38,7 @@ def tree(request, query):
     return HttpResponseNotFound()
 
 def context(request, query):
-    context = get_fam(query)
+    context = get_neighborhood(query)
     analysis = { 'context' : context }
     return JsonResponse(analysis)
 

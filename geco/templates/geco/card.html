@@ -178,7 +178,8 @@
                                <thead>
                                    <tr>
                                        <th>Members</th>
-                                       <!--<th>Gene length</th>-->
+                                       <th>Signal peptide (Gram+)</th>
+                                       <th>Signal peptide (Gram-)</th>
                                        <!--<th class="text-left pl-4">Topology</th>-->
                                        <th>Sequence</th>
                                    </tr>
@@ -187,6 +188,12 @@
                                    <tr v-for="m in tdata.members">
                                        <th class="p-1">
                                            [[ m ]]
+                                       </th>
+                                       <th class="p-1">
+                                           [[ tdata.signalp[m] | signalp('pos') ]]
+                                       </th>
+                                       <th class="p-1">
+                                           [[ tdata.signalp[m] | signalp('neg') ]]
                                        </th>
                                        <!--<th class="p-1">-->
                                            <!--[[-->

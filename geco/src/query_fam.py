@@ -142,17 +142,20 @@ def get_cards(names):
         gene2card[m['q_g']].append({'id' : m['card']})
     return gene2card
 
-def fams_by_neigh_annotation(term_type, term, score=0.9):
+def fams_by_neigh_annotation(term_type, term, score=0.9, pagination=[0,10]):
     # term_type, one of: og, kos, CARD, kpath, pname
     matched_fams = []
     fam2score = {}
-    for fam in col_og_neigh_scores.find({term_type: {'$elemMatch': {
+    fams = col_og_neigh_scores.find({term_type: {'$elemMatch': {
                                                 'n': term,
                                                 'score':{'$gte': score},
                                                 'opposite_strand':'0',
-                                                }}}):
-
-
+                                                }}
+                                 })
+                                # .sort({'_id':1})\
+                                # .skip(pagination[0])\
+                                # .limit(pagination[1])
+    for fam in fams:
         matched_fams.append(fam['fam'])
         annot_match = next(annot for annot in fam[term_type] if annot['n'] == term)
         fam2score[fam['fam']] = (annot_match['n'], annot_match['score'])
@@ -175,30 +178,27 @@ def fams_by_neigh_annotation(term_type, term, score=0.9):
         selected_fams.append(fam)
     selected_fams.sort(key=lambda x: x['n_taxa'], reverse=True)
     matches = selected_fams
-    matches = matches[:min(len(matches), 100)]
+    # matches = matches[:min(len(matches), 100)]
     matches = { m['name'] : m for m in matches }
     return matches
 
-def fams_by_taxa(taxa, spec=0.9, cov=0.9):
+def fams_by_taxa(taxa, spec=0.9, cov=0.9, pagination=[0,10]):
     matches = []
-    wanted_keys = ['name', 'n_genomes', 'n_taxa',
-                   'n_members',  'members', 'clade_counter',
-                   'emapper_hits', 'sources']
-    for fam in col_faminfo.find({'clade_counter': {'$elemMatch': {
+    fams = col_faminfo.find({'clade_counter': {'$elemMatch': {
                                                 'term':taxa,
                                                 'specificity':{'$gte': spec},
                                                 'coverage':{'$gte': cov}}}
-                                 }):
-
+                                 })
+                                # .sort({'_id':1})\
+                                # .skip(pagination[0])\
+                                # .limit(pagination[1]):
+    for fam in fams:
         clade_match = next(clade for clade in fam['clade_counter'] if clade['term'] == taxa)
-
         del fam['_id']
         del fam['clade_counter']
         fam['clade_info'] = clade_match
-
         if fam['emapper_hits'] == 0:
             matches.append(fam)
-    matches = matches[:max(len(matches), 100)]
     matches = { m['name'] : m for m in matches }
     return matches
 
@@ -216,12 +216,12 @@ def get_newick(fam):
         leaf.name = '.'.join([showName, name, *tax])
     return tree.write()
 
-def get_fam(fam):
-    match = col_fams.find_one({'gf': fam})
-    family_doc = {'gf': fam, 'neighs': [], 'size':match['nseqs'], 'ntaxa': match['nspcs']}
+def get_neighborhood(fam, members=None):
+    if not members:
+        members = col_fams.find_one({'gf': fam}, ['members'])
     neighborhood = []
     # process each member of the family
-    for gene_entry in match['members']:
+    for gene_entry in members:
         src, genome, gene, taxa = gene_entry.split('@')
 
         # find taxa lineage by genome name
@@ -259,9 +259,21 @@ def get_fam(fam):
             if int(gene_doc['pos']) == 0:
                 gene_doc["seqID"] = gene_entry
             neighborhood.append(gene_doc)
+    return neighborhood
+
+def get_fam(fam):
+    # wanted_keys = ['name', 'n_genomes', 'n_taxa',
+                   # 'n_members',  'members', 'clade_counter',
+                   # 'emapper_hits', 'sources']
+    match = col_fams.find_one({'gf': fam})
+    family_doc = {'gf': fam,
+                  'neighs': [],
+                  'size': match['nseqs'],
+                  'ntaxa': match['nspcs'],
+                  }
+    neighborhood = get_neighborhood(fam, family_doc['members'])
     family_doc['neighs'] = neighborhood
-    return json.dumps(neighborhood)
-    # return json.dumps(family_doc)
+    return json.dumps(family_doc)
 
 if __name__ == '__main__':
     t1 = time.time()
