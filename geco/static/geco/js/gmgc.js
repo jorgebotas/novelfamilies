@@ -106,6 +106,7 @@ var draw_protDomains = function(id, domains, lenseq, width, height, palette) {
             .attr("height", height)
             .attr("fill", d => { return palette(d.class) });
     }
+    console.log(id)
     var g = d3.select('#' + id)
               .append("div")
               .append('svg:svg')
@@ -245,7 +246,6 @@ var renderDomains = function(domains) {
                         .domain(doms)
                         .range(colors);
         domains.forEach(d => {
-            console.log(d)
             selector = "d" + cleanString(d.gene);
             draw_protDomains(selector, d.doms, d.lenseq, 600, 10, palette);
         });
