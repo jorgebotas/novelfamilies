@@ -473,7 +473,8 @@ var gmgc_vueapp = new Vue({
                         'showBar': false,
                         'showLegend': false
                     })
-                    .draw();
+                    .draw()
+                    .nSide(3);
                 d3.select(gecovizSelector)
                     .style('opacity', 1)
                     .style('visibility', 'visible');
