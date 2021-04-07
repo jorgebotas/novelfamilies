@@ -216,7 +216,7 @@ def get_neighborhood(fam, members=None):
     if not members:
         members = col_fams.find_one({'gf': fam}) or {}
         print(members)
-        members = members.get(['members'] ,[])
+        members = members.get('members' ,[])
     neighborhood = []
     # process each member of the family
     for gene_entry in members:
