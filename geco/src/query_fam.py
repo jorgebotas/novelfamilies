@@ -195,7 +195,6 @@ def fams_by_taxa(taxa, spec=0.9, cov=0.9, pagination=[0,10]):
         if fam['emapper_hits'] == 0:
             matches.append(fam)
     matches = get_more_faminfo(matches)
-    print(matches)
     matches = { m['name'] : m for m in matches }
     return matches
 
@@ -252,6 +251,42 @@ def get_neighborhood(fam, members=None):
                 gene_doc["seqID"] = gene_entry
             neighborhood.append(gene_doc)
     return neighborhood
+
+def get_domains(topology, signalp=[]):
+    domains = []
+    for sp in signalp:
+        if sp != "OTHER" and sp != '':
+            domains.append({
+                'c' : 0,
+                'class' : sp,
+                'shape' : 'circle'
+            })
+    if len(topology) < 2:
+        domains.append({
+                'start' : 0,
+                'end' : 0,
+                'shape' : 'rect'
+            })
+    else:
+        topo = str(topology).split('-')
+        for i in range(1, len(topo)):
+            p = str(topo[i-1])
+            c = str(topo[i])
+            try :
+                start = int(p[-2:])
+            except:
+                start = int(p[-1])
+            try:
+                end = int(c[:2])
+            except:
+                end = int(c[0])
+            domains.append({
+                'start' : start,
+                'end' : end,
+                'class' : 'helix',
+                'shape' : 'rect'
+            })
+    return domains
 
 def get_more_faminfo(fams):
     fnames = [f['name'] for f in fams]
