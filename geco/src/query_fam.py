@@ -305,9 +305,6 @@ def get_more_faminfo(fams):
         ext_fam['signalp'] = sp
         tm = transm[fname]['per_g_pred']
         domains = []
-        for gene, topo in tm.items():
-            domains.append()
-
         extended_fams.append(ext_fam)
     return extended_fams
 
