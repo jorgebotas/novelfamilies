@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 
-{% comment %}{% include 'geco/filter_cards.html'%}{% endcomment %}
+{% include 'geco/filter_cards.html'%}
 
 <div v-for="(tdata, tid, index) in show_items">               
     {% include 'geco/card.html' %}
