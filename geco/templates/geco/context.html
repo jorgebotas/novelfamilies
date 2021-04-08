@@ -24,8 +24,8 @@
     {% include 'geco/card.html' %}
 </div>
 </div>
-<div v-if='nItems > perPage'>
-    
+<div v-if='nPages > 1'>
+    {% include 'gecp/paginator.html' %} 
 </div>
 {% endblock %}
 {% block scripts %}

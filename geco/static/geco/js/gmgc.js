@@ -253,14 +253,10 @@ var gmgc_vueapp = new Vue({
         show_items: {},
         currentPage: 0,
         perPage: 10,
-        nItems: 0,
+        totalItems: 0,
         currentSearch: '',
     },
     methods: {
-        paginate: function(nItems) {
-            this.nItems = nItems
-        },
-
         searchFams : function(searchType=undefined) {
             $("#search-fams").blur();
             $('.search-spinner').show();
@@ -307,7 +303,7 @@ var gmgc_vueapp = new Vue({
                     this.show_items = data.show_items;
                     this.currentSearch = fetchURL;
                     this.currentPage = page;
-                    this.nItems = data.total_matches;
+                    this.totalItems = +data.total_matches;
                 })
                 .then(() => {
                     this.hideAllFams();
@@ -332,7 +328,7 @@ var gmgc_vueapp = new Vue({
                     this.show_items = data.show_items;
                     this.currentSearch = fetchURL;
                     this.currentPage = page;
-                    this.nItems = data.total_matches;
+                    this.totalItems = +data.total_matches;
                 })
                 .then(() => {
                     this.hideAllFams();
@@ -582,4 +578,9 @@ var gmgc_vueapp = new Vue({
             return str.toString().slice(3);
         }
     },
+    computed : {
+        nPages: function() {
+            return Math.ceil(this.totalItems/this.perPage)
+        }
+    }
 });
