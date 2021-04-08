@@ -24,7 +24,6 @@ var STATIC_URL = "/static/geco"
 var colors = [
     "#9c89b8",
     "#f0a6ca",
-    "#f0e6ef",
     "#b8bedd",
     "#6B9080",
     "#A4C3B2",
