@@ -351,7 +351,7 @@ var gmgc_vueapp = new Vue({
 
         renderFamInfo : function() {
             // Remove summaries
-            d3.selectAll('.fam-summary > div').selectAll('*').remove();
+            d3.selectAll('.fam-summary > .to-refresh').selectAll('*').remove();
             // Remove domain representation
             d3.selectAll('.domains').selectAll('*').remove();
             Object.entries(this.show_items).forEach(([f, data]) => {

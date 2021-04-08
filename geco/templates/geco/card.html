@@ -103,7 +103,7 @@
                 </ul>
                   
               <div class='fam-summary col-md-12 row mt-2'>
-                  <div class=''>
+                  <div class='summary-spans col-md-3'>
                       <span class='btn btn-sm bg-orange mt-2' style='cursor:default'>
                         [[ tdata.n_members ]] members
                       </span>
@@ -117,10 +117,10 @@
                         [[ tdata.mean_nh | toFixed ]] mean # of TM helices
                       </span>
                   </div>
-                  <div class='donut-sources col-md-3'
+                  <div class='donut-sources col-md-3 to-refresh'
                       :id="'f'+index+'-sources'">
                   </div>
-                  <div class='GeCoViz-summary col-md-5'
+                  <div class='GeCoViz-summary col-md-5 to-refresh'
                       :id="'f'+index+'-GeCoViz-summary'">
                   </div>
               </div>
