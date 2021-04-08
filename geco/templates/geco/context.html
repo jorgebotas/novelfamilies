@@ -7,7 +7,7 @@
 <div v-if='totalItems > 0'
     class='text-center mb-3'>
     Showing results from [[ (currentPage - 1) * perPage ]] 
-    to [[ currentPage * perPage ]]. Total hits: [[ totalItems ]].
+    to [[ Math.max(currentPage * perPage, totalItems) ]]. Total hits: [[ totalItems ]].
 </div>
 <div v-if="nPages > 1">
     {% include 'geco/pagination.html' %}
