@@ -9,6 +9,7 @@
     <li v-for='p in nPages' 
         class='page-item px-1'
         :key='p'
+        :class="[ (currentPage == p) ? 'active' : '' ]"
         >
         <a class='page-link'
             @click='getPage(p)'>[[ p ]]</a>
