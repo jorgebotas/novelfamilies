@@ -4,9 +4,10 @@
 
 {% include 'geco/filter_cards.html'%}
 
-<div class='justify-content-center'>
-    Showing hits from [[ (currentPage - 1) * perPage ]] 
-    to [[ (currentPage - 1) * perPage ]], out of [[ totalItems ]]
+<div v-if='totalItems > 0'
+    class='text-center'>
+    Showing results from [[ (currentPage - 1) * perPage ]] 
+    to [[ currentPage * perPage ]]. Total hits: [[ totalItems ]].
 </div>
 
 <div v-for="(tdata, tid, index) in show_items">               

@@ -578,9 +578,13 @@ var gmgc_vueapp = new Vue({
                 .then(() => {
                     this.hideAllFams();
                     this.renderFamInfo();
-                    $('.search-spinner').hide();
+                    this.scrollToTop();
                 })
         },
+
+        scrollToTop: function() {
+            $("html, body").animate({ scrollTop: 0 }, "slow");
+        }
     },
     filters : {
         filterBlank : function (value) {
