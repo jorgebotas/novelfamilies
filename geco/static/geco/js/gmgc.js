@@ -254,7 +254,7 @@ var gmgc_vueapp = new Vue({
         currentPage: 0,
         perPage: 10,
         totalItems: 0,
-        nPage: 1,
+        nPages: 1,
         currentSearch: '',
     },
     methods: {
