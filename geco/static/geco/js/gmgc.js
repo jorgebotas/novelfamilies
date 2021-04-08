@@ -559,14 +559,15 @@ var gmgc_vueapp = new Vue({
         },
 
         getPage: function(page) {
-            if (page == 'next')
+            if (page == 'next') {
                 page = this.currentPage > 0
                     ? this.currentPage - 1
-                    : 0
-            else (page == 'previous')
+                    : 0;
+            } else if (page == 'previous') {
                 page = this.currentPage < this.nPages
                     ? this.currentPage + 1
-                    : this.nPages
+                    : this.nPages;
+            }
             let fetchURL = this.currentSearch;
             fetch(`${fetchURL}/${page}/`)
                 .then(response => response.json())
