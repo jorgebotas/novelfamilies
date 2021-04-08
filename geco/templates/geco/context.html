@@ -4,9 +4,10 @@
 
 {% include 'geco/filter_cards.html'%}
 
-{% comment %}<div v-for="(tdata, tid, index) in show_items">               {% endcomment %}
+<div v-for="(tdata, tid, index) in show_items">               
+    [[ index ]]
     {% comment %}{% include 'geco/card.html' %}{% endcomment %}
-{% comment %}</div>{% endcomment %}
+</div>
 <div>
     [[ nPages ]]
 </div>
