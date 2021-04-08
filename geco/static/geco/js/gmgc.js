@@ -251,55 +251,15 @@ var gmgc_vueapp = new Vue({
     el: '#NovelFams',
     data: {
         show_items: {},
+        currentPage: 0,
+        perPage: 10,
+        nItems: 0,
+        currentSearch: '',
     },
     methods: {
-        toggleGeCoViz : async function(selector, query) {
-                let newick, context;
-                newick = this.show_items[query].newick;
-                context = this.show_items[query].context;
-                if (context) {
-                    window.onload = () => {
-                        d3.select(selector)
-                            .style('opacity', 1)
-                            .style('visibility', 'visible');
-                        $(selector + " + div .gecoviz-progress").hide();
-                    }
-                } else {
-                    $(selector + " + div .gecoviz-progress").show();
-                    console.log(selector)
-                    newick = await get_newick(query);
-                    context = await get_context(query);
-                    newickFields = [
-                        'showName',
-                        'name',
-                        'domain',
-                        'phylum',
-                        'class',
-                        'order',
-                        'family',
-                        'genus',
-                        'species'
-                    ]
-                    GeCoViz(selector)
-                        .treeData(newick, newickFields)
-                        .contextData(context)
-                        .nSide(4)
-                        .geneText("Gene name")
-                        .annotation("Orthologous groups", 2)
-                        .draw();
-                    d3.select(selector)
-                        .style('opacity', 1)
-                        .style('visibility', 'visible');
-                    //await window.launch_GeCo(selector, context, newick, 41, colors);
-                    $(selector + " + div .gecoviz-progress").hide();
-                    this.show_items[query].newick = newick;
-                    this.show_items[query].context = context;
-                }
-                //this.show_items[query].members.forEach(m => {
-                    //let downloadSeq = d3.select(`${selector} #downloadSeq${cleanString(m)}`);
-                    //downloadSeq.on('click', () => this.getSeq(m))
-                //})
-            },
+        paginate: function(nItems) {
+            this.nItems = nItems
+        },
 
         searchFams : function(searchType=undefined) {
             $("#search-fams").blur();
@@ -332,18 +292,22 @@ var gmgc_vueapp = new Vue({
             $('#example-cards').collapse('hide');
         },
 
-        searchFamByTaxa : function(selector, prefix) {
+        searchFamByTaxa : function(selector, prefix, page=0) {
             $('.search-spinner').show();
             let search = $(selector);
             search.blur();
             let query = prefix + search.val().trim();
             let spec = document.querySelector("#specificity").noUiSlider.get();
             let cov = document.querySelector("#coverage").noUiSlider.get();
-            fetch(API_BASE_URL + `/taxafams/${query}/${spec}/${cov}/`)
+            let fetchURL = API_BASE_URL + `/taxafams/${query}/${spec}/${cov}`;
+            fetch(`${fetchURL}/${page}/`)
                 .then(response => response.json())
                 .then(data => {
-                    this.show_items = {}
-                    this.show_items = data.show_items
+                    this.show_items = {};
+                    this.show_items = data.show_items;
+                    this.currentSearch = fetchURL;
+                    this.currentPage = page;
+                    this.nItems = data.total_matches;
                 })
                 .then(() => {
                     this.hideAllFams();
@@ -352,19 +316,23 @@ var gmgc_vueapp = new Vue({
                 })
         },
 
-        searchFamByFunction : function(selector) {
+        searchFamByFunction : function(selector, page=0) {
             $('.search-spinner').show();
             let search = $(selector);
             search.blur();
             let query = search.val().trim();
             let queryType = $('.term-type input:checked').val();
             let conservation = document.querySelector("#conservation").noUiSlider.get();
-            fetch(API_BASE_URL + `/fnfams/${queryType}/${query}/${conservation}/`)
+            let fetchURL = API_BASE_URL
+                + `/fnfams/${queryType}/${query}/${conservation}`;
+            fetch(`${fetchURL}/${page}/`)
                 .then(response => response.json())
                 .then(data => {
-                    console.log(data)
-                    this.show_items = {}
-                    this.show_items = data.show_items
+                    this.show_items = {};
+                    this.show_items = data.show_items;
+                    this.currentSearch = fetchURL;
+                    this.currentPage = page;
+                    this.nItems = data.total_matches;
                 })
                 .then(() => {
                     this.hideAllFams();
@@ -528,6 +496,54 @@ var gmgc_vueapp = new Vue({
         toggleFam : function(id) {
             $("#" + id).collapse('show');
         },
+
+        toggleGeCoViz : async function(selector, query) {
+                let newick, context;
+                newick = this.show_items[query].newick;
+                context = this.show_items[query].context;
+                if (context) {
+                    window.onload = () => {
+                        d3.select(selector)
+                            .style('opacity', 1)
+                            .style('visibility', 'visible');
+                        $(selector + " + div .gecoviz-progress").hide();
+                    }
+                } else {
+                    $(selector + " + div .gecoviz-progress").show();
+                    console.log(selector)
+                    newick = await get_newick(query);
+                    context = await get_context(query);
+                    newickFields = [
+                        'showName',
+                        'name',
+                        'domain',
+                        'phylum',
+                        'class',
+                        'order',
+                        'family',
+                        'genus',
+                        'species'
+                    ]
+                    GeCoViz(selector)
+                        .treeData(newick, newickFields)
+                        .contextData(context)
+                        .nSide(4)
+                        .geneText("Gene name")
+                        .annotation("Orthologous groups", 2)
+                        .draw();
+                    d3.select(selector)
+                        .style('opacity', 1)
+                        .style('visibility', 'visible');
+                    //await window.launch_GeCo(selector, context, newick, 41, colors);
+                    $(selector + " + div .gecoviz-progress").hide();
+                    this.show_items[query].newick = newick;
+                    this.show_items[query].context = context;
+                }
+                //this.show_items[query].members.forEach(m => {
+                    //let downloadSeq = d3.select(`${selector} #downloadSeq${cleanString(m)}`);
+                    //downloadSeq.on('click', () => this.getSeq(m))
+                //})
+            },
 
         getSeq : function(query) {
             fetch(API_BASE_URL + `/seq/${query}/`)

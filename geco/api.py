@@ -15,19 +15,27 @@ def info(request, query):
     data = { 'show_items' : { query :  get_fam(query) }}
     return JsonResponse(data)
 
-def fam_by_annotation(request, query_type, query, score):
+def fam_by_annotation(request, query_type, query, score, page):
     """Return list with fams that match neighbor annotation search
     """
-    fams = fams_by_neigh_annotation(query_type, query, float(score))
-    print(fams)
-    fams = { 'show_items' : fams }
+    fams, total_matches = fams_by_neigh_annotation(query_type,
+                                                   query,
+                                                   float(score),
+                                                   page)
+    fams = {
+        'show_items' : fams,
+        'total_matches': total_matches
+    }
     return JsonResponse(fams)
 
-def fam_by_taxa(request, query, spec, cov):
+def fam_by_taxa(request, query, spec, cov, page):
     """Return list with fams that match taxa search
     """
-    fams = fams_by_taxa(query, float(spec), float(cov))
-    fams = { 'show_items' : fams }
+    fams, total_matches = fams_by_taxa(query, float(spec), float(cov), page)
+    fams = {
+        'show_items' : fams,
+        'total_matches': total_matches
+    }
     return JsonResponse(fams)
 
 def tree(request, query):

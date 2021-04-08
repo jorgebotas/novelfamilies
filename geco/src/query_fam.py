@@ -21,6 +21,8 @@ col_trees = db.trees
 col_signalp = db.signalp
 col_tm = db.tm
 
+DOCS_PER_PAGE = 10
+
 STATIC_PATH = settings.BASE_DIR + '/static/geco/'
 
 def get_pickle(filePath):
@@ -143,7 +145,7 @@ def get_cards(names):
         gene2card[m['q_g']].append({'id' : m['card']})
     return gene2card
 
-def fams_by_neigh_annotation(term_type, term, score=0.9, pagination=[0,10]):
+def fams_by_neigh_annotation(term_type, term, score=0.9, page=0):
     # term_type, one of: og, kos, CARD, kpath, pname
     matched_fams = []
     fam2score = {}
@@ -164,39 +166,44 @@ def fams_by_neigh_annotation(term_type, term, score=0.9, pagination=[0,10]):
         og_match = next(og for og in fam[term_type] if og['n'] == term)
         fam2score[fam['fam']] = (og_match['n'], og_match['score'])
     # collects more info from the families
-    selected_fams = []
-    for fam in col_faminfo.find({'name': {'$in': matched_fams}, }):
-        if fam['emapper_hits'] > 0:
-            continue
+    fams = col_faminfo.find({'name': {'$in': matched_fams},
+                             'emapper_hits': {'$eq': 0}},
+                            {'_id': 0})\
+        .sort({'n_taxa': -1,
+               'name': 1})\
+        .skip(max((page-1)*DOCS_PER_PAGE, 0))\
+        .limit(DOCS_PER_PAGE)
+    total_matches = fams.count()
+    matches = []
+    for fam in fams:
         fam['match'] = fam2score[fam['name']]
-        del fam['_id']
-        selected_fams.append(fam)
-    selected_fams.sort(key=lambda x: x['n_taxa'], reverse=True)
-    matches = selected_fams
+        matches.append(fam)
+    #selected_fams.sort(key=lambda x: x['n_taxa'], reverse=True)
     matches = get_more_faminfo(matches)
     matches = { m['name'] : m for m in matches }
-    return matches
+    return matches, total_matches
 
-def fams_by_taxa(taxa, spec=0.9, cov=0.9, pagination=[0,10]):
+def fams_by_taxa(taxa, spec=0.9, cov=0.9, page=0):
     matches = []
     fams = col_faminfo.find({'clade_counter': {'$elemMatch': {
                                                 'term':taxa,
                                                 'specificity':{'$gte': spec},
-                                                'coverage':{'$gte': cov}}}
-                                 })
-                                # .sort({'_id':1})\
-                                # .skip(pagination[0])\
-                                # .limit(pagination[1]):
+                                                'coverage':{'$gte': cov}}},
+                             'emapper_hits': {'$eq': 0}})\
+            .sort({'n_taxa': -1,
+                   'name': 1})\
+            .skip(max((page-1)*DOCS_PER_PAGE, 0))\
+            .limit(DOCS_PER_PAGE)
+    total_matches = fams.count()
     for fam in fams:
         clade_match = next(clade for clade in fam['clade_counter'] if clade['term'] == taxa)
         del fam['_id']
         del fam['clade_counter']
         fam['clade_info'] = clade_match
-        if fam['emapper_hits'] == 0:
-            matches.append(fam)
+        matches.append(fam)
     matches = get_more_faminfo(matches)
     matches = { m['name'] : m for m in matches }
-    return matches
+    return matches, total_matches
 
 def get_newick(fam):
     match = col_trees.find_one({'fam': fam}) or {}
