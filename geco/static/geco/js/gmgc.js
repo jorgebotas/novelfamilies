@@ -251,7 +251,7 @@ var gmgc_vueapp = new Vue({
     el: '#NovelFams',
     data: {
         show_items: {},
-        currentPage: true,
+        currentPage: 1,
         perPage: 10,
         totalItems: 0,
         nPages: 1,
