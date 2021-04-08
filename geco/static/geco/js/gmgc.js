@@ -306,6 +306,7 @@ var gmgc_vueapp = new Vue({
                     this.currentPage = page;
                     this.totalItems = +data.total_matches;
                     this.nPages = Math.ceil(this.totalItems/this.perPage)
+                    console.log(this.nPages)
                 })
                 .then(() => {
                     this.hideAllFams();
