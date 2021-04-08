@@ -372,7 +372,11 @@ var gmgc_vueapp = new Vue({
             Object.entries(this.show_items).forEach(([f, data]) => {
                 let idx = Object.keys(this.show_items).indexOf(f);
                 // Sources donut
-                let sources = data.sources;
+                let sources = {}
+                Object.entries(data.sources).forEach(([k,v]) => {
+                    if (+v > 0)
+                        sources[k] = v
+                })
                 renderDonut('f'+idx+'-sources',
                     Object.keys(sources),
                     Object.values(sources),
