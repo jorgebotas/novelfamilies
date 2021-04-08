@@ -21,7 +21,16 @@ var STATIC_URL = "/static/geco"
                 //"#c4ab77",
                 //"#A1A314",
                 //"#fff600"];
-var colors = ["9c89b8","f0a6ca","efc3e6","f0e6ef","b8bedd", "6B9080", "A4C3B2", "CCE3DE"];
+var colors = [
+    "#9c89b8",
+    "#f0a6ca",
+    "#efc3e6",
+    "#f0e6ef",
+    "#b8bedd",
+    "#6B9080",
+    "#A4C3B2",
+    "#CCE3DE"
+];
 
 var cleanString = function(s) {
     let clean = String(s);
