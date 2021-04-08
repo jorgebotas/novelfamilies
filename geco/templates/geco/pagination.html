@@ -7,7 +7,8 @@
       </a>
     </li>
     <li v-for='p in nPages' 
-        :class='["page-item", isCurrentPage(p)]'>
+        class='page-item'
+        :class='{ "active": p == currentPage }'>
         <a class='page-link'>[[ p ]]</a>
     </li>
     <li class="page-item">
