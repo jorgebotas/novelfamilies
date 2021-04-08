@@ -254,6 +254,7 @@ var gmgc_vueapp = new Vue({
         currentPage: 0,
         perPage: 10,
         totalItems: 0,
+        nPage: 1,
         currentSearch: '',
     },
     methods: {
@@ -304,6 +305,7 @@ var gmgc_vueapp = new Vue({
                     this.currentSearch = fetchURL;
                     this.currentPage = page;
                     this.totalItems = +data.total_matches;
+                    this.nPages = Math.ceil(this.totalItems/this.perPage)
                 })
                 .then(() => {
                     this.hideAllFams();
@@ -329,6 +331,7 @@ var gmgc_vueapp = new Vue({
                     this.currentSearch = fetchURL;
                     this.currentPage = page;
                     this.totalItems = +data.total_matches;
+                    this.nPages = Math.ceil(this.totalItems/this.perPage)
                 })
                 .then(() => {
                     this.hideAllFams();
@@ -579,8 +582,8 @@ var gmgc_vueapp = new Vue({
         }
     },
     computed : {
-        nPages: function() {
-            return Math.ceil(this.totalItems/this.perPage)
-        }
+        //nPages: function() {
+            //return Math.ceil(this.totalItems/this.perPage)
+        //}
     }
 });
