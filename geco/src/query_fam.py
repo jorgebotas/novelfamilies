@@ -292,6 +292,7 @@ def get_domains(topology, signalp=[]):
     return domains
 
 def get_more_faminfo(fams):
+    print(fams)
     fnames = [f['name'] for f in fams]
     # Signal peptides
     signalp = col_signalp.find({'fam': {'$in': fnames}}, {'_id': 0})
