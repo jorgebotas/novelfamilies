@@ -304,7 +304,9 @@ def get_more_faminfo(fams):
         fname = fam['name']
         sp = signalp.get(fname, {})
         ext_fam['signalp'] = sp
-        tm = transm.get(fname, {}).get('per_g_pred', {})
+        tm = transm.get(fname, {})
+        ext_fam['mean_nh'] = tm.get('mean_nh', '')
+        tm = tm.get('per_g_pred', {})
         domains = []
         for m in fam['members']:
             m_topo = tm.get(m, {'top':''})['top']
