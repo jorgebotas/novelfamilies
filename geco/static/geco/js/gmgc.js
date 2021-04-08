@@ -610,9 +610,4 @@ var gmgc_vueapp = new Vue({
             return str.toString().slice(3);
         }
     },
-    computed : {
-        //nPages: function() {
-            //return Math.ceil(this.totalItems/this.perPage)
-        //}
-    }
 });
