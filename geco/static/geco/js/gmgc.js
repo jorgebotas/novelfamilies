@@ -279,6 +279,8 @@ var gmgc_vueapp = new Vue({
                     this.renderFamInfo();
                     $('.tab-content').collapse('show');
                     $('.search-spinner').hide();
+                    let idx = Object.keys(this.show_items).indexOf(query);
+                    this.toggleGeCoViz(`#f${idx}-GeCoViz`, query);
                 })
             } else if (type == 'taxa'){
                 this.searchFamByTaxa(selector, '');
