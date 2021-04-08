@@ -9,7 +9,7 @@
   --bs-orange: #ff9f48;
   --bs-yellow: #fab005;
   --bs-lime: #94d82d;
-  --bs-green: #5eba00;
+  --bs-green: #35bb83;
   --bs-teal: #2bcbba;
   --bs-cyan: #17a2b8;
   --bs-gray: #aaafb7;
@@ -1782,15 +1782,15 @@ progress {
 }
 
 .table-success {
-  --bs-table-bg: #dff1cc;
-  --bs-table-striped-bg: #d4e5c2;
+  --bs-table-bg: #d7f1e6;
+  --bs-table-striped-bg: #cce5db;
   --bs-table-striped-color: #000000;
-  --bs-table-active-bg: #c9d9b8;
+  --bs-table-active-bg: #c2d9cf;
   --bs-table-active-color: #000000;
-  --bs-table-hover-bg: #cedfbd;
+  --bs-table-hover-bg: #c7dfd5;
   --bs-table-hover-color: #000000;
   color: #000000;
-  border-color: #c9d9b8;
+  border-color: #c2d9cf;
 }
 
 .table-info {
@@ -2446,7 +2446,7 @@ textarea.form-control-lg {
   width: 100%;
   margin-top: 0.25rem;
   font-size: 0.75rem;
-  color: #5eba00;
+  color: #35bb83;
 }
 
 .valid-tooltip {
@@ -2459,7 +2459,7 @@ textarea.form-control-lg {
   margin-top: 0.1rem;
   font-size: 0.765625rem;
   color: white;
-  background-color: rgba(94, 186, 0, 0.9);
+  background-color: rgba(53, 187, 131, 0.9);
   border-radius: 5px;
 }
 
@@ -2471,16 +2471,16 @@ textarea.form-control-lg {
 }
 
 .was-validated .form-control:valid, .form-control.is-valid {
-  border-color: #5eba00;
+  border-color: #35bb83;
   padding-right: calc(1.4285714286em + 0.875rem);
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%235eba00' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='20 6 9 17 4 12'%3e%3c/polyline%3e%3c/svg%3e");
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%2335bb83' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='20 6 9 17 4 12'%3e%3c/polyline%3e%3c/svg%3e");
   background-repeat: no-repeat;
   background-position: right calc(0.3571428571em + 0.21875rem) center;
   background-size: calc(0.7142857143em + 0.4375rem) calc(0.7142857143em + 0.4375rem);
 }
 .was-validated .form-control:valid:focus, .form-control.is-valid:focus {
-  border-color: #5eba00;
-  box-shadow: 0 0 0 0.25rem rgba(94, 186, 0, 0.25);
+  border-color: #35bb83;
+  box-shadow: 0 0 0 0.25rem rgba(53, 187, 131, 0.25);
 }
 
 .was-validated textarea.form-control:valid, textarea.form-control.is-valid {
@@ -2489,28 +2489,28 @@ textarea.form-control-lg {
 }
 
 .was-validated .form-select:valid, .form-select.is-valid {
-  border-color: #5eba00;
+  border-color: #35bb83;
   padding-right: calc(0.75em + 2.40625rem);
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%2895, 102, 110, 0.44%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e"), url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%235eba00' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='20 6 9 17 4 12'%3e%3c/polyline%3e%3c/svg%3e");
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='rgba%2895, 102, 110, 0.44%29' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e"), url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%2335bb83' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='20 6 9 17 4 12'%3e%3c/polyline%3e%3c/svg%3e");
   background-position: right 0.75rem center, center right 1.75rem;
   background-size: 16px 12px, calc(0.7142857143em + 0.4375rem) calc(0.7142857143em + 0.4375rem);
 }
 .was-validated .form-select:valid:focus, .form-select.is-valid:focus {
-  border-color: #5eba00;
-  box-shadow: 0 0 0 0.25rem rgba(94, 186, 0, 0.25);
+  border-color: #35bb83;
+  box-shadow: 0 0 0 0.25rem rgba(53, 187, 131, 0.25);
 }
 
 .was-validated .form-check-input:valid, .form-check-input.is-valid {
-  border-color: #5eba00;
+  border-color: #35bb83;
 }
 .was-validated .form-check-input:valid:checked, .form-check-input.is-valid:checked {
-  background-color: #5eba00;
+  background-color: #35bb83;
 }
 .was-validated .form-check-input:valid:focus, .form-check-input.is-valid:focus {
-  box-shadow: 0 0 0 0.25rem rgba(94, 186, 0, 0.25);
+  box-shadow: 0 0 0 0.25rem rgba(53, 187, 131, 0.25);
 }
 .was-validated .form-check-input:valid ~ .form-check-label, .form-check-input.is-valid ~ .form-check-label {
-  color: #5eba00;
+  color: #35bb83;
 }
 
 .form-check-inline .form-check-input ~ .valid-feedback {
@@ -13041,7 +13041,7 @@ Inline list
   display: block;
   width: 2.5rem;
   height: 2.5rem;
-  color: #6574cd;
+  color: #6090d2;
   vertical-align: middle;
 }
 .loader:after {
@@ -13395,10 +13395,10 @@ Dimmer
   border-color: #9ddb3e !important;
 }
 .ribbon.bg-green {
-  border-color: #5eba00;
+  border-color: #35bb83;
 }
 .ribbon.bg-green-lt {
-  border-color: #6bc014 !important;
+  border-color: #45c08d !important;
 }
 .ribbon.bg-teal {
   border-color: #2bcbba;
@@ -13652,11 +13652,11 @@ Dimmer
 
 .steps-green .step-item:after, .steps-green .step-item:before {
   color: white;
-  background: #5eba00;
+  background: #35bb83;
 }
 .steps-green .step-item.active:before {
   color: inherit;
-  border-color: #5eba00;
+  border-color: #35bb83;
 }
 
 .steps-teal .step-item:after, .steps-teal .step-item:before {
@@ -14538,16 +14538,16 @@ SOCIAL COLORS
 }
 
 .bg-green {
-  background: #5eba00;
+  background: #35bb83;
 }
 
 .text-green {
-  color: #5eba00 !important;
+  color: #35bb83 !important;
 }
 
 .bg-green-lt {
-  color: #5eba00 !important;
-  background: #6bc014 !important;
+  color: #35bb83 !important;
+  background: #45c08d !important;
 }
 
 .bg-teal {
@@ -15057,12 +15057,22 @@ Antialiasing
   }
 }
 .bg-green {
-  background-color: #5eba00;
+  background-color: #35bb83;
   color: var(--sand) !important;
 }
 
 .bg-orange {
   background-color: #ff9f48;
+  color: var(--sand) !important;
+}
+
+.bg-blue {
+  background-color: #6090d2;
+  color: var(--sand) !important;
+}
+
+.bg-cherry {
+  background-color: #d26090;
   color: var(--sand) !important;
 }
 
