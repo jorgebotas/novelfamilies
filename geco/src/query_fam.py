@@ -292,7 +292,6 @@ def get_domains(topology, signalp=[]):
     return domains
 
 def get_more_faminfo(fams):
-    print(fams)
     fnames = [f['name'] for f in fams]
     # Signal peptides
     signalp = col_signalp.find({'fam': {'$in': fnames}}, {'_id': 0})
@@ -325,7 +324,7 @@ def get_fam(fam):
     del fam_info['_id']
     # Get neighborhood
     fam_info['neighs'] = get_neighborhood(fam, fam_info['members'])
-    fam_info = get_more_faminfo([fam])[0]
+    fam_info = get_more_faminfo([fam_info])[0]
     return fam_info
 
 if __name__ == '__main__':
