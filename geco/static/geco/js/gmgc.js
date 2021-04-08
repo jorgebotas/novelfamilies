@@ -557,6 +557,25 @@ var gmgc_vueapp = new Vue({
         isCurrentPage: function(page) {
             return this.currentPage == page;
         },
+
+        getPage: function(page) {
+            let fetchURL = this.currentSearch;
+            fetch(`${fetchURL}/${page}/`)
+                .then(response => response.json())
+                .then(data => {
+                    this.show_items = {};
+                    this.show_items = data.show_items;
+                    this.currentSearch = fetchURL;
+                    this.currentPage = page;
+                    this.totalItems = +data.total_matches;
+                    this.nPages = Math.ceil(this.totalItems/this.perPage)
+                })
+                .then(() => {
+                    this.hideAllFams();
+                    this.renderFamInfo();
+                    $('.search-spinner').hide();
+                })
+        },
     },
     filters : {
         filterBlank : function (value) {
