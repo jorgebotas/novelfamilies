@@ -193,6 +193,11 @@ var renderDonut = function(id, labels, vals, colors, legend='bottom', height=240
         tooltip: {
             fillSeriesColor: false
         },
+        plotOptions: {
+            pie: {
+                expandOnClick: false,
+            }
+        }
     }
     var chart = new ApexCharts(div, options);
     chart.render();
