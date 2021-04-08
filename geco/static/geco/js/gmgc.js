@@ -289,7 +289,7 @@ var gmgc_vueapp = new Vue({
             $('#example-cards').collapse('hide');
         },
 
-        searchFamByTaxa : function(selector, prefix, page=0) {
+        searchFamByTaxa : function(selector, prefix) {
             $('.search-spinner').show();
             let search = $(selector);
             search.blur();
@@ -297,13 +297,13 @@ var gmgc_vueapp = new Vue({
             let spec = document.querySelector("#specificity").noUiSlider.get();
             let cov = document.querySelector("#coverage").noUiSlider.get();
             let fetchURL = API_BASE_URL + `/taxafams/${query}/${spec}/${cov}`;
-            fetch(`${fetchURL}/${page}/`)
+            fetch(`${fetchURL}/0/`)
                 .then(response => response.json())
                 .then(data => {
                     this.show_items = {};
                     this.show_items = data.show_items;
                     this.currentSearch = fetchURL;
-                    this.currentPage = page;
+                    this.currentPage = 1;
                     this.totalItems = +data.total_matches;
                     this.nPages = Math.ceil(this.totalItems/this.perPage)
                     console.log(this.nPages)
@@ -315,7 +315,7 @@ var gmgc_vueapp = new Vue({
                 })
         },
 
-        searchFamByFunction : function(selector, page=0) {
+        searchFamByFunction : function(selector) {
             $('.search-spinner').show();
             let search = $(selector);
             search.blur();
@@ -324,13 +324,13 @@ var gmgc_vueapp = new Vue({
             let conservation = document.querySelector("#conservation").noUiSlider.get();
             let fetchURL = API_BASE_URL
                 + `/fnfams/${queryType}/${query}/${conservation}`;
-            fetch(`${fetchURL}/${page}/`)
+            fetch(`${fetchURL}/0/`)
                 .then(response => response.json())
                 .then(data => {
                     this.show_items = {};
                     this.show_items = data.show_items;
                     this.currentSearch = fetchURL;
-                    this.currentPage = page;
+                    this.currentPage = 1;
                     this.totalItems = +data.total_matches;
                     this.nPages = Math.ceil(this.totalItems/this.perPage)
                 })
@@ -552,10 +552,6 @@ var gmgc_vueapp = new Vue({
                     let file = window.URL.createObjectURL(blob);
                     window.location.assign(file);
                 })
-        },
-
-        isCurrentPage: function(page) {
-            return this.currentPage == page;
         },
 
         getPage: function(page) {
