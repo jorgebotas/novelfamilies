@@ -7,7 +7,7 @@
 <div v-for="(tdata, tid, index) in show_items">               
     {% include 'geco/card.html' %}
 </div>
-<div class='footer footer-transparent'>
+<div v-if="nPages > 1">
     {% include 'geco/pagination.html' %}
 </div>
 {% endblock %}
