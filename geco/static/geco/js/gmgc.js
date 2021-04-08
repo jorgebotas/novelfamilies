@@ -552,7 +552,11 @@ var gmgc_vueapp = new Vue({
                     let file = window.URL.createObjectURL(blob);
                     window.location.assign(file);
                 })
-        }
+        },
+
+        isCurrentPage: function(page) {
+            return this.currentPage == page;
+        },
     },
     filters : {
         filterBlank : function (value) {
