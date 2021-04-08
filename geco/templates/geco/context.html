@@ -1,20 +1,4 @@
 {% extends 'geco/base.html' %}
-{% block styles %}
-{% load static %}
-{% comment %}{% load compress %}{% endcomment %}
-    {% comment %}<link rel="stylesheet" type="text/css" {% endcomment %}
-        {% comment %}href="{% static "geco/GeCoVizjs/static/css/colors.css" %}"/>{% endcomment %}
-    {% comment %}<link rel="stylesheet" type="text/css" {% endcomment %}
-        {% comment %}href="{% static "geco/GeCoVizjs/static/css/scrollbar.css" %}"/>{% endcomment %}
-    {% comment %}<link rel="stylesheet" type="text/css" {% endcomment %}
-        {% comment %}href="{% static "geco/GeCoVizjs/static/css/selectBox.css" %}"/>{% endcomment %}
-    {% comment %}<link rel="stylesheet" type="text/css" {% endcomment %}
-        {% comment %}href="{% static "geco/GeCoVizjs/static/css/customBar.css" %}"/>{% endcomment %}
-    {% comment %}<link rel="stylesheet" type="text/css" {% endcomment %}
-        {% comment %}href="{% static "geco/GeCoVizjs/static/css/popper.css" %}"/>{% endcomment %}
-    {% comment %}<link rel="stylesheet" type="text/css" {% endcomment %}
-        {% comment %}href="{% static "geco/GeCoVizjs/static/css/gecoviz.css" %}"/>{% endcomment %}
-{% endblock %}
 {% block content %}
 
 {% include 'geco/filter_cards.html'%}
