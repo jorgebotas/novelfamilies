@@ -222,7 +222,6 @@ def get_newick(fam):
 def get_neighborhood(fam, members=None):
     if not members:
         members = col_fams.find_one({'gf': fam}) or {}
-        print(members)
         members = members.get('members' ,[])
     neighborhood = []
     # process each member of the family
