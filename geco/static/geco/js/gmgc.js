@@ -556,9 +556,9 @@ var gmgc_vueapp = new Vue({
 
         getPage: function(page) {
             if (page == 'previous') {
-                page = this.currentPage > 0
+                page = this.currentPage > 1
                     ? this.currentPage - 1
-                    : 0;
+                    : 1;
             } else if (page == 'next') {
                 page = this.currentPage < this.nPages
                     ? this.currentPage + 1

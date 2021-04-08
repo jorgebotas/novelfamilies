@@ -1,8 +1,8 @@
 <nav aria-label="Page pagination">
   <ul class="pagination justify-content-center">
-    <li class="page-item px-1">
+    <li class="page-item px-1"
+        :class="{ 'disabled': (currentPage == 1) }">
       <a class="page-link" 
-          :class="{ 'disabled': (currentPage == 1) }"
           @click='getPage("previous")' 
           aria-label="Previous">
         <span aria-hidden="true">&laquo;</span>
@@ -17,9 +17,9 @@
         <a class='page-link'
             @click='getPage(p)'>[[ p ]]</a>
     </li>
-    <li class="page-item px-1">
+    <li class="page-item px-1"
+        :class="{ 'disabled': (currentPage == nPages) }">
       <a class="page-link" 
-          :class="{ 'disabled': (currentPage == nPages) }"
           @click='getPage("next")' 
           aria-label="Next">
         <span aria-hidden="true">&raquo;</span>
