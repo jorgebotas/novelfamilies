@@ -5,10 +5,9 @@
 {% include 'geco/filter_cards.html'%}
 
 <div v-for="(tdata, tid, index) in show_items">               
-    [[ index ]]
     {% include 'geco/card.html' %}
 </div>
-<div>
+<div class='footer footer-transparent'>
     [[ nPages ]]
 </div>
 {% endblock %}
