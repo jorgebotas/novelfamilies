@@ -2,13 +2,11 @@
 {% load static %}
 {% block content %}
 
-{% include 'geco/filter_cards.html'%}
+{% comment %}{% include 'geco/filter_cards.html'%}{% endcomment %}
 
-{% comment %}<div v-if="show_items != {}" >{% endcomment %}
 <div v-for="(tdata, tid, index) in show_items">               
     {% include 'geco/card.html' %}
 </div>
-{% comment %}</div>{% endcomment %}
 <div>
     [[ show_items ]]
     [[ nPages ]]
