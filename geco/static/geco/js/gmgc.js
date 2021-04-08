@@ -376,6 +376,8 @@ var gmgc_vueapp = new Vue({
                 Object.entries(data.sources).forEach(([k,v]) => {
                     if (+v > 0)
                         sources[k] = v
+                    console.log(k)
+                    console.log(v)
                 })
                 renderDonut('f'+idx+'-sources',
                     Object.keys(sources),
