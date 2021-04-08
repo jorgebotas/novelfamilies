@@ -3,7 +3,7 @@ from django.conf import settings
 from ete3 import Tree
 import json
 import pickle
-from pymongo import MongoClient
+from pymongo import MongoClient, ASCENDING, DESCENDING
 import sys
 import time
 
@@ -169,8 +169,8 @@ def fams_by_neigh_annotation(term_type, term, score=0.9, page=0):
     fams = col_faminfo.find({'name': {'$in': matched_fams},
                              'emapper_hits': {'$eq': 0}},
                             {'_id': 0})\
-        .sort({'n_taxa': -1,
-               'name': 1})\
+        .sort([('n_taxa', DESCENDING),
+               ('name', ASCENDING)])\
         .skip(max((page-1)*DOCS_PER_PAGE, 0))\
         .limit(DOCS_PER_PAGE)
     total_matches = fams.count()
@@ -190,8 +190,8 @@ def fams_by_taxa(taxa, spec=0.9, cov=0.9, page=0):
                                                 'specificity':{'$gte': spec},
                                                 'coverage':{'$gte': cov}}},
                              'emapper_hits': {'$eq': 0}})\
-            .sort({'n_taxa': -1,
-                   'name': 1})\
+            .sort([('n_taxa', DESCENDING),
+                   ('name', ASCENDING)])\
             .skip(max((page-1)*DOCS_PER_PAGE, 0))\
             .limit(DOCS_PER_PAGE)
     total_matches = fams.count()
