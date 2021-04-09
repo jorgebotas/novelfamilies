@@ -330,9 +330,9 @@ def get_more_faminfo(fams):
             taxonomy.append(tax)
         ext_fam['domains'] = domains
         tax_counter = Counter(taxonomy)
-        print(tax_counter)
-        ext_fam['taxonomy'] = list(zip(tax_counter.keys(),
+        tax_counter = list(zip(tax_counter.keys(),
                                        tax_counter.values()))
+        ext_fam['taxonomy'] = tax_counter
         extended_fams.append(ext_fam)
     return extended_fams
 
