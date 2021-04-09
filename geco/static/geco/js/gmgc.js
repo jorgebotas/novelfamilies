@@ -453,7 +453,7 @@ var gmgc_vueapp = new Vue({
                 ]
 
                 const gecovizSelector = `#f${idx}-GeCoViz-summary`;
-                GeCoViz(gecovizSelector)
+                GeCoViz(gecovizSelector, { geneRect: { h: 20 } })
                     .contextData(summary)//data.context_summary)
                     .nSide(2)
                     .geneText("gene")
@@ -546,7 +546,7 @@ var gmgc_vueapp = new Vue({
                         'genus',
                         'species'
                     ]
-                    GeCoViz(selector, { geneRect: { h: 20 } })
+                    GeCoViz(selector)
                         .treeData(newick, newickFields)
                         .contextData(context)
                         .nSide(4)
