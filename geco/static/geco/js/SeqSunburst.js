@@ -109,6 +109,22 @@ var SeqSunburst = function(unformattedData, width) {
           .range(colors);
     }
 
+    // Generate a string that describes the points of a breadcrumb SVG polygon
+    function breadcrumbPoints(d, i) {
+        const tipWidth = 10;
+        const points = [];
+        points.push("0,0");
+        points.push(`${breadcrumbWidth},0`);
+        points.push(`${breadcrumbWidth + tipWidth},${breadcrumbHeight / 2}`);
+        points.push(`${breadcrumbWidth},${breadcrumbHeight}`);
+        points.push(`0,${breadcrumbHeight}`);
+        if (i > 0) {
+            // Leftmost breadcrumb; don't include 6th vertex.
+            points.push(`${tipWidth},${breadcrumbHeight / 2}`);
+        }
+        return points.join(" ");
+    }
+
     function init() {
         buildFields();
         buildRoot();
@@ -133,16 +149,16 @@ var SeqSunburst = function(unformattedData, width) {
             .attr("class", "percentage")
             .attr("x", 0)
             .attr("y", 0)
-            .attr("dy", "-0.1em")
+            .attr("dy", "0.2em")
             .attr("font-size", "30px")
             .text("");
-        label
-            .append("tspan")
-            .attr("class", "sequence-type")
-            .attr("font-size", "15px")
-            .attr("x", 0)
-            .attr("y", 0)
-            .attr("dy", "1.5em")
+        //label
+            //.append("tspan")
+            //.attr("class", "sequence-type")
+            //.attr("font-size", "15px")
+            //.attr("x", 0)
+            //.attr("y", 0)
+            //.attr("dy", "1.5em")
         // Main svg
         svg
             .attr("viewBox", `${-radius} ${-radius} ${width} ${width}`)
@@ -191,9 +207,9 @@ var SeqSunburst = function(unformattedData, width) {
                     .style("visibility", null)
                     .select(".percentage")
                     .text(percentage + "%");
-                label
-                    .select('.sequence-type')
-                    .text(d.data.name)
+                //label
+                    //.select('.sequence-type')
+                    //.text(d.data.name)
                 // Update the value of this view with
                 // the currently hovered sequence and percentage
                 element.value = { sequence, percentage };
