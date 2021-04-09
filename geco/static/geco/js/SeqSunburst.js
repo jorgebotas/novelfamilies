@@ -30,9 +30,8 @@ var SeqSunburst = function(unformattedData, width, selector) {
     ];
     var palette;
 
-    // Draw graph
+    var container;
     var graph = function() { return this };
-    var sunburst = buildGraph();
 
     // Converts data to hierarchical format
     function buildHierarchy(unfData) {
@@ -119,11 +118,15 @@ var SeqSunburst = function(unformattedData, width, selector) {
           .range(colors);
     }
 
-    function buildGraph() {
+    function init() {
         buildFields();
         buildRoot();
         buildScales();
-        const svg = d3.create("svg");
+    }
+
+    function buildGraph() {
+        //const svg = d3.create("svg");
+        const svg = container.append('svg');
         // Make this into a view, so that the currently
         // hovered sequence is available to the breadcrumb
         const element = svg.node();
@@ -206,12 +209,12 @@ var SeqSunburst = function(unformattedData, width, selector) {
     }
 
     graph.draw = function(selector) {
-        d3.select(selector)
-            .append(sunburst);
+        container = d3.select(selector);
+        buildGraph();
         return graph;
     }
 
-    if (selector)
-        graph.draw(selector)
+    init();
+
     return graph;
 }
