@@ -149,7 +149,7 @@ var SeqSunburst = function(unformattedData, width) {
             .attr("class", "percentage")
             .attr("x", 0)
             .attr("y", 0)
-            .attr("dy", "0.2em")
+            .attr("dy", "0.3em")
             .attr("font-size", "30px")
             .text("");
         //label
