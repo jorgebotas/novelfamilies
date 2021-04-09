@@ -1,4 +1,4 @@
-from collections import defaultdict
+from collections import defaultdict, Counter
 from django.conf import settings
 from ete3 import Tree
 import json
@@ -313,6 +313,7 @@ def get_more_faminfo(fams):
         ext_fam['mean_nh'] = tm.get('mean_nh', '0')
         tm = tm.get('per_g_pred', {})
         domains = []
+        taxonomy = []
         for m in fam['members']:
             # Topology
             m_topo = tm.get(m, {'top':''})['top']
@@ -322,11 +323,14 @@ def get_more_faminfo(fams):
                 'doms': get_domains(m_topo, m_sp),
                 'lenseq': 1000
             })
+            # Taxonomy
+            genome =  m.split('@')[1]
+            tax = get_taxonomy(genome)
+            taxonomy.append(tax)
         ext_fam['domains'] = domains
-        # Taxonomy
-        genome =  m.split('@')[1]
-        taxonomy = get_taxonomy(genome)
-
+        tax_counter = list(zip(Counter(taxonomy)))
+        print(tax_counter)
+        ext_fam['taxonomy'] = tax_counter
         extended_fams.append(ext_fam)
     return extended_fams
 
