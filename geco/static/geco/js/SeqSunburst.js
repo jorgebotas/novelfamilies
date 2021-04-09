@@ -10,7 +10,6 @@ var SeqSunburst = function(unformattedData, width, selector) {
     const separator = ";";
     var root;
     var fields;
-    const width = width;
     const radius = width/2;
     // var graph = function() { return this; };
     // Arcs
