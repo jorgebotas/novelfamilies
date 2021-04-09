@@ -452,7 +452,7 @@ var gmgc_vueapp = new Vue({
                   },
                 ]
 
-                const gecovizSelector = `#f${idx}-GeCoViz-summary`
+                const gecovizSelector = `#f${idx}-GeCoViz-summary`;
                 GeCoViz(gecovizSelector)
                     .contextData(summary)//data.context_summary)
                     .nSide(2)
