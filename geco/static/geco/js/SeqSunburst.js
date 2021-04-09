@@ -33,8 +33,6 @@ var SeqSunburst = function(unformattedData, width, selector) {
     // Draw graph
     var graph = function() { return this };
     var sunburst = buildGraph();
-    if (selector)
-        graph.draw(selector)
 
     // Converts data to hierarchical format
     function buildHierarchy(unfData) {
@@ -213,5 +211,7 @@ var SeqSunburst = function(unformattedData, width, selector) {
         return graph;
     }
 
+    if (selector)
+        graph.draw(selector)
     return graph;
 }
