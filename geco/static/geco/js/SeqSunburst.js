@@ -94,9 +94,11 @@ var SeqSunburst = function(unformattedData, width, selector) {
         unfFields = []
         data.forEach(d => {
             const seq = d[0].split(separator)
-            unfFields.append(seq)
+            unfFields.push(...seq)
         })
         fields = d3.set(unfFields).keys();
+        console.log(fields)
+        console.log(fields.length)
     }
 
     function buildScales() {
