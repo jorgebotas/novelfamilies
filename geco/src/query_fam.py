@@ -48,9 +48,10 @@ def get_sequence(query, fasta=True):
 def get_taxonomy(genome, json=True):
     match = col_taxonomy.find_one({'genome': genome})
     del match['_id']
-    taxa = match['lineage'].split(';')
+    taxa = match['lineage']
     if not json:
         return taxa
+    taxa = taxa.split(';')
     fields = [
 	'domain', 'phylum',
 	'class', 'order',
@@ -325,7 +326,7 @@ def get_more_faminfo(fams):
             })
             # Taxonomy
             genome =  m.split('@')[1]
-            tax = get_taxonomy(genome, False)
+            tax = get_taxonomy(genome, json=False)
             taxonomy.append(tax)
         ext_fam['domains'] = domains
         tax_counter = list(zip(Counter(taxonomy)))
