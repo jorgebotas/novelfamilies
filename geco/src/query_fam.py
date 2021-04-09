@@ -45,10 +45,12 @@ def get_sequence(query, fasta=True):
     return seq
 
 # Preloads taxonomy info per genome
-def get_taxonomy(genome):
+def get_taxonomy(genome, json=True):
     match = col_taxonomy.find_one({'genome': genome})
     del match['_id']
     taxa = match['lineage'].split(';')
+    if not json:
+        return taxa
     fields = [
 	'domain', 'phylum',
 	'class', 'order',
@@ -58,7 +60,8 @@ def get_taxonomy(genome):
     taxonomy = []
     for idx, f in enumerate(fields):
         t = taxa[idx].split('_')[-1]
-        if t == '_': t = ''
+        if t == '_':
+            continue
         taxonomy.append({'id':t, 'level':f})
     return taxonomy
 
@@ -309,6 +312,7 @@ def get_more_faminfo(fams):
         tm = tm.get('per_g_pred', {})
         domains = []
         for m in fam['members']:
+            # Topology
             m_topo = tm.get(m, {'top':''})['top']
             m_sp = list(sp['genes'].get(m, {}).values())
             domains.append({
@@ -317,6 +321,10 @@ def get_more_faminfo(fams):
                 'lenseq': 1000
             })
         ext_fam['domains'] = domains
+        # Taxonomy
+        genome =  m.split('@')[1]
+        taxonomy = get_taxonomy(genome)
+
         extended_fams.append(ext_fam)
     return extended_fams
 
