@@ -31,6 +31,7 @@ var SeqSunburst = function(unformattedData, width, selector) {
     var palette;
 
     // Draw graph
+    var graph = function() { return this };
     var sunburst = buildGraph();
     if (selector)
         graph.draw(selector)
@@ -209,5 +210,8 @@ var SeqSunburst = function(unformattedData, width, selector) {
     graph.draw = function(selector) {
         d3.select(selector)
             .append(sunburst);
+        return graph;
     }
+
+    return graph;
 }
