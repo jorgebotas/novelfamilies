@@ -328,6 +328,7 @@ def get_more_faminfo(fams):
             tax = get_taxonomy(genome)
             taxonomy.append(tax)
         ext_fam['domains'] = domains
+        print(taxonomy)
         tax_counter = Counter(taxonomy)
         print(tax_counter)
         ext_fam['taxonomy'] = tax_counter
