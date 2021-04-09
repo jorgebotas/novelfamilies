@@ -193,7 +193,7 @@ var SeqSunburst = function(unformattedData, width) {
                     .text(percentage + "%");
                 label
                     .select('.sequence-type')
-                    .text(sequence.join(' > '))
+                    .text(d.data.name)
                 // Update the value of this view with
                 // the currently hovered sequence and percentage
                 element.value = { sequence, percentage };
