@@ -96,7 +96,7 @@ var SeqSunburst = function(unformattedData, width, selector) {
             const seq = d[0].split(separator)
             unfFields.push(...seq)
         })
-        fields = d3.unique(unfFields);
+        fields = [...new Set(unfFields)];
         console.log(fields)
         console.log(fields.length)
     }
