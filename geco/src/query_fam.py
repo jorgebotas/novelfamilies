@@ -325,11 +325,10 @@ def get_more_faminfo(fams):
             })
             # Taxonomy
             genome =  m.split('@')[1]
-            tax = get_taxonomy(genome)
+            tax = get_taxonomy(genome, False)
             taxonomy.append(tax)
         ext_fam['domains'] = domains
-        print(taxonomy)
-        tax_counter = Counter(taxonomy)
+        tax_counter = list(zip(Counter(taxonomy)))
         print(tax_counter)
         ext_fam['taxonomy'] = tax_counter
         extended_fams.append(ext_fam)
