@@ -210,6 +210,3 @@ var SeqSunburst = function(unformattedData, width, selector) {
             .append(sunburst);
     }
 }
-
-
-
