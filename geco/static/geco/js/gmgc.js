@@ -479,7 +479,8 @@ var gmgc_vueapp = new Vue({
 
                 // Render sunbursts
                 const sunburstSelector = `#f${idx}-taxSunburst`
-                SeqSunburst(data.taxonomy, 200, sunburstSelector)
+                SeqSunburst(data.taxonomy, 200)
+                    .draw(sunburstSelector);
             });
         },
 
