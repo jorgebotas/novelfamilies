@@ -202,7 +202,7 @@ var SeqSunburst = function(unformattedData, width, selector) {
                 element.dispatchEvent(new CustomEvent("input"));
             });
 
-        return element;
+        return svg;
     }
 
     graph.draw = function(selector) {
