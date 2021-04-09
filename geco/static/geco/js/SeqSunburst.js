@@ -17,16 +17,7 @@ var SeqSunburst = function(unformattedData, width) {
     var mousearc;
     // Color palette
     const colors = [
-        "#eddcd2",
-        "#fff1e6",
-        "#fde2e4",
-        "#fad2e1",
-        "#acc8c1",
-        "#bedad9",
-        "#d7eae4",
-        "#bcd4e6",
-        "#99c1de",
-        "#82a8c4"
+        "#82a8c4","#99c1de","#bcd4e6","#acc8c1","#bedad9","#d7eae4","#fad2e1","#fde2e4","#eddcd2","#fff1e6"
     ];
     var palette;
 
@@ -143,14 +134,15 @@ var SeqSunburst = function(unformattedData, width) {
             .attr("x", 0)
             .attr("y", 0)
             .attr("dy", "-0.1em")
-            .attr("font-size", "3em")
+            .attr("font-size", "30px")
             .text("");
         label
             .append("tspan")
+            .attr("class", "sequence-type")
+            .attr("font-size", "15px")
             .attr("x", 0)
             .attr("y", 0)
             .attr("dy", "1.5em")
-            .text("of visits begin with this sequence");
         // Main svg
         svg
             .attr("viewBox", `${-radius} ${-radius} ${width} ${width}`)
@@ -199,6 +191,9 @@ var SeqSunburst = function(unformattedData, width) {
                     .style("visibility", null)
                     .select(".percentage")
                     .text(percentage + "%");
+                label
+                    .select('.sequence-type')
+                    .text(sequence.join(' > '))
                 // Update the value of this view with
                 // the currently hovered sequence and percentage
                 element.value = { sequence, percentage };
