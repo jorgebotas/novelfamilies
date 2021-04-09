@@ -259,6 +259,10 @@ var renderDomains = function(domains) {
         });
 }
 
+var renderSunburst = function(selector, data) {
+    SeqSunburst(data, 200, selector);
+}
+
 var gmgc_vueapp = new Vue({
     delimiters: ['[[', ']]'],
     el: '#NovelFams',
@@ -368,9 +372,9 @@ var gmgc_vueapp = new Vue({
             // Remove domain representation
             d3.selectAll('.domains').selectAll('*').remove();
             Object.entries(this.show_items).forEach(([f, data]) => {
-                let idx = Object.keys(this.show_items).indexOf(f);
+                const idx = Object.keys(this.show_items).indexOf(f);
                 // Sources donut
-                let sources = data.sources
+                const sources = data.sources
                 renderDonut('f'+idx+'-sources',
                     Object.keys(sources),
                     Object.values(sources),
@@ -448,7 +452,7 @@ var gmgc_vueapp = new Vue({
                   },
                 ]
 
-                let gecovizSelector = `#f${idx}-GeCoViz-summary`
+                const gecovizSelector = `#f${idx}-GeCoViz-summary`
                 GeCoViz(gecovizSelector)
                     .contextData(summary)//data.context_summary)
                     .nSide(2)
@@ -459,7 +463,7 @@ var gmgc_vueapp = new Vue({
                         'showLegend': false
                     })
                     .draw();
-                let gecovizSummary = d3.select(gecovizSelector);
+                const gecovizSummary = d3.select(gecovizSelector);
                 gecovizSummary
                     .select('.graph-container')
                     .style('max-height', '50px');
@@ -472,10 +476,10 @@ var gmgc_vueapp = new Vue({
 
                 // Render protein topologies
                 renderDomains(data.domains);
-                //drawDonuts(f, data);
-                //renderDomains(data.tm);
-                //d3.selectAll('.GeCoViz').selectAll('*').remove();
-                //this.toggleGeCoViz(`#f${idx}-GeCoViz`, f)
+
+                // Render sunbursts
+                const sunburstSelector = `#f${idx}-taxSunburst`
+                SeqSunburst(sunburstSelector, 200, data.taxonomy)
             });
         },
 
