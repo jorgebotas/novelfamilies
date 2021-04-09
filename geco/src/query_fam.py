@@ -62,6 +62,8 @@ def get_taxonomy(genome, json=True):
         t = taxa[idx].split('_')[-1]
         if t == '_':
             continue
+        t.replace('.', '')
+        t.replace(r'\s', '_')
         taxonomy.append({'id':t, 'level':f})
     return taxonomy
 
