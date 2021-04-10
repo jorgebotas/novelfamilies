@@ -263,21 +263,24 @@ class BreadCrumb {
     updatePolygons() {
         const breadcrumbs = this.container
             .selectAll('.breadcrumb-g')
-            .data(this.seq, d => d.data.name)
+            .data(this.seq, d => d.data.name);
         const breadcrumbsEnter = breadcrumbs
             .enter()
             .append('g')
             .attr('class', 'breadcrumb-g')
+            .style('text-align', 'center')
             .attr('transform', (_, i) =>
-                `translate(${this.polygonWidth*i}, 0)`)
+                `translate(${this.polygonWidth*i}, 0)`);
         breadcrumbsEnter
             .append('polygon')
             .attr('class', 'breadcrumb-polygon')
             .attr('fill', d => this.palette(d.data.name))
-            .attr('points', (_, i) => this.breadcrumbPoints(i))
+            .attr('points', (_, i) => this.breadcrumbPoints(i));
         breadcrumbsEnter
             .append('text')
             .text(d => d.data.name)
+            .attr('x', this.polygonWidth/2 + this.polygonPadding)
+            .attr('y', this.polygonHeight/1.8);
     }
 
     update(seq) {
