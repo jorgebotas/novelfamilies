@@ -266,6 +266,8 @@ class BreadCrumb {
             .data(this.seq, d => d.data.name)
         const breadcrumbsEnter = breadcrumbs
             .enter()
+            .append('g')
+            .attr('class', 'breadcrumb-g')
             .attr('transform', (_, i) =>
                 `translate(${this.polygonWidth*i}, 0)`)
         breadcrumbsEnter
