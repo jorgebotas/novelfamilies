@@ -69,7 +69,6 @@ def get_taxonomy(genome, json=True):
             .replace('.', '')\
             .replace(r'\s', '_')
         taxonomy.append({'id':t, 'level':f})
-    print(taxonomy)
     return taxonomy
 
 def get_emapper_annotations(names):
@@ -336,6 +335,7 @@ def get_more_faminfo(fams):
         taxonomy = list(zip(tax_counter.keys(),
                             tax_counter.values()))
         ext_fam['taxonomy'] = taxonomy
+        print(taxonomy)
         extended_fams.append(ext_fam)
     return extended_fams
 
