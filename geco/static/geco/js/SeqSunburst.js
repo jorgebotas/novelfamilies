@@ -222,10 +222,10 @@ var SeqSunburst = function(unformattedData, width) {
 
 class BreadCrumb {
     constructor(selector, palette, maxSeqLength, seq) {
-        this.breadcrumb;
-        this.polygons;
+        // Polygon dimensions
         this.polygonWidth = 100;
         this.polygonHeight = 30;
+        this.polygonPadding = 2;
         this.tipWidth = 10;
         this.palette = palette;
         this.seq;
@@ -233,7 +233,9 @@ class BreadCrumb {
         this.container = d3.select(selector)
         .append('svg')
         .attr('class', 'BreadCrumb')
-        .attr('width', this.maxSeqLength*this.polygonWidth + this.tipWidth)
+        .attr('width', this.maxSeqLength*this.polygonWidth
+            + this.tipWidth
+            + this.polygonPadding)
         .attr('height', this.polygonHeight);
         if (seq)
             this.update(seq)
@@ -241,8 +243,10 @@ class BreadCrumb {
 
     // Generate a string that describes the points of a breadcrumb SVG polygon
     breadcrumbPoints(i) {
-        const x0 = this.polygonWidth * i;
-        const x = this.polygonWidth * (i+1);
+        //const x0 = this.polygonWidth * i + this.polygonPadding;
+        //const x = this.polygonWidth * (i+1);
+        const x0 = this.polygonPadding;
+        const x = this.polygonWidth;
         const points = [];
         points.push(`${x0}, 0`);
         points.push(`${x},0`);
@@ -257,14 +261,21 @@ class BreadCrumb {
     }
 
     updatePolygons() {
-        this.polygons = this.container
-            .selectAll('.breadcrumb-polygon')
-            .data(this.seq, s => s.data.name)
-        this.polygons
-            .join('polygon')
+        const breadcrumbs = this.container
+            .selectAll('.breadcrumb-g')
+            .data(this.seq, d => d.data.name)
+        const breadcrumbsEnter = breadcrumbs
+            .enter()
+            .attr('transform', (_, i) =>
+                `translate(${this.polygonWidth*i}, 0)`)
+        breadcrumbsEnter
+            .append('polygon')
             .attr('class', 'breadcrumb-polygon')
-            .attr('fill', s => this.palette(s.data.name))
+            .attr('fill', d => this.palette(d.data.name))
             .attr('points', (_, i) => this.breadcrumbPoints(i))
+        breadcrumbsEnter
+            .append('text')
+            .text(d => d.data.name)
     }
 
     update(seq) {
