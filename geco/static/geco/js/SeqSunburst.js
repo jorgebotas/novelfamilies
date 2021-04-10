@@ -310,9 +310,9 @@ class BreadCrumb {
             .style('font-size', '10px')
             .style('font-weight', 'bold');
         // Exit breadcrumbs
-        breadcrumbs
-            .exit()
-            .remove();
+        //breadcrumbs
+            //.exit()
+            //.remove();
     }
 
     update(seq) {
