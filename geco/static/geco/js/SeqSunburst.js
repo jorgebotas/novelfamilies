@@ -209,7 +209,16 @@ var SeqSunburst = function(unformattedData, width) {
             .style('display', 'flex')
             .style('justify-content', 'center');
         breadcrumb = new BreadCrumb(selector + ' .breadcrumb-container',
-                                    palette, 7);
+            palette,
+            [
+                'domain',
+                'phylum',
+                'class',
+                'order',
+                'family',
+                'genus',
+                'species'
+            ]);
         buildSunburst();
         return graph;
     }
@@ -221,7 +230,7 @@ var SeqSunburst = function(unformattedData, width) {
 
 
 class BreadCrumb {
-    constructor(selector, palette, maxSeqLength, seq) {
+    constructor(selector, palette, fields, seq) {
         // Polygon dimensions
         this.polygonWidth = 150;
         this.polygonHeight = 30;
@@ -229,7 +238,8 @@ class BreadCrumb {
         this.tipWidth = 10;
         this.palette = palette;
         this.seq;
-        this.maxSeqLength = maxSeqLength;
+        this.fields = fields;
+        this.maxSeqLength = this.fields.length;
         this.container = d3.select(selector)
         .append('svg')
         .attr('class', 'BreadCrumb')
@@ -271,11 +281,13 @@ class BreadCrumb {
             .style('text-align', 'center')
             .attr('transform', (_, i) =>
                 `translate(${this.polygonWidth*i}, 0)`);
+        // Polygon
         breadcrumbsEnter
             .append('polygon')
             .attr('class', 'breadcrumb-polygon')
             .attr('fill', d => this.palette(d.data.name))
             .attr('points', (_, i) => this.breadcrumbPoints(i));
+        // Text on polygon
         breadcrumbsEnter
             .append('text')
             .text(d => d.data.name.slice(3))
@@ -283,7 +295,15 @@ class BreadCrumb {
             .attr('y', this.polygonHeight/1.5)
             .style('font-size', '10px')
             .style('font-weight', 'bold');
-
+        // Text on top
+        breadcrumbsEnter
+            .append('text')
+            .text(d => this.fields[d.data.name.slice(0, 2)])
+            .attr('x', this.tipWidth + this.polygonPadding + 5)
+            .attr('y', '-10')
+            .style('font-size', '10px')
+            .style('font-weight', 'bold');
+        // Exit breadcrumbs
         breadcrumbs
             .exit()
             .remove();

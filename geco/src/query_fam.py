@@ -52,7 +52,6 @@ def get_taxonomy(genome, json=True):
     parsed_taxa = []
     for t in taxa:
         if t[-1] == '_':
-            print(t)
             continue
         parsed_taxa.append(t)
     if not json:
