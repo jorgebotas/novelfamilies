@@ -280,7 +280,8 @@ class BreadCrumb {
             .append('text')
             .text(d => d.data.name.slice(3))
             .attr('x', this.tipWidth + this.polygonPadding + 3)
-            .attr('y', this.polygonHeight/1.5);
+            .attr('y', this.polygonHeight/1.5)
+            .style('font-size', '12px');
         breadcrumbs
             .exit()
             .remove();
