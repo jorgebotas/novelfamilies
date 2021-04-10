@@ -240,7 +240,7 @@ class BreadCrumb {
         this.palette = palette;
         this.seq;
         this.fields = fields;
-        this.maxSeqLength = this.fields.length;
+        this.maxSeqLength = Object.keys(this.fields).length;
         this.container = d3.select(selector)
             .append('svg')
             .attr('class', 'BreadCrumb')
