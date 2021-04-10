@@ -259,10 +259,9 @@ def get_neighborhood(fam, members=None):
 			# Best OG description
                         "Description": gene2annot[orf['g']].get('bod', ''),
                         #"emapper": gene2annot[orf['g']],
-                        "CARD": gene2card[orf['g']]
+                        "CARD": gene2card[orf['g']],
+                        "seqID": "@".join([src, genome, orf['g'], taxa])
                 }
-            if int(gene_doc['pos']) == 0:
-                gene_doc["seqID"] = gene_entry
             neighborhood.append(gene_doc)
     return neighborhood
 
