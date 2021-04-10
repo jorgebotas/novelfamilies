@@ -233,7 +233,7 @@ class BreadCrumb {
         this.breadcrumb;
         this.polygons;
         this.polygonWidth = 100;
-        this.polygonHeight = 40;
+        this.polygonHeight = 30;
         this.tipWidth = 10;
         this.palette = palette;
         this.seq;
@@ -241,7 +241,7 @@ class BreadCrumb {
         this.container = d3.select(selector)
         .append('svg')
         .attr('class', 'BreadCrumb')
-        .attr('width', this.maxSeqLength*this.polygonWidth)
+        .attr('width', this.maxSeqLength*this.polygonWidth + this.tipWidth)
         .attr('height', this.polygonHeight);
         if (seq)
             this.update(seq)
