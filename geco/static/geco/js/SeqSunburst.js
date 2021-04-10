@@ -210,15 +210,15 @@ var SeqSunburst = function(unformattedData, width) {
             .style('justify-content', 'center');
         breadcrumb = new BreadCrumb(selector + ' .breadcrumb-container',
             palette,
-            [
-                'domain',
-                'phylum',
-                'class',
-                'order',
-                'family',
-                'genus',
-                'species'
-            ]);
+            {
+                'd': 'domain',
+                'p': 'phylum',
+                'c': 'class',
+                'o': 'order',
+                'f': 'family',
+                'g': 'genus',
+                's': 'species'
+            });
         buildSunburst();
         return graph;
     }
@@ -230,23 +230,25 @@ var SeqSunburst = function(unformattedData, width) {
 
 
 class BreadCrumb {
-    constructor(selector, palette, fields, seq) {
+    constructor(selector, palette, fields, seq, options = { showFields: true }) {
         // Polygon dimensions
         this.polygonWidth = 150;
         this.polygonHeight = 30;
         this.polygonPadding = 2;
         this.tipWidth = 10;
+        this.fieldsHeight = options.showFields ? 10 : 0;
         this.palette = palette;
         this.seq;
         this.fields = fields;
         this.maxSeqLength = this.fields.length;
         this.container = d3.select(selector)
-        .append('svg')
-        .attr('class', 'BreadCrumb')
-        .attr('width', this.maxSeqLength*this.polygonWidth
-            + this.tipWidth
-            + this.polygonPadding)
-        .attr('height', this.polygonHeight);
+            .append('svg')
+            .attr('class', 'BreadCrumb')
+            .attr('width',
+                this.maxSeqLength*this.polygonWidth
+                + this.tipWidth
+                + this.polygonPadding)
+            .attr('height', this.polygonHeight);
         if (seq)
             this.update(seq)
     }
@@ -257,15 +259,17 @@ class BreadCrumb {
         //const x = this.polygonWidth * (i+1);
         const x0 = this.polygonPadding;
         const x = this.polygonWidth;
+        const y0 = this.fieldsHeight;
+        const y = y0 + this.polygonHeight / 2;
         const points = [];
-        points.push(`${x0}, 0`);
-        points.push(`${x},0`);
-        points.push(`${x + this.tipWidth}, ${this.polygonHeight / 2}`);
-        points.push(`${x},${this.polygonHeight}`);
-        points.push(`${x0},${this.polygonHeight}`);
+        points.push(`${x0}, ${y0}`);
+        points.push(`${x}, ${y0}`);
+        points.push(`${x + this.tipWidth}, ${y}`);
+        points.push(`${x},${y + this.polygonHeight}`);
+        points.push(`${x0},${y + this.polygonHeight}`);
         if (i > 0) {
             // Leftmost breadcrumb; don't include 6th vertex.
-            points.push(`${x0 + this.tipWidth},${this.polygonHeight / 2}`);
+            points.push(`${x0 + this.tipWidth},${y}`);
         }
         return points.join(" ");
     }
@@ -300,7 +304,7 @@ class BreadCrumb {
             .append('text')
             .text(d => this.fields[d.data.name.slice(0, 2)])
             .attr('x', this.tipWidth + this.polygonPadding + 5)
-            .attr('y', '-10')
+            .attr('y', '0')
             .style('font-size', '10px')
             .style('font-weight', 'bold');
         // Exit breadcrumbs
