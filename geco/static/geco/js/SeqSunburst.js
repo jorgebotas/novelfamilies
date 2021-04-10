@@ -223,7 +223,7 @@ var SeqSunburst = function(unformattedData, width) {
 class BreadCrumb {
     constructor(selector, palette, maxSeqLength, seq) {
         // Polygon dimensions
-        this.polygonWidth = 100;
+        this.polygonWidth = 150;
         this.polygonHeight = 30;
         this.polygonPadding = 2;
         this.tipWidth = 10;
@@ -281,7 +281,9 @@ class BreadCrumb {
             .text(d => d.data.name.slice(3))
             .attr('x', this.tipWidth + this.polygonPadding + 3)
             .attr('y', this.polygonHeight/1.5)
-            .style('font-size', '12px');
+            .style('font-size', '10px')
+            .style('font-weight', 'bold');
+
         breadcrumbs
             .exit()
             .remove();
