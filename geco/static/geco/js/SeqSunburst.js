@@ -236,7 +236,7 @@ class BreadCrumb {
         this.polygonHeight = 30;
         this.polygonPadding = 2;
         this.tipWidth = 10;
-        this.fieldsHeight = options.showFields ? 10 : 0;
+        this.fieldsHeight = options.showFields ? 15 : 0;
         this.palette = palette;
         this.seq;
         this.fields = fields;
@@ -297,7 +297,7 @@ class BreadCrumb {
             .attr('class', 'breadcrumb-polygon-text')
             .text(d => d.data.name.slice(3))
             .attr('x', this.tipWidth + this.polygonPadding + 5)
-            .attr('y', this.polygonHeight/1.5)
+            .attr('y', this.fieldsHeight + this.polygonHeight/1.5)
             .style('font-size', '10px')
             .style('font-weight', 'bold');
         // Text on top
@@ -306,7 +306,7 @@ class BreadCrumb {
             .attr('class', 'breadcrumb-top-text')
             .text(d => this.fields[d.data.name.slice(0, 2)])
             .attr('x', this.tipWidth + this.polygonPadding + 5)
-            .attr('y', '0')
+            .attr('y', this.fieldsHeight - 3)
             .style('font-size', '10px')
             .style('font-weight', 'bold');
         // Exit breadcrumbs
