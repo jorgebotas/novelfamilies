@@ -278,8 +278,8 @@ class BreadCrumb {
             .attr('points', (_, i) => this.breadcrumbPoints(i));
         breadcrumbsEnter
             .append('text')
-            .text(d => d.data.name)
-            .attr('x', this.tipWidth + this.polygonPadding)
+            .text(d => d.data.name.slice(3))
+            .attr('x', this.tipWidth + this.polygonPadding + 3)
             .attr('y', this.polygonHeight/1.5);
         breadcrumbs
             .exit()
