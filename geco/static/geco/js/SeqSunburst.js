@@ -261,6 +261,6 @@ class BreadCrumb {
     update(seq) {
         this.seq = seq;
         console.log(seq)
-        updatePolygons();
+        this.updatePolygons();
     }
 }
