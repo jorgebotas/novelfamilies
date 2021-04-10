@@ -136,8 +136,8 @@ var SeqSunburst = function(unformattedData, width) {
         const svg = container.append('svg');
         // Make this into a view, so that the currently
         // hovered sequence is available to the breadcrumb
-        const element = svg.node();
-        element.value = { sequence: [], percentage: 0.0 };
+        //const element = svg.node();
+        //element.value = { sequence: [], percentage: 0.0 };
 
         // Center label
         const label = svg
@@ -183,8 +183,8 @@ var SeqSunburst = function(unformattedData, width) {
               path.attr("fill-opacity", 1);
               label.style("visibility", "hidden");
               // Update the value of this view
-              element.value = { sequence: [], percentage: 0.0 };
-              element.dispatchEvent(new CustomEvent("input"));
+              //element.value = { sequence: [], percentage: 0.0 };
+              //element.dispatchEvent(new CustomEvent("input"));
             })
             .selectAll("path")
             // Don't draw the root node, and for efficiency,
@@ -212,8 +212,8 @@ var SeqSunburst = function(unformattedData, width) {
                     //.text(d.data.name)
                 // Update the value of this view with
                 // the currently hovered sequence and percentage
-                element.value = { sequence, percentage };
-                element.dispatchEvent(new CustomEvent("input"));
+                //element.value = { sequence, percentage };
+                //element.dispatchEvent(new CustomEvent("input"));
             });
 
         return svg;
