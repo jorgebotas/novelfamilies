@@ -260,7 +260,7 @@ class BreadCrumb {
         points.push(`${x0},${this.polygonHeight}`);
         if (i > 0) {
             // Leftmost breadcrumb; don't include 6th vertex.
-            points.push(`${x + this.tipWidth},${this.polygonHeight / 2}`);
+            points.push(`${x0 + this.tipWidth},${this.polygonHeight / 2}`);
         }
         return points.join(" ");
     }
