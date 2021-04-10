@@ -148,7 +148,7 @@ var SeqSunburst = function(unformattedData, width) {
             //.attr("y", 0)
             //.attr("dy", "1.5em")
         // Main svg
-        svg
+        sunburst
             .attr("viewBox", `${-radius} ${-radius} ${width} ${width}`)
             .style("max-width", `${width}px`)
             .style("font", "12px sans-serif");
