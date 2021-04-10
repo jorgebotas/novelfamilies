@@ -22,6 +22,8 @@ var SeqSunburst = function(unformattedData, width) {
     var palette;
 
     var container;
+    var sunburst;
+    var breadcrumb;
     var graph = function() { return this };
 
     // Converts data to hierarchical format
@@ -109,38 +111,24 @@ var SeqSunburst = function(unformattedData, width) {
           .range(colors);
     }
 
-    // Generate a string that describes the points of a breadcrumb SVG polygon
-    function breadcrumbPoints(d, i) {
-        const tipWidth = 10;
-        const points = [];
-        points.push("0,0");
-        points.push(`${breadcrumbWidth},0`);
-        points.push(`${breadcrumbWidth + tipWidth},${breadcrumbHeight / 2}`);
-        points.push(`${breadcrumbWidth},${breadcrumbHeight}`);
-        points.push(`0,${breadcrumbHeight}`);
-        if (i > 0) {
-            // Leftmost breadcrumb; don't include 6th vertex.
-            points.push(`${tipWidth},${breadcrumbHeight / 2}`);
-        }
-        return points.join(" ");
-    }
-
     function init() {
         buildFields();
         buildRoot();
         buildScales();
     }
 
-    function buildGraph() {
+    function buildSunburst() {
         //const svg = d3.create("svg");
-        const svg = container.append('svg');
+        sunburst = container
+            .append('svg')
+            .attr('class', 'seq-sunburst')
         // Make this into a view, so that the currently
         // hovered sequence is available to the breadcrumb
         //const element = svg.node();
         //element.value = { sequence: [], percentage: 0.0 };
 
         // Center label
-        const label = svg
+        const label = sunburst
             .append("text")
             .attr("text-anchor", "middle")
             .attr("fill", "#888")
@@ -165,7 +153,7 @@ var SeqSunburst = function(unformattedData, width) {
             .style("max-width", `${width}px`)
             .style("font", "12px sans-serif");
         // Paths
-        const path = svg
+        const path = sunburst
             .append("g")
             .selectAll("path")
             // Don't draw the root node, and for efficiency,
@@ -175,13 +163,12 @@ var SeqSunburst = function(unformattedData, width) {
             .join("path")
             .attr("fill", d => palette(d.data.name))
             .attr("d", arc);
-        svg
-            .append("g")
+        sunburst.append("g")
             .attr("fill", "none")
             .attr("pointer-events", "all")
             .on("mouseleave", () => {
-              path.attr("fill-opacity", 1);
-              label.style("visibility", "hidden");
+                path.attr("fill-opacity", 1);
+                label.style("visibility", "hidden");
               // Update the value of this view
               //element.value = { sequence: [], percentage: 0.0 };
               //element.dispatchEvent(new CustomEvent("input"));
@@ -207,6 +194,8 @@ var SeqSunburst = function(unformattedData, width) {
                     .style("visibility", null)
                     .select(".percentage")
                     .text(percentage + "%");
+                // Update breadcrumb
+                breadcrumb.update(sequence)
                 //label
                     //.select('.sequence-type')
                     //.text(d.data.name)
@@ -216,16 +205,62 @@ var SeqSunburst = function(unformattedData, width) {
                 //element.dispatchEvent(new CustomEvent("input"));
             });
 
-        return svg;
+        return sunburst;
     }
 
     graph.draw = function(selector) {
         container = d3.select(selector);
-        buildGraph();
+        breadcrumb = BreadCrumb(selector, []);
+        buildSunburst();
         return graph;
     }
 
     init();
 
     return graph;
+}
+
+
+class BreadCrumb {
+    constructor(selector, seq) {
+        this.container = d3.select(selector)
+            .append('svg')
+            .attr('class', 'BreadCrumb');
+        this.seq = seq;
+        this.breadcrumb;
+        this.polygons;
+    }
+
+    // Generate a string that describes the points of a breadcrumb SVG polygon
+    breadcrumbPoints(i) {
+        const tipWidth = 10;
+        const points = [];
+        points.push("0,0");
+        points.push(`${breadcrumbWidth},0`);
+        points.push(`${breadcrumbWidth + tipWidth},${breadcrumbHeight / 2}`);
+        points.push(`${breadcrumbWidth},${breadcrumbHeight}`);
+        points.push(`0,${breadcrumbHeight}`);
+        if (i > 0) {
+            // Leftmost breadcrumb; don't include 6th vertex.
+            points.push(`${tipWidth},${breadcrumbHeight / 2}`);
+        }
+        return points.join(" ");
+    }
+
+    updatePolygons() {
+        this.polygons = this.container
+            .selectAll('.breadcrumb-polygon')
+            .data(this.seq, s => s.data.name)
+        this.polygons
+            .join('polygon')
+            .attr('class', 'breadcrumb-polygon')
+            .attr('fill', s => this.palette(s.data.name))
+            .attr('points', (_, i) => this.breadcrumbPoints(i))
+    }
+
+    update(seq) {
+        this.seq = seq;
+        console.log(seq)
+        updatePolygons();
+    }
 }
