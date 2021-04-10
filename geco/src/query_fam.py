@@ -51,8 +51,7 @@ def get_taxonomy(genome, json=True):
     taxa = match['lineage'].split(';')
     parsed_taxa = []
     for t in taxa:
-        print(t)
-        if t.split('_')[-1] == '_':
+        if t[-1] == '_':
             print(t)
             continue
         parsed_taxa.append(t)
