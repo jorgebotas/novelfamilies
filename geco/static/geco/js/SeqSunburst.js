@@ -250,16 +250,17 @@ class BreadCrumb {
     // Generate a string that describes the points of a breadcrumb SVG polygon
     breadcrumbPoints(i) {
         console.log(i)
-        const x = this.polygonWidth * i;
+        const x0 = this.polygonWidth * i;
+        const x = this.polygonWidth * (i+1);
         const points = [];
-        points.push("0,0");
+        points.push(`${x0}, 0`);
         points.push(`${x},0`);
         points.push(`${x + this.tipWidth}, ${this.polygonHeight / 2}`);
         points.push(`${x},${this.polygonHeight}`);
-        points.push(`0,${this.polygonHeight}`);
+        points.push(`${x0},${this.polygonHeight}`);
         if (i > 0) {
             // Leftmost breadcrumb; don't include 6th vertex.
-            points.push(`${this.tipWidth},${this.polygonHeight / 2}`);
+            points.push(`${x + this.tipWidth},${this.polygonHeight / 2}`);
         }
         return points.join(" ");
     }
