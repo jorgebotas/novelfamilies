@@ -69,6 +69,7 @@ def get_taxonomy(genome, json=True):
             .replace('.', '')\
             .replace(r'\s', '_')
         taxonomy.append({'id':t, 'level':f})
+    print(taxonomy)
     return taxonomy
 
 def get_emapper_annotations(names):
