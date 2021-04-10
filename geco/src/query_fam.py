@@ -63,12 +63,11 @@ def get_taxonomy(genome, json=True):
 	'species'
     ]
     taxonomy = []
-    for idx, f in enumerate(fields):
-        t = parsed_taxa[idx]\
-            .split('_')[-1]\
+    for idx, t in enumerate(parsed_taxa):
+        t = t.split('_')[-1]\
             .replace('.', '')\
             .replace(r'\s', '_')
-        taxonomy.append({'id':t, 'level':f})
+        taxonomy.append({'id':t, 'level':fields[idx]})
     return taxonomy
 
 def get_emapper_annotations(names):
