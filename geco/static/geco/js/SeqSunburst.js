@@ -279,8 +279,11 @@ class BreadCrumb {
         breadcrumbsEnter
             .append('text')
             .text(d => d.data.name)
-            .attr('x', this.polygonWidth/2 + this.polygonPadding)
-            .attr('y', this.polygonHeight/1.8);
+            .attr('x', this.tipWidth + this.polygonPadding)
+            .attr('y', this.polygonHeight/1.5);
+        breadcrumbs
+            .exit()
+            .remove();
     }
 
     update(seq) {
