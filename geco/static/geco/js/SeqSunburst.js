@@ -97,8 +97,6 @@ var SeqSunburst = function(unformattedData, width) {
             unfFields.push(...seq)
         })
         fields = [...new Set(unfFields)];
-        console.log(fields)
-        console.log(fields.length)
     }
 
     function buildScales() {
@@ -243,14 +241,15 @@ class BreadCrumb {
         this.container = d3.select(selector)
         .append('svg')
         .attr('class', 'BreadCrumb')
-        .attr("viewBox",
-         `0 0 ${this.maxSeqLength*this.polygonWidth} ${this.polygonHeight}`);
+        .attr('width', this.maxSeqLength*this.polygonWidth)
+        .attr('height', this.polygonHeight);
         if (seq)
             this.update(seq)
     }
 
     // Generate a string that describes the points of a breadcrumb SVG polygon
     breadcrumbPoints(i) {
+        console.log(i)
         const points = [];
         points.push("0,0");
         points.push(`${this.polygonWidth},0`);
@@ -278,7 +277,6 @@ class BreadCrumb {
 
     update(seq) {
         this.seq = seq;
-        console.log(seq)
         this.updatePolygons();
     }
 }
