@@ -210,7 +210,7 @@ var SeqSunburst = function(unformattedData, width) {
 
     graph.draw = function(selector) {
         container = d3.select(selector);
-        breadcrumb = BreadCrumb(selector, []);
+        breadcrumb = new BreadCrumb(selector, []);
         buildSunburst();
         return graph;
     }
