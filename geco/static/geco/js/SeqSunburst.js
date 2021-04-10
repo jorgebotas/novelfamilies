@@ -118,12 +118,6 @@ var SeqSunburst = function(unformattedData, width) {
           .range(colors);
     }
 
-    function init() {
-        buildFields();
-        buildRoot();
-        buildScales();
-    }
-
     function buildSunburst() {
         sunburst = container
             .append('svg')
@@ -193,14 +187,29 @@ var SeqSunburst = function(unformattedData, width) {
         return sunburst;
     }
 
+    function initGraph() {
+        buildFields();
+        buildRoot();
+        buildScales();
+    }
+
     graph.draw = function(selector) {
         container = d3.select(selector);
-        breadcrumb = new BreadCrumb(selector, palette, 7);
+        container
+            .append('div')
+            .attr('class', 'breadcrumb-container')
+            .style('width', '100%');
+        container = container
+            .append('div')
+            .attr('class', 'SeqSunburst-container')
+            .style('width', '100%');
+        breadcrumb = new BreadCrumb(selector + ' .breadcrumb-container',
+                                    palette, 7);
         buildSunburst();
         return graph;
     }
 
-    init();
+    initGraph();
 
     return graph;
 }
