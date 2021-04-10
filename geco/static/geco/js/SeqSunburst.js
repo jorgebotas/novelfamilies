@@ -17,7 +17,16 @@ var SeqSunburst = function(unformattedData, width) {
     var mousearc;
     // Color palette
     const colors = [
-        "#82a8c4","#99c1de","#bcd4e6","#acc8c1","#bedad9","#d7eae4","#fad2e1","#fde2e4","#eddcd2","#fff1e6"
+        "#82a8c4",
+        "#99c1de",
+        "#bcd4e6",
+        "#acc8c1",
+        "#bedad9",
+        "#d7eae4",
+        "#fad2e1",
+        "#fde2e4",
+        "#eddcd2",
+        "#fff1e6"
     ];
     var palette;
 
@@ -210,7 +219,7 @@ var SeqSunburst = function(unformattedData, width) {
 
     graph.draw = function(selector) {
         container = d3.select(selector);
-        breadcrumb = new BreadCrumb(selector, []);
+        breadcrumb = new BreadCrumb(selector, palette);
         buildSunburst();
         return graph;
     }
@@ -222,13 +231,16 @@ var SeqSunburst = function(unformattedData, width) {
 
 
 class BreadCrumb {
-    constructor(selector, seq) {
+    constructor(selector, palette, seq) {
         this.container = d3.select(selector)
             .append('svg')
             .attr('class', 'BreadCrumb');
-        this.seq = seq;
         this.breadcrumb;
         this.polygons;
+        this.palette = palette;
+        this.seq;
+        if (seq)
+            this.update(seq)
     }
 
     // Generate a string that describes the points of a breadcrumb SVG polygon
