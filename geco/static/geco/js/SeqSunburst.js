@@ -198,11 +198,16 @@ var SeqSunburst = function(unformattedData, width) {
         container
             .append('div')
             .attr('class', 'breadcrumb-container')
-            .style('width', '100%');
+            .style('width', '100%')
+            .style('display', 'flex')
+            .style('justify-content', 'center')
+            .style('margin-top', '40px')
         container = container
-            .append('div')
+            .insert('div', '.breadcrumb-container')
             .attr('class', 'SeqSunburst-container')
-            .style('width', '100%');
+            .style('width', '100%')
+            .style('display', 'flex')
+            .style('justify-content', 'center');
         breadcrumb = new BreadCrumb(selector + ' .breadcrumb-container',
                                     palette, 7);
         buildSunburst();
