@@ -260,16 +260,16 @@ class BreadCrumb {
         const x0 = this.polygonPadding;
         const x = this.polygonWidth;
         const y0 = this.fieldsHeight;
-        const y = y0 + this.polygonHeight / 2;
+        const y = y0 + this.polygonHeight;
         const points = [];
         points.push(`${x0}, ${y0}`);
         points.push(`${x}, ${y0}`);
-        points.push(`${x + this.tipWidth}, ${y}`);
-        points.push(`${x},${y + this.polygonHeight}`);
-        points.push(`${x0},${y + this.polygonHeight}`);
+        points.push(`${x + this.tipWidth}, ${y0 + this.polygonHeight / 2}`);
+        points.push(`${x},${y }`);
+        points.push(`${x0},${y}`);
         if (i > 0) {
             // Leftmost breadcrumb; don't include 6th vertex.
-            points.push(`${x0 + this.tipWidth},${y}`);
+            points.push(`${x0 + this.tipWidth},${y0 + this.polygonHeight / 2}`);
         }
         return points.join(" ");
     }
@@ -301,10 +301,11 @@ class BreadCrumb {
             .style('font-size', '10px')
             .style('font-weight', 'bold');
         // Text on top
+        console.log(this.fields)
         breadcrumbsEnter
             .append('text')
             .attr('class', 'breadcrumb-top-text')
-            .text(d => this.fields[d.data.name.slice(0, 2)])
+            .text(d => this.fields[d.data.name.slice(0, 1)])
             .attr('x', this.tipWidth + this.polygonPadding + 5)
             .attr('y', this.fieldsHeight - 3)
             .style('font-size', '10px')
