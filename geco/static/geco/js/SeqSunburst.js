@@ -219,7 +219,7 @@ var SeqSunburst = function(unformattedData, width) {
 
     graph.draw = function(selector) {
         container = d3.select(selector);
-        breadcrumb = new BreadCrumb(selector, palette);
+        breadcrumb = new BreadCrumb(selector, palette, 7);
         buildSunburst();
         return graph;
     }
@@ -231,30 +231,36 @@ var SeqSunburst = function(unformattedData, width) {
 
 
 class BreadCrumb {
-    constructor(selector, palette, seq) {
-        this.container = d3.select(selector)
-            .append('svg')
-            .attr('class', 'BreadCrumb');
+    constructor(selector, palette, maxSeqLength, seq) {
         this.breadcrumb;
         this.polygons;
+        this.polygonWidth = 100;
+        this.polygonHeight = 40;
+        this.tipWidth = 10;
         this.palette = palette;
         this.seq;
+        this.maxSeqLength = maxSeqLength;
+        this.container = d3.select(selector)
+        .append('svg')
+        .attr('class', 'BreadCrumb')
+        .attr("viewBox",
+         `0 0 ${this.maxSeqLength*this.polygonWidth} ${this.polygonHeight}`);
         if (seq)
             this.update(seq)
     }
 
     // Generate a string that describes the points of a breadcrumb SVG polygon
     breadcrumbPoints(i) {
-        const tipWidth = 10;
         const points = [];
         points.push("0,0");
-        points.push(`${breadcrumbWidth},0`);
-        points.push(`${breadcrumbWidth + tipWidth},${breadcrumbHeight / 2}`);
-        points.push(`${breadcrumbWidth},${breadcrumbHeight}`);
-        points.push(`0,${breadcrumbHeight}`);
+        points.push(`${this.polygonWidth},0`);
+        points.push(`${this.polygonWidth + this.tipWidth},
+                     ${this.polygonHeight / 2}`);
+        points.push(`${this.polygonWidth},${this.polygonHeight}`);
+        points.push(`0,${this.polygonHeight}`);
         if (i > 0) {
             // Leftmost breadcrumb; don't include 6th vertex.
-            points.push(`${tipWidth},${breadcrumbHeight / 2}`);
+            points.push(`${this.tipWidth},${this.polygonHeight / 2}`);
         }
         return points.join(" ");
     }
