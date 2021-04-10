@@ -48,10 +48,14 @@ def get_sequence(query, fasta=True):
 def get_taxonomy(genome, json=True):
     match = col_taxonomy.find_one({'genome': genome})
     del match['_id']
-    taxa = match['lineage']
+    taxa = match['lineage'].split(';')
+    parsed_taxa = []
+    for t in taxa:
+        if t.split('_')[-1] == '_':
+            continue
+        parsed_taxa.append(t)
     if not json:
-        return taxa
-    taxa = taxa.split(';')
+        return ";".join(parsed_taxa)
     fields = [
 	'domain', 'phylum',
 	'class', 'order',
@@ -60,11 +64,10 @@ def get_taxonomy(genome, json=True):
     ]
     taxonomy = []
     for idx, f in enumerate(fields):
-        t = taxa[idx].split('_')[-1]
-        if t == '_':
-            continue
-        t.replace('.', '')
-        t.replace(r'\s', '_')
+        t = parsed_taxa[idx]\
+            .split('_')[-1]\
+            .replace('.', '')\
+            .replace(r'\s', '_')
         taxonomy.append({'id':t, 'level':f})
     return taxonomy
 
