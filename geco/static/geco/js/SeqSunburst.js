@@ -125,15 +125,9 @@ var SeqSunburst = function(unformattedData, width) {
     }
 
     function buildSunburst() {
-        //const svg = d3.create("svg");
         sunburst = container
             .append('svg')
             .attr('class', 'seq-sunburst')
-        // Make this into a view, so that the currently
-        // hovered sequence is available to the breadcrumb
-        //const element = svg.node();
-        //element.value = { sequence: [], percentage: 0.0 };
-
         // Center label
         const label = sunburst
             .append("text")
@@ -147,13 +141,6 @@ var SeqSunburst = function(unformattedData, width) {
             .attr("dy", "0.3em")
             .attr("font-size", "30px")
             .text("");
-        //label
-            //.append("tspan")
-            //.attr("class", "sequence-type")
-            //.attr("font-size", "15px")
-            //.attr("x", 0)
-            //.attr("y", 0)
-            //.attr("dy", "1.5em")
         // Main svg
         sunburst
             .attr("viewBox", `${-radius} ${-radius} ${width} ${width}`)
@@ -176,9 +163,7 @@ var SeqSunburst = function(unformattedData, width) {
             .on("mouseleave", () => {
                 path.attr("fill-opacity", 1);
                 label.style("visibility", "hidden");
-              // Update the value of this view
-              //element.value = { sequence: [], percentage: 0.0 };
-              //element.dispatchEvent(new CustomEvent("input"));
+                breadcrumb.update([])
             })
             .selectAll("path")
             // Don't draw the root node, and for efficiency,
@@ -203,13 +188,6 @@ var SeqSunburst = function(unformattedData, width) {
                     .text(percentage + "%");
                 // Update breadcrumb
                 breadcrumb.update(sequence)
-                //label
-                    //.select('.sequence-type')
-                    //.text(d.data.name)
-                // Update the value of this view with
-                // the currently hovered sequence and percentage
-                //element.value = { sequence, percentage };
-                //element.dispatchEvent(new CustomEvent("input"));
             });
 
         return sunburst;
@@ -249,7 +227,6 @@ class BreadCrumb {
 
     // Generate a string that describes the points of a breadcrumb SVG polygon
     breadcrumbPoints(i) {
-        console.log(i)
         const x0 = this.polygonWidth * i;
         const x = this.polygonWidth * (i+1);
         const points = [];
