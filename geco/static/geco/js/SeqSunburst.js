@@ -248,7 +248,7 @@ class BreadCrumb {
                 this.maxSeqLength*this.polygonWidth
                 + this.tipWidth
                 + this.polygonPadding)
-            .attr('height', this.polygonHeight);
+            .attr('height', this.polygonHeight + this.fieldsHeight);
         if (seq)
             this.update(seq)
     }
@@ -294,6 +294,7 @@ class BreadCrumb {
         // Text on polygon
         breadcrumbsEnter
             .append('text')
+            .attr('class', 'breadcrumb-polygon-text')
             .text(d => d.data.name.slice(3))
             .attr('x', this.tipWidth + this.polygonPadding + 5)
             .attr('y', this.polygonHeight/1.5)
@@ -302,6 +303,7 @@ class BreadCrumb {
         // Text on top
         breadcrumbsEnter
             .append('text')
+            .attr('class', 'breadcrumb-top-text')
             .text(d => this.fields[d.data.name.slice(0, 2)])
             .attr('x', this.tipWidth + this.polygonPadding + 5)
             .attr('y', '0')
