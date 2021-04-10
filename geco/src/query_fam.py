@@ -232,7 +232,7 @@ def get_neighborhood(fam, members=None):
     neighborhood = []
     # process each member of the family
     for gene_entry in members:
-        src, genome, gene, taxa = gene_entry.split('@')
+        src, genome, gene, tax = gene_entry.split('@')
         # find taxa lineage by genome name
         taxa = get_taxonomy(genome)
         # First, give me neighbours and their positions/strands. The result includes the anchor
@@ -260,7 +260,7 @@ def get_neighborhood(fam, members=None):
                         "Description": gene2annot[orf['g']].get('bod', ''),
                         #"emapper": gene2annot[orf['g']],
                         "CARD": gene2card[orf['g']],
-                        "seqID": "@".join([src, genome, orf['g'], taxa])
+                        "seqID": "@".join([src, genome, orf['g'], tax])
                 }
             neighborhood.append(gene_doc)
     return neighborhood
