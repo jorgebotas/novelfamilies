@@ -228,6 +228,9 @@ var SeqSunburst = function(unformattedData, width) {
     return graph;
 }
 
+var capitalize = function(string) {
+    return string.trim().replace(/^\w/, c => c.toUpperCase());
+}
 
 class BreadCrumb {
     constructor(selector, palette, fields, seq, options = { showFields: true }) {
@@ -304,7 +307,7 @@ class BreadCrumb {
         breadcrumbsEnter
             .append('text')
             .attr('class', 'breadcrumb-top-text')
-            .text(d => this.fields[d.data.name.slice(0, 1)])
+            .text(d => capitalize(this.fields[d.data.name.slice(0, 1)]))
             .attr('x', this.tipWidth + this.polygonPadding + 5)
             .attr('y', this.fieldsHeight - 5)
             .style('font-size', '10px')
