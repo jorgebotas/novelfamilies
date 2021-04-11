@@ -55,7 +55,7 @@ def get_taxonomy(genome, json=True):
             continue
         tsplit = t.split(' ')
         # Clean cases where species name includes genus
-        if idx > 0 and len(tsplit) > 1 and parsed_taxa[i-1] == tsplit[0]:
+        if idx > 0 and len(tsplit) > 1 and parsed_taxa[idx-1] == tsplit[0]:
             t = tsplit[1]
         parsed_taxa.append(t)
     if not json:
