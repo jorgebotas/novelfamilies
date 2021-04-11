@@ -582,6 +582,7 @@ var gmgc_vueapp = new Vue({
 
         getPage: function(page) {
             this.show_items = [];
+            $('.search-spinner').show();
             if (page == 'previous') {
                 page = this.currentPage > 1
                     ? this.currentPage - 1
@@ -605,6 +606,7 @@ var gmgc_vueapp = new Vue({
                 .then(() => {
                     this.hideAllFams();
                     this.renderFamInfo();
+                    $('.search-spinner').hide();
                     this.scrollToTop();
                 })
         },
