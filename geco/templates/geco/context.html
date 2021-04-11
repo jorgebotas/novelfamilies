@@ -16,7 +16,7 @@
 <div v-for="(tdata, tid, index) in show_items">               
     {% include 'geco/card.html' %}
 </div>
-<div v-if="nPages > 1">
+<div v-if="nPages > 1 && show_items.length > 3">
     {% include 'geco/pagination.html' %}
 </div>
 {% endblock %}
