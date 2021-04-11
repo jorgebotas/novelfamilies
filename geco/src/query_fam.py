@@ -50,9 +50,13 @@ def get_taxonomy(genome, json=True):
     del match['_id']
     taxa = match['lineage'].split(';')
     parsed_taxa = []
-    for t in taxa:
+    for idx, t in enumerate(taxa):
         if t[-1] == '_':
             continue
+        tsplit = t.split(' ')
+        # Clean cases where species name includes genus
+        if idx > 0 and len(tsplit) > 1 and parsed_taxa[i-1] == tsplit[0]:
+            t = tsplit[1]
         parsed_taxa.append(t)
     if not json:
         return ";".join(parsed_taxa)
