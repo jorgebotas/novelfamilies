@@ -299,8 +299,9 @@ class BreadCrumb {
             .append('text')
             .attr('class', 'breadcrumb-polygon-text')
             .text(d => d.data.name.slice(3))
-            .attr('x', this.tipWidth + this.polygonPadding + 5)
+            .attr('x', this.tipWidth + this.polygonWidth/2)
             .attr('y', this.fieldsHeight + this.polygonHeight/1.5)
+            .style('text-anchor', 'middle')
             .style('font-size', '10px')
             .style('font-weight', 'bold');
         // Text on top
@@ -308,8 +309,9 @@ class BreadCrumb {
             .append('text')
             .attr('class', 'breadcrumb-top-text')
             .text(d => capitalize(this.fields[d.data.name.slice(0, 1)]))
-            .attr('x', this.tipWidth + this.polygonPadding + 5)
+            .attr('x', this.tipWidth + this.polygonWidth/2)
             .attr('y', this.fieldsHeight - 5)
+            .style('text-anchor', 'middle')
             .style('font-size', '10px')
             .style('font-weight', 'bold');
         // Exit breadcrumbs
