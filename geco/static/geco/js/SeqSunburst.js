@@ -235,7 +235,7 @@ var capitalize = function(string) {
 class BreadCrumb {
     constructor(selector, palette, fields, seq, options = { showFields: true }) {
         // Polygon dimensions
-        this.polygonWidth = 150;
+        this.polygonWidth = 120;
         this.polygonHeight = 30;
         this.polygonPadding = 2;
         this.tipWidth = 10;
