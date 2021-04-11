@@ -462,7 +462,8 @@ var gmgc_vueapp = new Vue({
                         'showBar': false,
                         'showLegend': false
                     })
-                    .draw();
+                    .draw()
+                    .nSide(2);
                 const gecovizSummary = d3.select(gecovizSelector);
                 gecovizSummary
                     .select('.graph-container')
