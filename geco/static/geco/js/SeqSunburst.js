@@ -201,7 +201,7 @@ var SeqSunburst = function(unformattedData, width) {
             .style('width', '100%')
             .style('display', 'flex')
             .style('justify-content', 'center')
-            .style('margin-top', '40px')
+            .style('margin-top', '20px')
         container = container
             .insert('div', '.breadcrumb-container')
             .attr('class', 'SeqSunburst-container')
