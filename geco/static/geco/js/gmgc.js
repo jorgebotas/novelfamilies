@@ -581,6 +581,7 @@ var gmgc_vueapp = new Vue({
         },
 
         getPage: function(page) {
+            this.show_items = [];
             if (page == 'previous') {
                 page = this.currentPage > 1
                     ? this.currentPage - 1
