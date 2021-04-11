@@ -278,6 +278,7 @@ var gmgc_vueapp = new Vue({
         searchFams : function(searchType=undefined) {
             $("#search-fams").blur();
             $('.search-spinner').show();
+            this.show_items = [];
             d3.selectAll('.GeCoViz').selectAll('*').remove();
             d3.selectAll('.donut-sources').selectAll('*').remove();
             let query = $("#search-fams").val().trim();
@@ -367,7 +368,6 @@ var gmgc_vueapp = new Vue({
         },
 
         renderFamInfo : function() {
-            this.show_items = [];
             // Remove summaries
             d3.selectAll('.to-refresh').selectAll('*').remove();
             // Remove domain representation
