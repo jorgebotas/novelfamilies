@@ -279,6 +279,8 @@ var gmgc_vueapp = new Vue({
             $("#search-fams").blur();
             $('.search-spinner').show();
             this.show_items = [];
+            this.nPages = 1;
+            this.totalItems = 0;
             d3.selectAll('.GeCoViz').selectAll('*').remove();
             d3.selectAll('.donut-sources').selectAll('*').remove();
             let query = $("#search-fams").val().trim();
