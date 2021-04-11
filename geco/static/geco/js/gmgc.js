@@ -606,8 +606,8 @@ var gmgc_vueapp = new Vue({
                 .then(() => {
                     this.hideAllFams();
                     this.renderFamInfo();
-                    $('.search-spinner').hide();
                     this.scrollToTop();
+                    $('.search-spinner').hide();
                 })
         },
 
