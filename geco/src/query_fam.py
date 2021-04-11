@@ -53,9 +53,10 @@ def get_taxonomy(genome, json=True):
     for idx, t in enumerate(taxa):
         if t[-1] == '_':
             continue
-        tsplit = t.split(' ')
+        tsplit = t.strip().split(' ')
         # Clean cases where species name includes genus
-        if idx > 0 and len(tsplit) > 1 and parsed_taxa[idx-1] == tsplit[0]:
+        if idx > 0 and len(tsplit) > 1\
+                and parsed_taxa[idx-1].strip() == tsplit[0].strip():
             t = tsplit[1]
         parsed_taxa.append(t)
     if not json:
