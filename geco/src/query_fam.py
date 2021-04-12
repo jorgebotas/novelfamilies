@@ -44,6 +44,14 @@ def get_sequence(query, fasta=True):
         return '>{}\n{}'.format(query, seq)
     return seq
 
+def get_sequences(query, fasta=True):
+    members = (col_fams.find_one({'gf': query}) or {}).get('members', [])
+    seqs = col_proteins.find({'n': { '$in': members }})
+    multifasta = ""
+    for s in seqs:
+        '>{}\n{}\n'.format(s['n'], s['aa'])
+    return multifasta
+
 # Preloads taxonomy info per genome
 def get_taxonomy(genome, json=True):
     match = col_taxonomy.find_one({'genome': genome})

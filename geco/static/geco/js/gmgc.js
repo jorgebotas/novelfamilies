@@ -582,6 +582,15 @@ var gmgc_vueapp = new Vue({
                 })
         },
 
+        getSeqs : function(query) {
+            fetch(API_BASE_URL + `/seqs/${query}/`)
+                .then(response => response.blob())
+                .then(blob => {
+                    let file = window.URL.createObjectURL(blob);
+                    window.location.assign(file);
+                })
+        },
+
         getPage: function(page) {
             this.show_items = [];
             $('.search-spinner').show();
