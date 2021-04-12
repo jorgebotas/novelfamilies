@@ -15171,6 +15171,23 @@ a:hover {
   background: #212833;
 }
 
+.dropdown-downloads::after {
+  content: none;
+}
+
+.dropdown-menu-rounded {
+  padding: 7px;
+  font-size: 12px;
+}
+
+.dropdown-menu-rounded .dropdown-item {
+  border-radius: 5px;
+}
+
+.dropdown-menu-rounded .dropdown-item:hover {
+  background-color: var(--light-indigo);
+}
+
 navbar input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0px 1000px var(--dark) inset !important;
   -webkit-text-fill-color: var(--sand) !important;
