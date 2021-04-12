@@ -263,6 +263,10 @@ var renderSunburst = function(selector, data) {
     SeqSunburst(data, 200, selector);
 }
 
+var catchSearch = function() {
+    alert("No family found under current search. Please try again!")
+}
+
 var gmgc_vueapp = new Vue({
     delimiters: ['[[', ']]'],
     el: '#NovelFams',
@@ -300,6 +304,7 @@ var gmgc_vueapp = new Vue({
                     let idx = Object.keys(this.show_items).indexOf(query);
                     this.toggleGeCoViz(`#f${idx}-GeCoViz`, query);
                 })
+                .catch(() => catchSearch())
             } else if (type == 'taxa'){
                 this.searchFamByTaxa(selector, '');
             } else if (type == 'function') {
@@ -335,6 +340,7 @@ var gmgc_vueapp = new Vue({
                     this.renderFamInfo();
                     $('.search-spinner').hide();
                 })
+                .catch(() => catchSearch())
         },
 
         searchFamByFunction : function(selector) {
@@ -361,6 +367,7 @@ var gmgc_vueapp = new Vue({
                     this.renderFamInfo();
                     $('.search-spinner').hide();
                 })
+                .catch(() => catchSearch())
         },
 
         searchFamByBiome : function(selector) {
