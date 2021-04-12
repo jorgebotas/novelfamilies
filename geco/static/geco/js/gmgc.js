@@ -514,8 +514,8 @@ var gmgc_vueapp = new Vue({
             $('.tab-content').collapse('hide');
         },
 
-        toggleFam : function(id) {
-            $("#" + id).collapse('show');
+        toggleFam : function(id, action='show') {
+            $("#" + id).collapse(action);
         },
 
         toggleGeCoViz : async function(selector, query) {

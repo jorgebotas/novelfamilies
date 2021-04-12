@@ -92,12 +92,10 @@
 
                   <li class="nav-item mx-3 position-absolute"
                       style="right:20px; top:14px;">
-                        <a class="btn btn-primary btn-sm fam-toggle" 
-                           data-toggle="collapse" 
-                           :href="'#f' + index + '-tab-content'" 
-                           aria-expanded="true" 
-                           aria-controls="tab-content"
-                           ><i class="fas fa-angle-down"></i></a>
+                        <a class="btn-sm fam-toggle" 
+                           @click="toggleFam('f'+index+'-tab-content', 'hide')"
+                           style='font-size:20px'
+                           ><i class="fa fa-times"></i></a>
                   </li>
 
                 </ul>
