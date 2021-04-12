@@ -235,7 +235,7 @@ def get_newick(fam):
     tree = Tree(tree)
     for leaf in tree.iter_leaves():
         lname = str(leaf.name).replace(' ', '_')
-        nsplit = lname.rsplit('.', 7)
+        nsplit = lname.rsplit('.', 8)
         showName = nsplit[0] + nsplit[1]
         showName = showName.replace('.', '_')
         name = showName.split('@')[2]
