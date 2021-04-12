@@ -50,6 +50,7 @@ def get_sequences(query, fasta=True):
     multifasta = ""
     for s in seqs:
         '>{}\n{}\n'.format(s['n'], s['aa'])
+    print(multifasta)
     return multifasta
 
 # Preloads taxonomy info per genome
