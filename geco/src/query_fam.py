@@ -49,8 +49,7 @@ def get_sequences(query, fasta=True):
     seqs = col_proteins.find({'n': { '$in': members }})
     multifasta = ""
     for s in seqs:
-        '>{}\n{}\n'.format(s['n'], s['aa'])
-    print(multifasta)
+        multifasta += '>{}\n{}\n'.format(s['n'], s['aa'])
     return multifasta
 
 # Preloads taxonomy info per genome
