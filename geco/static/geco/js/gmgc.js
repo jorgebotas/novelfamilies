@@ -557,20 +557,15 @@ var gmgc_vueapp = new Vue({
                         .contextData(context)
                         .nSide(4)
                         .geneText("Gene name")
-                        .annotation("Orthologous groups", 2)
+                        .annotation("Orthologous groups", 1)
                         .draw();
                     d3.select(selector)
                         .style('opacity', 1)
                         .style('visibility', 'visible');
-                    //await window.launch_GeCo(selector, context, newick, 41, colors);
                     $(selector + " + div .gecoviz-progress").hide();
                     this.show_items[query].newick = newick;
                     this.show_items[query].context = context;
                 }
-                //this.show_items[query].members.forEach(m => {
-                    //let downloadSeq = d3.select(`${selector} #downloadSeq${cleanString(m)}`);
-                    //downloadSeq.on('click', () => this.getSeq(m))
-                //})
             },
 
         getSeq : function(query) {
