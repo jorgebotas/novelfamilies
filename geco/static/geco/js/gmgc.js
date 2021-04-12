@@ -576,19 +576,13 @@ var gmgc_vueapp = new Vue({
         getSeq : function(query) {
             fetch(API_BASE_URL + `/seq/${query}/`)
                 .then(response => response.blob())
-                .then(blob => {
-                    let file = window.URL.createObjectURL(blob);
-                    window.location.assign(file);
-                })
+                .then(blob => FIleSaver.saveAs(blob, `${query}_sequence.fasta`))
         },
 
         getSeqs : function(query) {
             fetch(API_BASE_URL + `/seqs/${query}/`)
                 .then(response => response.blob())
-                .then(blob => {
-                    let file = window.URL.createObjectURL(blob);
-                    window.location.assign(file);
-                })
+                .then(blob => FIleSaver.saveAs(blob, `${query}_sequences.fasta`))
         },
 
         getPage: function(page) {
