@@ -256,10 +256,8 @@ var renderDomains = function(domains, outerSelector) {
             selector = outerSelector + " #d" + cleanString(d.gene);
             const container = d3.select(selector);
             container.selectAll('*').remove();
-            container.node().addEventListener('load', () => {
-                if (d.doms.length > 0)
-                    draw_protDomains(selector, d.doms, d.lenseq, 600, 10, palette);
-            })
+            if (d.doms.length > 0)
+                draw_protDomains(selector, d.doms, d.lenseq, 600, 10, palette);
         });
 }
 
@@ -631,7 +629,12 @@ var gmgc_vueapp = new Vue({
             this.show_items[query][field].currentPage = page;
             if (field == "members") {
                 const idx = Object.keys(this.show_items).indexOf(query);
-                renderDomains(this.show_items[query].domains.filter(d => itemsToShow.includes(d.gene)), `#f${idx}`)
+                const cardSelector = `f${idx}`
+                d3.select(cardSelector + '-seqs').node().addEventListener('load', () => {
+                    renderDomains(this.show_items[query].domains
+                            .filter(d => itemsToShow.includes(d.gene)),
+                        carSelector);
+                })
             }
         },
 
