@@ -203,62 +203,64 @@ var renderDonut = function(id, labels, vals, colors, legend='bottom', height=240
 }
 
 var renderDomains = function(domains, outerSelector) {
-        var doms = new Set();
-        domains.forEach(d => {
-            if (d.class && d.class != "") {
-                doms.add(d.class)
-            }
-        })
-        var colors = [
-            '#6574cd',
-            '#e6ac00',
-            '#ffa3b2',
-            "#254F93",
-            "#c9b2fd",
-            "#fcaf81",
-            "#a9dff7",
-            "#FF5C8D",
-            "#838383",
-            "#5F33FF",
-            "#c7e3aa",
-            "#abfdcb",
-            "#D81E5B",
-            "#47DAFF",
-            "#c4ab77",
-            "#A1A314",
-            "#fff600",
-            "#53257E",
-            "#1e90ff",
-            "#B6549A",
-            "#7cd407",
-            "#948ad6",
-            "#7ba0d5",
-            "#fcc6f8",
-            "#fec24c",
-            "#A40E4C",
-            "#dd5a95",
-            "#12982d",
-            "#27bda9",
-            "#F0736A",
-            "#9354e7",
-            "#cbd5e3",
-            "#93605D",
-            "#FFE770",
-            "#6C9D7F",
-            "#2c23e4",
-            "#ff6200",
-            "#406362"
-              ]
-        var palette = d3.scaleOrdinal()
-                        .domain(doms)
-                        .range(colors);
-        domains.forEach(d => {
-            selector = outerSelector + " #d" + cleanString(d.gene);
-            const container = d3.select(selector);
-            container.selectAll('*').remove();
-            if (d.doms.length > 0)
-                draw_protDomains(selector, d.doms, d.lenseq, 600, 10, palette);
-        });
+    var doms = new Set();
+    domains.forEach(d => {
+        if (d.class && d.class != "") {
+            doms.add(d.class)
+        }
+    })
+    if (doms.includes('helix'))
+        doms = ['helix', ...doms.filter(d => d == 'helix')];
+    var colors = [
+        '#6574cd',
+        '#e6ac00',
+        '#ffa3b2',
+        "#254F93",
+        "#c9b2fd",
+        "#fcaf81",
+        "#a9dff7",
+        "#FF5C8D",
+        "#838383",
+        "#5F33FF",
+        "#c7e3aa",
+        "#abfdcb",
+        "#D81E5B",
+        "#47DAFF",
+        "#c4ab77",
+        "#A1A314",
+        "#fff600",
+        "#53257E",
+        "#1e90ff",
+        "#B6549A",
+        "#7cd407",
+        "#948ad6",
+        "#7ba0d5",
+        "#fcc6f8",
+        "#fec24c",
+        "#A40E4C",
+        "#dd5a95",
+        "#12982d",
+        "#27bda9",
+        "#F0736A",
+        "#9354e7",
+        "#cbd5e3",
+        "#93605D",
+        "#FFE770",
+        "#6C9D7F",
+        "#2c23e4",
+        "#ff6200",
+        "#406362"
+          ]
+    var palette = d3.scaleOrdinal()
+                    .domain(doms)
+                    .range(colors);
+    domains.forEach(d => {
+        selector = outerSelector + " #d" + cleanString(d.gene);
+        const container = d3.select(selector);
+        container.selectAll('*').remove();
+        if (d.doms.length > 0)
+            draw_protDomains(selector, d.doms, d.lenseq, 600, 10, palette);
+    });
 }
 
 var renderSunburst = function(selector, data) {
