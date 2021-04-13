@@ -280,6 +280,7 @@ var gmgc_vueapp = new Vue({
     },
     methods: {
         searchFams : function(searchType=undefined) {
+            console.log('hii')
             $("#search-fams").blur();
             $('.search-spinner').show();
             this.show_items = [];
