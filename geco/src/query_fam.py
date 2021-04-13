@@ -259,6 +259,7 @@ def get_newick(fam):
         name = name.replace('.', '_')
         gene_name = name.split('@')[2]
         tax = nsplit[2:]
+        print(tax)
         last_tax = tax[-1]
         leaf.name = '.'.join([last_tax, name, gene_name, *tax])
     return tree.write()
