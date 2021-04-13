@@ -608,6 +608,7 @@ var gmgc_vueapp = new Vue({
         },
 
         getPage: function(page, field) {
+            console.log(field)
             if (field == "") {
                 this.show_items = [];
                 $('.search-spinner').show();
