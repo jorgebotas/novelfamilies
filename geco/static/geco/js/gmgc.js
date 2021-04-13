@@ -507,7 +507,7 @@ var gmgc_vueapp = new Vue({
                     .style('visibility', 'visible');
 
                 // Render protein topologies
-                setTimeout(() => {renderDomains(data.domains, `#f${idx}`)}, 0)
+                setTimeout(() => renderDomains(data.domains, `#f${idx}`), 0)
 
                 // Render sunbursts
                 const sunburstSelector = `#f${idx}-taxSunburst`
