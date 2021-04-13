@@ -630,10 +630,14 @@ var gmgc_vueapp = new Vue({
             if (field == "members") {
                 const idx = Object.keys(this.show_items).indexOf(query);
                 const cardSelector = `#f${idx}`
-                d3.select(cardSelector + '-seqs').node().addEventListener('load', () => {
-                    renderDomains(this.show_items[query].domains
-                            .filter(d => itemsToShow.includes(d.gene)),
-                        carSelector);
+                let promise = new Promise(() => {
+                    setTimeout(() => {}, 500)
+                })
+                promise.then(() => {
+                renderDomains(this.show_items[query].domains
+                        .filter(d => itemsToShow.includes(d.gene)),
+                    cardSelector);
+
                 })
             }
         },
