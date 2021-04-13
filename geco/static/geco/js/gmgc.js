@@ -280,7 +280,6 @@ var gmgc_vueapp = new Vue({
     },
     methods: {
         searchFams : function(searchType=undefined) {
-            console.log('hii')
             $("#search-fams").blur();
             $('.search-spinner').show();
             this.show_items = [];
@@ -382,18 +381,20 @@ var gmgc_vueapp = new Vue({
             function paginate(field, perPage) {
                 const nItems = field.length;
                 const nPages = nItems / perPage;
-                return nItems, nPages
+                const itemsToShow = nPages > 1
+                    ? field.slice(0, perPage)
+                    : field;
+                return {
+                    show_items: itemsToShow,
+                    items: field,
+                    nPages: nPages,
+                    currentPage: 0
+                }
             }
             const perPage = this.perPage;
             Object.entries(this.show_items).forEach(([f, data]) => {
                 const members = data.members;
-                let nItems, nPages = paginate(members, perPage);
-                this.show_items[f].members = {
-                    members: members,
-                    nItems: nItems,
-                    nPages: nPages,
-                    currentPage: 1,
-                }
+                this.show_items[f].members = paginate(members, perPage);
             })
         },
 
@@ -608,39 +609,53 @@ var gmgc_vueapp = new Vue({
                 .then(blob => saveAs(blob, `${query}_sequences.fasta`))
         },
 
-        getPage: function(page, field) {
-            console.log(field)
-            if (field == "") {
-                this.show_items = [];
-                $('.search-spinner').show();
-                if (page == 'previous') {
-                    page = this.currentPage > 1
-                        ? this.currentPage - 1
-                        : 1;
-                } else if (page == 'next') {
-                    page = this.currentPage < this.nPages
-                        ? this.currentPage + 1
-                        : this.nPages;
-                }
-                let fetchURL = this.currentSearch;
-                fetch(`${fetchURL}/${page}/`)
-                    .then(response => response.json())
-                    .then(data => {
-                        this.show_items = {};
-                        this.show_items = data.show_items;
-                        this.currentSearch = fetchURL;
-                        this.currentPage = page;
-                        this.totalItems = +data.total_matches;
-                        this.nPages = Math.ceil(this.totalItems/this.perPage)
-                    })
-                    .then(() => {
-                        this.hideAllFams();
-                        this.paginateInfo();
-                        this.renderFamInfo();
-                        this.scrollToTop();
-                        $('.search-spinner').hide();
-                    })
+        getCardPage : function(page, query, field) {
+            const d = this.show_items[query][field];
+            if (page == 'previous') {
+                page = d.currentPage > 1
+                    ? d.currentPage - 1
+                    : 1;
+            } else if (page == 'next') {
+                page = d.currentPage < d.nPages
+                    ? d.currentPage + 1
+                    : d.nPages;
             }
+            const itemsToShow = d.items.slice(d.perPage*(page-1), d.perPage*page);
+            this.show_items[query][field].show_items = [];
+            this.show_items[query][field].show_items = itemsToShow;
+            this.show_items[query][field].currentPage = page;
+        },
+
+        getPage: function(page) {
+            this.show_items = [];
+            $('.search-spinner').show();
+            if (page == 'previous') {
+                page = this.currentPage > 1
+                    ? this.currentPage - 1
+                    : 1;
+            } else if (page == 'next') {
+                page = this.currentPage < this.nPages
+                    ? this.currentPage + 1
+                    : this.nPages;
+            }
+            let fetchURL = this.currentSearch;
+            fetch(`${fetchURL}/${page}/`)
+                .then(response => response.json())
+                .then(data => {
+                    this.show_items = {};
+                    this.show_items = data.show_items;
+                    this.currentSearch = fetchURL;
+                    this.currentPage = page;
+                    this.totalItems = +data.total_matches;
+                    this.nPages = Math.ceil(this.totalItems/this.perPage)
+                })
+                .then(() => {
+                    this.hideAllFams();
+                    this.paginateInfo();
+                    this.renderFamInfo();
+                    this.scrollToTop();
+                    $('.search-spinner').hide();
+                })
         },
 
         scrollToTop: function() {
