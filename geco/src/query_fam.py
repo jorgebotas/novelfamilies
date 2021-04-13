@@ -61,7 +61,7 @@ def get_neigh_sequences(query, fasta=True):
     # extract gene names from the mini contig
     mini_contig_genes = list(set(["@".join([src,
                                             genome,
-                                            orf['g'],
+                                            n['g'],
                                             tax]) for n in mini_contig]))
     # Retrieve their sequences
     seqs = col_proteins.find({'n': { '$in': mini_contig_genes }})
