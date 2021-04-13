@@ -607,36 +607,38 @@ var gmgc_vueapp = new Vue({
                 .then(blob => saveAs(blob, `${query}_sequences.fasta`))
         },
 
-        getPage: function(page) {
-            this.show_items = [];
-            $('.search-spinner').show();
-            if (page == 'previous') {
-                page = this.currentPage > 1
-                    ? this.currentPage - 1
-                    : 1;
-            } else if (page == 'next') {
-                page = this.currentPage < this.nPages
-                    ? this.currentPage + 1
-                    : this.nPages;
+        getPage: function(page, field) {
+            if (field == "") {
+                this.show_items = [];
+                $('.search-spinner').show();
+                if (page == 'previous') {
+                    page = this.currentPage > 1
+                        ? this.currentPage - 1
+                        : 1;
+                } else if (page == 'next') {
+                    page = this.currentPage < this.nPages
+                        ? this.currentPage + 1
+                        : this.nPages;
+                }
+                let fetchURL = this.currentSearch;
+                fetch(`${fetchURL}/${page}/`)
+                    .then(response => response.json())
+                    .then(data => {
+                        this.show_items = {};
+                        this.show_items = data.show_items;
+                        this.currentSearch = fetchURL;
+                        this.currentPage = page;
+                        this.totalItems = +data.total_matches;
+                        this.nPages = Math.ceil(this.totalItems/this.perPage)
+                    })
+                    .then(() => {
+                        this.hideAllFams();
+                        this.paginateInfo();
+                        this.renderFamInfo();
+                        this.scrollToTop();
+                        $('.search-spinner').hide();
+                    })
             }
-            let fetchURL = this.currentSearch;
-            fetch(`${fetchURL}/${page}/`)
-                .then(response => response.json())
-                .then(data => {
-                    this.show_items = {};
-                    this.show_items = data.show_items;
-                    this.currentSearch = fetchURL;
-                    this.currentPage = page;
-                    this.totalItems = +data.total_matches;
-                    this.nPages = Math.ceil(this.totalItems/this.perPage)
-                })
-                .then(() => {
-                    this.hideAllFams();
-                    this.paginateInfo();
-                    this.renderFamInfo();
-                    this.scrollToTop();
-                    $('.search-spinner').hide();
-                })
         },
 
         scrollToTop: function() {
