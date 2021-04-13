@@ -259,7 +259,7 @@
                        <nav aria-label="Members pagination">
                           <ul class="pagination justify-content-center">
                             <li class="page-item px-1"
-                                :class="{ 'disabled': (data.members.currentPage == 1) }">
+                                :class="{ 'disabled': (tdata.members.currentPage == 1) }">
                               <a class="page-link" 
                                   @click='getCardPage("previous", tid, "members")' 
                                   aria-label="Previous">
@@ -270,13 +270,13 @@
                             <li v-for='p in nPages' 
                                 class='page-item px-1'
                                 :key='p'
-                                :class="[ (data.members.currentPage == p) ? 'active' : '' ]"
+                                :class="[ (tdata.members.currentPage == p) ? 'active' : '' ]"
                                 >
                                 <a class='page-link'
                                     @click='getCardPage(p, tid, "members")'>[[ p ]]</a>
                             </li>
                             <li class="page-item px-1"
-                                :class="{ 'disabled': (data.members.currentPage == data.members.nPages) }">
+                                :class="{ 'disabled': (tdata.members.currentPage == tdata.members.nPages) }">
                               <a class="page-link" 
                                   @click='getCardPage("next", tid, "members")' 
                                   aria-label="Next">
