@@ -211,9 +211,6 @@ var renderDomains = function(domains, outerSelector) {
         })
     })
     doms = [...doms];
-    if (doms.includes('helix'))
-        doms = ['helix', ...doms.filter(d => d != 'helix')];
-    console.log(doms)
     var colors = [
         '#6574cd',
         '#e6ac00',
@@ -254,6 +251,10 @@ var renderDomains = function(domains, outerSelector) {
         "#ff6200",
         "#406362"
           ]
+    if (doms.includes('helix'))
+        doms = ['helix', ...doms.filter(d => d != 'helix')];
+    else
+        colors.slice(1);
     var palette = d3.scaleOrdinal()
                     .domain(doms)
                     .range(colors);
