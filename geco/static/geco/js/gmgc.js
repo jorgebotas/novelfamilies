@@ -298,6 +298,7 @@ var gmgc_vueapp = new Vue({
                     this.totalItems = 1;
                 })
                 .then(() => {
+                    this.paginateInfo();
                     this.renderFamInfo();
                     $('.tab-content').collapse('show');
                     $('.search-spinner').hide();
@@ -337,6 +338,7 @@ var gmgc_vueapp = new Vue({
                 })
                 .then(() => {
                     this.hideAllFams();
+                    this.paginateInfo();
                     this.renderFamInfo();
                     $('.search-spinner').hide();
                 })
@@ -364,6 +366,7 @@ var gmgc_vueapp = new Vue({
                 })
                 .then(() => {
                     this.hideAllFams();
+                    this.paginateInfo();
                     this.renderFamInfo();
                     $('.search-spinner').hide();
                 })
@@ -374,8 +377,26 @@ var gmgc_vueapp = new Vue({
 
         },
 
+        paginateInfo : function() {
+            function paginate(field, perPage) {
+                const nItems = field.length;
+                const nPages = nItems / perPage;
+                return nItems, nPages
+            }
+            const perPage = this.perPage;
+            Object.entries(this.show_items).forEach(([f, data]) => {
+                const members = data.members;
+                let nItems, nPages = paginate(members, perPage);
+                this.show_items[f].members = {
+                    members: members,
+                    nItems: nItems,
+                    nPages: nPages,
+                    currentPage: 1,
+                }
+            })
+        },
+
         renderFamInfo : function() {
-            // Remove domain representation
             Object.entries(this.show_items).forEach(([f, data]) => {
                 const idx = Object.keys(this.show_items).indexOf(f);
                 // Sources donut
@@ -611,6 +632,7 @@ var gmgc_vueapp = new Vue({
                 })
                 .then(() => {
                     this.hideAllFams();
+                    this.paginateInfo();
                     this.renderFamInfo();
                     this.scrollToTop();
                     $('.search-spinner').hide();
