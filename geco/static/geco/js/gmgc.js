@@ -202,7 +202,7 @@ var renderDonut = function(id, labels, vals, colors, legend='bottom', height=240
 
 }
 
-var renderDomains = function(domains) {
+var renderDomains = function(domains, outerSelector) {
         var doms = new Set();
         domains.forEach(d => {
             if (d.class && d.class != "") {
@@ -253,9 +253,11 @@ var renderDomains = function(domains) {
                         .domain(doms)
                         .range(colors);
         domains.forEach(d => {
-            selector = "#d" + cleanString(d.gene);
+            selector = outerSelector + " #d" + cleanString(d.gene);
             if (d.doms.length > 0)
                 draw_protDomains(selector, d.doms, d.lenseq, 600, 10, palette);
+            else
+                d3.select(selector).selectAll('*').remove();
         });
 }
 
@@ -505,7 +507,7 @@ var gmgc_vueapp = new Vue({
                     .style('visibility', 'visible');
 
                 // Render protein topologies
-                renderDomains(data.domains);
+                renderDomains(data.domains, `#f${idx}`);
 
                 // Render sunbursts
                 const sunburstSelector = `#f${idx}-taxSunburst`
@@ -626,7 +628,8 @@ var gmgc_vueapp = new Vue({
             this.show_items[query][field].show_items = itemsToShow;
             this.show_items[query][field].currentPage = page;
             if (field == "members") {
-                renderDomains(this.show_items[query].domains.filter(d => itemsToShow.includes(d.gene)))
+                const idx = Object.keys(this.show_items).indexOf(query);
+                renderDomains(this.show_items[query].domains.filter(d => itemsToShow.includes(d.gene)), `#f${idx}`)
             }
         },
 
