@@ -507,7 +507,7 @@ var gmgc_vueapp = new Vue({
                     .style('visibility', 'visible');
 
                 // Render protein topologies
-                renderDomains(data.domains, `#f${idx}`);
+                setTimeout(() => {renderDomains(data.domains, `#f${idx}`)}, 0)
 
                 // Render sunbursts
                 const sunburstSelector = `#f${idx}-taxSunburst`
@@ -629,11 +629,9 @@ var gmgc_vueapp = new Vue({
             this.show_items[query][field].currentPage = page;
             if (field == "members") {
                 const idx = Object.keys(this.show_items).indexOf(query);
-                const cardSelector = `#f${idx}`
                 setTimeout(() => {
                     renderDomains(this.show_items[query].domains
-                            .filter(d => itemsToShow.includes(d.gene)),
-                        cardSelector);
+                            .filter(d => itemsToShow.includes(d.gene)),`#f${idx}`);
                 }, 0)
             }
         },
