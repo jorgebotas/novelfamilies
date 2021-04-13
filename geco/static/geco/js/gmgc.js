@@ -204,10 +204,11 @@ var renderDonut = function(id, labels, vals, colors, legend='bottom', height=240
 
 var renderDomains = function(domains, outerSelector) {
     var doms = new Set();
-    domains.forEach(d => {
-        if (d.class && d.class != "") {
-            doms.add(d.class)
-        }
+    domains.forEach(dom => {
+        dom.doms.forEach(d => {
+            if (d.class && d.class != "")
+                doms.add(d.class)
+        })
     })
     doms = [...doms];
     if (doms.includes('helix'))
