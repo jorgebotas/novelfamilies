@@ -10,8 +10,7 @@
     to [[ Math.min(currentPage * perPage, totalItems) ]]. Total hits: [[ totalItems ]].
 </div>
 <div v-if="nPages > 1">
-    {% include 'geco/pagination.html' 
-        with field="" %}
+    {% include 'geco/pagination.html' with field="" %}
 </div>
 
 <div v-for="(tdata, tid, index) in show_items">               
