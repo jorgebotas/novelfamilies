@@ -388,7 +388,7 @@ var gmgc_vueapp = new Vue({
                     show_items: itemsToShow,
                     items: field,
                     nPages: nPages,
-                    currentPage: 0
+                    currentPage: 1
                 }
             }
             const perPage = this.perPage;
