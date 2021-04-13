@@ -254,11 +254,12 @@ var renderDomains = function(domains, outerSelector) {
                         .range(colors);
         domains.forEach(d => {
             selector = outerSelector + " #d" + cleanString(d.gene);
-            d3.select(selector).selectAll('*').remove();
-            if (d.doms.length > 0)
-                draw_protDomains(selector, d.doms, d.lenseq, 600, 10, palette);
-            else
-                d3.select(selector).selectAll('*').remove();
+            const container = d3.select(selector);
+            container.selectAll('*').remove();
+            container.node().addEventListener('load', () => {
+                if (d.doms.length > 0)
+                    draw_protDomains(selector, d.doms, d.lenseq, 600, 10, palette);
+            })
         });
 }
 
