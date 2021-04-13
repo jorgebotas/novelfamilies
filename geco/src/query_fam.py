@@ -60,7 +60,10 @@ def get_neigh_sequences(query, fasta=True):
     window = 10
     mini_contig = get_mini_contig(gene, window=window)
     # extract gene names from the mini contig
-    mini_contig_genes = list(set([n['g'] for n in mini_contig]))
+    mini_contig_genes = list(set(["@".join([src,
+                                            genome,
+                                            orf['g'],
+                                            tax]) for n in mini_contig]))
     seqs = col_proteins.find({'n': { '$in': mini_contig_genes }})
     multifasta = ""
     for s in seqs:

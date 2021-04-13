@@ -60,6 +60,6 @@ def sequences(request, query):
     seq = get_sequences(query)
     return HttpResponse(seq)
 
-def neigh_sequences(request, query)
+def neigh_sequences(request, query):
     seq = get_neigh_sequences(query)
     return HttpResponse(seq)
