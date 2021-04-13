@@ -214,6 +214,7 @@
                                        <th>Signal peptide (Gram-)</th>
                                        <th>Topology</th>
                                        <th>Sequence</th>
+                                       <th>Neighbor sequences</th>
                                    </tr>
                                </thead>
                                <tbody>
@@ -240,6 +241,13 @@
                                               class='btn btn-primary btn-sm'
                                                @click="getSeq(m)">
                                                Sequence
+                                           </button>
+                                       </th>
+                                       <th>
+                                           <button 
+                                              class='btn btn-primary btn-sm'
+                                               @click="getNeighSeqs(m)">
+                                               Neighborhood
                                            </button>
                                        </th>
                                    </tr>

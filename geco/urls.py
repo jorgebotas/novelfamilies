@@ -10,6 +10,7 @@ urlpatterns = [
     path(r'api/context/<str:query>/', api.context),
     path(r'api/seq/<str:query>/', api.sequence),
     path(r'api/seqs/<str:query>/', api.sequences),
+    path(r'api/neigh_seqs/<str:query>/', api.neigh_sequences),
     path(r'api/taxafams/<str:query>/<str:spec>/<str:cov>/<int:page>/',
          api.fam_by_taxa),
     path(r'api/fnfams/<str:query_type>/<str:query>/<str:score>/<int:page>',

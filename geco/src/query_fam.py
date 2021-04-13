@@ -52,6 +52,21 @@ def get_sequences(query, fasta=True):
         multifasta += '>{}\n{}\n'.format(s['n'], s['aa'])
     return multifasta
 
+def get_neigh_sequences(query, fasta=True):
+    src, genome, gene, tax = gene_entry.split('@')
+    # find taxa lineage by genome name
+    taxa = get_taxonomy(genome)
+    # First, give me neighbours and their positions/strands. The result includes the anchor
+    window = 10
+    mini_contig = get_mini_contig(gene, window=window)
+    # extract gene names from the mini contig
+    mini_contig_genes = list(set([n['g'] for n in mini_contig]))
+    seqs = col_proteins.find({'n': { '$in': mini_contig_genes }})
+    multifasta = ""
+    for s in seqs:
+        multifasta += '>{}\n{}\n'.format(s['n'], s['aa'])
+    return multifasta
+
 # Preloads taxonomy info per genome
 def get_taxonomy(genome, json=True):
     match = col_taxonomy.find_one({'genome': genome})

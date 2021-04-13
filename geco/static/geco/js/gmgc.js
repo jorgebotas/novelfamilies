@@ -580,6 +580,12 @@ var gmgc_vueapp = new Vue({
                 .then(blob => saveAs(blob, `${query}_sequences.fasta`))
         },
 
+        getNeighSeqs : function(query) {
+            fetch(API_BASE_URL + `/neigh_seqs/${query}/`)
+                .then(response => response.blob())
+                .then(blob => saveAs(blob, `${query}_sequences.fasta`))
+        },
+
         getPage: function(page) {
             this.show_items = [];
             $('.search-spinner').show();

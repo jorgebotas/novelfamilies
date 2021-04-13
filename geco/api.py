@@ -9,6 +9,7 @@ from .src.query_fam import fams_by_taxa,\
                            get_fam,\
                            get_sequence,\
                            get_sequences,\
+                           get_neigh_sequences,\
                            get_newick,\
                            get_neighborhood
 
@@ -57,4 +58,8 @@ def sequence(request, query):
 
 def sequences(request, query):
     seq = get_sequences(query)
+    return HttpResponse(seq)
+
+def neigh_sequences(request, query)
+    seq = get_neigh_sequences(query)
     return HttpResponse(seq)
