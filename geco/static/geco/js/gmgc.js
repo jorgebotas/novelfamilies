@@ -380,7 +380,7 @@ var gmgc_vueapp = new Vue({
         paginateInfo : function() {
             function paginate(field, perPage) {
                 const nItems = field.length;
-                const nPages = nItems / perPage;
+                const nPages = Math.ceil(nItems / perPage);
                 const itemsToShow = nPages > 1
                     ? field.slice(0, perPage)
                     : field;
@@ -388,6 +388,7 @@ var gmgc_vueapp = new Vue({
                     show_items: itemsToShow,
                     items: field,
                     nPages: nPages,
+                    perPage: perPage,
                     currentPage: 1
                 }
             }
