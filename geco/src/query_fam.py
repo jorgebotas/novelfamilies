@@ -255,11 +255,12 @@ def get_newick(fam):
     for leaf in tree.iter_leaves():
         lname = str(leaf.name).replace(' ', '_')
         nsplit = lname.rsplit('.', 8)
-        showName = nsplit[0] + nsplit[1]
-        showName = showName.replace('.', '_')
-        name = showName.split('@')[2]
+        name = nsplit[0] + nsplit[1]
+        name = name.replace('.', '_')
+        gene_name = name.split('@')[2]
         tax = nsplit[2:]
-        leaf.name = '.'.join([showName, name, *tax])
+        last_tax = tax[-1]
+        leaf.name = '.'.join([last_tax, name, gene_name, *tax])
     return tree.write()
 
 def get_neighborhood(fam, members=None):
