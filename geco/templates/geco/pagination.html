@@ -15,8 +15,9 @@
         :class="[ (currentPage == p) ? 'active' : '' ]"
         >
         <a class='page-link'
-            @click='getPage(p, field)'>[[ p ]]</a>
+           @click='getPage(p, {{ field }})'>[[ p ]]</a>
     </li>
+    {{ field }}
     <li class="page-item px-1"
         :class="{ 'disabled': (currentPage == nPages) }">
       <a class="page-link" 
