@@ -634,7 +634,7 @@ var gmgc_vueapp = new Vue({
                     renderDomains(this.show_items[query].domains
                             .filter(d => itemsToShow.includes(d.gene)),
                         cardSelector);
-                }, 500)
+                }, 0)
             }
         },
 
