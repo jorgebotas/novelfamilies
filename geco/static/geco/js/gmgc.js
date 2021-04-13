@@ -209,8 +209,9 @@ var renderDomains = function(domains, outerSelector) {
             doms.add(d.class)
         }
     })
+    doms = [...doms];
     if (doms.includes('helix'))
-        doms = ['helix', ...[...doms].filter(d => d == 'helix')];
+        doms = ['helix', ...doms.filter(d => d == 'helix')];
     var colors = [
         '#6574cd',
         '#e6ac00',
