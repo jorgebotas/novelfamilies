@@ -11,7 +11,7 @@
 </div>
 <div v-if="nPages > 1">
     {% include 'geco/pagination.html' 
-        with currentPage=currentPage nPages=nPages field="" %}
+        with field="" %}
 </div>
 
 <div v-for="(tdata, tid, index) in show_items">               
