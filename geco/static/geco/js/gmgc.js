@@ -629,7 +629,7 @@ var gmgc_vueapp = new Vue({
             this.show_items[query][field].currentPage = page;
             if (field == "members") {
                 const idx = Object.keys(this.show_items).indexOf(query);
-                const cardSelector = `f${idx}`
+                const cardSelector = `#f${idx}`
                 d3.select(cardSelector + '-seqs').node().addEventListener('load', () => {
                     renderDomains(this.show_items[query].domains
                             .filter(d => itemsToShow.includes(d.gene)),
