@@ -626,9 +626,7 @@ var gmgc_vueapp = new Vue({
             this.show_items[query][field].show_items = itemsToShow;
             this.show_items[query][field].currentPage = page;
             if (field == "members") {
-                window.onload = () => {
-                    renderDomains(this.show_items[query].domains.filter(d => itemsToShow.includes(d.gene)))
-                }
+                renderDomains(this.show_items[query].domains.filter(d => itemsToShow.includes(d.gene)))
             }
         },
 
