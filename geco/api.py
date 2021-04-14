@@ -7,6 +7,7 @@ from .src.get_fams import get_fam_info
 from .src.query_fam import fams_by_taxa,\
                            fams_by_neigh_annotation,\
                            get_fam,\
+                           get_hmm,\
                            get_sequence,\
                            get_sequences,\
                            get_neigh_sequences,\
@@ -51,6 +52,10 @@ def context(request, query):
     context = get_neighborhood(query)
     analysis = { 'context' : context }
     return JsonResponse(analysis)
+
+def hmm(request, query):
+    hmm = get_hmm(query)
+    return HttpResponse(hmm)
 
 def sequence(request, query):
     seq = get_sequence(query)

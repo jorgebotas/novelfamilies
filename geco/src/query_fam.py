@@ -71,6 +71,9 @@ def get_neigh_sequences(query, fasta=True):
         multifasta += '>{}\n{}\n'.format(s['n'], s['aa'])
     return multifasta
 
+def get_hmm(query):
+    return ""
+
 # Preloads taxonomy info per genome
 def get_taxonomy(genome, json=True):
     match = col_taxonomy.find_one({'genome': genome})

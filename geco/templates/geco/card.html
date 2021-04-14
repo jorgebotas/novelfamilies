@@ -98,9 +98,11 @@
                            dropdown-menu-right dropdown-menu-rounded" 
                           aria-labelledby="dropdownMenuDownloads">
                         <a class="dropdown-item"
+                            @click="getNewick(tid)">Phylogeny</a>
+                        <a class="dropdown-item"
                             @click="getSeqs(tid)">Sequences</a>
                         <a class="dropdown-item"
-                            @click="getNewick(tid)">Phylogeny (.nwx)</a>
+                            @click="getHMM(tid)">HMM</a>
                       </div>
                             
                     </div>
