@@ -6,7 +6,7 @@
 
 <div v-if='totalItems > 0'
     class='text-center mb-3'>
-    Showing results from [[ (currentPage - 1) * perPage ]] 
+    Showing results from [[ (currentPage - 1) * perPage + 1 ]] 
     to [[ Math.min(currentPage * perPage, totalItems) ]]. Total hits: [[ totalItems ]].
 </div>
 <div v-if="nPages > 1">
