@@ -260,7 +260,7 @@ def get_newick(fam):
         taxa = get_taxonomy(genome, json=False)
         taxonomy = [ t[3:].replace('.', '_').replace(' ', '_')
                 for t in taxa.split(";") ]
-        full_name = "@".join([src, genome, gene, tax])
+        full_name = "@".join([src, genome, gene, tax]).replace('.', '_')
         last_tax = taxonomy[-1]
         leaf.name = '.'.join([last_tax, full_name, gene, *taxonomy])
     return tree.write()
