@@ -70,7 +70,7 @@ var SeqSunburst = function(unformattedData, width) {
             currentNode = childNode;
           } else {
             // Reached the end of the sequence; create a leaf node.
-            childNode = { name: nodeName, value: size };
+            childNode = { name: nodeName, value: size, children: [] };
             console.log(sequence)
             console.log(nodeName)
             console.log(currentNode)
