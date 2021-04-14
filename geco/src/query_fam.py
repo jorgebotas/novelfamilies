@@ -254,8 +254,8 @@ def get_newick(fam):
     tree = Tree(tree)
     for leaf in tree.iter_leaves():
         lname = str(leaf.name).replace(' ', '_')
-        src, genome, gene, tax = lname.lsplit('@', 3)
-        tax = tax.lsplit('.', 1)[0]
+        src, genome, gene, tax = lname.split('@', 3)
+        tax = tax.split('.', 1)[0]
         # find taxa lineage by genome name
         taxa = get_taxonomy(genome, json=False)
         taxonomy = [ t[3:].replace('.', '_').replace(' ', '_')
