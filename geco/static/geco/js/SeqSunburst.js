@@ -7,6 +7,7 @@
 
 var SeqSunburst = function(unformattedData, width) {
     const data = unformattedData;
+    console.log(data)
     const separator = ";";
     var root;
     var fields;
