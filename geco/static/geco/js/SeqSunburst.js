@@ -49,7 +49,7 @@ var SeqSunburst = function(unformattedData, width) {
         const parts = sequence.split(separator);
         let currentNode = root;
         for (let j = 0; j < parts.length; j++) {
-          const children = currentNode["children"] || [];
+          const children = currentNode["children"];
           const nodeName = parts[j];
           let childNode = null;
           if (j + 1 < parts.length) {
