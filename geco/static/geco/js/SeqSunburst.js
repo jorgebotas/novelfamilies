@@ -7,7 +7,6 @@
 
 var SeqSunburst = function(unformattedData, width) {
     const data = unformattedData;
-    console.log(data)
     const separator = ";";
     var root;
     var fields;
@@ -89,7 +88,6 @@ var SeqSunburst = function(unformattedData, width) {
               .sort((a, b) => b.value - a.value)
           )
         root = partition(formattedData);
-        console.log(root)
     }
 
     function buildFields() {
