@@ -66,12 +66,14 @@ var SeqSunburst = function(unformattedData, width) {
             if (!foundChild) {
               childNode = { name: nodeName, children: [] };
               children.push(childNode);
+              currentNode["children"] = children;
             }
             currentNode = childNode;
           } else {
             // Reached the end of the sequence; create a leaf node.
             childNode = { name: nodeName, value: size };
             children.push(childNode);
+            currentNode["children"] = children;
           }
         }
       }
