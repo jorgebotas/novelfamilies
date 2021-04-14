@@ -254,14 +254,16 @@ def get_newick(fam):
     tree = Tree(tree)
     for leaf in tree.iter_leaves():
         lname = str(leaf.name).replace(' ', '_')
-        nsplit = lname.rsplit('.', 8)
-        name = nsplit[0] + nsplit[1]
-        name = name.replace('.', '_')
-        gene_name = name.split('@')[2]
-        tax = list(filter(lambda t: t != '', nsplit[2:]))
-        print(tax)
-        last_tax = tax[-1]
-        leaf.name = '.'.join([last_tax, name, gene_name, *tax])
+        src, genome, gene, tax = lname.lsplit('@', 3)
+        tax = tax.lsplit('.', 1)[0]
+        # find taxa lineage by genome name
+        taxa = get_taxonomy(genome, json=False)
+        taxonomy = [ t[3:].replace('.', '_').replace(' ', '_')
+                for t in taxa.split(";") ]
+        full_name = "@".join([src, genome, gene, tax])
+        print(taxonomy)
+        last_tax = taxonomy[-1]
+        leaf.name = '.'.join([last_tax, full_name, gene, *taxonomy])
     return tree.write()
 
 def get_neighborhood(fam, members=None):
