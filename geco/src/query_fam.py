@@ -286,7 +286,7 @@ def get_neighborhood(fam, members=None):
         # creates a document with the extended info of each gene
         for orf in mini_contig:
             gene_doc = {"gene": orf['g'].replace('.', '_'),
-                        "anchor": gene,
+                        "anchor": gene.replace('.', '_'),
                         "start": orf['s'],
                         "end": orf['e'],
                         "strand": orf['o'],
