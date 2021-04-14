@@ -15188,7 +15188,7 @@ a:hover {
   background-color: var(--light-indigo);
 }
 
-navbar input:-webkit-autofill {
+.navbar input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0px 1000px var(--dark) inset !important;
   -webkit-text-fill-color: var(--sand) !important;
 }
