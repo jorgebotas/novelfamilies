@@ -262,7 +262,10 @@ def get_newick(fam):
                 for t in taxa.split(";") ]
         full_name = "@".join([src, genome, gene, tax]).replace('.', '_')
         last_tax = taxonomy[-1]
-        leaf.name = '.'.join([last_tax, full_name, gene, *taxonomy])
+        leaf.name = '.'.join([last_tax,
+                              full_name,
+                              gene.replace('.', '_'),
+                              *taxonomy])
     return tree.write()
 
 def get_neighborhood(fam, members=None):
