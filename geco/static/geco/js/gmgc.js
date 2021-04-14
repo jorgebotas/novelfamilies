@@ -620,6 +620,12 @@ var gmgc_vueapp = new Vue({
                 .then(blob => saveAs(blob, `${query}_sequences.fasta`))
         },
 
+        getNewick: function(query) {
+            await fetch(API_BASE_URL + '/tree/' + query + '/')
+                .then(response => response.blob())
+                .then(blob => saveAs(blob, `${query}_tree.nwx`))
+        }
+
         getCardPage : function(page, query, field) {
             const d = this.show_items[query][field];
             if (page == 'previous') {

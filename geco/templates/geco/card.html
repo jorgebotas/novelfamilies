@@ -52,16 +52,6 @@
                   </li>
                   <li class="nav-item mx-2">
                     <a class="nav-link btn-sm" 
-                       id="pills-mappings-tab" 
-                        @click="toggleFam('f' + index + '-tab-content')"
-                       data-toggle="pill"
-                       :href="'#f' + index + '-mappings'"
-                        role="tab" 
-                        aria-controls="pills-mappings"
-                        aria-selected="false">MAG mapping</a>
-                  </li>
-                  <li class="nav-item mx-2">
-                    <a class="nav-link btn-sm" 
                        id="pills-biomes-tab" 
                        data-toggle="pill"
                        :href="'#f' + index + '-biomes'"
@@ -137,7 +127,7 @@
                         peptide
                       </span>
                       <span class='btn btn-sm bg-cherry mt-2' style='cursor:default'>
-                        [[ tdata.mean_nh | toFixed ]] mean num. of TM helices
+                        [[ Math.round(tdata.mean_nh) ]] mean num. of TM domains
                       </span>
                   </div>
                   <div class='donut-sources'
