@@ -621,7 +621,7 @@ var gmgc_vueapp = new Vue({
         },
 
         getNewick: function(query) {
-            await fetch(API_BASE_URL + '/tree/' + query + '/')
+            fetch(API_BASE_URL + '/tree/' + query + '/')
                 .then(response => response.blob())
                 .then(blob => saveAs(blob, `${query}_tree.nwx`))
         }
@@ -694,6 +694,9 @@ var gmgc_vueapp = new Vue({
                 "NA"
             ]
             return blank.indexOf(value) > -1 ? value : "-";
+        },
+        toRounded : function(value) {
+            return Math.round(+value);
         },
         toFixed : function (value, decimal=3) {
             return +(+value).toFixed(decimal);
