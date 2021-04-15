@@ -15100,10 +15100,10 @@ a:hover {
   min-width: calc(1.4285714286em + 0.875rem + 2px);
   margin: 0;
   padding: 0.4375rem 0.75rem;
-  font-size: 0.875rem;
+  font-size: 12px;
   line-height: 1.4285714286;
   color: #5f666e;
-  background: rgba(132, 144, 215, 0.25);
+  background: var(--sand);
   text-align: center;
   cursor: pointer;
   border: 1px solid rgba(95, 102, 110, 0.2);
@@ -15112,8 +15112,9 @@ a:hover {
 }
 
 .btn-clean:hover {
-  color: black;
-  background: #6574cd;
+  color: #6574cd;
+  background: rgba(132, 144, 215, 0.25);
+  border-color: #6574cd;
 }
 
 .selectize-dropdown {
