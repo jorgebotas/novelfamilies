@@ -15080,7 +15080,7 @@ a {
   text-decoration: none !important;
   color: #6574cd;
   cursor: pointer;
-  transition: color 0.5s, opacity 0.5s, background-color 0.5s !important;
+  transition: color 0.5s, opacity 0.5s, background 0.5s, border-color 0.5s !important;
 }
 
 a:hover {
@@ -15092,6 +15092,28 @@ a:hover {
   color: white;
   background-color: #5f666e;
   border-color: #5f666e;
+}
+
+.btn-clean {
+  position: relative;
+  display: block;
+  min-width: calc(1.4285714286em + 0.875rem + 2px);
+  margin: 0;
+  padding: 0.4375rem 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.4285714286;
+  color: #5f666e;
+  background: rgba(132, 144, 215, 0.25);
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid rgba(95, 102, 110, 0.2);
+  border-radius: 5px;
+  transition: color 0.5s, opacity 0.5s, background 0.5s, border-color 0.5s !important;
+}
+
+.btn-clean:hover {
+  color: black;
+  background: #6574cd;
 }
 
 .selectize-dropdown {
@@ -15185,7 +15207,8 @@ a:hover {
 }
 
 .dropdown-menu-rounded .dropdown-item:hover {
-  background-color: var(--light-indigo);
+  background-color: rgba(132, 144, 215, 0.25);
+  color: #6574cd;
 }
 
 .navbar input:-webkit-autofill {
