@@ -8,15 +8,78 @@
     <div class="card-body row">
         <p>
         Explore families by their:
-        <ul>
+        <ul style='margin-left:1rem;'>
            <li>
-            <a @click="showExample('fam')">Family name</a>,
+            <a @click="showExample('fam')">Family name</a>
            </li> 
            <li>
-            <a @click="showExample('taxa')">taxon name</a>,
+            <div class="dropdown pt-2">
+            <a class="nav-link btn-sm dropdown-toggle 
+                        dropdown-downloads" 
+               role="button"
+               id="dropdownMenuDownloads"
+               data-toggle="dropdown"
+               aria-haspopup="true"
+               aria-expanded="false"
+               style="font-size: 15px; 
+                       color: var(--indigo)"
+                       >
+                       Taxon name
+            </a>
+              <div class="dropdown-menu dropdown-menu-arrow
+                   dropdown-menu-right dropdown-menu-rounded" 
+                  aria-labelledby="dropdownMenuDownloads">
+                <a v-for="t in examples.taxa"
+                    class="dropdown-item"
+                    @click="showExample('taxa', t)">[[ t ]]</a>
+                <!--<a class="dropdown-item"-->
+                    <!--@click="showExample('taxa',-->
+                    <!--'p__Riflebacteria')">Riflebacteria</a>-->
+                <!--<a class="dropdown-item"-->
+                    <!--@click="showExample('taxa',-->
+                    <!--'p__Edwardsbacteria')"<Edwardsbacteria</a>-->
+                <!--<a class="dropdown-item"-->
+                    <!--@click="showExample('taxa',-->
+                    <!--'p__Fermentibacterota')"<Fermentibacterota</a>-->
+              </div>
+                    
+            </div>
            </li>
            <li>
-            <a @click="showExample('function')">functional context</a>.
+               Functional context
+               <ul>
+                   <li>
+                        <div class="dropdown pt-2">
+                        <a class="nav-link btn-sm dropdown-toggle 
+                                    dropdown-downloads" 
+                           role="button"
+                           id="dropdownMenuDownloads"
+                           data-toggle="dropdown"
+                           aria-haspopup="true"
+                           aria-expanded="false"
+                           style="font-size: 15px; 
+                                   color: var(--indigo)"
+                                   >
+                                   KEGG orthologues
+                        </a>
+                          <div class="dropdown-menu dropdown-menu-arrow
+                               dropdown-menu-right dropdown-menu-rounded" 
+                              aria-labelledby="dropdownMenuDownloads">
+                            <a class="dropdown-item"
+                                @click="showExample('taxa',
+                                'p__Riflebacteria')">Riflebacteria</a>
+                            <a class="dropdown-item"
+                                @click="showExample('taxa',
+                                'p__Edwardsbacteria')"<Edwardsbacteria</a>
+                            <a class="dropdown-item"
+                                @click="showExample('taxa',
+                                'p__Fermentibacterota')"<Fermentibacterota</a>
+                          </div>
+                                
+                        </div>
+                   </li>
+               </ul>
+            <a @click="showExample('function')">Functional context</a>
            </li>
         </ul>
         </p>

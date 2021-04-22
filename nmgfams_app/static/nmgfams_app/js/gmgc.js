@@ -286,6 +286,46 @@ var gmgc_vueapp = new Vue({
         totalItems: 0,
         nPages: 1,
         currentSearch: '',
+        examples: {
+            fam: "GEM@3300027962_19@3300027962_19_00254@d__Bacteria|p__Fermentibacterota",
+            taxa: [
+                "Fermentibacterota",
+                "Edwardsbacteria",
+                "Riflebacteria"
+            ],
+            functional: [
+                {
+                    name: "Orthologous groups",
+                    examples: [
+                        "OG"
+                    ]
+                },
+                {
+                    name: "KEGG pathways",
+                    examples: [
+                        "KPATH"
+                    ]
+                },
+                {
+                    name: "KEGG orthologues",
+                    examples: [
+                        "KO"
+                    ]
+                },
+                {
+                    name: "CARD",
+                    examples: [
+                        "CARD"
+                    ]
+                },
+                {
+                    name: "Gene name",
+                    examples: [
+                        "gene"
+                    ]
+                },
+            ]
+        }
     },
     methods: {
         searchFams : function(searchType=undefined) {
@@ -514,16 +554,16 @@ var gmgc_vueapp = new Vue({
             $('.tab-content').collapse('show');
         },
 
-        showExample : function(type) {
+        showExample : function(type, val) {
             let val;
             if (type == 'fam') {
-                val = 'GEM@3300027962_19@3300027962_19_00254@d__Bacteria|p__Fermentibacterota';
+                val = this.examples.fam;
             }
             if (type == 'taxa') {
-                val = 'p__Riflebacteria';
+                val = val ? val : this.examples.taxa[0];
             }
             if (type == 'function') {
-                val = '';
+                val = val ? val : this.examples.functional[0].examples[0];
             }
             if (type == 'biome') {
                 val = '';
