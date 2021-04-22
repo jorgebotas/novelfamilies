@@ -357,12 +357,15 @@ var gmgc_vueapp = new Vue({
             this.currentPage = 1;
             this.totalItems = +data.total_matches;
             this.nPages = Math.ceil(this.totalItems/this.perPage)
-            this.hideAllFams();
-            this.paginateInfo();
-            this.renderFamInfo();
-            $('.search-spinner').hide();
-            $('.search-filters').collapse('hide');
-            $('#example-cards').collapse('hide');
+            setTimeout(() => {
+                this.hideAllFams();
+                this.paginateInfo();
+                this.renderFamInfo();
+                $('.search-spinner').hide();
+                $('.search-filters').collapse('hide');
+                $('#example-cards').collapse('hide');
+
+            }, 0)
         },
 
         paginateInfo : function() {
