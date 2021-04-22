@@ -22,11 +22,11 @@
         <link href="https://fonts.googleapis.com/css2?family=Ranga:wght@700&family=Roboto+Condensed&display=swap" 
               rel="stylesheet">
         <script src="https://kit.fontawesome.com/4072499970.js" crossorigin="anonymous"></script>
-        <link href="{% static 'geco/assets/tabler/css/tabler.min.css' %}" rel="stylesheet"/>
-        <link href="{% static 'geco/assets/tabler/libs/selectize/dist/css/selectize.css' %}" rel="stylesheet"/>
+        <link href="{% static 'nmgfams_app/assets/tabler/css/tabler.min.css' %}" rel="stylesheet"/>
+        <link href="{% static 'nmgfams_app/assets/tabler/libs/selectize/dist/css/selectize.css' %}" rel="stylesheet"/>
     <link rel="stylesheet" type="text/css" 
-        href="{% static "geco/assets/tabler/css/tabler-vendors.min.css" %}"/>
-        <link href="{% static 'geco/css/theme.css' %}" rel="stylesheet" />
+        href="{% static "nmgfams_app/assets/tabler/css/tabler-vendors.min.css" %}"/>
+        <link href="{% static 'nmgfams_app/css/theme.css' %}" rel="stylesheet" />
 
         {% block styles %}
         {% endblock %}
@@ -40,23 +40,23 @@
         <div class="page">
                 <div class="content p-0">
                         <div class="container-fluid p-0" id="NovelFams">
-                            {% include 'geco/navbar.html' %}
+                            {% include 'nmgfams_app/navbar.html' %}
                                 {% block content %}
                                 {% endblock %}
                         </div>
-                        {% include 'geco/footer.html' %}
+                        {% include 'nmgfams_app/footer.html' %}
                 </div>
         </div>
         <!-- Libs JS -->
-        <script src="{% static "geco/assets/jquery/jquery.min.js" %}"></script>
-        <script src="{% static 'geco/assets/tabler/libs/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
-        <script src="{% static 'geco/assets/tabler/js/tabler.min.js' %}"></script>
-        <script src="{% static 'geco/assets/tabler/libs/selectize/dist/js/standalone/selectize.min.js' %}"></script>
+        <script src="{% static "nmgfams_app/assets/jquery/jquery.min.js" %}"></script>
+        <script src="{% static 'nmgfams_app/assets/tabler/libs/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
+        <script src="{% static 'nmgfams_app/assets/tabler/js/tabler.min.js' %}"></script>
+        <script src="{% static 'nmgfams_app/assets/tabler/libs/selectize/dist/js/standalone/selectize.min.js' %}"></script>
         <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
 
-        <script src="{% static "geco/assets/vue/vue.min.js" %}"></script>
+        <script src="{% static "nmgfams_app/assets/vue/vue.min.js" %}"></script>
         <script src = "https://d3js.org/d3.v6.min.js"></script>
-        <script src="{% static 'geco/assets/tabler/libs/apexcharts/dist/apexcharts.min.js' %}"></script>
+        <script src="{% static 'nmgfams_app/assets/tabler/libs/apexcharts/dist/apexcharts.min.js' %}"></script>
 
         {% block scripts %}
         {% endblock %}

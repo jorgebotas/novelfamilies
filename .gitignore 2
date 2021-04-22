@@ -1,8 +1,0 @@
-lib/*
-myenv
-pyenv.cfg
-*/__pycache__/*
-
-.env/*
-
-.geco/src/mongodb.py

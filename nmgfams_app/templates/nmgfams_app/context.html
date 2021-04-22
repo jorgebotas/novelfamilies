@@ -1,8 +1,8 @@
-{% extends 'geco/base.html' %}
+{% extends 'nmgfams_app/base.html' %}
 {% load static %}
 {% block content %}
 
-{% include 'geco/filter_cards.html'%}
+{% include 'nmgfams_app/filter_cards.html'%}
 
 <div v-if='totalItems > 0'
     class='text-center mb-3'>
@@ -10,39 +10,22 @@
     to [[ Math.min(currentPage * perPage, totalItems) ]]. Total hits: [[ totalItems ]].
 </div>
 <div v-if="nPages > 1">
-    {% include 'geco/pagination.html' with currentPage=currentPage nPages=nPages field="f" only %}
+    {% include 'nmgfams_app/pagination.html' with currentPage=currentPage nPages=nPages field="f" only %}
 </div>
 
 <div v-for="(tdata, tid, index) in show_items">               
-    {% include 'geco/card.html' %}
+    {% include 'nmgfams_app/card.html' %}
 </div>
 <div v-if="nPages > 1 && Object.keys(show_items).length > 3">
-    {% include 'geco/pagination.html' %}
+    {% include 'nmgfams_app/pagination.html' %}
 </div>
 {% endblock %}
 {% block scripts %}
-    {% comment %}<script src = "https://unpkg.com/@popperjs/core@2"></script>{% endcomment %}
-    <script src="{% static "geco/assets/tabler/libs/nouislider/distribute/nouislider.min.js" %}"></script>
-    {% comment %}<script src="{% static "geco/GeCoVizjs/src/html2canvas.min.js" %}"></script>{% endcomment %}
-    {% comment %}<script src="{% static "geco/GeCoVizjs/src/FileSaver.min.js" %}"></script>{% endcomment %}
-    {% comment %}<script src="{% static "geco/GeCoVizjs/src/colors269.js" %}"></script>{% endcomment %}
-    {% comment %}<script src="{% static "geco/GeCoVizjs/src/palette.js" %}"></script>{% endcomment %}
-    {% comment %}<script src="{% static "geco/GeCoVizjs/src/helpers.js" %}"></script>{% endcomment %}
-    {% comment %}<script src="{% static "geco/GeCoVizjs/src/Sorter.js" %}"></script>{% endcomment %}
-    {% comment %}<script src="{% static "geco/GeCoVizjs/src/selectBox.js" %}"></script>{% endcomment %}
-    {% comment %}<script src="{% static "geco/GeCoVizjs/src/slider.js" %}"></script>{% endcomment %}
-    {% comment %}<script src="{% static "geco/GeCoVizjs/src/customBar.js" %}"></script>{% endcomment %}
-    {% comment %}<script src="{% static "geco/GeCoVizjs/src/domains.js" %}"></script>{% endcomment %}
-    {% comment %}<script src="{% static "geco/GeCoVizjs/src/popper.js" %}"></script>{% endcomment %}
-    {% comment %}<script src="{% static "geco/GeCoVizjs/src/newick.js" %}"></script>{% endcomment %}
-    {% comment %}<script src="{% static "geco/GeCoVizjs/src/tree.js" %}"></script>{% endcomment %}
-    {% comment %}<script src="{% static "geco/GeCoVizjs/src/gecoviz.js" %}"></script>{% endcomment %}
-    {% comment %}{% compress js %}{% endcomment %}
-    <script src="{% static "geco/js/SeqSunburst.js" %}"></script>
-    <script src="{% static "geco/js/gecoviz.js" %}"></script>
-    <script src="{% static "geco/js/FileSaver.js" %}"></script>
-    <script src="{% static "geco/js/gmgc.js" %}"></script>
-    {% comment %}{% endcompress %}{% endcomment %}
+    <script src="{% static "nmgfams_app/assets/tabler/libs/nouislider/distribute/nouislider.min.js" %}"></script>
+    <script src="{% static "nmgfams_app/js/SeqSunburst.js" %}"></script>
+    <script src="{% static "nmgfams_app/js/gecoviz.js" %}"></script>
+    <script src="{% static "nmgfams_app/js/FileSaver.js" %}"></script>
+    <script src="{% static "nmgfams_app/js/gmgc.js" %}"></script>
     <script charset="utf-8">
       $(document).ready(function () {
           $(".form-help").popover();

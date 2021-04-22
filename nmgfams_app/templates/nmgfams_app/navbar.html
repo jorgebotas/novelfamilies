@@ -1,0 +1,56 @@
+{% load static %}
+{% comment %}<nav class="navbar navbar-light bg-primary">{% endcomment %}
+  {% comment %}<a class="navbar-brand p-4 inline" href="#">{% endcomment %}
+      {% comment %}<img src="{% static "nmgfams_app/img/logo_gmgc.png" %}" style="height:80px;"/>{% endcomment %}
+      {% comment %}<h1 class="font-weight-bold text-light my-2 ml-4">novel families</h1>{% endcomment %}
+  {% comment %}</a>{% endcomment %}
+{% comment %}</nav>{% endcomment %}
+
+  <header class="navbar navbar-expand-md navbar-dark d-print-none mb-3 p-2">
+      <div class="container-sm pl-4" style='min-width:100%'>
+          {% comment %}</button>{% endcomment %}
+          <h1 class="navbar-brand navbar-brand-autodark
+              d-none-navbar-horizontal my-auto">
+              <a href="/" target="_self">
+                  Novel Microbial Gene Families
+              </a>
+          </h1>
+          <div class="navbar-nav flex-row order-md-last pt-2"
+              style="width: 65%">
+                <div>
+                    <select name="search-type" id="search-type"
+                        class="form-select form-control">
+                    </select>
+                </div>
+                <div class="input-icon w-100 mx-2" style='min-width:250px'>
+                    <span class="input-icon-addon">
+                        <div class="search-spinner spinner-border spinner-border-sm text-muted" 
+                            role="status" style="display:none;">
+                        </div>
+                    </span>
+                    <input type="text"
+                           class="form-control text-left"
+                           id="search-fams"
+                           @keypress.enter.prevent="searchFams()"
+                           placeholder="Search family"/>
+                    <span class="input-icon-addon search-icon" 
+                           @click="searchFams()">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                    </span>
+                </div>
+                <button class="btn btn-primary btn-sm mx-1 my-auto"
+                    @click="showAllFams()"
+                    style="min-width:80px">
+                    Open all
+                </button>
+                <a class="btn btn-primary btn-sm mx-3 my-auto"
+                   data-toggle="collapse"
+                   href="#example-cards"
+                   aria-expanded="false"
+                   aria-controls="example-cards"
+                   >
+                    Examples
+                </a>
+          </div>
+  </header>
+
