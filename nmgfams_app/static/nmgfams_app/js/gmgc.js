@@ -412,7 +412,7 @@ var gmgc_vueapp = new Vue({
                 this.paginateInfo();
                 this.renderFamInfo();
 
-            }, 0)
+            }, 5)
         },
 
         paginateInfo : function() {
