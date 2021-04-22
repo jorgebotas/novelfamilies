@@ -12008,6 +12008,9 @@ a:hover {
 .dropdown-noafter::after {
   content: none !important; }
 
+.dropright .dropdown-menu {
+  margin-left: 10px !important; }
+
 .dropright-menu-arrow:before {
   content: "";
   position: absolute;
