@@ -350,6 +350,7 @@ var gmgc_vueapp = new Vue({
         },
 
         fetchThen : function(data, fetchURL) {
+            console.log(data)
             this.show_items = {};
             this.show_items = data.show_items;
             this.currentSearch = fetchURL;
