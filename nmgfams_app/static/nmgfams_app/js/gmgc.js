@@ -554,16 +554,16 @@ var gmgc_vueapp = new Vue({
             $('.tab-content').collapse('show');
         },
 
-        showExample : function(type, val) {
+        showExample : function(type, value) {
             let val;
             if (type == 'fam') {
-                val = this.examples.fam;
+                val = value || this.examples.fam;
             }
             if (type == 'taxa') {
-                val = val ? val : this.examples.taxa[0];
+                val = value || this.examples.taxa[0];
             }
             if (type == 'function') {
-                val = val ? val : this.examples.functional[0].examples[0];
+                val = value || this.examples.functional[0].examples[0];
             }
             if (type == 'biome') {
                 val = '';
