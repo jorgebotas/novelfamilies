@@ -335,7 +335,6 @@ var gmgc_vueapp = new Vue({
     },
     methods: {
         searchFams : function(searchType=undefined) {
-            $("#search-fams").blur();
             $('.search-spinner').show();
             this.show_items = [];
             this.nPages = 1;
@@ -343,6 +342,7 @@ var gmgc_vueapp = new Vue({
             let query = $("#search-fams").val().trim();
             let type = searchType || $("#search-type").val();
             let selector = '#search-fams'
+            $(selector).trigger('blur');
             if (type == 'fam') {
                 fetch(API_BASE_URL + `/info/${query}/`)
                 .then(response => response.json())
@@ -365,7 +365,6 @@ var gmgc_vueapp = new Vue({
         searchFamByTaxa : function(selector, prefix) {
             $('.search-spinner').show();
             let search = $(selector);
-            search.blur();
             let query = prefix + search.val().trim();
             let spec = document.querySelector("#specificity").noUiSlider.get();
             let cov = document.querySelector("#coverage").noUiSlider.get();
@@ -379,7 +378,6 @@ var gmgc_vueapp = new Vue({
         searchFamByFunction : function(selector) {
             $('.search-spinner').show();
             let search = $(selector);
-            search.blur();
             let query = search.val().trim();
             let queryType = $('.term-type input:checked').val();
             let conservation = document.querySelector("#conservation").noUiSlider.get();
@@ -398,21 +396,19 @@ var gmgc_vueapp = new Vue({
         fetchThen : function(data, fetchURL) {
             $('#example-cards').collapse('hide');
             $('.search-filters').collapse('hide');
-            setTimeout(() => {
-                this.show_items = {};
-                this.show_items = data.show_items;
-                this.currentSearch = fetchURL;
-                this.currentPage = 1;
-                this.totalItems = +data.total_matches;
-                this.nPages = Math.ceil(this.totalItems/this.perPage)
-            }, 0)
+            this.show_items = {};
+            this.show_items = data.show_items;
+            this.currentSearch = fetchURL;
+            this.currentPage = 1;
+            this.totalItems = +data.total_matches;
+            this.nPages = Math.ceil(this.totalItems/this.perPage)
             setTimeout(() => {
                 $('.search-spinner').hide();
                 this.hideAllFams();
                 this.paginateInfo();
                 this.renderFamInfo();
 
-            }, 5)
+            }, 0)
         },
 
         paginateInfo : function() {
