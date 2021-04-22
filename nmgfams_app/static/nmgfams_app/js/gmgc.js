@@ -289,9 +289,10 @@ var gmgc_vueapp = new Vue({
         examples: {
             fam: "GEM@3300027962_19@3300027962_19_00254@d__Bacteria|p__Fermentibacterota",
             taxa: [
-                "p__Edwardsbacteria",
                 "p__Fermentibacterota",
-                "p__Riflebacteria"
+                "p__Riflebacteria",
+                "c__Thorarchaeia",
+                "c__Sericytochromatia",
             ],
             context: [
                 {
