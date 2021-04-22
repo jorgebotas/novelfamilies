@@ -404,12 +404,12 @@ var gmgc_vueapp = new Vue({
             this.totalItems = +data.total_matches;
             this.nPages = Math.ceil(this.totalItems/this.perPage)
             setTimeout(() => {
+                $('#example-cards').collapse('hide');
+                $('.search-filters').collapse('hide');
+                $('.search-spinner').hide();
                 this.hideAllFams();
                 this.paginateInfo();
                 this.renderFamInfo();
-                $('.search-spinner').hide();
-                $('.search-filters').collapse('hide');
-                $('#example-cards').collapse('hide');
 
             }, 0)
         },
