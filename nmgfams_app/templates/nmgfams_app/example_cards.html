@@ -13,69 +13,50 @@
             <a @click="showExample('fam')">Family name</a>
            </li> 
            <li class="dropright">
-            <a class="btn-sm dropdown-toggle" 
+            <a class="dropdown-toggle" 
                role="button"
                id="dropdownMenuTaxa"
                data-toggle="dropdown"
                aria-haspopup="true"
                aria-expanded="false"
-               style="font-size: 15px; 
-                       color: var(--indigo)"
-                       >
+               style="font-size: 0.875rem;">
                        Taxon name
             </a>
-              <div class="dropdown-menu dropdown-menu-arrow
-                   dropdown-menu-right dropdown-menu-rounded" 
+              <div class="dropdown-menu dropright-menu-arrow
+                   dropdown-menu-rounded" 
                   aria-labelledby="dropdownMenuTaxa">
                 <a v-for="t in examples.taxa"
                     class="dropdown-item"
                     @click="showExample('taxa', t)">[[ t ]]</a>
-                <!--<a class="dropdown-item"-->
-                    <!--@click="showExample('taxa',-->
-                    <!--'p__Riflebacteria')">Riflebacteria</a>-->
-                <!--<a class="dropdown-item"-->
-                    <!--@click="showExample('taxa',-->
-                    <!--'p__Edwardsbacteria')"<Edwardsbacteria</a>-->
-                <!--<a class="dropdown-item"-->
-                    <!--@click="showExample('taxa',-->
-                    <!--'p__Fermentibacterota')"<Fermentibacterota</a>-->
               </div>
                     
            </li>
            <li>
                Functional context
                <ul>
-                   <li>
-                        <div class="dropdown pt-2">
-                        <a class="nav-link btn-sm dropdown-toggle" 
-                           role="button"
-                           id="dropdownMenuKOs"
-                           data-toggle="dropdown"
-                           aria-haspopup="true"
-                           aria-expanded="false"
-                           style="font-size: 15px; 
-                                   color: var(--indigo)"
-                                   >
-                                   KEGG orthologues
-                        </a>
-                          <div class="dropdown-menu dropdown-menu-arrow
-                               dropdown-menu-right dropdown-menu-rounded" 
-                              aria-labelledby="dropdownMenuKOs">
-                            <a class="dropdown-item"
-                                @click="showExample('taxa',
-                                'p__Riflebacteria')">Riflebacteria</a>
-                            <a class="dropdown-item"
-                                @click="showExample('taxa',
-                                'p__Edwardsbacteria')"<Edwardsbacteria</a>
-                            <a class="dropdown-item"
-                                @click="showExample('taxa',
-                                'p__Fermentibacterota')"<Fermentibacterota</a>
-                          </div>
-                                
-                        </div>
+                   <li v-for="f in examples.context"
+                       class="dropright">
+                    <a class="dropdown-toggle" 
+                       role="button"
+                       :id=`dropdownMenu${f.type}`
+                       data-toggle="dropdown"
+                       aria-haspopup="true"
+                       aria-expanded="false"
+                       style="font-size: 0.875rem;">
+                            f.name
+                    </a>
+                      <div class="dropdown-menu dropright-menu-arrow
+                           dropdown-menu-rounded" 
+                           :aria-labelledby=`dropdownMenu${f.type}`>
+                        <a v-for="e in f.examples"
+                            class="dropdown-item"
+                            @click="showExample('context',
+                                   `${f.name.type}_${e}`)">[[ e ]]</a>
+                      </div>
+                            
                    </li>
+
                </ul>
-            <a @click="showExample('function')">Functional context</a>
            </li>
         </ul>
         </p>

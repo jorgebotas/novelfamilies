@@ -296,30 +296,35 @@ var gmgc_vueapp = new Vue({
             functional: [
                 {
                     name: "Orthologous groups",
+                    type: "og",
                     examples: [
                         "OG"
                     ]
                 },
                 {
                     name: "KEGG pathways",
+                    type: "kpath",
                     examples: [
                         "KPATH"
                     ]
                 },
                 {
                     name: "KEGG orthologues",
+                    type: "kos",
                     examples: [
                         "KO"
                     ]
                 },
                 {
                     name: "CARD",
+                    type: "CARD",
                     examples: [
                         "CARD"
                     ]
                 },
                 {
                     name: "Gene name",
+                    type: "pname",
                     examples: [
                         "gene"
                     ]
@@ -562,8 +567,10 @@ var gmgc_vueapp = new Vue({
             if (type == 'taxa') {
                 val = value || this.examples.taxa[0];
             }
-            if (type == 'function') {
+            if (type == 'context') {
                 val = value || this.examples.functional[0].examples[0];
+                queryType, val = val.split('_');
+                $(`.term-type input[value=${queryType}]`).val();
             }
             if (type == 'biome') {
                 val = '';
