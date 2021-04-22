@@ -13,11 +13,10 @@
             <a @click="showExample('fam')">Family name</a>
            </li> 
            <li>
-            <div class="dropdown pt-2">
-            <a class="nav-link btn-sm dropdown-toggle 
-                        dropdown-downloads" 
+            <div class="dropdright pt-2">
+            <a class="nav-link btn-sm dropdown-toggle" 
                role="button"
-               id="dropdownMenuDownloads"
+               id="dropdownMenuTaxa"
                data-toggle="dropdown"
                aria-haspopup="true"
                aria-expanded="false"
@@ -28,7 +27,7 @@
             </a>
               <div class="dropdown-menu dropdown-menu-arrow
                    dropdown-menu-right dropdown-menu-rounded" 
-                  aria-labelledby="dropdownMenuDownloads">
+                  aria-labelledby="dropdownMenuTaxa">
                 <a v-for="t in examples.taxa"
                     class="dropdown-item"
                     @click="showExample('taxa', t)">[[ t ]]</a>
@@ -50,10 +49,9 @@
                <ul>
                    <li>
                         <div class="dropdown pt-2">
-                        <a class="nav-link btn-sm dropdown-toggle 
-                                    dropdown-downloads" 
+                        <a class="nav-link btn-sm dropdown-toggle" 
                            role="button"
-                           id="dropdownMenuDownloads"
+                           id="dropdownMenuKOs"
                            data-toggle="dropdown"
                            aria-haspopup="true"
                            aria-expanded="false"
@@ -64,7 +62,7 @@
                         </a>
                           <div class="dropdown-menu dropdown-menu-arrow
                                dropdown-menu-right dropdown-menu-rounded" 
-                              aria-labelledby="dropdownMenuDownloads">
+                              aria-labelledby="dropdownMenuKOs">
                             <a class="dropdown-item"
                                 @click="showExample('taxa',
                                 'p__Riflebacteria')">Riflebacteria</a>
