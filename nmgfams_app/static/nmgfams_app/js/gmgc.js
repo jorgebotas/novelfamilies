@@ -396,7 +396,8 @@ var gmgc_vueapp = new Vue({
         },
 
         fetchThen : function(data, fetchURL) {
-            console.log(data)
+            $('#example-cards').collapse('hide');
+            $('.search-filters').collapse('hide');
             this.show_items = {};
             this.show_items = data.show_items;
             this.currentSearch = fetchURL;
@@ -404,8 +405,6 @@ var gmgc_vueapp = new Vue({
             this.totalItems = +data.total_matches;
             this.nPages = Math.ceil(this.totalItems/this.perPage)
             setTimeout(() => {
-                $('#example-cards').collapse('hide');
-                $('.search-filters').collapse('hide');
                 $('.search-spinner').hide();
                 this.hideAllFams();
                 this.paginateInfo();
