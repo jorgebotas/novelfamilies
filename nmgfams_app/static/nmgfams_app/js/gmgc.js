@@ -293,7 +293,7 @@ var gmgc_vueapp = new Vue({
                 "p__Fermentibacterota",
                 "p__Riflebacteria"
             ],
-            functional: [
+            context: [
                 {
                     name: "Orthologous groups",
                     type: "og",
@@ -568,7 +568,7 @@ var gmgc_vueapp = new Vue({
                 val = value || this.examples.taxa[0];
             }
             if (type == 'context') {
-                val = value || this.examples.functional[0].examples[0];
+                val = value || this.examples.context[0].examples[0];
                 queryType, val = val.split('_');
                 $(`.term-type input[value=${queryType}]`).val();
             }

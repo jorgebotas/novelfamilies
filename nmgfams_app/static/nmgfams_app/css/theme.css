@@ -12006,12 +12006,12 @@ a:hover {
   border-color: #6574cd; }
 
 .dropdown-noafter::after {
-  content: none; }
+  content: none !important; }
 
 .dropright-menu-arrow:before {
   content: "";
   position: absolute;
-  top: 14px;
+  top: 11px;
   left: 0;
   margin-left: -4px;
   display: block;
