@@ -66,7 +66,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = nmgfams_project.wsgi.application'
+WSGI_APPLICATION = 'nmgfams_project.wsgi.application'
 
 
 # Database
