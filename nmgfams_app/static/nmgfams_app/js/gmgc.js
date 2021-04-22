@@ -271,7 +271,7 @@ var renderSunburst = function(selector, data) {
     SeqSunburst(data, 200, selector);
 }
 
-var catchSearch = function(e) {
+var fetchCatch = function(e) {
     console.log(e)
     alert("No family found under current search. Please try again!")
 }
@@ -300,21 +300,13 @@ var gmgc_vueapp = new Vue({
             if (type == 'fam') {
                 fetch(API_BASE_URL + `/info/${query}/`)
                 .then(response => response.json())
-                .then(data => {
-                    this.show_items = {}
-                    this.show_items = data.show_items;
-                    this.currentSearch = '';
-                    this.totalItems = 1;
-                })
+                .then(data => this.fetchThen(data, ''))
                 .then(() => {
-                    this.paginateInfo();
-                    this.renderFamInfo();
                     $('.tab-content').collapse('show');
-                    $('.search-spinner').hide();
                     let idx = Object.keys(this.show_items).indexOf(query);
                     this.toggleGeCoViz(`#f${idx}-GeCoViz`, query);
                 })
-                .catch(e => catchSearch(e))
+                .catch(e => fetchCatch(e))
             } else if (type == 'taxa'){
                 this.searchFamByTaxa(selector, '');
             } else if (type == 'function') {
@@ -322,8 +314,6 @@ var gmgc_vueapp = new Vue({
             }  else if (type == 'biome') {
                 this.searchFamByBiome(selector);
             }
-            $('.search-filters').collapse('hide');
-            $('#example-cards').collapse('hide');
         },
 
         searchFamByTaxa : function(selector, prefix) {
@@ -336,22 +326,8 @@ var gmgc_vueapp = new Vue({
             let fetchURL = API_BASE_URL + `/taxafams/${query}/${spec}/${cov}`;
             fetch(`${fetchURL}/0/`)
                 .then(response => response.json())
-                .then(data => {
-                    this.show_items = {};
-                    this.show_items = data.show_items;
-                    this.currentSearch = fetchURL;
-                    this.currentPage = 1;
-                    this.totalItems = +data.total_matches;
-                    this.nPages = Math.ceil(this.totalItems/this.perPage)
-                    console.log(this.nPages)
-                })
-                .then(() => {
-                    this.hideAllFams();
-                    this.paginateInfo();
-                    this.renderFamInfo();
-                    $('.search-spinner').hide();
-                })
-                .catch(e => catchSearch(e))
+                .then(data => this.fetchThen(data, fetchURL))
+                .catch(e => fetchCatch(e))
         },
 
         searchFamByFunction : function(selector) {
@@ -365,25 +341,27 @@ var gmgc_vueapp = new Vue({
                 + `/fnfams/${queryType}/${query}/${conservation}`;
             fetch(`${fetchURL}/0/`)
                 .then(response => response.json())
-                .then(data => {
-                    this.show_items = {};
-                    this.show_items = data.show_items;
-                    this.currentSearch = fetchURL;
-                    this.currentPage = 1;
-                    this.totalItems = +data.total_matches;
-                    this.nPages = Math.ceil(this.totalItems/this.perPage)
-                })
-                .then(() => {
-                    this.hideAllFams();
-                    this.paginateInfo();
-                    this.renderFamInfo();
-                    $('.search-spinner').hide();
-                })
-                .catch(e => catchSearch(e))
+                .then(data => this.fetchThen(data, fetchURL))
+                .catch(e => fetchCatch(e))
         },
 
         searchFamByBiome : function(selector) {
 
+        },
+
+        fetchThen : function(data, fetchURL) {
+            this.show_items = {};
+            this.show_items = data.show_items;
+            this.currentSearch = fetchURL;
+            this.currentPage = 1;
+            this.totalItems = +data.total_matches;
+            this.nPages = Math.ceil(this.totalItems/this.perPage)
+            this.hideAllFams();
+            this.paginateInfo();
+            this.renderFamInfo();
+            $('.search-spinner').hide();
+            $('.search-filters').collapse('hide');
+            $('#example-cards').collapse('hide');
         },
 
         paginateInfo : function() {
@@ -538,7 +516,7 @@ var gmgc_vueapp = new Vue({
                 val = 'GEM@3300027962_19@3300027962_19_00254@d__Bacteria|p__Fermentibacterota';
             }
             if (type == 'taxa') {
-                val = 'p__Dormibacterota';
+                val = 'p__Riflebacteria';
             }
             if (type == 'function') {
                 val = '';
