@@ -394,7 +394,6 @@ var gmgc_vueapp = new Vue({
         },
 
         fetchThen : function(data, fetchURL) {
-            $('#example-cards').collapse('hide');
             $('.search-filters').collapse('hide');
             this.show_items = {};
             this.show_items = data.show_items;

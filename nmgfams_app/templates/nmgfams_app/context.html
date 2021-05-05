@@ -3,7 +3,9 @@
 {% block content %}
 
 {% include 'nmgfams_app/filter_cards.html'%}
-{% include 'nmgfams_app/example_cards.html'%}
+<div v-if='totalItems == 0'>
+    {% include 'nmgfams_app/example_cards.html'%}
+</div>
 
 <div v-if='totalItems > 0'
     class='text-center mb-3'>
