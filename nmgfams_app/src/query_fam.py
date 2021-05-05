@@ -381,12 +381,12 @@ def get_more_faminfo(fams):
         extended_fams.append(ext_fam)
     return extended_fams
 
-def get_fam(fam):
-    fam_info = col_faminfo.find_one({'name': fam})
-    del fam_info['_id']
-    # Get neighborhood
-    fam_info['neighs'] = get_neighborhood(fam, fam_info['members'])
-    fam_info = get_more_faminfo([fam_info])[0]
+def get_fams(fnames):
+    fam_info = col_faminfo.find({'name': {'$in': fnames}}, {'_id': 0})
+    fam_info = get_more_faminfo(fam_info)
+    if len(fnames) == 1:
+        # Get neighborhood
+        fam_info[0]['neighs'] = get_neighborhood(fnames[0], fam_info['members'])
     return fam_info
 
 if __name__ == '__main__':
