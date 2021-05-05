@@ -382,7 +382,7 @@ def get_more_faminfo(fams):
     return extended_fams
 
 def get_fams(fnames):
-    fam_info = col_faminfo.find({'name': {'$in': fnames}}, {'_id': 0})
+    fam_info = list(col_faminfo.find({'name': {'$in': fnames}}, {'_id': 0}))
     print(fnames)
     print(fam_info)
     fam_info = get_more_faminfo(fam_info)
