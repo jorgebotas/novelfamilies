@@ -395,19 +395,20 @@ var gmgc_vueapp = new Vue({
 
         fetchThen : function(data, fetchURL) {
             $('.search-filters').collapse('hide');
-            this.show_items = {};
-            this.show_items = data.show_items;
-            this.currentSearch = fetchURL;
-            this.currentPage = 1;
-            this.totalItems = +data.total_matches;
-            this.nPages = Math.ceil(this.totalItems/this.perPage)
+            setTimeout(() => {
+                this.show_items = {};
+                this.show_items = data.show_items;
+                this.currentSearch = fetchURL;
+                this.currentPage = 1;
+                this.totalItems = +data.total_matches;
+                this.nPages = Math.ceil(this.totalItems/this.perPage)
+            }, 10)
             setTimeout(() => {
                 $('.search-spinner').hide();
                 this.hideAllFams();
                 this.paginateInfo();
                 this.renderFamInfo();
-
-            }, 0)
+            }, 11)
         },
 
         paginateInfo : function() {
