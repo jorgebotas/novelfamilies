@@ -383,13 +383,12 @@ def get_more_faminfo(fams):
 
 def get_fams(fnames):
     fam_info = list(col_faminfo.find({'name': {'$in': fnames}}, {'_id': 0}))
-    print(fnames)
-    print(fam_info)
     fam_info = get_more_faminfo(fam_info)
     if len(fnames) == 1:
+        fam_info = fam_info[0]
         # Get neighborhood
-        print(fam_info)
-        fam_info[0]['neighs'] = get_neighborhood(fnames[0], fam_info['members'])
+        fam_info['neighs'] = get_neighborhood(fnames[0], 
+                                                fam_info['members'])
     return fam_info
 
 if __name__ == '__main__':

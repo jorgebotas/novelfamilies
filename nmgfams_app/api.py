@@ -17,7 +17,7 @@ from .src.query_fam import fams_by_taxa,\
 DOCS_PER_PAGE = 10
 
 def info(request, query):
-    data = { 'show_items' : { query :  get_fams([query])[0] }}
+    data = { 'show_items' : { query :  get_fams([query]) }}
     return JsonResponse(data)
 
 def fam_by_annotation(request, query_type, query, score, page):
