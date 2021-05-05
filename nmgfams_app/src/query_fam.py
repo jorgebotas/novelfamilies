@@ -386,6 +386,7 @@ def get_fams(fnames):
     fam_info = get_more_faminfo(fam_info)
     if len(fnames) == 1:
         # Get neighborhood
+        print(fam_info)
         fam_info[0]['neighs'] = get_neighborhood(fnames[0], fam_info['members'])
     return fam_info
 
