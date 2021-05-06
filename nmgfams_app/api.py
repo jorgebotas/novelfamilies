@@ -73,12 +73,22 @@ def neigh_sequences(request, query):
     return HttpResponse(seq)
 
 def fam_example(request, example_type, query, page):
-    example_file = f'{example_type}_examples.pickle'
+
+    if query == "info":
+        example_file = f'examples/{example_type}_examples_info.pickle'
+        with open(example_file, "rb") as handle:
+            examples = load_pickle(handle)
+        zipped = list(zip(examples.keys(), examples.values()))
+        return JsonResponse({
+            'show_items': zipped,
+        })
+
+    example_file = f'examples/{example_type}_examples_fams.pickle'
     with open(example_file, "rb") as handle:
         example_fams = load_pickle(handle)
     examples = get_fams(example_fams[query])
     fams = {
         'show_items' : fams[page*DOCS_PER_PAGE : (page+1)*DOCS_PER_PAGE],
         'total_matches': len(fams)
-    }
+        }
     return JsonResponse(fams)

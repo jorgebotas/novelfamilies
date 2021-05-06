@@ -313,7 +313,11 @@ var gmgc_vueapp = new Vue({
                     name: "KEGG orthologues",
                     type: "kos",
                     examples: [
-                        "KO"
+                        'K01673', 
+                        'K01489', 
+                        'K02120', 
+                        'K02119', 
+                        'K01039', 
                     ]
                 },
                 {
@@ -391,6 +395,16 @@ var gmgc_vueapp = new Vue({
 
         searchFamByBiome : function(selector) {
 
+        },
+
+        searchFamByExample : function(exampleType, query) {
+            $('.search-spinner').show();
+            let fetchURL = API_BASE_URL
+                + `/examples/${exampleType}/${query}`;
+            fetch(`${fetchURL}/0/`)
+                .then(response => response.json())
+                .then(data => this.fetchThen(data, fetchURL))
+                .catch(e => fetchCatch(e))
         },
 
         fetchThen : function(data, fetchURL) {
@@ -576,6 +590,18 @@ var gmgc_vueapp = new Vue({
             }
             $('#search-fams').val(val);
             this.searchFams(type);
+        },
+
+        showExamples: async function(exampleType) {
+            if (this.examples[exampleType].length > 0)
+                return this.examples[exampleType]
+            let fetchURL = API_BASE_URL
+                + `/examples/${exampleType}/description`;
+            await fetch(`${fetchURL}/0/`)
+                .then(response => response.json())
+                .then(data => this.examples[exampleType] = data.show_items)
+                .catch(e => fetchCatch(e))
+            return this.examples[exampleType]
         },
 
         hideAllFams : function() {
