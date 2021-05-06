@@ -406,9 +406,8 @@ var gmgc_vueapp = new Vue({
 
         fetchThen : function(data, fetchURL) {
             // Hide search filters quickly
-            document.querySelector('.search-filters')
-                .classList
-                .remove('show');
+            document.querySelectorAll('.search-filters')
+                .forEach(f => f.classList.remove('show'));
             this.show_items = {};
             this.show_items = data.show_items;
             this.currentSearch = fetchURL;
