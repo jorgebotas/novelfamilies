@@ -597,7 +597,7 @@ var gmgc_vueapp = new Vue({
             if (this.examples[exampleType].length > 0)
                 return this.examples[exampleType]
             let fetchURL = API_BASE_URL
-                + `/examples/${exampleType}/description`;
+                + `/examples/${exampleType}/info`;
             await fetch(`${fetchURL}/0/`)
                 .then(response => response.json())
                 .then(data => this.examples[exampleType] = data.show_items)
