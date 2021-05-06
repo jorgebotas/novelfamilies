@@ -11967,8 +11967,8 @@ Antialiasing
   color: var(--sand) !important; }
 
 .bg-indigo {
-  background-color: #6574cd;
-  color: rgba(132, 144, 215, 0.2); }
+  background-color: #6574cd !important;
+  color: rgba(132, 144, 215, 0.2) !important; }
 
 a {
   text-decoration: none !important;
