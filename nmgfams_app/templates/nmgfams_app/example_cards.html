@@ -1,67 +1,23 @@
 <div class='example-cards row justify-content-center
      align-content-center h-100 mx-2'
     id="example-cards">
+
+
 <div class="col-md-6 col-sm-12">
 <div class="card">
     <div class="card-header">
-        Examples
+        <h3 class="card-title">
+        Synapomorphic families
+        </h3>
     </div>
-    <div class="card-body">
+    <div class="card-body row">
         <p>
-        Explore families by their:
-        <ul>
-           <li>
-            <a @click="showExample('fam')">Family name</a>
-           </li> 
-           <li class="dropright">
-            <a class="dropdown-toggle dropdown-noafter" 
-               role="button"
-               id="dropdownMenuTaxa"
-               data-toggle="dropdown"
-               aria-haspopup="true"
-               aria-expanded="false"
-               style="font-size: 0.875rem;">
-                       Taxon name
-            </a>
-              <div class="dropdown-menu dropright-menu-arrow
-                   dropdown-menu-rounded" 
-                  aria-labelledby="dropdownMenuTaxa">
-                <a v-for="t in examples.taxa"
-                    class="dropdown-item"
-                    @click="showExample('taxa', t)">[[ t ]]</a>
-              </div>
-                    
-           </li>
-           <li>
-               Functional context
-               <ul>
-                   <li v-for="f in examples.context"
-                       class="dropright">
-                    <a class="dropdown-toggle dropdown-noafter" 
-                       role="button"
-                       :id=`dropdownMenu${f.type}`
-                       data-toggle="dropdown"
-                       aria-haspopup="true"
-                       aria-expanded="false"
-                       style="font-size: 0.875rem;">
-                            [[ f.name ]]
-                    </a>
-                      <div class="dropdown-menu dropright-menu-arrow
-                           dropdown-menu-rounded" 
-                           :aria-labelledby=`dropdownMenu${f.type}`>
-                        <a v-for="e in f.examples"
-                            class="dropdown-item"
-                            @click="showExample('context',
-                                   `${f.name.type}_${e}`)">[[ e ]]</a>
-                      </div>
-                   </li>
-               </ul>
-           </li>
-        </ul>
+        Explore synapomorphic families
         </p>
     </div>
 </div>
 </div>
+
 
 <div class="col-md-6 col-sm-12">
 <div class="card">
@@ -95,41 +51,64 @@
     </div>
 </div>
 </div>
-
-<div class="card col-md-4 col-sm-11 mx-3 p-0">
-    <div class="card-header">
-        <h3 class="card-title">
-        Synapomorphic families
-        </h3>
-    </div>
-    <div class="card-body row">
-        <p>
-        Explore synapomorphic families
-        </p>
-    </div>
-</div>
-
-<div class="card col-md-4 col-sm-11 mx-3 p-0">
-    <div class="card-header">
-        Other families
-    </div>
-    <div class="card-body row">
-        <p>
-        Explore other families
-        </p>
-    </div>
-</div>
-
-<div class="card col-md-4 col-sm-11 mx-3 p-0">
-    <div class="card-header">
-        Other families
-    </div>
-    <div class="card-body row">
-        <p>
-        Explore other families
-        </p>
-    </div>
-</div>
-
-</div>
-
+<!--<div class="col-md-6 col-sm-12">-->
+<!--<div class="card">-->
+    <!--<div class="card-header">-->
+        <!--Examples-->
+    <!--</div>-->
+    <!--<div class="card-body">-->
+        <!--<p>-->
+        <!--Explore families by their:-->
+        <!--<ul>-->
+           <!--<li>-->
+            <!--<a @click="showExample('fam')">Family name</a>-->
+           <!--</li> -->
+           <!--<li class="dropright">-->
+            <!--<a class="dropdown-toggle dropdown-noafter" -->
+               <!--role="button"-->
+               <!--id="dropdownMenuTaxa"-->
+               <!--data-toggle="dropdown"-->
+               <!--aria-haspopup="true"-->
+               <!--aria-expanded="false"-->
+               <!--style="font-size: 0.875rem;">-->
+                       <!--Taxon name-->
+            <!--</a>-->
+              <!--<div class="dropdown-menu dropright-menu-arrow-->
+                   <!--dropdown-menu-rounded" -->
+                  <!--aria-labelledby="dropdownMenuTaxa">-->
+                <!--<a v-for="t in examples.taxa"-->
+                    <!--class="dropdown-item"-->
+                    <!--@click="showExample('taxa', t)">[[ t ]]</a>-->
+              <!--</div>-->
+                    
+           <!--</li>-->
+           <!--<li>-->
+               <!--Functional context-->
+               <!--<ul>-->
+                   <!--<li v-for="f in examples.context"-->
+                       <!--class="dropright">-->
+                    <!--<a class="dropdown-toggle dropdown-noafter" -->
+                       <!--role="button"-->
+                       <!--:id=`dropdownMenu${f.type}`-->
+                       <!--data-toggle="dropdown"-->
+                       <!--aria-haspopup="true"-->
+                       <!--aria-expanded="false"-->
+                       <!--style="font-size: 0.875rem;">-->
+                            <!--[[ f.name ]]-->
+                    <!--</a>-->
+                      <!--<div class="dropdown-menu dropright-menu-arrow-->
+                           <!--dropdown-menu-rounded" -->
+                           <!--:aria-labelledby=`dropdownMenu${f.type}`>-->
+                        <!--<a v-for="e in f.examples"-->
+                            <!--class="dropdown-item"-->
+                            <!--@click="showExample('context',-->
+                                   <!--`${f.name.type}_${e}`)">[[ e ]]</a>-->
+                      <!--</div>-->
+                   <!--</li>-->
+               <!--</ul>-->
+           <!--</li>-->
+        <!--</ul>-->
+        <!--</p>-->
+    <!--</div>-->
+<!--</div>-->
+<!--</div>-->
