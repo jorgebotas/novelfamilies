@@ -294,6 +294,7 @@ var gmgc_vueapp = new Vue({
                 "c__Thorarchaeia",
                 "c__Sericytochromatia",
             ],
+            ko: [],
             context: [
                 {
                     name: "Orthologous groups",
