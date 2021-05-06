@@ -198,8 +198,8 @@ def fams_by_neigh_annotation(term_type, term, min_rel_dist=1, score=0.9, page=0)
         '$elemMatch': {
             'n': term,
             'score': {'$gte': score},
-            # 'pos': {'$gte': -min_rel_dist},
-            # 'pos': {'$lte': min_rel_dist},
+            'pos': {'$gte': -min_rel_dist},
+            'pos': {'$lte': min_rel_dist},
             'mean_num_pos_opposite_strand_between': 0,
             'mean_num_in_opposite_strand': 0,
             'num_h_dis': 0,
