@@ -16,6 +16,8 @@ urlpatterns = [
          api.fam_by_taxa),
     path(r'api/fnfams/<str:query_type>/<str:query>/<str:score>/<int:page>/',
          api.fam_by_annotation),
+    path(r'api/examples/<str:example_type>/info/<int:page>/',
+         api.example_info),
     path(r'api/examples/<str:example_type>/<str:query>/<int:page>/',
-         api.fam_example),
+         api.fam_by_example),
 ]
