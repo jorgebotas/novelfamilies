@@ -384,17 +384,10 @@ def get_more_faminfo(fams):
 def get_fams(fnames, page=1):
     fam_info = list(col_faminfo.find({'name': {'$in': fnames}}, {'_id': 0}))
     fam_info = get_more_faminfo(fam_info)
-    if len(fnames) == 1:
-        fam_info = fam_info[0]
-        # Get neighborhood
-        fam_info['neighs'] = get_neighborhood(fnames[0], 
-                                              fam_info['members'])
-        total_matches = 1
-    else:
-        total_matches = len(fam_info)
-        fam_info = fam_info[(page-1)*DOCS_PER_PAGE:page*DOCS_PER_PAGE]
-        fam_info = { m['name'] : m for m in fam_info }
-    return fam_info, total_matches
+    fam_info_paged = fam_info[(page-1)*DOCS_PER_PAGE:page*DOCS_PER_PAGE]
+    fam_info_paged = { m['name'] : m for m in fam_info }
+    total_matches = len(fam_info)
+    return fam_info_paged, total_matches
 
 if __name__ == '__main__':
     t1 = time.time()

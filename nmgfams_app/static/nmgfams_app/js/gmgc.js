@@ -352,11 +352,6 @@ var gmgc_vueapp = new Vue({
                 fetch(API_BASE_URL + `/info/${query}/`)
                 .then(response => response.json())
                 .then(data => this.fetchThen(data, ''))
-                .then(() => {
-                    $('.tab-content').collapse('show');
-                    let idx = Object.keys(this.show_items).indexOf(query);
-                    this.toggleGeCoViz(`#f${idx}-GeCoViz`, query);
-                })
                 .catch(e => fetchCatch(e))
             } else if (type == 'taxa'){
                 this.searchFamByTaxa(selector, '');
@@ -421,7 +416,10 @@ var gmgc_vueapp = new Vue({
             this.nPages = Math.ceil(this.totalItems/this.perPage)
             setTimeout(() => {
                 $('.search-spinner').hide();
-                this.hideAllFams();
+                if(this.totalItems == 1)
+                    this.showAllFams();
+                else
+                    this.hideAllFams();
                 this.paginateInfo();
                 this.renderFamInfo();
 
