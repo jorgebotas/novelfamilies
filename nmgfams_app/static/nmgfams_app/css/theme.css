@@ -11966,6 +11966,10 @@ Antialiasing
   background-color: #d26090;
   color: var(--sand) !important; }
 
+.bg-indigo {
+  background-color: #6574cd;
+  color: rgba(132, 144, 215, 0.2); }
+
 a {
   text-decoration: none !important;
   color: #6574cd;
@@ -12002,7 +12006,7 @@ a:hover {
 
 .btn-clean:hover {
   color: #6574cd;
-  background: rgba(132, 144, 215, 0.25);
+  background: rgba(132, 144, 215, 0.2);
   border-color: #6574cd; }
 
 .dropdown-noafter::after {
@@ -12036,7 +12040,7 @@ a:hover {
   border-radius: 5px; }
 
 .dropdown-menu-rounded .dropdown-item:hover {
-  background-color: rgba(132, 144, 215, 0.25);
+  background-color: rgba(132, 144, 215, 0.2);
   color: #6574cd; }
 
 .choices__list .choices__item {
