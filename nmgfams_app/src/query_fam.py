@@ -389,6 +389,7 @@ def get_fams(fnames):
         # Get neighborhood
         fam_info['neighs'] = get_neighborhood(fnames[0], 
                                               fam_info['members'])
+    fam_info = { m['name'] : m for m in fam_info }
     return fam_info
 
 if __name__ == '__main__':
