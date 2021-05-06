@@ -385,7 +385,7 @@ def get_fams(fnames, page=1):
     fam_info = list(col_faminfo.find({'name': {'$in': fnames}}, {'_id': 0}))
     fam_info = get_more_faminfo(fam_info)
     fam_info_paged = fam_info[(page-1)*DOCS_PER_PAGE:page*DOCS_PER_PAGE]
-    fam_info_paged = { m['name'] : m for m in fam_info }
+    fam_info_paged = { m['name'] : m for m in fam_info_paged }
     total_matches = len(fam_info)
     return fam_info_paged, total_matches
 
