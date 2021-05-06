@@ -71,12 +71,13 @@
          style="height: calc(30rem + 10px)">
         <div class="row">
         <div v-for="([ko, info]) in this.examples.ko"
-             class='card col-lg-3 col-md-4'>
+             class='col-xxl-4 col-xl-6 col-lg-6 col-md-12'>
+          <div class="card">
             <div class="card-header">
                 [[ ko ]] 
-                <i class="fa fa-link ms-2"
+                <a class="fa fa-link ms-2"
                    @click="searchFamByExample('ko', ko)">
-                </i>
+                </a>
                 <span class='ms-auto'>
                 [[ info.nfam ]] fams
                 </span>
@@ -84,6 +85,7 @@
             <div class="card-body text-muted">
                 [[ info.desc ]]
             </div>
+          </div>
         </div>
         </div>
     </div>
