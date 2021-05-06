@@ -69,15 +69,17 @@
     </div>
     <div class="card-body card-body-scrollable">
         <div v-for="([ko, info]) in this.examples.ko"
-             class='card'>
+             class='card col-lg-2 col-md-3'>
             <div class="card-header">
                 [[ ko ]] 
-                <i class="fa fa-link"
+                <i class="fa fa-link ms-2"
                    @click="searchFamByExample('ko', ko)">
                 </i>
+                <span class='ms-auto'>
+                [[ info.nfam ]] fams
+                </span>
             </div>
             <div class="card-body text-muted">
-                [[ info.nfam ]]
                 [[ info.desc ]]
             </div>
 
