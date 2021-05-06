@@ -779,4 +779,8 @@ var gmgc_vueapp = new Vue({
             return str.toString().slice(3);
         }
     },
+    mounted: function() {
+        if(this.totalItems == 0)
+            this.showExamples();
+    },
 });
