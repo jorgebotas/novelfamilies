@@ -18,7 +18,7 @@ from .src.query_fam import fams_by_taxa,\
 EXAMPLES_PATH = settings.BASE_DIR + "/nmgfams_app/examples"
 
 def info(request, query):
-    data = { 'show_items' : { query :  get_fams([query]) }}
+    data = { 'show_items' : { query :  get_fams([query])[0] }}
     return JsonResponse(data)
 
 def fam_by_annotation(request, query_type, query, score, page):

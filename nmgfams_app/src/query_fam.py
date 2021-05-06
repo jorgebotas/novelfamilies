@@ -393,7 +393,7 @@ def get_fams(fnames, page=1):
     else:
         total_matches = len(fam_info)
         fam_info = fam_info[(page-1)*DOCS_PER_PAGE:page*DOCS_PER_PAGE]
-    fam_info = { m['name'] : m for m in fam_info }
+        fam_info = { m['name'] : m for m in fam_info }
     return fam_info, total_matches
 
 if __name__ == '__main__':
