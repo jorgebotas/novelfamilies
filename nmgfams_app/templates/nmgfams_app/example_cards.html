@@ -69,8 +69,9 @@
     </div>
     <div class="card-body card-body-scrollable"
          style="height: calc(30rem + 10px)">
+        <div class="row">
         <div v-for="([ko, info]) in this.examples.ko"
-             class='card col-lg-2 col-md-3'>
+             class='card col-lg-3 col-md-4'>
             <div class="card-header">
                 [[ ko ]] 
                 <i class="fa fa-link ms-2"
@@ -83,7 +84,7 @@
             <div class="card-body text-muted">
                 [[ info.desc ]]
             </div>
-
+        </div>
         </div>
     </div>
 </div>
