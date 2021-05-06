@@ -16,7 +16,6 @@ from .src.query_fam import fams_by_taxa,\
                            get_neighborhood
 
 EXAMPLES_PATH = settings.BASE_DIR + "/nmgfams_app/examples"
-DOCS_PER_PAGE = 10
 
 def info(request, query):
     data = { 'show_items' : { query :  get_fams([query]) }}
@@ -87,7 +86,7 @@ def fam_by_example(request, example_type, query, page):
     example_file = f'{EXAMPLES_PATH}/{example_type}_examples_fams.pickle'
     with open(example_file, "rb") as handle:
         example_fams = load_pickle(handle)
-    examples, total_matches = get_fams(example_fams[query])
+    examples, total_matches = get_fams(example_fams[query], page)
     fams = {
         'show_items': examples,
         'total_matches': total_matches
