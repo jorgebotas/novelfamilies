@@ -82,22 +82,22 @@
                     sliderlabel.html(name+': '+slider.get());
                 })
           })
-          let slider = document.getelementbyid("neigh-distance");
-          nouislider.create(slider,
-                {
-                    start: .9,
-                    connect: [true, false],
-                    step: .01,
-                    range: {
-                        min: 0,
-                        max: 1
-                        }
-                });
-            let sliderlabel = d3.select(`.neigh-distance label`);
-            slider = slider.nouislider;
-            slider.on('update', () => {
-                sliderlabel.html('Neighbor distance: '+slider.get());
-            })
+          {% comment %}let slider = document.getelementbyid("neigh-distance");{% endcomment %}
+          {% comment %}nouislider.create(slider,{% endcomment %}
+                {% comment %}{{% endcomment %}
+                    {% comment %}start: .9,{% endcomment %}
+                    {% comment %}connect: [true, false],{% endcomment %}
+                    {% comment %}step: .01,{% endcomment %}
+                    {% comment %}range: {{% endcomment %}
+                        {% comment %}min: 0,{% endcomment %}
+                        {% comment %}max: 1{% endcomment %}
+                        {% comment %}}{% endcomment %}
+                {% comment %}});{% endcomment %}
+            {% comment %}let sliderlabel = d3.select(`.neigh-distance label`);{% endcomment %}
+            {% comment %}slider = slider.nouislider;{% endcomment %}
+            {% comment %}slider.on('update', () => {{% endcomment %}
+                {% comment %}sliderlabel.html(`Neighbor within ${slider.get()}`);{% endcomment %}
+            {% comment %}}){% endcomment %}
       });
     </script>
 {% endblock %}
