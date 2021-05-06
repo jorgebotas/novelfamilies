@@ -602,7 +602,6 @@ var gmgc_vueapp = new Vue({
                 .then(response => response.json())
                 .then(data => this.examples[exampleType] = data.show_items)
                 .catch(e => fetchCatch(e))
-            console.log(this.examples[exampleType])
             return this.examples[exampleType]
         },
 
