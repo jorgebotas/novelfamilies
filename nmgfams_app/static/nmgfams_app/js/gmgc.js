@@ -402,7 +402,7 @@ var gmgc_vueapp = new Vue({
             $('.search-spinner').show();
             let fetchURL = API_BASE_URL
                 + `/examples/${exampleType}/${query}`;
-            fetch(`${fetchURL}/0/`)
+            fetch(`${fetchURL}/1/`)
                 .then(response => response.json())
                 .then(data => this.fetchThen(data, fetchURL))
                 .catch(e => fetchCatch(e))
