@@ -64,8 +64,8 @@
             }
           });
           ["specificity", "coverage", "conservation"].forEach(id => {
-                let slider = document.getElementById(id);
-                noUiSlider.create(slider,
+                let slider = document.getelementbyid(id);
+                nouislider.create(slider,
                     {
                         start: .9,
                         connect: [true, false],
@@ -75,13 +75,29 @@
                             max: 1
                             }
                     });
-                let sliderLabel = d3.select(`.${id} label`);
-                slider = slider.noUiSlider;
+                let sliderlabel = d3.select(`.${id} label`);
+                slider = slider.nouislider;
                 slider.on('update', () => {
-                    let name =  id.trim().replace(/^\w/, c => c.toUpperCase());
-                    sliderLabel.html(name+': '+slider.get());
+                    let name =  id.trim().replace(/^\w/, c => c.touppercase());
+                    sliderlabel.html(name+': '+slider.get());
                 })
           })
+          let slider = document.getelementbyid("neigh-distance");
+          nouislider.create(slider,
+                {
+                    start: .9,
+                    connect: [true, false],
+                    step: .01,
+                    range: {
+                        min: 0,
+                        max: 1
+                        }
+                });
+            let sliderlabel = d3.select(`.neigh-distance label`);
+            slider = slider.nouislider;
+            slider.on('update', () => {
+                sliderlabel.html('Neighbor distance: '+slider.get());
+            })
       });
     </script>
 {% endblock %}
