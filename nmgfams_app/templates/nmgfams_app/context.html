@@ -64,8 +64,8 @@
             }
           });
           ["specificity", "coverage", "conservation"].forEach(id => {
-                let slider = document.getelementbyid(id);
-                nouislider.create(slider,
+                let slider = document.getElementById(id);
+                noUiSlider.create(slider,
                     {
                         start: .9,
                         connect: [true, false],
@@ -75,29 +75,13 @@
                             max: 1
                             }
                     });
-                let sliderlabel = d3.select(`.${id} label`);
-                slider = slider.nouislider;
+                let sliderLabel = d3.select(`.${id} label`);
+                slider = slider.noUiSlider;
                 slider.on('update', () => {
-                    let name =  id.trim().replace(/^\w/, c => c.touppercase());
-                    sliderlabel.html(name+': '+slider.get());
+                    let name =  id.trim().replace(/^\w/, c => c.toUpperCase());
+                    sliderLabel.html(name+': '+slider.get());
                 })
           })
-          {% comment %}let slider = document.getelementbyid("neigh-distance");{% endcomment %}
-          {% comment %}nouislider.create(slider,{% endcomment %}
-                {% comment %}{{% endcomment %}
-                    {% comment %}start: .9,{% endcomment %}
-                    {% comment %}connect: [true, false],{% endcomment %}
-                    {% comment %}step: .01,{% endcomment %}
-                    {% comment %}range: {{% endcomment %}
-                        {% comment %}min: 0,{% endcomment %}
-                        {% comment %}max: 1{% endcomment %}
-                        {% comment %}}{% endcomment %}
-                {% comment %}});{% endcomment %}
-            {% comment %}let sliderlabel = d3.select(`.neigh-distance label`);{% endcomment %}
-            {% comment %}slider = slider.nouislider;{% endcomment %}
-            {% comment %}slider.on('update', () => {{% endcomment %}
-                {% comment %}sliderlabel.html(`Neighbor within ${slider.get()}`);{% endcomment %}
-            {% comment %}}){% endcomment %}
       });
     </script>
 {% endblock %}
