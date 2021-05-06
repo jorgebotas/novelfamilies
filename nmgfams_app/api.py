@@ -90,7 +90,8 @@ def fam_example(request, example_type, query, page):
         example_fams = load_pickle(handle)
     examples = get_fams(example_fams[query])
     fams = {
-        'show_items' : fams[page*DOCS_PER_PAGE : (page+1)*DOCS_PER_PAGE],
-        'total_matches': len(fams)
+        'show_items' : example_fams[page*DOCS_PER_PAGE 
+                                    :(page+1)*DOCS_PER_PAGE],
+        'total_matches': len(example_fams)
         }
     return JsonResponse(fams)
