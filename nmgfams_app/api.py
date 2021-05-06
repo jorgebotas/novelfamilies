@@ -75,7 +75,7 @@ def neigh_sequences(request, query):
 def fam_example(request, example_type, query, page):
 
     if query == "info":
-        example_file = f'examples/{example_type}_examples_info.pickle'
+        example_file = f'./examples/{example_type}_examples_info.pickle'
         with open(example_file, "rb") as handle:
             examples = load_pickle(handle)
         zipped = list(zip(examples.keys(), examples.values()))
@@ -83,7 +83,7 @@ def fam_example(request, example_type, query, page):
             'show_items': zipped,
         })
 
-    example_file = f'examples/{example_type}_examples_fams.pickle'
+    example_file = f'./examples/{example_type}_examples_fams.pickle'
     with open(example_file, "rb") as handle:
         example_fams = load_pickle(handle)
     examples = get_fams(example_fams[query])
