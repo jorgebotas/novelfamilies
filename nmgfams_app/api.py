@@ -89,7 +89,6 @@ def fam_example(request, example_type, query, page):
     with open(example_file, "rb") as handle:
         example_fams = load_pickle(handle)
     examples = get_fams(example_fams[query])
-    print(examples[0])
     fams = {
         'show_items': examples[page*DOCS_PER_PAGE:(page+1)*DOCS_PER_PAGE],
         'total_matches': len(examples)
