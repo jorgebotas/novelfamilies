@@ -24,12 +24,13 @@ def info(request, query):
         'total_matches': total_matches}
     return JsonResponse(data)
 
-def fam_by_annotation(request, query_type, query, score, page):
+def fam_by_annotation(request, query_type, query, min_rel_dist, score, page):
     """
     Return list with fams that match neighbor annotation search
     """
     fams, total_matches = fams_by_neigh_annotation(query_type,
                                                    query,
+                                                   abs(min_rel_dist),
                                                    float(score),
                                                    page)
     fams = {
