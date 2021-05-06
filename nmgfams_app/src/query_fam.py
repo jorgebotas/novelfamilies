@@ -390,9 +390,10 @@ def get_fams(fnames, page=1):
         fam_info['neighs'] = get_neighborhood(fnames[0], 
                                               fam_info['members'])
         total_matches = 1
-    total_matches = len(fam_info)
-    fam_info = fam_info[(page-1)*DOCS_PER_PAGE:page*DOCS_PER_PAGE]
-    fam_info = { m['name'] : m for m in fam_info }
+    else:
+        total_matches = len(fam_info)
+        fam_info = fam_info[(page-1)*DOCS_PER_PAGE:page*DOCS_PER_PAGE]
+        fam_info = { m['name'] : m for m in fam_info }
     return fam_info, total_matches
 
 if __name__ == '__main__':
