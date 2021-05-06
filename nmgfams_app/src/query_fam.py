@@ -205,6 +205,7 @@ def fams_by_neigh_annotation(term_type, term, min_rel_dist=1, score=0.9, page=0)
             'num_h_dis': '0',
         }}
     })
+    print(term)
     for fam in fams:
         print(fam['fam'])
         matched_fams.append(fam['fam'])
