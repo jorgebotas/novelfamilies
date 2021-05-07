@@ -96,8 +96,8 @@
             let sliderLabel = d3.select(`.mindist label`);
             slider = slider.noUiSlider;
             slider.on('update', () => {
-                let name =  "Min relative neighbor distance";
-                sliderLabel.html(`${name}: ${slider.get()} gene(s)`);
+                let name =  "Min relative distance";
+                sliderLabel.html(`${name}: ${slider.get().toFixed(0)} gene(s)`);
             })
       });
     </script>
