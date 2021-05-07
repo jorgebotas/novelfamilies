@@ -190,10 +190,11 @@ def get_cards(names):
         gene2card[m['q_g']].append({'id' : m['card']})
     return gene2card
 
-def fams_by_neigh_annotation(term_type, term, min_rel_dist=0, score=0.9, page=0):
+def fams_by_neigh_annotation(term_type, term, min_rel_dist=1, score=0.9, page=0):
     # term_type, one of: og, kos, CARD, kpath, pname
     matched_fams = []
     fam2score = {}
+    print(min_rel_dist)
     fams = col_og_neigh_scores.find({term_type: {
         '$elemMatch': {
             'n': term,
