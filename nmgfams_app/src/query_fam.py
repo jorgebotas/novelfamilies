@@ -313,7 +313,7 @@ def get_neighborhood_summary(fam):
         if gname_json:
             gname = [g['id'] for g in gname_json]
             gname_scores = [g['description'][6:] for g in gname_json]
-            s['Gene name'] = max(gname, key=gname_scores)
+            s['Gene name'] = gname[gname_scores.index(max(gname_scores))]
             print(s['Gene name'])
     summary.append({ "anchor": fam, "pos": 0, "strand": "+" })
     return summary
