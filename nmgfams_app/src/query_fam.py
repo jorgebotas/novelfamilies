@@ -209,7 +209,7 @@ def fams_by_neigh_annotation(term_type, term, min_rel_dist=1, score=0.9, page=0)
     for fam in fams:
         matched_fams.append(fam['fam'])
         for t in fam[term_type]:
-            print(t['pos'])
+            print(t)
         annot_match = next(annot for annot in fam[term_type] if annot['n'] == term)
         fam2score[fam['fam']] = (annot_match['n'], annot_match['score'])
         matched_fams.append(fam['fam'])
