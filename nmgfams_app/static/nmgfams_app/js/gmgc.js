@@ -382,8 +382,8 @@ var gmgc_vueapp = new Vue({
             let queryType = $('.term-type input:checked').val();
             let conservation = document.querySelector("#conservation")
                                        .noUiSlider.get();
-            let minRelDist = document.querySelector("#mindist")
-                                       .noUiSlider.get();
+            let minRelDist = parseInt(document.querySelector("#mindist")
+                                       .noUiSlider.get());
             let fetchURL = API_BASE_URL
                 + `/fnfams/${queryType}/${query}/${minRelDist}/${conservation}`;
             fetch(`${fetchURL}/0/`)
