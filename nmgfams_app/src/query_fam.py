@@ -426,6 +426,8 @@ def get_more_faminfo(fams):
             tax = get_taxonomy(genome, json=False)
             taxonomy.append(tax)
         ext_fam['domains'] = domains
+        taxonomy = [set(get_taxonomy(m.split('@')[1], json=False)
+                    for n in members)]
         tax_counter = Counter(taxonomy)
         taxonomy = list(zip(tax_counter.keys(),
                             tax_counter.values()))
