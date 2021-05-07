@@ -194,7 +194,7 @@ def fams_by_neigh_annotation(term_type, term, min_rel_dist=1, score=0.9, page=0)
     # term_type, one of: og, kos, CARD, kpath, pname
     matched_fams = []
     fam2score = {}
-    print(min_rel_dist)
+    print('relative dist: ' + str(min_rel_dist))
     fams = col_og_neigh_scores.find({term_type: {
         '$elemMatch': {
             'n': term,
