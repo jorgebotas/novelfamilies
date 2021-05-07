@@ -278,7 +278,7 @@ def get_newick(fam):
     return tree.write()
 
 def get_neighborhood_summary(fam):
-    neighs = col_og_neigh_scores.find_one({'fam': fam}, {'_id': 0})
+    neighs = col_og_neigh_scores.find_one({'fam': fam}, {'_id': 0, 'fam': 0})
     summary = {}
     for k, v in neighs.items():
         for t in v:
