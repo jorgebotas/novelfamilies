@@ -193,28 +193,58 @@ def get_cards(names):
 def fams_by_neigh_annotation(term_type, term, min_rel_dist=1, score=0.9, page=0):
     # term_type, one of: og, kos, CARD, kpath, pname
     matched_fams = []
+    # fam2score = {}
+    # print('relative dist: ' + str(min_rel_dist))
+    # fams = col_og_neigh_scores.find({term_type: {
+        # '$elemMatch': {
+            # 'n': term,
+            # 'score': {'$gte': score},
+            # # 'pos': {'$gte': -min_rel_dist},
+            # 'pos': {'$lte': min_rel_dist},
+            # 'mean_num_pos_opposite_strand_between': 0,
+            # 'mean_num_in_opposite_strand': 0,
+            # 'num_h_dis': 0,
+        # }}
+    # })
+        # for fam in col_og_neigh_scores.find({term_type: {'$elemMatch': {
+                                                # 'n': term,
+                                                # 'score':{'$gte': score},
+                                                # }}}):
+
+
+    # for fam in fams:
+        # matched_fams.append(fam['fam'])
+        # annot_match = next(annot for annot in fam[term_type] if annot['n'] == term)
+        # fam2score[fam['fam']] = (annot_match['n'], annot_match['score'])
+        # matched_fams.append(fam['fam'])
+        # og_match = next(og for og in fam[term_type] if og['n'] == term)
+        # fam2score[fam['fam']] = (og_match['n'], og_match['score'])
+
     fam2score = {}
-    print('relative dist: ' + str(min_rel_dist))
-    fams = col_og_neigh_scores.find({term_type: {
-        '$elemMatch': {
-            'n': term,
-            'score': {'$gte': score},
-            # 'pos': {'$gte': -min_rel_dist},
-            'pos': {'$lte': min_rel_dist},
-            'mean_num_pos_opposite_strand_between': 0,
-            'mean_num_in_opposite_strand': 0,
-            'num_h_dis': 0,
-        }}
-    })
-    for fam in fams:
-        matched_fams.append(fam['fam'])
-        for t in fam[term_type]:
-            print(t)
-        annot_match = next(annot for annot in fam[term_type] if annot['n'] == term)
-        fam2score[fam['fam']] = (annot_match['n'], annot_match['score'])
-        matched_fams.append(fam['fam'])
-        og_match = next(og for og in fam[term_type] if og['n'] == term)
-        fam2score[fam['fam']] = (og_match['n'], og_match['score'])
+    def is_full_match(hit):
+        if hit['n'] == term and \
+           abs(hit['pos']) <= min_rel_dist and \
+           hit['mean_num_in_opposite_strand'] == opposite_strand and \
+           hit['mean_num_pos_opposite_strand_between'] == opposite_strand and \
+           hit['num_h_dis'] == 0:
+            return True
+        else:
+            print(hit['pos'], hit['n'])
+            return False
+
+    for fam in col_og_neigh_scores.find({term_type: {'$elemMatch': {
+                                                'n': term,
+                                                'score':{'$gte': score},
+                                                }}}):
+
+
+        try:
+            term_match = next(hit for hit in fam[term_type] if is_full_match(hit))
+        except StopIteration:
+            continue
+        else:
+            matched_fams.append(fam['fam'])
+            fam2score[fam['fam']] = (term_match['n'], term_match['score'])
     # collects more info from the families
     fams = col_faminfo.find({'name': {'$in': matched_fams},
                              'emapper_hits': {'$eq': 0}},
