@@ -537,7 +537,7 @@ var gmgc_vueapp = new Vue({
                 const gecovizSelector = `#f${idx}-GeCoViz-summary`;
                 GeCoViz(gecovizSelector, { geneRect: { h: 20 } })
                     .contextData(summary)//data.context_summary)
-                    .nSide(2)
+                    .nSide(3)
                     .geneText("gene")
                     .annotation("Orthologous groups")
                     .options({
