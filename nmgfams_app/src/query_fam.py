@@ -280,7 +280,17 @@ def get_newick(fam):
 def get_neighborhood_summary(fam):
     neighs = col_og_neigh_scores.find_one({'fam': fam}, {'_id': 0, 'fam': 0})
     summary = {}
+    keys = {
+        "og": "Orthologous groups"
+        "kos": "KEGG orthologues",
+        "kpath": "KEGG pathways"
+        "Kmods": "KEGG modules",
+        "pname": "Gene name",
+        "pfam": "Pfam"
+        "CARD": "CARD"
+    }
     for k, v in neighs.items():
+        key = keys[k]
         for t in v:
             pos = t['pos']
             term = t['n']
@@ -292,7 +302,7 @@ def get_neighborhood_summary(fam):
                 strand = "+"
             gene = summary.setdefault(pos, {'anchor': fam, 'pos':pos, 'strand': []})
             gene['strand'].append(strand)
-            gene.setdefault(k, []).append({'id': term, 'description': f'score: {score}'})
+            gene.setdefault(key, []).append({'id': term, 'description': f'score: {score}'})
     summary = list(summary.values())
     # Get most repeated strand
     for s in summary:
