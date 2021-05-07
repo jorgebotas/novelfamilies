@@ -290,7 +290,9 @@ def get_neighborhood_summary(fam):
         "CARD": "CARD",
     }
     for k, v in neighs.items():
-        key = keys[k]
+        key = keys.get(k)
+        if not key: 
+            continue
         for t in v:
             pos = t['pos']
             term = t['n']
