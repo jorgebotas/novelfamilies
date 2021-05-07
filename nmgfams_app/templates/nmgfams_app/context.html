@@ -97,7 +97,7 @@
             slider = slider.noUiSlider;
             slider.on('update', () => {
                 let name =  "Min relative distance";
-                sliderLabel.html(`${name}: ${slider.get().toFixed(0)} gene(s)`);
+                sliderLabel.html(`${name}: ${parseInt(slider.get())} gene(s)`);
             })
       });
     </script>
