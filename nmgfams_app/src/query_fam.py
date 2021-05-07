@@ -285,7 +285,7 @@ def get_neighborhood_summary(fam):
         "kos": "KEGG orthologues",
         "kpath": "KEGG pathways",
         "Kmods": "KEGG modules",
-        "pname": "Gene name",
+        "pname": "Gene name(s)",
         "pfam": "Pfam",
         "CARD": "CARD",
     }
@@ -306,9 +306,10 @@ def get_neighborhood_summary(fam):
             gene['strand'].append(strand)
             gene.setdefault(key, []).append({'id': term, 'description': f'score: {score}'})
     summary = list(summary.values())
-    # Get most repeated strand
+    # Get most repeated strand and gene name
     for s in summary:
         s['strand'] = max(set(s['strand']), key=s['strand'].count)
+        s['Gene name'] = max(set(s['Gene name(s)']), key=s['Gene name(s)'].count)
     summary.append({ "anchor": fam, "pos": 0, "strand": "+" })
     return summary
 
