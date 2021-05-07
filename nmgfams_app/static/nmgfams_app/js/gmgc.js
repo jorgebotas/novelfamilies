@@ -380,8 +380,10 @@ var gmgc_vueapp = new Vue({
             let search = $(selector);
             let query = search.val().trim();
             let queryType = $('.term-type input:checked').val();
-            let minRelDist = 1;
-            let conservation = document.querySelector("#conservation").noUiSlider.get();
+            let conservation = document.querySelector("#conservation")
+                                       .noUiSlider.get();
+            let minRelDist = document.querySelector("#mindist")
+                                       .noUiSlider.get();
             let fetchURL = API_BASE_URL
                 + `/fnfams/${queryType}/${query}/${minRelDist}/${conservation}`;
             fetch(`${fetchURL}/0/`)
