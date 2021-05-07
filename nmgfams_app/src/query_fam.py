@@ -311,6 +311,7 @@ def get_neighborhood_summary(fam):
         s['strand'] = max(set(s['strand']), key=s['strand'].count)
         gname = s.get('Gene name(s)')
         if gname:
+            print(gname)
             s['Gene name'] = max(set(gname), key=gname['description'][6:])
     summary.append({ "anchor": fam, "pos": 0, "strand": "+" })
     return summary
