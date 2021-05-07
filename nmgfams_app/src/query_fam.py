@@ -193,6 +193,7 @@ def get_cards(names):
 def fams_by_neigh_annotation(term_type, term, min_rel_dist=1, score=0.9, page=0):
     # term_type, one of: og, kos, CARD, kpath, pname
     matched_fams = []
+    opposite_strand = 0
     # fam2score = {}
     # print('relative dist: ' + str(min_rel_dist))
     # fams = col_og_neigh_scores.find({term_type: {
