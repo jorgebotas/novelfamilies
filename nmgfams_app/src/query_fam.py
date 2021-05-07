@@ -294,7 +294,7 @@ def get_neighborhood_summary(fam):
         for t in v:
             pos = t['pos']
             term = t['n']
-            if k == 'og' and term[:2] != "COG":
+            if k == 'og' and term[:3] != "COG":
                 continue
             score = t['score']
             strand_int = t['mean_num_in_opposite_strand']
