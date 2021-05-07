@@ -423,8 +423,6 @@ def get_more_faminfo(fams):
             })
             # Taxonomy
             genome =  m.split('@')[1]
-            tax = get_taxonomy(genome, json=False)
-            taxonomy.append(tax)
         ext_fam['domains'] = domains
         taxonomy = [set(get_taxonomy(m.split('@')[1], json=False)
                     for n in members)]
