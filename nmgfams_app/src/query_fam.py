@@ -277,6 +277,27 @@ def get_newick(fam):
                               *taxonomy])
     return tree.write()
 
+def get_neighborhood_summary(fam):
+    neighs = col_og_neigh_scores.find_one({'fam': fam}, {'_id': 0})
+    summary = {}
+    for k, v in neighs.items():
+        for t in v:
+            pos = t['pos']
+            term = t['n']
+            score = t['score']
+            strand_int = t['mean_num_in_opposite_strand']
+            if strand_int == 1:
+                strand = "-"
+            else:
+                strand = "+"
+            gene = summary.setdefault(pos, {'anchor': fam, 'pos':pos, 'strand': []})
+            gene['strand'].append(strand)
+            gene.setdefault(k, []).append({'id': term, 'description': f'score: {score}'})
+            summary = list(summary.values())
+    # Get most repeated strand
+    for s in summary:
+        s['strand'] = max(set(s['strand']), key=s['strand'].count)
+
 def get_neighborhood(fam, members=None):
     if not members:
         members = col_fams.find_one({'gf': fam}) or {}
@@ -384,6 +405,7 @@ def get_more_faminfo(fams):
         taxonomy = list(zip(tax_counter.keys(),
                             tax_counter.values()))
         ext_fam['taxonomy'] = taxonomy
+        ext_fam['context_summary'] = get_neighborhood_summary(fam)
         extended_fams.append(ext_fam)
     return extended_fams
 
