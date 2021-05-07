@@ -279,7 +279,8 @@ def get_newick(fam):
 
 def get_neighborhood_summary(fam):
     neighs = col_og_neigh_scores.find_one({'fam': fam}, {'_id': 0, 'fam': 0})
-    summary = {}
+    summary = { pos: {'anchor': fam, 'pos':pos, 'strand': []} 
+                for pos in range(-3, 4) }
     keys = {
         "og": "Orthologous groups",
         "kos": "KEGG orthologues",
@@ -314,7 +315,6 @@ def get_neighborhood_summary(fam):
             gname = [g['id'] for g in gname_json]
             gname_scores = [g['description'][6:] for g in gname_json]
             s['Gene name'] = gname[gname_scores.index(max(gname_scores))]
-            print(s['Gene name'])
     summary.append({ "anchor": fam, "pos": 0, "strand": "+" })
     return summary
 
