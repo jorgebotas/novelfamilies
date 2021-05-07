@@ -281,13 +281,13 @@ def get_neighborhood_summary(fam):
     neighs = col_og_neigh_scores.find_one({'fam': fam}, {'_id': 0, 'fam': 0})
     summary = {}
     keys = {
-        "og": "Orthologous groups"
+        "og": "Orthologous groups",
         "kos": "KEGG orthologues",
         "kpath": "KEGG pathways"
         "Kmods": "KEGG modules",
         "pname": "Gene name",
-        "pfam": "Pfam"
-        "CARD": "CARD"
+        "pfam": "Pfam",
+        "CARD": "CARD",
     }
     for k, v in neighs.items():
         key = keys[k]
