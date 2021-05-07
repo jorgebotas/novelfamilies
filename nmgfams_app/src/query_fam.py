@@ -297,6 +297,7 @@ def get_neighborhood_summary(fam):
     # Get most repeated strand
     for s in summary:
         s['strand'] = max(set(s['strand']), key=s['strand'].count)
+    return summary
 
 def get_neighborhood(fam, members=None):
     if not members:
