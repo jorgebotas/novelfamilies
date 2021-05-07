@@ -309,10 +309,12 @@ def get_neighborhood_summary(fam):
     # Get most repeated strand and gene name
     for s in summary:
         s['strand'] = max(set(s['strand']), key=s['strand'].count)
-        gname = s.get('Gene name(s)')
-        if gname:
-            print(gname)
-            s['Gene name'] = max(set(gname), key=gname['description'][6:])
+        gname_json = s.get('Gene name(s)')
+        if gname_json:
+            gname = [g['id'] for g in gname_json]
+            gname_scores = [g['description'][6:] for g in gname_json]
+            s['Gene name'] = max(gname, key=gname_scores)
+            print(s['Gene name'])
     summary.append({ "anchor": fam, "pos": 0, "strand": "+" })
     return summary
 
