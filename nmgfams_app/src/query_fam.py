@@ -283,7 +283,7 @@ def get_neighborhood_summary(fam):
     keys = {
         "og": "Orthologous groups",
         "kos": "KEGG orthologues",
-        "kpath": "KEGG pathways"
+        "kpath": "KEGG pathways",
         "Kmods": "KEGG modules",
         "pname": "Gene name",
         "pfam": "Pfam",
