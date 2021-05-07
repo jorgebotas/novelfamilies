@@ -82,6 +82,23 @@
                     sliderLabel.html(name+': '+slider.get());
                 })
           })
+          let slider = document.getElementById("mindist");
+          noUiSlider.create(slider,
+                {
+                    start: 0,
+                    connect: [true, false],
+                    step: 1,
+                    range: {
+                        min: 0,
+                        max: 2
+                        }
+                });
+            let sliderLabel = d3.select(`.mindist label`);
+            slider = slider.noUiSlider;
+            slider.on('update', () => {
+                let name =  "Min relative neighbor distance";
+                sliderLabel.html(`${name}: ${slider.get()} gene(s)`);
+            })
       });
     </script>
 {% endblock %}
