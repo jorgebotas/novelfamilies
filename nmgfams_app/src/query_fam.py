@@ -40,6 +40,7 @@ kegg_dict = get_pickle(STATIC_PATH + "pickle/KEGG_DESCRIPTION.pickle")
 # OG level dictionary (for neighborhood summary)
 # TODO: include level in col_og_neigh_scores
 og_level_dict = get_pickle(STATIC_PATH + "pickle/e5_og_levels.pickle")
+print(og_level_dict)
 
 def get_sequence(query, fasta=True):
     seq = col_proteins.find_one({'n': query}).get('aa', 'Sequence not found')
