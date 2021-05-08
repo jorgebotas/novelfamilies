@@ -44,9 +44,9 @@
             </div>
             <div class="card-body text-muted">
                 [[ info.desc ]]
-                <span v-if="info.ec !=''"
+                <span v-for="ec in info.ec"
                       class="badge bg-red">
-                    [[ info.ec ]]
+                    [[ ec ]]
                 </span>
             </div>
           </div>

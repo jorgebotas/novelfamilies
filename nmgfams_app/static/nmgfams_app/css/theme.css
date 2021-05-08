@@ -11966,6 +11966,10 @@ Antialiasing
   background-color: #d26090;
   color: var(--sand) !important; }
 
+.bg-red {
+  background-color: #F2D8D8 !important;
+  color: #9C0003 !important; }
+
 .bg-indigo {
   background-color: rgba(132, 144, 215, 0.2) !important;
   color: #6574cd !important; }
