@@ -300,7 +300,7 @@ def get_neighborhood_summary(fam):
             term = t['n']
             # if k == 'og' and term[:3] != "COG":
                 # continue
-            score = t['score']
+            score = round(t['score'], 3)
             strand_int = t['mean_num_in_opposite_strand']
             if strand_int == 1:
                 strand = "-"
