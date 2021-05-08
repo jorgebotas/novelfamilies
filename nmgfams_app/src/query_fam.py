@@ -37,6 +37,9 @@ def get_pickle(filePath):
     return pdict
 
 kegg_dict = get_pickle(STATIC_PATH + "pickle/KEGG_DESCRIPTION.pickle")
+# OG level dictionary (for neighborhood summary)
+# TODO: include level in col_og_neigh_scores
+og_level_dict = get_pickle(STATIC_PATH + "pickle/e5_og_levels.pickle")
 
 def get_sequence(query, fasta=True):
     seq = col_proteins.find_one({'n': query}).get('aa', 'Sequence not found')
@@ -303,9 +306,13 @@ def get_neighborhood_summary(fam):
                 strand = "-"
             else:
                 strand = "+"
+            info = {'id': term, 
+                    'description': f'score: {score}'}
+            if k == 'og':
+                info['level'] = og_level_dict.get(term, '')
             gene = summary[pos]
             gene['strand'].append(strand)
-            gene.setdefault(key, []).append({'id': term, 'description': f'score: {score}'})
+            gene.setdefault(key, []).append(info)
     summary = list(summary.values())
     # Get most repeated strand and gene name
     for s in summary:
