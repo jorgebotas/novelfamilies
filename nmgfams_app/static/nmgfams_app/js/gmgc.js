@@ -539,7 +539,7 @@ var gmgc_vueapp = new Vue({
                     .contextData(summary)//data.context_summary)
                     .nSide(3)
                     .geneText("Gene name")
-                    .annotation("Orthologous groups")
+                    .annotation("Orthologous groups", 2)
                     .options({
                         'showBar': false,
                         'showLegend': false
