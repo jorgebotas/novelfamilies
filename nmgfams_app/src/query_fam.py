@@ -23,7 +23,7 @@ col_tm = db.tm
 
 DOCS_PER_PAGE = 10
 
-STATIC_PATH = settings.BASE_DIR + '/static/geco/'
+STATIC_PATH = settings.BASE_DIR + '/static/nmgfams_app/'
 
 def get_pickle(filePath):
     """
