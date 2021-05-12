@@ -463,76 +463,6 @@ var gmgc_vueapp = new Vue({
                     65,
                     250)
                 // Genomic context overview
-
-                //let summary = [
-                      //{
-                    //"gene": "JIAP01000009_gene5827",
-                    //"anchor": "JIAP01000009_gene5829",
-                    //"pos": "-2",
-                    //"showName": "",
-                    //"description": "Belongs to the GcvT family",
-                    //"strand": "-",
-                    //"start": "288981",
-                    //"end": "291542",
-                    //"taxonomy": "1380350",
-                    //"kegg": [{'id': '00260', 'description': ''}, {'id': '00630', 'description': ''}, {'id': '00670', 'description': ''}, {'id': '01100', 'description': ''}, {'id': '01110', 'description': ''}, {'id': '01130', 'description': ''}, {'id': '01200', 'description': ''}],
-                    //"eggnog": [{'id': '1MUXJ', 'level': '1224', 'description': 'Belongs to the GcvT family'}, {'id': '2TRGS', 'level': '28211', 'description': 'Belongs to the GcvT family'}, {'id': '43I40', 'level': '69277', 'description': 'Belongs to the GcvT family'}, {'id': 'COG0404', 'level': '1', 'description': 'aminomethyltransferase activity'}, {'id': 'COG0404', 'level': '2', 'description': 'aminomethyltransferase activity'}, {'id': 'COG0665', 'level': '1', 'description': 'tRNA (5-methylaminomethyl-2-thiouridylate)-methyltransferase activity'}, {'id': 'COG0665', 'level': '2', 'description': 'tRNA (5-methylaminomethyl-2-thiouridylate)-methyltransferase activity'}]
-                  //},
-                  //{
-                    //"gene": "JIAP01000009_gene5828",
-                    //"anchor": "JIAP01000009_gene5829",
-                    //"pos": "-1",
-                    //"showName": "",
-                    //"description": "Methyltransferase FkbM domain",
-                    //"strand": "-",
-                    //"start": "291693",
-                    //"end": "292451",
-                    //"taxonomy": "1380350",
-                    //"kegg": [],
-                    //"eggnog": [{'id': '1QY67', 'level': '1224', 'description': 'Methyltransferase FkbM domain'}, {'id': '2TXHW', 'level': '28211', 'description': 'Methyltransferase FkbM domain'}, {'id': '43RSJ', 'level': '69277', 'description': 'Methyltransferase FkbM domain'}, {'id': 'COG1215', 'level': '1', 'description': 'transferase activity, transferring glycosyl groups'}, {'id': 'COG1215', 'level': '2', 'description': 'transferase activity, transferring glycosyl groups'}]
-                  //},
-                  //{
-                    //"gene": "JIAP01000009_gene5829",
-                    //"anchor": "JIAP01000009_gene5829",
-                    //"pos": "0",
-                    //"showName": "",
-                    //"description": "NA",
-                    //"strand": "-",
-                    //"start": "292448",
-                    //"end": "293680",
-                    //"taxonomy": "1380350",
-                    //"kegg": [],
-                    //"eggnog": [{'id': '1NW2B', 'level': '1224', 'description': ''}, {'id': '2DS7Z', 'level': '1', 'description': ''}, {'id': '2US99', 'level': '28211', 'description': ''}, {'id': '33EXN', 'level': '2', 'description': ''}, {'id': '43PAE', 'level': '69277', 'description': ''}]
-                  //},
-                  //{
-                    //"gene": "JIAP01000009_gene5830",
-                    //"anchor": "JIAP01000009_gene5829",
-                    //"pos": "1",
-                    //"showName": "",
-                    //"description": "Belongs to the class-III pyridoxal-phosphate-dependent aminotransferase family",
-                    //"strand": "-",
-                    //"start": "293705",
-                    //"end": "295168",
-                    //"taxonomy": "1380350",
-                    //"kegg": [{'id': '00220', 'description': ''}, {'id': '00300', 'description': ''}, {'id': '00330', 'description': ''}, {'id': '01100', 'description': ''}, {'id': '01110', 'description': ''}, {'id': '01120', 'description': ''}, {'id': '01130', 'description': ''}, {'id': '01210', 'description': ''}, {'id': '01230', 'description': ''}],
-                    //"eggnog": [{'id': '1R6U9', 'level': '1224', 'description': 'Catalyzes the aminotransferase reaction from putrescine to 2-oxoglutarate, leading to glutamate and 4-aminobutanal, which spontaneously cyclizes to form 1-pyrroline. Is also able to transaminate cadaverine and, in lower extent, spermidine, but not ornithine'}, {'id': '2TUDK', 'level': '28211', 'description': 'Belongs to the class-III pyridoxal-phosphate-dependent aminotransferase family'}, {'id': '43IP2', 'level': '69277', 'description': 'Belongs to the class-III pyridoxal-phosphate-dependent aminotransferase family'}, {'id': 'COG4992', 'level': '1', 'description': 'transaminase activity'}, {'id': 'COG4992', 'level': '2', 'description': 'transaminase activity'}]
-                  //},
-                  //{
-                    //"gene": "JIAP01000009_gene5831",
-                    //"anchor": "JIAP01000009_gene5829",
-                    //"pos": "2",
-                    //"showName": "",
-                    //"description": "epimerase dehydratase",
-                    //"strand": "-",
-                    //"start": "295239",
-                    //"end": "296246",
-                    //"taxonomy": "1380350",
-                    //"kegg": [{'id': '00521', 'description': ''}, {'id': '00523', 'description': ''}, {'id': '00525', 'description': ''}, {'id': '01055', 'description': ''}, {'id': '01130', 'description': ''}],
-                    //"eggnog": [{'id': '1MW3K', 'level': '1224', 'description': 'Epimerase dehydratase'}, {'id': '2TTTJ', 'level': '28211', 'description': 'Epimerase dehydratase'}, {'id': '43HV0', 'level': '69277', 'description': 'epimerase dehydratase'}, {'id': 'COG0451', 'level': '1', 'description': 'coenzyme binding'}, {'id': 'COG0451', 'level': '2', 'description': 'coenzyme binding'}]
-                  //},
-                //]
-
-
                 const summary = data.context_summary;
                 const gecovizSelector = `#f${idx}-GeCoViz-summary`;
                 GeCoViz(gecovizSelector, { geneRect: { h: 20 } })
@@ -782,5 +712,6 @@ var gmgc_vueapp = new Vue({
     mounted: function() {
         if(this.totalItems == 0)
             this.showExamples('ko');
+            this.showExamples('synapo');
     },
 });
