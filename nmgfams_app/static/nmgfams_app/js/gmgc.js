@@ -358,6 +358,7 @@ var gmgc_vueapp = new Vue({
         },
 
         searchFamByExample : function(exampleType, query) {
+            $('#search-fams').val(query);
             $('.search-spinner').show();
             let fetchURL = API_BASE_URL
                 + `/examples/${exampleType}/${query}`;
@@ -458,34 +459,6 @@ var gmgc_vueapp = new Vue({
             });
         },
 
-        showAllFams : function() {
-            Object.keys(this.show_items).forEach(async (f, idx) => {
-                let selector = `#f${idx}-GeCoViz`;
-                await this.toggleGeCoViz(selector, f)
-            });
-            $('.tab-content').collapse('show');
-        },
-
-        showExample : function(type, value) {
-            let val;
-            if (type == 'fam') {
-                val = value || this.examples.fam;
-            }
-            if (type == 'taxa') {
-                val = value || this.examples.taxa[0];
-            }
-            if (type == 'context') {
-                val = value || this.examples.context[0].examples[0];
-                queryType, val = val.split('_');
-                $(`.term-type input[value=${queryType}]`).val();
-            }
-            if (type == 'biome') {
-                val = '';
-            }
-            $('#search-fams').val(val);
-            this.searchFams(type);
-        },
-
         showExamples: async function(exampleType) {
             if (this.examples[exampleType].length > 0)
                 return this.examples[exampleType]
@@ -496,6 +469,14 @@ var gmgc_vueapp = new Vue({
                 .then(data => this.examples[exampleType] = data.show_items)
                 .catch(e => fetchCatch(e))
             return this.examples[exampleType]
+        },
+
+        showAllFams : function() {
+            Object.keys(this.show_items).forEach(async (f, idx) => {
+                let selector = `#f${idx}-GeCoViz`;
+                await this.toggleGeCoViz(selector, f)
+            });
+            $('.tab-content').collapse('show');
         },
 
         hideAllFams : function() {
