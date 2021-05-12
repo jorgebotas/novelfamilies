@@ -295,6 +295,7 @@ var gmgc_vueapp = new Vue({
                 "c__Sericytochromatia",
             ],
             ko: [],
+            synapo: [],
             context: [
                 {
                     name: "Orthologous groups",
