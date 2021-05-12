@@ -11966,13 +11966,33 @@ Antialiasing
   background-color: #d26090;
   color: var(--sand) !important; }
 
-.bg-red {
+.bg-red-lt {
   background-color: #F2D8D8 !important;
   color: #9C0003 !important; }
 
-.bg-indigo {
+.bg-pink-lt {
+  color: #AA3C50 !important;
+  background: #f3dde1 !important; }
+
+.bg-indigo-lt {
   background-color: rgba(132, 144, 215, 0.2) !important;
   color: #6574cd !important; }
+
+.bg-blue-lt {
+  background-color: #dae5f5 !important;
+  color: #214474 !important; }
+
+.bg-green-lt {
+  background-color: #b6ead5 !important;
+  color: #1f6f4d !important; }
+
+.bg-yellow-lt {
+  background-color: #fde7b2 !important;
+  color: #c08704 !important; }
+
+.bg-orange-lt {
+  background-color: #ffd39d !important;
+  color: #9d5600 !important; }
 
 a {
   text-decoration: none !important;
