@@ -287,56 +287,8 @@ var gmgc_vueapp = new Vue({
         nPages: 1,
         currentSearch: '',
         examples: {
-            fam: "GEM@3300027962_19@3300027962_19_00254@d__Bacteria|p__Fermentibacterota",
-            taxa: [
-                "p__Fermentibacterota",
-                "p__Riflebacteria",
-                "c__Thorarchaeia",
-                "c__Sericytochromatia",
-            ],
             ko: [],
             synapo: [],
-            context: [
-                {
-                    name: "Orthologous groups",
-                    type: "og",
-                    examples: [
-                        "OG"
-                    ]
-                },
-                {
-                    name: "KEGG pathways",
-                    type: "kpath",
-                    examples: [
-                        "KPATH"
-                    ]
-                },
-                {
-                    name: "KEGG orthologues",
-                    type: "kos",
-                    examples: [
-                        'K01673', 
-                        'K01489', 
-                        'K02120', 
-                        'K02119', 
-                        'K01039', 
-                    ]
-                },
-                {
-                    name: "CARD",
-                    type: "CARD",
-                    examples: [
-                        "CARD"
-                    ]
-                },
-                {
-                    name: "Gene name",
-                    type: "pname",
-                    examples: [
-                        "gene"
-                    ]
-                },
-            ]
         }
     },
     methods: {

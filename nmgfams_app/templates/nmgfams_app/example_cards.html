@@ -10,31 +10,29 @@
         Synapomorphic families
         </h3>
     </div>
-    <div class="card-body row">
-        <div class="card-body card-body-scrollable px-4"
-             style="height: 75vh">
-            <div class="row">
-            <div v-for="([tax, info]) in this.examples.synapo"
-                 class='col-xl-4 col-lg-6 col-md-12 p-1'>
-              <div class="card mb-0 h-100">
-                <div class="card-header bg-light">
-                    [[ tax | trimTaxa ]] 
-                    <a class="fa fa-link ms-2"
-                       @click="searchFamByExample('synapo', tax)"
-                       style="color:var(--indigo)">
-                    </a>
-                    <span class='ms-auto badge bg-indigo'>
-                    [[ info.nfam ]] fams
-                    </span>
-                </div>
-                <div class="card-body text-muted">
-                    <span class="badge bg-red mx-1">
-                        [[ info.level ]]
-                    </span>
-                </div>
-              </div>
+    <div class="card-body card-body-scrollable px-4"
+         style="height: 75vh">
+        <div class="row">
+        <div v-for="([tax, info]) in this.examples.synapo"
+             class='col-xl-4 col-lg-6 col-md-12 p-1'>
+          <div class="card mb-0 h-100">
+            <div class="card-header bg-light">
+                [[ tax | trimTaxa ]] 
+                <a class="fa fa-link ms-2"
+                   @click="searchFamByExample('synapo', tax)"
+                   style="color:var(--indigo)">
+                </a>
+                <span class='ms-auto badge bg-indigo'>
+                [[ info.nfam ]] fams
+                </span>
             </div>
+            <div class="card-body text-muted">
+                <span class="badge bg-red mx-1">
+                    [[ info.level ]]
+                </span>
             </div>
+          </div>
+        </div>
         </div>
     </div>
 </div>
