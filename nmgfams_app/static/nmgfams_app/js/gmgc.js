@@ -289,6 +289,14 @@ var gmgc_vueapp = new Vue({
         examples: {
             ko: [],
             synapo: [],
+        },
+        taxBadgeColors: {
+            'phylum': 'bg-red-lt',
+            'class': 'bg-green-lt',
+            'order': 'bg-yellow-lt',
+            'family': 'bg-orange-lt',
+            'genus': 'bg-pink-lt',
+            'species': 'bg-blue-lt',
         }
     },
     methods: {

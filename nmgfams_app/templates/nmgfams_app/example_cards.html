@@ -21,7 +21,8 @@
                       align-items: center;
                       border-radius: 4px;
                       border: 1px solid rgba(95, 102, 110, 0.2);">
-                <span class="badge bg-red mr-auto">
+                <span class="badge mr-auto"
+                      :class="taxBadgeColors[info.level]">
                     [[ info.level ]]
                 </span>
                 [[ tax | trimTaxa ]] 
@@ -59,14 +60,14 @@
                    @click="searchFamByExample('ko', ko)"
                    style="color:var(--indigo)">
                 </a>
-                <span class='ms-auto badge bg-indigo'>
+                <span class='ms-auto badge bg-indigo-lt'>
                 [[ info.nfam ]] fams
                 </span>
             </div>
             <div class="card-body text-muted">
                 [[ info.desc ]]
                 <span v-for="ec in info.ec"
-                      class="badge bg-red mx-1">
+                      class="badge bg-red-lt mx-1">
                     [[ ec ]]
                 </span>
             </div>
