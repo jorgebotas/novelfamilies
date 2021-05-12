@@ -282,7 +282,7 @@ def get_newick(fam):
 
 def get_neighborhood_summary(fam):
     neighs = col_og_neigh_scores.find_one({'fam': fam}, {'_id': 0, 'fam': 0})
-    summary = { pos: {'anchor': fam, 'pos':pos, 'strand': []} 
+    summary = { pos: {'anchor': fam, 'pos':pos, 'strand': {"+": 0}} 
                 for pos in range(-3, 4) }
     keys = {
         "og": "Orthologous groups",
@@ -311,23 +311,19 @@ def get_neighborhood_summary(fam):
             if k == 'og':
                 info['level'] = og_level_dict.get(term, '')
             gene = summary[pos]
-            gene['strand'].append(strand)
+            gene_strand_score = gene['strand'].get(strand, 0)
+            gene['strand'][strand] = max(gene_strand_score, score)
             gene.setdefault(key, []).append(info)
     summary = list(summary.values())
     # Get most repeated strand and gene name
     for s in summary:
         strand = s['strand']
-        if len(strand) > 0: 
-            strand = max(set(s['strand']), key=s['strand'].count)
-        else:
-            strand = "+"
-        s['strand'] = strand
+        s['strand'] = max(strand, key=strand.get)
         gname_json = s.get('Gene name(s)')
         if gname_json:
             gname = [g['id'] for g in gname_json]
             gname_scores = [g['description'][6:] for g in gname_json]
             s['Gene name'] = gname[gname_scores.index(max(gname_scores))]
-    summary.append({ "anchor": fam, "pos": 0, "strand": "+" })
     return summary
 
 def get_neighborhood(fam, members=None):
