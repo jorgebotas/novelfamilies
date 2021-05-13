@@ -652,8 +652,10 @@ var gmgc_vueapp = new Vue({
         }
     },
     mounted: function() {
-        if(this.totalItems == 0)
+        if(this.totalItems == 0) {
             this.showExamples('ko');
             this.showExamples('synapo');
+        }
+        // TODO: search autocompletion
     },
 });
