@@ -2,6 +2,8 @@
 {% load static %}
 {% block content %}
 
+<div class="dropdown"><button class="btn-clean dropdown-toggle dropdown-noafter" type="button" id="scalingDropdown" data-bs-toggle="dropdown" aria-expanded="false">Scaling</button><div class="dropdown-menu dropdown-menu-arrow " aria-labelledby="scalingDropdown"><label class="form-selectgroup-item m-1"><input type="checkbox" class="form-selectgroup-input scaleDist"><span class="form-selectgroup-label" style="font-size: 12px;">Scale</span></label><div class="ml-3"><label class="form-label ml-2" style="font-size: 11px; font-weight: bold;">Scaling zoom: 1.0</label><div style="width: 160px; margin-top: 0.8rem;"><div class="form-range zoomSlider noUi-target noUi-ltr noUi-horizontal noUi-txt-dir-ltr"><div class="noUi-base"><div class="noUi-connects"><div class="noUi-connect" style="transform: translate(0%) scale(0.473684, 1);"></div></div><div class="noUi-origin" style="transform: translate(-526.316%); z-index: 4;"><div class="noUi-handle noUi-handle-lower" data-handle="0" tabindex="0" role="slider" aria-orientation="horizontal" aria-valuemin="0.1" aria-valuemax="2.0" aria-valuenow="1.0" aria-valuetext="1.00"><div class="noUi-touch-area"></div></div></div></div></div></div></div></div></div>
+
 {% include 'nmgfams_app/filter_cards.html'%}
 <div v-if='totalItems == 0' class='h-100'>
     {% include 'nmgfams_app/example_cards.html'%}
