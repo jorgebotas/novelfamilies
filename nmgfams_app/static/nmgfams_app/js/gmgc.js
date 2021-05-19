@@ -515,7 +515,7 @@ var gmgc_vueapp = new Vue({
                         'species'
                     ]
                     GeCoViz(selector)
-                        .treeData(newick, newickFields)
+                        .treeData(newick, newickFields[0], newickFields)
                         .contextData(context)
                         .nSide(4)
                         .geneText("Gene name")
