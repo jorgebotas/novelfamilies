@@ -142,7 +142,7 @@
                                <thead>
                                    <tr>
                                        <th>Members</th>
-                                       <!--<th>Sequence length</th>-->
+                                       <th>Length</th>
                                        <th>Signal peptide (Gram+)</th>
                                        <th>Signal peptide (Gram-)</th>
                                        <th>Topology</th>
@@ -155,11 +155,11 @@
                                        <th class="p-1 pl-3 text-left">
                                            [[ m ]]
                                        </th>
-                                       <!--<th class="p-1">-->
-                                           <!--[[-->
-                                           <!--tdata.domains | getLen(m)-->
-                                           <!--]]-->
-                                       <!--</th>-->
+                                       <th class="p-1">
+                                           [[
+                                           tdata.domains.lenseq
+                                           ]]
+                                       </th>
                                        <th class="p-1">
                                            [[ tdata.signalp.genes[m] | signalp('pos') ]]
                                        </th>
