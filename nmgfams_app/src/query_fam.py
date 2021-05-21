@@ -168,6 +168,9 @@ def get_prot_len(gene_name):
     match = col_neighs.find_one(
         {"genes.g": gene_name},
         {"genes":1})
+    if not match:
+        print('no match')
+        return
     for g in match['genes']:
         if g['g'] == gene_name:
             prot_len = abs(g['e'] - g['s']) // 3
@@ -431,7 +434,7 @@ def get_more_faminfo(fams):
             domains.append({
                 'gene': m,
                 'doms': get_domains(m_topo, m_sp),
-                'lenseq': get_prot_len(m),
+                'lenseq': get_prot_len(m) or 1000,
             })
             # Taxonomy
             genome =  m.split('@')[1]
