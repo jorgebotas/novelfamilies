@@ -121,6 +121,8 @@ var draw_protDomains = function(selector, domains, lenseq, width, height, palett
               .attr("height", height)
               .append('svg:g')
                 .attr("transform", "translate(" + 5 + ", 0)");
+    console.log(domains)
+    console.log(domains.length)
     draw_seqLine(g, width, height);
     draw_domains(g, domains, lenseq, width, height, palette);
     draw_legend(selector + ' div', domains, palette);
