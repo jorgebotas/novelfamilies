@@ -55,7 +55,8 @@
              class='col-xl-4 col-lg-6 col-md-12 p-1'>
           <div class="card mb-0 h-100">
             <div class="card-header bg-light">
-                [[ ko ]] 
+                <a :href='"https://www.genome.jp/entry/ko:" + ko'
+                    target="_blank">[[ ko ]]</a>
                 <a class="fa fa-link ms-2"
                    @click="searchFamByExample('ko', ko)"
                    style="color:var(--indigo)">
