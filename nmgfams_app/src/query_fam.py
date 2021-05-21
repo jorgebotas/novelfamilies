@@ -164,6 +164,15 @@ def get_egg_description(eggnog):
         description = ""
     return description
 
+def get_prot_len(gene_name):
+    match = col_neighs.find_one(
+        {"genes.g": gene_name},
+        {"genes":1})
+    for g in match['genes']:
+        if g['g'] == gene_name:
+            prot_len = abs(g['e'] - g['s']) // 3
+            return prot_len
+
 def get_mini_contig(gene_name, window=10):
     # finds the contig containing the gene, and retreives the whole contig array
     match = col_neighs.find_one(
@@ -422,7 +431,7 @@ def get_more_faminfo(fams):
             domains.append({
                 'gene': m,
                 'doms': get_domains(m_topo, m_sp),
-                'lenseq': 1000
+                'lenseq': get_prot_len(m),
             })
             # Taxonomy
             genome =  m.split('@')[1]
