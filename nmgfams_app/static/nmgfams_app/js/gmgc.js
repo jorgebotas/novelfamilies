@@ -655,6 +655,7 @@ var gmgc_vueapp = new Vue({
         if(this.totalItems == 0) {
             this.showExamples('ko');
             this.showExamples('synapo');
+            this.showExamples('card');
         }
         // TODO: search autocompletion
     },
