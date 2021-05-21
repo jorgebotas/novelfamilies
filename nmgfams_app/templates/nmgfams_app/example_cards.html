@@ -26,7 +26,7 @@
                     [[ info.level ]]
                 </span>
                 [[ tax | trimTaxa ]] 
-                <a class="fa fa-eye ms-2"
+                <a class="fa fa-link ms-2"
                    @click="searchFamByExample('synapo', tax)"
                    style="color:var(--indigo)">
                 </a>
@@ -57,7 +57,7 @@
             <div class="card-header bg-light">
                 <a :href='"https://www.genome.jp/entry/ko:" + ko'
                     target="_blank">[[ ko ]]</a>
-                <a class="fa fa-eye ms-2"
+                <a class="fa fa-link ms-2"
                    @click="searchFamByExample('ko', ko)"
                    style="color:var(--indigo)">
                 </a>
@@ -102,7 +102,7 @@
                     [[ card ]]
                 </div>
 
-                <a class="fa fa-eye ms-2"
+                <a class="fa fa-link ms-2"
                    @click="searchFamByExample('card', card)"
                    style="color:var(--indigo)">
                 </a>
