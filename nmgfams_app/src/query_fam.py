@@ -391,6 +391,7 @@ def get_domains(topology, signalp=[]):
     if len(topology) > 1:
         tms = resplit('[io]', str(topology).strip())
         for t in tms:
+            print(t)
             start, end = t.split('-')
             domains.append({
                 'start' : start,
