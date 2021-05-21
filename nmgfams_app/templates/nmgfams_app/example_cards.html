@@ -93,8 +93,14 @@
              class='col-xl-4 col-lg-6 col-md-12 p-1'>
           <div class="card mb-0 h-100">
             <div class="card-header bg-light">
-                <a :href='"https://card.mcmaster.ca/ontology/" + info.id'
+
+                <a v-if="info.id"
+                    :href='"https://card.mcmaster.ca/ontology/" + info.id'
                     target="_blank">[[ card ]]</a>
+                <div v-else>
+                    [[ card ]]
+                </div>
+
                 <a class="fa fa-link ms-2"
                    @click="searchFamByExample('card', card)"
                    style="color:var(--indigo)">
@@ -105,7 +111,8 @@
             </div>
             <div class="card-body text-muted">
                 [[ info.desc ]]
-                <span class="badge bg-red-lt mx-1">
+                <span v-if="info.accession"
+                    class="badge bg-red-lt mx-1">
                     [[ info.accession ]]
                 </span>
             </div>
