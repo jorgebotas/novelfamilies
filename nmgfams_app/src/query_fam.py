@@ -4,6 +4,7 @@ from ete3 import Tree
 import json
 import pickle
 from pymongo import MongoClient, ASCENDING, DESCENDING
+from re import split as resplit
 import sys
 import time
 
@@ -388,18 +389,9 @@ def get_domains(topology, signalp=[]):
                 'shape' : 'circle'
             })
     if len(topology) > 1:
-        topo = str(topology).split('-')
-        for i in range(1, len(topo)):
-            p = str(topo[i-1])
-            c = str(topo[i])
-            try :
-                start = int(p[-2:])
-            except:
-                start = int(p[-1])
-            try:
-                end = int(c[:2])
-            except:
-                end = int(c[0])
+        tms = resplit('[io]', str(topology).strip())
+        for t in tms:
+            start, end = t.split('-')
             domains.append({
                 'start' : start,
                 'end' : end,
