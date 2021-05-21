@@ -434,7 +434,7 @@ def get_more_faminfo(fams):
             domains.append({
                 'gene': m,
                 'doms': get_domains(m_topo, m_sp),
-                'lenseq': get_prot_len(m) or 1000,
+                'lenseq': get_prot_len(m.split('@')[2]) or 1000,
             })
             # Taxonomy
             genome =  m.split('@')[1]
