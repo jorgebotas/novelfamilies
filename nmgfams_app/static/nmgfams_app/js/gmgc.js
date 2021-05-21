@@ -324,6 +324,7 @@ var gmgc_vueapp = new Vue({
             }  else if (type == 'biome') {
                 this.searchFamByBiome(selector);
             }
+            $('#spinner').modal('hide');
         },
 
         searchFamByTaxa : function(selector, prefix) {
