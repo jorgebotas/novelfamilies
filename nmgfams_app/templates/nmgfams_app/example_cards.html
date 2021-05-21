@@ -93,7 +93,8 @@
              class='col-xl-4 col-lg-6 col-md-12 p-1'>
           <div class="card mb-0 h-100">
             <div class="card-header bg-light">
-                [[ card ]] 
+                <a :href='"https://card.mcmaster.ca/ontology/" + id'
+                    target="_blank">[[ card ]]</a>
                 <a class="fa fa-link ms-2"
                    @click="searchFamByExample('card', card)"
                    style="color:var(--indigo)">
