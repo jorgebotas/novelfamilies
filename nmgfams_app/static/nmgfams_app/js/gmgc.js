@@ -379,13 +379,13 @@ var gmgc_vueapp = new Vue({
             this.totalItems = +data.total_matches;
             this.nPages = Math.ceil(this.totalItems/this.perPage)
             setTimeout(() => {
+                $('#spinner').modal('hide');
                 if(this.totalItems == 1)
                     this.showAllFams();
                 else
                     this.hideAllFams();
                 this.paginateInfo();
                 this.renderFamInfo();
-                $('#spinner').modal('hide');
             }, 0)
         },
 
