@@ -304,12 +304,12 @@ var gmgc_vueapp = new Vue({
         }
     },
     methods: {
-        searchFams : async function(searchType=undefined, query=undefined) {
+        searchFams : async function(searchType=undefined, searchQuery=undefined) {
             $('#spinner').modal('show');
             this.show_items = [];
             this.nPages = 1;
             this.totalItems = 0;
-            query = query || $("#search-fams").val().trim();
+            let query = searchQuery || $("#search-fams").val().trim();
             let type = searchType || $("#search-type").val();
             $('#search-fams').trigger('blur');
             if (type == 'fam') {
