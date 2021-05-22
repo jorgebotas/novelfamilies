@@ -393,6 +393,7 @@ var gmgc_vueapp = new Vue({
                 this.renderFamInfo();
             }, 0)
             setTimeout(() => {
+                console.log(document.getElementById('spinner').classList)
                 $('#spinner').modal('hide');
             }, 100)
         },
