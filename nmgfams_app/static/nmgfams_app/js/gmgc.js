@@ -274,6 +274,7 @@ var renderSunburst = function(selector, data) {
 var fetchCatch = function(e) {
     console.log(e)
     alert("No family found under current search. Please try again!")
+    $('#spinner').modal('hide');
 }
 
 var gmgc_vueapp = new Vue({
@@ -385,7 +386,6 @@ var gmgc_vueapp = new Vue({
                 this.paginateInfo();
                 this.renderFamInfo();
                 $('#spinner').modal('hide');
-
             }, 0)
         },
 
