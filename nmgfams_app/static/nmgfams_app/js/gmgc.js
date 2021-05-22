@@ -305,7 +305,7 @@ var gmgc_vueapp = new Vue({
     },
     methods: {
         searchFams : function(searchType=undefined) {
-            $('#spinner').modal('show');
+            //$('#spinner').modal('show');
             this.show_items = [];
             this.nPages = 1;
             this.totalItems = 0;
