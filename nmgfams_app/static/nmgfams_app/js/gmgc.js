@@ -328,7 +328,6 @@ var gmgc_vueapp = new Vue({
         },
 
         searchFamByTaxa : function(selector, prefix) {
-            $('#spinner').modal('show');
             let search = $(selector);
             let query = prefix + search.val().trim();
             let spec = document.querySelector("#specificity").noUiSlider.get();
@@ -341,7 +340,6 @@ var gmgc_vueapp = new Vue({
         },
 
         searchFamByFunction : function(selector) {
-            $('#spinner').modal('show');
             let search = $(selector);
             let query = search.val().trim();
             let queryType = $('.term-type input:checked').val();
@@ -370,6 +368,7 @@ var gmgc_vueapp = new Vue({
                 .then(response => response.json())
                 .then(data => this.fetchThen(data, fetchURL))
                 .catch(e => fetchCatch(e))
+            $('#spinner').modal('hide');
         },
 
         fetchThen : function(data, fetchURL) {
@@ -383,7 +382,6 @@ var gmgc_vueapp = new Vue({
             this.totalItems = +data.total_matches;
             this.nPages = Math.ceil(this.totalItems/this.perPage)
             setTimeout(() => {
-                $('#spinner').modal('hide');
                 if(this.totalItems == 1)
                     this.showAllFams();
                 else
@@ -616,8 +614,9 @@ var gmgc_vueapp = new Vue({
                     this.paginateInfo();
                     this.renderFamInfo();
                     this.scrollToTop();
-                    $('#spinner').modal('hide');
                 })
+                .catch(e => fetchCatch(e))
+            $('#spinner').modal('hide');
         },
 
         scrollToTop: function() {
