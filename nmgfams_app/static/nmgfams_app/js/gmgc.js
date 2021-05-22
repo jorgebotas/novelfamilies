@@ -396,7 +396,7 @@ var gmgc_vueapp = new Vue({
                 console.log(document.getElementById('spinner').classList)
                 $('#spinner').modal('hide');
                 console.log(document.getElementById('spinner').classList)
-            }, 100)
+            }, 1000)
         },
 
         paginateInfo : function() {
