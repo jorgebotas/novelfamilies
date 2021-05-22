@@ -304,15 +304,14 @@ var gmgc_vueapp = new Vue({
         }
     },
     methods: {
-        searchFams : async function(searchType=undefined) {
+        searchFams : async function(searchType=undefined, query=undefined) {
             $('#spinner').modal('show');
             this.show_items = [];
             this.nPages = 1;
             this.totalItems = 0;
-            let query = $("#search-fams").val().trim();
+            query = query || $("#search-fams").val().trim();
             let type = searchType || $("#search-type").val();
-            let selector = '#search-fams'
-            $(selector).trigger('blur');
+            $('#search-fams').trigger('blur');
             if (type == 'fam') {
                 fetch(API_BASE_URL + `/info/${query}/`)
                 .then(response => response.json())
@@ -320,15 +319,15 @@ var gmgc_vueapp = new Vue({
                 .then($('#spinner').modal('hide'))
                 .catch(e => this.fetchCatch(e))
             } else if (type == 'taxa'){
-                this.searchFamByTaxa(selector, '');
+                this.searchFamByTaxa(query, '');
             } else if (type == 'function') {
-                this.searchFamByFunction(selector);
+                this.searchFamByFunction(query);
             }  else if (type == 'biome') {
-                this.searchFamByBiome(selector);
+                this.searchFamByBiome(query);
             }
         },
 
-        searchFamByTaxa : function(selector, prefix) {
+        searchFamByTaxa : function(query, prefix) {
             let search = $(selector);
             let query = prefix + search.val().trim();
             let spec = document.querySelector("#specificity").noUiSlider.get();
@@ -340,7 +339,7 @@ var gmgc_vueapp = new Vue({
                 .catch(e => this.fetchCatch(e))
         },
 
-        searchFamByFunction : function(selector) {
+        searchFamByFunction : function(query) {
             let search = $(selector);
             let query = search.val().trim();
             let queryType = $('.term-type input:checked').val();
@@ -356,7 +355,7 @@ var gmgc_vueapp = new Vue({
                 .catch(e => this.fetchCatch(e))
         },
 
-        searchFamByBiome : function(selector) {
+        searchFamByBiome : function(query) {
 
         },
 
