@@ -318,6 +318,7 @@ var gmgc_vueapp = new Vue({
                 .then(response => response.json())
                 .then(data => this.fetchThen(data, ''))
                 .catch(e => fetchCatch(e))
+                $('#spinner').modal('hide');
             } else if (type == 'taxa'){
                 this.searchFamByTaxa(selector, '');
             } else if (type == 'function') {
