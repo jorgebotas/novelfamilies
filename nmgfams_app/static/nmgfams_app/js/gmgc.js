@@ -372,7 +372,7 @@ var gmgc_vueapp = new Vue({
 
         fetchThen : async function(data, fetchURL) {
             // Hide search filters quickly
-            await $('#spinner').modal('hide');
+            //await $('#spinner').modal('hide');
             console.log($('#spinner'))
             document.querySelectorAll('.search-filters')
                 .forEach(f => f.classList.remove('show'));
