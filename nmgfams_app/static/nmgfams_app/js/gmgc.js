@@ -277,6 +277,8 @@ var fetchCatch = function(e) {
     $('#spinner').modal('hide');
 }
 
+
+
 var gmgc_vueapp = new Vue({
     delimiters: ['[[', ']]'],
     el: '#NovelFams',
@@ -379,13 +381,13 @@ var gmgc_vueapp = new Vue({
             this.totalItems = +data.total_matches;
             this.nPages = Math.ceil(this.totalItems/this.perPage)
             setTimeout(() => {
-                $('#spinner').modal('hide');
                 if(this.totalItems == 1)
                     this.showAllFams();
                 else
                     this.hideAllFams();
                 this.paginateInfo();
                 this.renderFamInfo();
+                $('#spinner').modal('hide');
             }, 0)
         },
 
@@ -471,9 +473,9 @@ var gmgc_vueapp = new Vue({
         },
 
         showAllFams : function() {
-            Object.keys(this.show_items).forEach(async (f, idx) => {
+            Object.keys(this.show_items).forEach((f, idx) => {
                 let selector = `#f${idx}-GeCoViz`;
-                await this.toggleGeCoViz(selector, f)
+                this.toggleGeCoViz(selector, f)
             });
             $('.tab-content').collapse('show');
         },
