@@ -304,13 +304,13 @@ var gmgc_vueapp = new Vue({
         }
     },
     methods: {
-        searchFams : async function(searchType=undefined, searchQuery=undefined) {
+        searchFams : async function(searchType=undefined, query=undefined) {
             $('#spinner').modal('show');
             this.show_items = [];
             this.nPages = 1;
             this.totalItems = 0;
-            let query = searchQuery || $("#search-fams").val().trim();
-            let type = searchType || $("#search-type").val();
+            query = query || $("#search-fams").val().trim();
+            const type = searchType || $("#search-type").val();
             $('#search-fams').trigger('blur');
             if (type == 'fam') {
                 fetch(API_BASE_URL + `/info/${query}/`)
@@ -328,11 +328,10 @@ var gmgc_vueapp = new Vue({
         },
 
         searchFamByTaxa : function(query, prefix) {
-            let search = $(selector);
-            let query = prefix + search.val().trim();
-            let spec = document.querySelector("#specificity").noUiSlider.get();
-            let cov = document.querySelector("#coverage").noUiSlider.get();
-            let fetchURL = API_BASE_URL + `/taxafams/${query}/${spec}/${cov}`;
+            query = prefix + query;
+            const spec = document.querySelector("#specificity").noUiSlider.get();
+            const cov = document.querySelector("#coverage").noUiSlider.get();
+            const fetchURL = API_BASE_URL + `/taxafams/${query}/${spec}/${cov}`;
             fetch(`${fetchURL}/0/`)
                 .then(response => response.json())
                 .then(data => this.fetchThen(data, fetchURL))
@@ -340,14 +339,12 @@ var gmgc_vueapp = new Vue({
         },
 
         searchFamByFunction : function(query) {
-            let search = $(selector);
-            let query = search.val().trim();
-            let queryType = $('.term-type input:checked').val();
-            let conservation = document.querySelector("#conservation")
+            const queryType = $('.term-type input:checked').val();
+            const conservation = document.querySelector("#conservation")
                                        .noUiSlider.get();
-            let minRelDist = parseInt(document.querySelector("#mindist")
+            const minRelDist = parseInt(document.querySelector("#mindist")
                                        .noUiSlider.get());
-            let fetchURL = API_BASE_URL
+            const fetchURL = API_BASE_URL
                 + `/fnfams/${queryType}/${query}/${minRelDist}/${conservation}`;
             fetch(`${fetchURL}/0/`)
                 .then(response => response.json())
@@ -362,7 +359,7 @@ var gmgc_vueapp = new Vue({
         searchFamByExample : function(exampleType, query) {
             $('#spinner').modal('show');
             $('#search-fams').val(query);
-            let fetchURL = API_BASE_URL
+            const fetchURL = API_BASE_URL
                 + `/examples/${exampleType}/${query}`;
             fetch(`${fetchURL}/1/`)
                 .then(response => response.json())
