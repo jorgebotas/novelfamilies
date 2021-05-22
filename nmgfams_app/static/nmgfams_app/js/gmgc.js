@@ -305,7 +305,7 @@ var gmgc_vueapp = new Vue({
     },
     methods: {
         searchFams : function(searchType=undefined) {
-            //$('#spinner').modal('show');
+            $('#spinner').modal('show');
             this.show_items = [];
             this.nPages = 1;
             this.totalItems = 0;
@@ -317,6 +317,7 @@ var gmgc_vueapp = new Vue({
                 fetch(API_BASE_URL + `/info/${query}/`)
                 .then(response => response.json())
                 .then(data => this.fetchThen(data, ''))
+                .then($('#spinner'.modal('hide')))
                 .catch(e => this.fetchCatch(e))
             } else if (type == 'taxa'){
                 this.searchFamByTaxa(selector, '');
