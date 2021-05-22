@@ -598,7 +598,7 @@ var gmgc_vueapp = new Vue({
                     : this.nPages;
             }
             let fetchURL = this.currentSearch;
-            fetch(`${fetchURL}/${page}/`)
+            await fetch(`${fetchURL}/${page}/`)
                 .then(response => response.json())
                 .then(data => {
                     this.show_items = {};
