@@ -318,7 +318,6 @@ var gmgc_vueapp = new Vue({
                 .then(response => response.json())
                 .then(data => this.fetchThen(data, ''))
                 .catch(e => fetchCatch(e))
-                $('#spinner').modal('hide');
             } else if (type == 'taxa'){
                 this.searchFamByTaxa(selector, '');
             } else if (type == 'function') {
@@ -373,6 +372,7 @@ var gmgc_vueapp = new Vue({
 
         fetchThen : function(data, fetchURL) {
             // Hide search filters quickly
+            $('#spinner').modal('hide');
             document.querySelectorAll('.search-filters')
                 .forEach(f => f.classList.remove('show'));
             this.show_items = {};
@@ -388,7 +388,6 @@ var gmgc_vueapp = new Vue({
                     this.hideAllFams();
                 this.paginateInfo();
                 this.renderFamInfo();
-                $('#spinner').modal('hide');
             }, 0)
         },
 
