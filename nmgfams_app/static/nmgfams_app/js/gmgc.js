@@ -374,8 +374,6 @@ var gmgc_vueapp = new Vue({
 
         fetchThen : function(data, fetchURL) {
             // Hide search filters quickly
-            $('#spinner').modal('hide');
-            console.log($('#spinner'))
             document.querySelectorAll('.search-filters')
                 .forEach(f => f.classList.remove('show'));
             this.show_items = {};
@@ -393,9 +391,7 @@ var gmgc_vueapp = new Vue({
                 this.renderFamInfo();
             }, 0)
             setTimeout(() => {
-                console.log(document.getElementById('spinner').classList)
                 $('#spinner').modal('hide');
-                console.log(document.getElementById('spinner').classList)
             }, 1000)
         },
 
@@ -623,7 +619,9 @@ var gmgc_vueapp = new Vue({
                     this.scrollToTop();
                 })
                 .catch(e => this.fetchCatch(e))
-            $('#spinner').modal('hide');
+            setTimeout(() => {
+                $('#spinner').modal('hide');
+            }, 1000)
         },
 
         scrollToTop: function() {
