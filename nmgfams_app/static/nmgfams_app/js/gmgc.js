@@ -317,7 +317,7 @@ var gmgc_vueapp = new Vue({
                 fetch(API_BASE_URL + `/info/${query}/`)
                 .then(response => response.json())
                 .then(data => this.fetchThen(data, ''))
-                .then($('#spinner'.modal('hide')))
+                .then($('#spinner').modal('hide'))
                 .catch(e => this.fetchCatch(e))
             } else if (type == 'taxa'){
                 this.searchFamByTaxa(selector, '');
