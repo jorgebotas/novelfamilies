@@ -317,7 +317,7 @@ var gmgc_vueapp = new Vue({
                 fetch(API_BASE_URL + `/info/${query}/`)
                 .then(response => response.json())
                 .then(data => this.fetchThen(data, ''))
-                .catch(e => fetchCatch(e))
+                .catch(e => this.fetchCatch(e))
             } else if (type == 'taxa'){
                 this.searchFamByTaxa(selector, '');
             } else if (type == 'function') {
@@ -336,7 +336,7 @@ var gmgc_vueapp = new Vue({
             fetch(`${fetchURL}/0/`)
                 .then(response => response.json())
                 .then(data => this.fetchThen(data, fetchURL))
-                .catch(e => fetchCatch(e))
+                .catch(e => this.fetchCatch(e))
         },
 
         searchFamByFunction : function(selector) {
@@ -352,7 +352,7 @@ var gmgc_vueapp = new Vue({
             fetch(`${fetchURL}/0/`)
                 .then(response => response.json())
                 .then(data => this.fetchThen(data, fetchURL))
-                .catch(e => fetchCatch(e))
+                .catch(e => this.fetchCatch(e))
         },
 
         searchFamByBiome : function(selector) {
@@ -367,12 +367,13 @@ var gmgc_vueapp = new Vue({
             fetch(`${fetchURL}/1/`)
                 .then(response => response.json())
                 .then(data => this.fetchThen(data, fetchURL))
-                .catch(e => fetchCatch(e))
+                .catch(e => this.fetchCatch(e))
         },
 
         fetchThen : function(data, fetchURL) {
             // Hide search filters quickly
             $('#spinner').modal('hide');
+            console.log('hidden')
             document.querySelectorAll('.search-filters')
                 .forEach(f => f.classList.remove('show'));
             this.show_items = {};
@@ -468,7 +469,7 @@ var gmgc_vueapp = new Vue({
             await fetch(`${fetchURL}/0/`)
                 .then(response => response.json())
                 .then(data => this.examples[exampleType] = data.show_items)
-                .catch(e => fetchCatch(e))
+                .catch(e => this.fetchCatch(e))
             return this.examples[exampleType]
         },
 
@@ -614,7 +615,7 @@ var gmgc_vueapp = new Vue({
                     this.renderFamInfo();
                     this.scrollToTop();
                 })
-                .catch(e => fetchCatch(e))
+                .catch(e => this.fetchCatch(e))
             $('#spinner').modal('hide');
         },
 
