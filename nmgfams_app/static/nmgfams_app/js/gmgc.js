@@ -322,9 +322,6 @@ var gmgc_vueapp = new Vue({
             }  else if (type == 'biome') {
                 this.searchFamByBiome(selector);
             }
-            setTimeout(() => {
-                $('#spinner').modal('hide');
-            }, 5)
         },
 
         searchFamByTaxa : function(selector, prefix) {
@@ -368,7 +365,6 @@ var gmgc_vueapp = new Vue({
                 .then(response => response.json())
                 .then(data => this.fetchThen(data, fetchURL))
                 .catch(e => fetchCatch(e))
-            $('#spinner').modal('hide');
         },
 
         fetchThen : function(data, fetchURL) {
@@ -388,6 +384,7 @@ var gmgc_vueapp = new Vue({
                     this.hideAllFams();
                 this.paginateInfo();
                 this.renderFamInfo();
+                $('#spinner').modal('hide');
 
             }, 0)
         },
