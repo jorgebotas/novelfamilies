@@ -368,6 +368,7 @@ var gmgc_vueapp = new Vue({
                 .then(response => response.json())
                 .then(data => this.fetchThen(data, fetchURL))
                 .catch(e => this.fetchCatch(e))
+            $('#spinner').modal('show');
         },
 
         fetchThen : function(data, fetchURL) {
