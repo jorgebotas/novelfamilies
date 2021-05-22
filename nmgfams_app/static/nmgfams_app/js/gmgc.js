@@ -395,6 +395,7 @@ var gmgc_vueapp = new Vue({
             setTimeout(() => {
                 console.log(document.getElementById('spinner').classList)
                 $('#spinner').modal('hide');
+                console.log(document.getElementById('spinner').classList)
             }, 100)
         },
 
