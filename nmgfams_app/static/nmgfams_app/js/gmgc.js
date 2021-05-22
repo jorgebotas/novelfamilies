@@ -373,6 +373,7 @@ var gmgc_vueapp = new Vue({
         fetchThen : function(data, fetchURL) {
             // Hide search filters quickly
             setTimeout(() => {
+                $('#spinner').modal('hide');
                 console.log('hidden')
             }, 10)
             document.querySelectorAll('.search-filters')
