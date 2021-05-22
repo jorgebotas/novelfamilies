@@ -305,7 +305,6 @@ var gmgc_vueapp = new Vue({
     },
     methods: {
         searchFams : async function(searchType=undefined) {
-            $('#spinner').modal('hide');
             $('#spinner').modal('show');
             this.show_items = [];
             this.nPages = 1;
@@ -393,6 +392,9 @@ var gmgc_vueapp = new Vue({
                 this.paginateInfo();
                 this.renderFamInfo();
             }, 0)
+            setTimeout(() => {
+                $('#spinner').modal('hide');
+            }, 100)
         },
 
         paginateInfo : function() {
