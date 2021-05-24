@@ -342,7 +342,7 @@ var gmgc_vueapp = new Vue({
                 .catch(e => this.fetchCatch(e))
         },
 
-        searchFamByFunction : function(query) {
+        searchFamByFunction : function(query, options) {
             const queryType = $('.term-type input:checked').val();
             const conservation = options.conservation || document
                 .querySelector("#conservation")
