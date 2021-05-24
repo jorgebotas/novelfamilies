@@ -312,8 +312,6 @@ def get_neighborhood_summary(fam):
         for t in v:
             pos = t['pos']
             term = t['n']
-            # if k == 'og' and term[:3] != "COG":
-                # continue
             score = round(t['score'], 3)
             strand_int = t['mean_num_in_opposite_strand']
             if strand_int == 1:
@@ -329,15 +327,29 @@ def get_neighborhood_summary(fam):
             gene['strand'][strand] = max(gene_strand_score, score)
             gene.setdefault(key, []).append(info)
     summary = list(summary.values())
-    # Get most repeated strand and gene name
+    # Get most repeated strand, gene name and OG
     for s in summary:
         strand = s['strand']
         s['strand'] = max(strand, key=strand.get)
+        
         gname_json = s.get('Gene name(s)')
         if gname_json:
             gname = [g['id'] for g in gname_json]
             gname_scores = [g['description'][6:] for g in gname_json]
             s['Gene name'] = gname[gname_scores.index(max(gname_scores))]
+
+        most_conserved_og = {'id': '', 'score': 0}
+        for og in s['Orthologous groups']:
+            level = og['level']
+            score = og['score']
+            if level in [1, 2, 2157] and most_conserved_og['score'] < score:
+                most_conserved_og['id'] = og['id']
+                most_conserved_og['score'] = score
+                most_conserved_og['description'] = \
+                        f'Level: {level}. {og['description']}'
+        most_conserved_og['level'] = 'most conserved'
+        s['Orthologous groups'].append(most_conserved_og)
+
     return summary
 
 def get_neighborhood(fam, members=None):

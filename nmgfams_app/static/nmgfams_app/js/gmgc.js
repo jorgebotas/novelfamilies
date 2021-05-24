@@ -432,7 +432,7 @@ var gmgc_vueapp = new Vue({
                     .contextData(summary)//data.context_summary)
                     .nSide(3)
                     .geneText("Gene name")
-                    .annotation("Orthologous groups", 2)
+                    .annotation("Orthologous groups", "most conserved")
                     .options({
                         'showBar': false,
                         'showLegend': false
