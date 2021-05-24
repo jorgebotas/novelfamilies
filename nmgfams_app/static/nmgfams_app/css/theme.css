@@ -12087,6 +12087,9 @@ a:hover {
 .form-help:hover, .form-help[aria-describedby] {
   background-color: #6574cd; }
 
+.form-selectgroup-input:checked + .form-selectgroup-label {
+  background-color: rgba(101, 116, 205, 0.1); }
+
 .navbar, ul.navbar-nav {
   min-height: 1rem !important; }
 
