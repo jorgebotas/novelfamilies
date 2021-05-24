@@ -1,9 +1,11 @@
-<div class='example-cards row justify-content-center
+<div class='example-cards 
+     row row-cols-3 g-1
+     justify-content-center
      align-content-center h-100 mt-5 mx-2'
     id="example-cards">
 
 
-<div class="col-md-6 col-sm-12">
+<div class="col">
 <div class="card">
     <div class="card-header">
         <h3 class="card-title">
@@ -12,9 +14,9 @@
     </div>
     <div class="card-body card-body-scrollable px-4"
          style="height: 75vh">
-        <div class="row">
+        <div class="row row-cols-xl-2 row-cols-md-1 g-1">
         <div v-for="([tax, info]) in this.examples.synapo"
-             class='col-xl-6 col-lg-12 col-md-12 p-1'>
+             class='col'>
           <div class="mb-0 h-100 bg-light"
                style="padding: 0.75rem 1.25rem; margin-bottom: 0;
                       display: flex;
@@ -41,7 +43,7 @@
 </div>
 
 
-<div class="col-md-6 col-sm-12">
+<div class="col">
 <div class="card">
     <div class="card-header">
         <h3 class="card-title">
@@ -50,9 +52,9 @@
     </div>
     <div class="card-body card-body-scrollable px-4"
          style="height: 75vh">
-        <div class="row">
+        <div class="row row-cols-xl-2 row-cols-md-1 g-1">
         <div v-for="([ko, info]) in this.examples.ko"
-             class='col-xl-4 col-lg-6 col-md-12 p-1'>
+             class='col'>
           <div class="card mb-0 h-100">
             <div class="card-header bg-light">
                 <a :href='"https://www.genome.jp/entry/ko:" + ko'
@@ -80,7 +82,7 @@
 </div>
 
 
-<div class="col-md-6 col-sm-12">
+<div class="col">
 <div class="card">
     <div class="card-header">
         <h3 class="card-title">
@@ -89,9 +91,9 @@
     </div>
     <div class="card-body card-body-scrollable px-4"
          style="height: 75vh">
-        <div class="row">
+        <div class="row row-cols-xl-2 row-cols-md-1 g-1">
         <div v-for="([card, info]) in this.examples.card"
-             class='col-xl-4 col-lg-6 col-md-12 p-1'>
+             class='col'>
           <div class="card mb-0 h-100">
             <div class="card-header bg-light">
 
