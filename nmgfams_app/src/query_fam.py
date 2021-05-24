@@ -351,7 +351,7 @@ def get_neighborhood_summary(fam):
                 most_conserved_og['description'] = \
                         f'Level: {level}. {og["description"]}'
         most_conserved_og['level'] = 'most conserved'
-        s['Orthologous groups'].append(most_conserved_og)
+        s['Orthologous groups'].insert(most_conserved_og, 0)
 
     return summary
 
