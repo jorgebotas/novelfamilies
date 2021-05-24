@@ -289,6 +289,7 @@ var gmgc_vueapp = new Vue({
         totalItems: 0,
         nPages: 1,
         currentSearch: '',
+        searchTypeChoices,
         examples: {
             ko: [],
             synapo: [],
@@ -662,7 +663,75 @@ var gmgc_vueapp = new Vue({
         }
     },
     mounted: function() {
-      $(document).ready(() => {
+        const searchType = $('#search-type');
+        this.searchTypeChoices = new Choices(searchType[0], {
+            classNames: {
+                containerInner: searchType[0].className,
+                input: 'form-control',
+                inputCloned: 'form-control-sm',
+                listDropdown: 'dropdown-menu',
+                itemChoice: 'dropdown-item',
+                activeState: 'show',
+                selectedState: 'active',
+                placeholder: 'choices__placeholder',
+            },
+            shouldSort: false,
+            searchEnabled: false,
+            choices : [
+                { value: 'fam', label: 'Family name', selected: true },
+                { value: 'taxa', id: 'taxa', label: 'Taxon name' },
+                { value: 'function', label: 'Functional context' },
+                { value: 'biome', label: 'Biome name' },
+            ]
+          });
+        searchType.change(async function(){
+            await $('.search-filters').collapse('hide');
+            let val = searchType.val();
+            if (val == 'taxa') {
+                await $('#taxa-filters').collapse('show');
+            } else if (val == 'function') {
+                await $('#function-filters').collapse('show');
+            }
+        });
+        // Build sliders
+        ["specificity", "coverage", "conservation"].forEach(id => {
+                const slider = document.getElementById(id);
+                noUiSlider.create(slider,
+                    {
+                        start: .9,
+                        connect: [true, false],
+                        step: .01,
+                        range: {
+                            min: 0,
+                            max: 1
+                            }
+                    });
+                const sliderLabel = d3.select(`.${id} label`);
+                slider = slider.noUiSlider;
+                slider.on('update', () => {
+                    const name = id.trim().replace(/^\w/, c => c.toUpperCase());
+                    sliderLabel.html(name+': '+slider.get());
+                })
+        })
+        const slider = document.getElementById("mindist");
+        noUiSlider.create(slider,
+            {
+                start: 1,
+                connect: [true, false],
+                step: 1,
+                range: {
+                    min: 0,
+                    max: 2
+                    }
+            });
+        const sliderLabel = d3.select(`.mindist label`);
+            slider = slider.noUiSlider;
+            slider.on('update', () => {
+                let name =  "Min relative distance";
+                sliderLabel.html(`${name}: ${parseInt(slider.get())} gene(s)`);
+            })
+
+        // Allow searches coded in URL
         function getUrlParams() {
             const vars = {};
             window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, (_,key,value) => {
@@ -680,11 +749,11 @@ var gmgc_vueapp = new Vue({
             this.searchFams(searchType, query, urlParams);
 
 
+        // Display examples
         if(this.totalItems == 0) {
             this.showExamples('ko');
             this.showExamples('synapo');
             this.showExamples('card');
         }
-    })
     },
 });
