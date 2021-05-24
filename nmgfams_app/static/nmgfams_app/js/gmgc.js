@@ -673,6 +673,7 @@ var gmgc_vueapp = new Vue({
         const searchType = urlParams['searchType'] || 'fam';
         const query = urlParams['query'];
         console.log(document.querySelector("#mindist"))
+        console.log(document.querySelector("#mindist").noUiSlider)
 
         if(searchType && query)
             this.searchFams(searchType, query, urlParams);
