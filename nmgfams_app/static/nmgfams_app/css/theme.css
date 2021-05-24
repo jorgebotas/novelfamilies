@@ -11994,6 +11994,9 @@ Antialiasing
   background-color: #ffd39d !important;
   color: #9d5600 !important; }
 
+@media (min-width: 85rem) {
+  .container, .container-sm, .container-md, .container-lg, .container-xl, .container-xxl {
+    max-width: 85rem; } }
 a {
   text-decoration: none !important;
   color: #6574cd;
