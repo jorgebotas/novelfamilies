@@ -304,7 +304,7 @@ var gmgc_vueapp = new Vue({
         }
     },
     methods: {
-        searchFams : async function(searchType=undefined, query=undefined) {
+        searchFams : async function(searchType, query, options) {
             $('#spinner').modal('show');
             this.show_items = [];
             this.nPages = 1;
@@ -319,18 +319,22 @@ var gmgc_vueapp = new Vue({
                 .then($('#spinner').modal('hide'))
                 .catch(e => this.fetchCatch(e))
             } else if (type == 'taxa'){
-                this.searchFamByTaxa(query, '');
+                this.searchFamByTaxa(query, '', options);
             } else if (type == 'function') {
-                this.searchFamByFunction(query);
+                this.searchFamByFunction(query, options);
             }  else if (type == 'biome') {
-                this.searchFamByBiome(query);
+                this.searchFamByBiome(query, options);
             }
         },
 
-        searchFamByTaxa : function(query, prefix) {
+        searchFamByTaxa : function(query, prefix, options) {
             query = prefix + query;
-            const spec = document.querySelector("#specificity").noUiSlider.get();
-            const cov = document.querySelector("#coverage").noUiSlider.get();
+            const spec = +options.specificity || document
+                .querySelector("#specificity")
+                .noUiSlider.get();
+            const cov = +options.coverage || document
+                .querySelector("#coverage")
+                .noUiSlider.get();
             const fetchURL = API_BASE_URL + `/taxafams/${query}/${spec}/${cov}`;
             fetch(`${fetchURL}/0/`)
                 .then(response => response.json())
@@ -340,10 +344,12 @@ var gmgc_vueapp = new Vue({
 
         searchFamByFunction : function(query) {
             const queryType = $('.term-type input:checked').val();
-            const conservation = document.querySelector("#conservation")
-                                       .noUiSlider.get();
-            const minRelDist = parseInt(document.querySelector("#mindist")
-                                       .noUiSlider.get());
+            const conservation = options.conservation || document
+                .querySelector("#conservation")
+                .noUiSlider.get();
+            const minRelDist = options.mindist || 
+                parseInt(document.querySelector("#mindist")
+                    .noUiSlider.get());
             const fetchURL = API_BASE_URL
                 + `/fnfams/${queryType}/${query}/${minRelDist}/${conservation}`;
             fetch(`${fetchURL}/0/`)
@@ -663,11 +669,12 @@ var gmgc_vueapp = new Vue({
             });
             return vars;
         }
-        const urlParams = getUrlParams()
-        const query = urlParams['query']
+        const urlParams = getUrlParams();
+        const searchType = urlParams['searchType'];
+        const query = urlParams['query'];
 
-        if(query)
-            this.searchFams('fam', query);
+        if(queryType && query)
+            this.searchFams(searchType, query, urlParams);
 
 
         if(this.totalItems == 0) {
