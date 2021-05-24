@@ -313,6 +313,8 @@ var gmgc_vueapp = new Vue({
             query = query || $("#search-fams").val().trim();
             const type = searchType || $("#search-type").val();
             $('#search-fams').trigger('blur');
+            console.log(searchType)
+            console.log(query)
             if (type == 'fam') {
                 fetch(API_BASE_URL + `/info/${query}/`)
                 .then(response => response.json())
@@ -742,12 +744,9 @@ var gmgc_vueapp = new Vue({
         const urlParams = getUrlParams();
         const searchType = urlParams['searchType'] || 'fam';
         const query = urlParams['query'];
-        console.log(document.querySelector("#mindist"))
-        console.log(document.querySelector("#mindist").noUiSlider)
 
         if(searchType && query)
             this.searchFams(searchType, query, urlParams);
-
 
         // Display examples
         if(this.totalItems == 0) {
