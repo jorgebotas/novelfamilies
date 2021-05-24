@@ -89,9 +89,9 @@ def get_taxonomy(genome, json=True):
             continue
         tsplit = t.strip().split(' ')
         # Clean cases where species name includes genus
-        if idx > 0 and len(tsplit) > 1\
-            and parsed_taxa[idx-1].split('_')[-1] == tsplit[0].split('_')[-1]:
-            t = 's__' + tsplit[1]
+        # if idx > 0 and len(tsplit) > 1\
+            # and parsed_taxa[idx-1].split('_')[-1] == tsplit[0].split('_')[-1]:
+            # t = 's__' + tsplit[1]
         parsed_taxa.append(t)
     if not json:
         return ";".join(parsed_taxa)
@@ -283,10 +283,11 @@ def get_newick(fam):
         tax = tax.split('.', 1)[0]
         # find taxa lineage by genome name
         taxa = get_taxonomy(genome, json=False)
-        taxonomy = [ t[3:].replace('.', '_').replace(' ', '_')
+        taxonomy = [ t.replace('.', '_').replace(' ', '_')
                 for t in taxa.split(";") ]
-        full_name = "@".join([src, genome, gene, tax]).replace('.', '_')
         last_tax = taxonomy[-1]
+        taxonomy = [ t[3:] for t in taxonomy ] # Remove prefix
+        full_name = "@".join([src, genome, gene, tax]).replace('.', '_')
         leaf.name = '.'.join([last_tax,
                               full_name,
                               gene.replace('.', '_'),
