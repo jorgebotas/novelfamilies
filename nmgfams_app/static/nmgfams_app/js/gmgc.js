@@ -607,6 +607,9 @@ var gmgc_vueapp = new Vue({
                     this.currentPage = page;
                     this.totalItems = +data.total_matches;
                     this.nPages = Math.ceil(this.totalItems/this.perPage)
+                    setTimeout(() => {
+                        $('#spinner').modal('hide');
+                    }, 1000)
                 })
                 .then(() => {
                     this.hideAllFams();
@@ -615,9 +618,6 @@ var gmgc_vueapp = new Vue({
                     this.scrollToTop();
                 })
                 .catch(e => this.fetchCatch(e))
-            setTimeout(() => {
-                $('#spinner').modal('hide');
-            }, 1000)
         },
 
         scrollToTop: function() {
