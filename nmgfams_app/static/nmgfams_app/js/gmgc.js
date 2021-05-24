@@ -329,12 +329,12 @@ var gmgc_vueapp = new Vue({
 
         searchFamByTaxa : function(query, prefix, options) {
             query = prefix + query;
-            const spec = +options.specificity || document
+            const spec = +options.specificity || (document
                 .querySelector("#specificity")
-                .noUiSlider.get();
-            const cov = +options.coverage || document
+                .noUiSlider.get());
+            const cov = +options.coverage || (document
                 .querySelector("#coverage")
-                .noUiSlider.get();
+                .noUiSlider.get());
             const fetchURL = API_BASE_URL + `/taxafams/${query}/${spec}/${cov}`;
             fetch(`${fetchURL}/0/`)
                 .then(response => response.json())
@@ -344,9 +344,9 @@ var gmgc_vueapp = new Vue({
 
         searchFamByFunction : function(query, options) {
             const queryType = $('.term-type input:checked').val();
-            const conservation = options.conservation || document
+            const conservation = options.conservation || (document
                 .querySelector("#conservation")
-                .noUiSlider.get();
+                .noUiSlider.get());
             const minRelDist = options.mindist || 
                 parseInt(document.querySelector("#mindist")
                     .noUiSlider.get());
