@@ -656,11 +656,24 @@ var gmgc_vueapp = new Vue({
         }
     },
     mounted: function() {
+        function getUrlParams() {
+            const vars = {};
+            window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, (_,key,value) => {
+                vars[key] = value;
+            });
+            return vars;
+        }
+        const urlParams = getUrlParams()
+        const query = urlParams['query']
+
+        if(query)
+            this.searchFams('fam', query);
+
+
         if(this.totalItems == 0) {
             this.showExamples('ko');
             this.showExamples('synapo');
             this.showExamples('card');
         }
-        // TODO: search autocompletion
     },
 });
