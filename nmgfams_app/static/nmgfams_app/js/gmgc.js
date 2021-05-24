@@ -662,6 +662,7 @@ var gmgc_vueapp = new Vue({
         }
     },
     mounted: function() {
+      $(document).ready(function () {
         function getUrlParams() {
             const vars = {};
             window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, (_,key,value) => {
@@ -684,5 +685,6 @@ var gmgc_vueapp = new Vue({
             this.showExamples('synapo');
             this.showExamples('card');
         }
+    })
     },
 });
