@@ -673,7 +673,7 @@ var gmgc_vueapp = new Vue({
         const searchType = urlParams['searchType'];
         const query = urlParams['query'];
 
-        if(queryType && query)
+        if(searchType && query)
             this.searchFams(searchType, query, urlParams);
 
 
