@@ -341,7 +341,7 @@ def get_neighborhood_summary(fam):
         most_conserved_og = {'id': '', 'score': 0}
         for og in s['Orthologous groups']:
             level = og['level']
-            score = og['score']
+            score = float(og['description'][6:])
             if level in [1, 2, 2157] and most_conserved_og['score'] < score:
                 most_conserved_og['id'] = og['id']
                 most_conserved_og['score'] = score
