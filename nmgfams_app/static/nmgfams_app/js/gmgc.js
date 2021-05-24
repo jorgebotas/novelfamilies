@@ -663,10 +663,10 @@ var gmgc_vueapp = new Vue({
         }
     },
     mounted: function() {
-        const searchType = $('#search-type');
-        this.searchTypeChoices = new Choices(searchType[0], {
+        const searchTypeSelect = $('#search-type');
+        this.searchTypeChoices = new Choices(searchTypeSelect[0], {
             classNames: {
-                containerInner: searchType[0].className,
+                containerInner: searchTypeSelect[0].className,
                 input: 'form-control',
                 inputCloned: 'form-control-sm',
                 listDropdown: 'dropdown-menu',
@@ -684,9 +684,9 @@ var gmgc_vueapp = new Vue({
                 { value: 'biome', label: 'Biome name' },
             ]
           });
-        searchType.change(async function(){
+        searchTypeSelect.change(async function(){
             await $('.search-filters').collapse('hide');
-            let val = searchType.val();
+            let val = searchTypeSelect.val();
             if (val == 'taxa') {
                 await $('#taxa-filters').collapse('show');
             } else if (val == 'function') {
