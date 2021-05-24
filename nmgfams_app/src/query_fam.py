@@ -338,8 +338,11 @@ def get_neighborhood_summary(fam):
             gname_scores = [g['description'][6:] for g in gname_json]
             s['Gene name'] = gname[gname_scores.index(max(gname_scores))]
 
+        ogs = s.get('Orthologous groups')
+        if not ogs:
+            continue
         most_conserved_og = {'id': '', 'score': 0}
-        for og in s['Orthologous groups']:
+        for og in ogs:
             level = og['level']
             score = float(og['description'][6:])
             if level in [1, 2, 2157] and most_conserved_og['score'] < score:
