@@ -695,7 +695,7 @@ var gmgc_vueapp = new Vue({
         });
         // Build sliders
         ["specificity", "coverage", "conservation"].forEach(id => {
-                const slider = document.getElementById(id);
+                let slider = document.getElementById(id);
                 noUiSlider.create(slider,
                     {
                         start: .9,
@@ -713,7 +713,7 @@ var gmgc_vueapp = new Vue({
                     sliderLabel.html(name+': '+slider.get());
                 })
         })
-        const slider = document.getElementById("mindist");
+        let slider = document.getElementById("mindist");
         noUiSlider.create(slider,
             {
                 start: 1,
@@ -725,11 +725,11 @@ var gmgc_vueapp = new Vue({
                     }
             });
         const sliderLabel = d3.select(`.mindist label`);
-            slider = slider.noUiSlider;
-            slider.on('update', () => {
-                let name =  "Min relative distance";
-                sliderLabel.html(`${name}: ${parseInt(slider.get())} gene(s)`);
-            })
+        slider = slider.noUiSlider;
+        slider.on('update', () => {
+            let name =  "Min relative distance";
+            sliderLabel.html(`${name}: ${parseInt(slider.get())} gene(s)`);
+        })
 
         // Allow searches coded in URL
         function getUrlParams() {
