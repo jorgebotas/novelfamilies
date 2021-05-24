@@ -662,7 +662,7 @@ var gmgc_vueapp = new Vue({
         }
     },
     mounted: function() {
-      $(document).ready(function () {
+      $(document).ready(() => {
         function getUrlParams() {
             const vars = {};
             window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, (_,key,value) => {
