@@ -343,7 +343,7 @@ def get_neighborhood_summary(fam):
             continue
         most_conserved_og = {'id': '', 'score': 0}
         for og in ogs:
-            level = og['level']
+            level = int(og['level'])
             score = float(og['description'][6:])
             if level in [1, 2, 2157] and most_conserved_og['score'] < score:
                 most_conserved_og['id'] = og['id']
