@@ -289,7 +289,7 @@ var gmgc_vueapp = new Vue({
         totalItems: 0,
         nPages: 1,
         currentSearch: '',
-        searchTypeChoices,
+        searchTypeChoices: undefined,
         examples: {
             ko: [],
             synapo: [],
