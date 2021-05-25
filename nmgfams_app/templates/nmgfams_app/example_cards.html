@@ -29,7 +29,7 @@
                 </span>
                 [[ tax | trimTaxa ]] 
                 <a class="fa fa-link ms-2"
-                   @click="searchFamByExample('synapo', tax)"
+                   @click="searchFams('synapo', tax)"
                    style="color:var(--indigo)">
                 </a>
                 <span class='ms-auto badge bg-indigo-lt'>
@@ -60,7 +60,7 @@
                 <a :href='"https://www.genome.jp/entry/ko:" + ko'
                     target="_blank">[[ ko ]]</a>
                 <a class="fa fa-link ms-2"
-                   @click="searchFamByExample('ko', ko)"
+                   @click="searchFams('ko', ko)"
                    style="color:var(--indigo)">
                 </a>
                 <span class='ms-auto badge bg-indigo-lt'>
@@ -105,7 +105,7 @@
                 </div>
 
                 <a class="fa fa-link ms-2"
-                   @click="searchFamByExample('card', card)"
+                   @click="searchFams('card', card)"
                    style="color:var(--indigo)">
                 </a>
                 <span class='ms-auto badge bg-indigo-lt'>

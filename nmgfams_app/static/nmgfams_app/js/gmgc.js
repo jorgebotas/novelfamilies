@@ -326,6 +326,8 @@ var gmgc_vueapp = new Vue({
                 this.searchFamByFunction(query, options);
             }  else if (type == 'biome') {
                 this.searchFamByBiome(query, options);
+            } else if (examples.includes(type)) {
+                this.searchFamByExample(type, query, options);
             }
         },
 
@@ -342,10 +344,18 @@ var gmgc_vueapp = new Vue({
                 : document
                     .querySelector("#coverage")
                     .noUiSlider.get();
+            const searchParams = {
+                searchType: 'taxa',
+                query: query,
+                specificity: spec,
+                coverage: cov,
+                page: this.currentPage,
+            }
             const fetchURL = API_BASE_URL + `/taxafams/${query}/${spec}/${cov}`;
             fetch(`${fetchURL}/${this.currentPage}/`)
                 .then(response => response.json())
                 .then(data => this.fetchThen(data, fetchURL))
+                .then(() => this.updateSearchParams(searchParams))
                 .catch(e => this.fetchCatch(e))
         },
 
@@ -360,11 +370,19 @@ var gmgc_vueapp = new Vue({
                 ? options.mindist 
                 : parseInt(document.querySelector("#mindist")
                     .noUiSlider.get());
+            const searchParams = {
+                searchType: 'function',
+                query: query,
+                conservation: conservation,
+                minDist: minRelDist,
+                page: this.currentPage,
+            }
             const fetchURL = API_BASE_URL
                 + `/fnfams/${queryType}/${query}/${minRelDist}/${conservation}`;
             fetch(`${fetchURL}/${this.currentPage}/`)
                 .then(response => response.json())
                 .then(data => this.fetchThen(data, fetchURL))
+                .then(() => this.updateSearchParams(searchParams))
                 .catch(e => this.fetchCatch(e))
         },
 
@@ -373,15 +391,19 @@ var gmgc_vueapp = new Vue({
         },
 
         searchFamByExample : function(exampleType, query) {
-            $('#spinner').modal('show');
             $('#search-fams').val(query);
+            const searchParams = {
+                searchType: exampleType,
+                query: query,
+                page: this.currentPage,
+            }
             const fetchURL = API_BASE_URL
                 + `/examples/${exampleType}/${query}`;
             fetch(`${fetchURL}/${this.currentPage}/`)
                 .then(response => response.json())
                 .then(data => this.fetchThen(data, fetchURL))
+                .then(() => this.updateSearchParams(searchParams))
                 .catch(e => this.fetchCatch(e))
-            $('#spinner').modal('show');
         },
 
         fetchThen : function(data, fetchURL) {
@@ -633,6 +655,18 @@ var gmgc_vueapp = new Vue({
                     this.scrollToTop();
                 })
                 .catch(e => this.fetchCatch(e))
+        },
+
+        updateSearchParams: function(params, replace=false) {
+            const url = new URL(location);
+            if (replace) url.search = '';
+            const sparams = url.searchParams;
+            Object.entries(params).forEach(([k, v]) => sparams.set(k, v));
+            const historyObj = {
+                Title: document.title,
+                Url: `${url.origin}/?${sparams.toString()}`
+            };
+            history.pushState(historyObj, historyObj.Title, historyObj.Url);
         },
 
         scrollToTop: function() {
