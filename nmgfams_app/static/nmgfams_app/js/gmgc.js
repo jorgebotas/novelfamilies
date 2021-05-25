@@ -338,7 +338,7 @@ var gmgc_vueapp = new Vue({
                 .then(response => response.json())
                 .then(data => this.fetchThen(data, ''))
                 .then(() => this.updateSearchParams(searchParams))
-                .catch(e => this.fetchCatch(e));
+                .catch(e => fetchCatch(e));
         },
 
         searchFamByTaxa : function(query, prefix, options) {
@@ -365,7 +365,7 @@ var gmgc_vueapp = new Vue({
                 .then(response => response.json())
                 .then(data => this.fetchThen(data, fetchURL))
                 .then(() => this.updateSearchParams(searchParams))
-                .catch(e => this.fetchCatch(e))
+                .catch(e => fetchCatch(e))
         },
 
         searchFamByFunction : function(query, options) {
@@ -432,7 +432,7 @@ var gmgc_vueapp = new Vue({
                 .then(response => response.json())
                 .then(data => this.fetchThen(data, fetchURL))
                 .then(() => this.updateSearchParams(searchParams))
-                .catch(e => this.fetchCatch(e))
+                .catch(e => fetchCatch(e))
         },
 
         fetchThen : function(data, fetchURL) {
@@ -534,7 +534,7 @@ var gmgc_vueapp = new Vue({
             await fetch(`${fetchURL}/0/`)
                 .then(response => response.json())
                 .then(data => this.examples[exampleType] = data.show_items)
-                .catch(e => this.fetchCatch(e))
+                .catch(e => fetchCatch(e))
             return this.examples[exampleType]
         },
 
@@ -684,7 +684,7 @@ var gmgc_vueapp = new Vue({
                     this.scrollToTop();
                     this.updateSearchParams({page: page}, false);
                 })
-                .catch(e => this.fetchCatch(e))
+                .catch(e => fetchCatch(e))
         },
 
         updateSearchParams: function(params, replace=true) {
