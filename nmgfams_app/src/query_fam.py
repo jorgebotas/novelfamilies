@@ -238,7 +238,7 @@ def fams_by_neigh_annotation(term_type, term, min_rel_dist=1, score=0.9, page=1)
                             {'_id': 0})\
         .sort([('n_taxa', DESCENDING),
                ('name', ASCENDING)])\
-        .skip(page*DOCS_PER_PAGE)\
+        .skip(max((page-1)*DOCS_PER_PAGE, 0))\
         .limit(DOCS_PER_PAGE)
     total_matches = fams.count()
     matches = []
@@ -259,7 +259,7 @@ def fams_by_taxa(taxa, spec=0.9, cov=0.9, page=1):
                              'emapper_hits': {'$eq': 0}})\
             .sort([('n_taxa', DESCENDING),
                    ('name', ASCENDING)])\
-            .skip(page*DOCS_PER_PAGE)\
+            .skip(max((page-1)*DOCS_PER_PAGE, 0))\
             .limit(DOCS_PER_PAGE)
     total_matches = fams.count()
     for fam in fams:
