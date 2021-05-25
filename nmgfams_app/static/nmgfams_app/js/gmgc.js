@@ -704,8 +704,9 @@ var gmgc_vueapp = new Vue({
         },
 
         toggleSearchFilters: async function() {
-            await $('.search-filters').collapse('hide');
+            const searchTypeSelect = $('#search-type');
             const val = searchTypeSelect.val();
+            await $('.search-filters').collapse('hide');
             if (val == 'taxa') {
                 await $('#taxa-filters').collapse('show');
             } else if (val == 'function') {
