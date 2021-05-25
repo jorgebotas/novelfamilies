@@ -653,11 +653,12 @@ var gmgc_vueapp = new Vue({
                     this.paginateInfo();
                     this.renderFamInfo();
                     this.scrollToTop();
+                    this.updateSearchParams({page: page}, false);
                 })
                 .catch(e => this.fetchCatch(e))
         },
 
-        updateSearchParams: function(params, replace=false) {
+        updateSearchParams: function(params, replace=true) {
             const url = new URL(location);
             if (replace) url.search = '';
             const sparams = url.searchParams;
