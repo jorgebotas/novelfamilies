@@ -273,8 +273,8 @@ var renderSunburst = function(selector, data) {
 
 var fetchCatch = function(e) {
     console.log(e)
-    alert("No family found under current search. Please try again!")
     $('#spinner').modal('hide');
+    $('#alert').modal('show')
 }
 
 
