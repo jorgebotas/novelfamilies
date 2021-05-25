@@ -283,7 +283,7 @@ var fetchCatch = function(e) {
         $('#spinner').modal('hide');
         setTimeout(() => {
             $('#alert').modal('show')
-        }, 5);
+        }, 20);
     }, 1000)
 }
 
