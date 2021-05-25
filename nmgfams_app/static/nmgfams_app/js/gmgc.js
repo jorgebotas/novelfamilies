@@ -404,9 +404,10 @@ var gmgc_vueapp = new Vue({
             if (exampleType == 'synapo')
                 this.searchTypeChoices.setChoiceByValue('taxa')
             else {
+                // Modify exampleType to match mongodb collection
                 if (exampleType == 'ko') 
                     termType = exampleType + 's'
-                if (exampleType == 'card') 
+                else if (exampleType == 'card') 
                     termType = exampleType.toUpperCase();
 
                 this.searchTypeChoices.setChoiceByValue('function')
