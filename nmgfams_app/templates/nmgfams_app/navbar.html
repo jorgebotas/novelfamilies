@@ -28,9 +28,11 @@
                            id="search-fams"
                            @keypress.enter.prevent="searchFams()"
                            placeholder="Search family"/>
-                    <span class="input-icon-addon search-icon" 
-                           @click="searchFams()">
-                        <i class="fa fa-search" aria-hidden="true"></i>
+                    <span class="input-icon-addon search-icon">
+                        <i class="fa fa-search"
+                            aria-hidden="true"
+                           @click="searchFams()"></i>
+                        <i class="mx-2 fa fa-sliders" aria-hidden="true"></i>
                     </span>
                 </div>
                 <button class="btn btn-primary btn-sm mx-1 my-auto"
