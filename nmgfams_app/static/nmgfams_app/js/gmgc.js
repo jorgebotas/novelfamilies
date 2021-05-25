@@ -310,6 +310,7 @@ var gmgc_vueapp = new Vue({
             this.show_items = [];
             this.nPages = 1;
             this.totalItems = 0;
+            this.currentPage = options && options.page ? options.page : 1;
             query = query || $("#search-fams").val().trim();
             const type = searchType || $("#search-type").val();
             $('#search-fams').trigger('blur');
@@ -342,7 +343,7 @@ var gmgc_vueapp = new Vue({
                     .querySelector("#coverage")
                     .noUiSlider.get();
             const fetchURL = API_BASE_URL + `/taxafams/${query}/${spec}/${cov}`;
-            fetch(`${fetchURL}/0/`)
+            fetch(`${fetchURL}/${this.currentPage}/`)
                 .then(response => response.json())
                 .then(data => this.fetchThen(data, fetchURL))
                 .catch(e => this.fetchCatch(e))
@@ -350,15 +351,18 @@ var gmgc_vueapp = new Vue({
 
         searchFamByFunction : function(query, options) {
             const queryType = $('.term-type input:checked').val();
-            const conservation = options.conservation || (document
+            const conservation = options && +options.conservation >= 0
+                ? options.conservation 
+                : document
                 .querySelector("#conservation")
-                .noUiSlider.get());
-            const minRelDist = options.mindist || 
-                parseInt(document.querySelector("#mindist")
+                .noUiSlider.get();
+            const minRelDist = options && +options.mindist >= 0
+                ? options.mindist 
+                : parseInt(document.querySelector("#mindist")
                     .noUiSlider.get());
             const fetchURL = API_BASE_URL
                 + `/fnfams/${queryType}/${query}/${minRelDist}/${conservation}`;
-            fetch(`${fetchURL}/0/`)
+            fetch(`${fetchURL}/${this.currentPage}/`)
                 .then(response => response.json())
                 .then(data => this.fetchThen(data, fetchURL))
                 .catch(e => this.fetchCatch(e))
@@ -373,7 +377,7 @@ var gmgc_vueapp = new Vue({
             $('#search-fams').val(query);
             const fetchURL = API_BASE_URL
                 + `/examples/${exampleType}/${query}`;
-            fetch(`${fetchURL}/1/`)
+            fetch(`${fetchURL}/${this.currentPage}/`)
                 .then(response => response.json())
                 .then(data => this.fetchThen(data, fetchURL))
                 .catch(e => this.fetchCatch(e))
@@ -387,7 +391,6 @@ var gmgc_vueapp = new Vue({
             this.show_items = {};
             this.show_items = data.show_items;
             this.currentSearch = fetchURL;
-            this.currentPage = 1;
             this.totalItems = +data.total_matches;
             this.nPages = Math.ceil(this.totalItems/this.perPage)
             setTimeout(() => {
