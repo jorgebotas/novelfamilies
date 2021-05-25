@@ -315,11 +315,7 @@ var gmgc_vueapp = new Vue({
             const type = searchType || $("#search-type").val();
             $('#search-fams').trigger('blur');
             if (type == 'fam') {
-                fetch(API_BASE_URL + `/info/${query}/`)
-                .then(response => response.json())
-                .then(data => this.fetchThen(data, ''))
-                .then($('#spinner').modal('hide'))
-                .catch(e => this.fetchCatch(e))
+                this.searchFamById(query);
             } else if (type == 'taxa'){
                 this.searchFamByTaxa(query, '', options);
             } else if (type == 'function') {
@@ -327,8 +323,21 @@ var gmgc_vueapp = new Vue({
             }  else if (type == 'biome') {
                 this.searchFamByBiome(query, options);
             } else if (Object.keys(this.examples).includes(type)) {
-                this.searchFamByExample(type, query, options);
+                this.searchFamByExample(type, query);
             }
+        },
+
+        searchFamById : function(query) {
+            const searchParams = {
+                searchType: 'fam',
+                query: query,
+                page: this.currentPage,
+            };
+            fetch(API_BASE_URL + `/info/${query}/`)
+                .then(response => response.json())
+                .then(data => this.fetchThen(data, ''))
+                .then(() => this.updateSearchParams(searchParams))
+                .catch(e => this.fetchCatch(e));
         },
 
         searchFamByTaxa : function(query, prefix, options) {
@@ -350,7 +359,7 @@ var gmgc_vueapp = new Vue({
                 specificity: spec,
                 coverage: cov,
                 page: this.currentPage,
-            }
+            };
             const fetchURL = API_BASE_URL + `/taxafams/${query}/${spec}/${cov}`;
             fetch(`${fetchURL}/${this.currentPage}/`)
                 .then(response => response.json())
