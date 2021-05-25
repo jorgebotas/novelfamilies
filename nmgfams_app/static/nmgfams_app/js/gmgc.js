@@ -313,8 +313,6 @@ var gmgc_vueapp = new Vue({
             query = query || $("#search-fams").val().trim();
             const type = searchType || $("#search-type").val();
             $('#search-fams').trigger('blur');
-            console.log(searchType)
-            console.log(query)
             if (type == 'fam') {
                 fetch(API_BASE_URL + `/info/${query}/`)
                 .then(response => response.json())
@@ -332,6 +330,7 @@ var gmgc_vueapp = new Vue({
 
         searchFamByTaxa : function(query, prefix, options) {
             query = prefix + query;
+            console.log(query)
             const spec = +options.specificity || (document
                 .querySelector("#specificity")
                 .noUiSlider.get());
