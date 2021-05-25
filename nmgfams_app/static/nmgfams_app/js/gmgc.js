@@ -395,7 +395,7 @@ var gmgc_vueapp = new Vue({
                 .then(response => response.json())
                 .then(data => this.fetchThen(data, fetchURL))
                 .then(() => this.updateSearchParams(searchParams))
-                .catch(e => this.fetchCatch(e))
+                .catch(e => fetchCatch(e))
         },
 
         searchFamByBiome : function(query) {
