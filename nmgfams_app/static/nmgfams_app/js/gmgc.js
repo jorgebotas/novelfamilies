@@ -342,11 +342,6 @@ var gmgc_vueapp = new Vue({
         },
 
         searchFamByTaxa : function(query, prefix, options) {
-            this.searchTypeChoices.setChoices([{
-                value: 'taxa', 
-                label: 'Taxon name',
-                selected: true, 
-            }])
             query = prefix + query;
             const spec = options && +options.specificity >= 0
                 ? +options.specificity
@@ -405,6 +400,12 @@ var gmgc_vueapp = new Vue({
         },
 
         searchFamByExample : function(exampleType, query) {
+            // Change selected choice
+            if (exampleType == 'synapo')
+                this.searchTypeChoices.setChoiceByValue('taxa')
+            else 
+                this.searchTypeChoices.setChoiceByValue('function')
+
             $('#search-fams').val(query);
             const searchParams = {
                 searchType: exampleType,
@@ -773,12 +774,6 @@ var gmgc_vueapp = new Vue({
                 },
             ]
           });
-        this.searchTypeChoices.setChoices([{
-                value: 'function', 
-                    label: 'Functional context',
-                selected: true, 
-            }])
-
         searchTypeSelect.change(async function(){
             await $('.search-filters').collapse('hide');
             let val = searchTypeSelect.val();
@@ -788,6 +783,7 @@ var gmgc_vueapp = new Vue({
                 await $('#function-filters').collapse('show');
             }
         });
+
         // Build sliders
         ["specificity", "coverage", "conservation"].forEach(id => {
                 let slider = document.getElementById(id);
