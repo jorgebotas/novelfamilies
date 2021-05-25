@@ -280,7 +280,7 @@ var hideSpinner = async function() {
 var fetchCatch = async function(e) {
     console.log(e)
     await hideSpinner();
-    $('#alert').modal('show')
+    await $('#alert').modal('show')
 }
 
 
