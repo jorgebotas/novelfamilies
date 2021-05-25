@@ -342,8 +342,12 @@ var gmgc_vueapp = new Vue({
         },
 
         searchFamByTaxa : function(query, prefix, options) {
+            this.searchTypeChoices.setChoices([{
+                value: 'taxa', 
+                label: 'Taxon name',
+                selected: searchType == 'taxa' 
+            }])
             query = prefix + query;
-            console.log(query)
             const spec = options && +options.specificity >= 0
                 ? +options.specificity
                 : document
