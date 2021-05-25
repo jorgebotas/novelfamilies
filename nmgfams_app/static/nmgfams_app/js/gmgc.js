@@ -405,14 +405,14 @@ var gmgc_vueapp = new Vue({
                 this.searchTypeChoices.setChoiceByValue('taxa')
             else {
                 if (exampleType == 'ko') 
-                    exampleType += 's'
+                    termType = exampleType + 's'
                 if (exampleType == 'card') 
-                    exampleType = exampleType.toUpperCase();
+                    termType = exampleType.toUpperCase();
 
                 this.searchTypeChoices.setChoiceByValue('function')
                 d3.select('.term-type input:checked')
                     .attr('checked', null);
-                d3.select(`.term-type input[value="${exampleType}"]`)
+                d3.select(`.term-type input[value="${termType}"]`)
                     .attr('checked', true);
             }
 
