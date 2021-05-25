@@ -280,14 +280,13 @@ var hideSpinner = function(callback) {
 }
 
 var fetchCatch = function(e) {
-    console.log(e)
+    if (e) console.log(e)
     hideSpinner(() => {
         setTimeout(() => {
             $('#alert').modal('show')
-        }, 150);
+        }, 160);
     });
 }
-
 
 
 var gmgc_vueapp = new Vue({
@@ -455,6 +454,8 @@ var gmgc_vueapp = new Vue({
             this.currentSearch = fetchURL;
             this.totalItems = +data.total_matches;
             this.nPages = Math.ceil(this.totalItems/this.perPage)
+            if (this.totalItems == 0)
+                fetchCatch();
             setTimeout(() => {
                 if(this.totalItems == 1)
                     this.showAllFams();
