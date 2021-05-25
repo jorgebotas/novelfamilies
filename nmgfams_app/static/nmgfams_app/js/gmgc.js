@@ -715,6 +715,22 @@ var gmgc_vueapp = new Vue({
         }
     },
     mounted: function() {
+        // Allow searches coded in URL
+        function getUrlParams() {
+            const vars = {};
+            window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,
+                (_,key,value) => vars[key] = value);
+            return vars;
+        }
+        const urlParams = getUrlParams();
+        const searchType = urlParams['searchType'] || 'fam';
+        const sliderStartValues = {
+            'specificity': urlParams.specificity || .9,
+            'coverage': urlParams.coverage || .9,
+            'conservation': urlParams.conservation || .9,
+            'minDist': urlParams.minDist || 1,
+        };
+
         const searchTypeSelect = $('#search-type');
         this.searchTypeChoices = new Choices(searchTypeSelect[0], {
             classNames: {
@@ -730,10 +746,26 @@ var gmgc_vueapp = new Vue({
             shouldSort: false,
             searchEnabled: false,
             choices : [
-                { value: 'fam', label: 'Family name', selected: true },
-                { value: 'taxa', id: 'taxa', label: 'Taxon name' },
-                { value: 'function', label: 'Functional context' },
-                { value: 'biome', label: 'Biome name' },
+                {
+                    value: 'fam', 
+                    label: 'Family name',
+                    selected: searchType == 'fam' 
+                },
+                {
+                    value: 'taxa', 
+                    label: 'Taxon name',
+                    selected: searchType == 'taxa' 
+                },
+                {
+                    value: 'function', 
+                    label: 'Functional context',
+                    selected: searchType == 'function' 
+                },
+                {
+                    value: 'biome', 
+                    label: 'Biome name', 
+                    selected: searchType == 'biome' 
+                },
             ]
           });
         searchTypeSelect.change(async function(){
@@ -750,7 +782,7 @@ var gmgc_vueapp = new Vue({
                 let slider = document.getElementById(id);
                 noUiSlider.create(slider,
                     {
-                        start: .9,
+                        start: sliderStartValues[id],
                         connect: [true, false],
                         step: .01,
                         range: {
@@ -768,7 +800,7 @@ var gmgc_vueapp = new Vue({
         let slider = document.getElementById("mindist");
         noUiSlider.create(slider,
             {
-                start: 1,
+                start: sliderStartValues["minDist"],
                 connect: [true, false],
                 step: 1,
                 range: {
@@ -783,16 +815,6 @@ var gmgc_vueapp = new Vue({
             sliderLabel.html(`${name}: ${parseInt(slider.get())} gene(s)`);
         })
 
-        // Allow searches coded in URL
-        function getUrlParams() {
-            const vars = {};
-            window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, (_,key,value) => {
-                vars[key] = value;
-            });
-            return vars;
-        }
-        const urlParams = getUrlParams();
-        const searchType = urlParams['searchType'] || 'fam';
         const query = urlParams['query'];
 
         if(searchType && query)
