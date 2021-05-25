@@ -271,9 +271,15 @@ var renderSunburst = function(selector, data) {
     SeqSunburst(data, 200, selector);
 }
 
+var hideSpinner = function(){
+    setTimeout(() => {
+        $('#spinner').modal('hide');
+    }, 1000)
+}
+
 var fetchCatch = function(e) {
     console.log(e)
-    this.hideSpinner();
+    hideSpinner();
     $('#alert').modal('show')
 }
 
@@ -451,7 +457,7 @@ var gmgc_vueapp = new Vue({
                     this.hideAllFams();
                 this.paginateInfo();
                 this.renderFamInfo();
-                this.hideSpinner();
+                hideSpinner();
             }, 0)
         },
 
@@ -671,7 +677,7 @@ var gmgc_vueapp = new Vue({
                     this.currentPage = page;
                     this.totalItems = +data.total_matches;
                     this.nPages = Math.ceil(this.totalItems/this.perPage);
-                    this.hideSpinner();
+                    hideSpinner();
                 })
                 .then(() => {
                     this.hideAllFams();
@@ -708,12 +714,6 @@ var gmgc_vueapp = new Vue({
             } else if (val == 'function') {
                 await $('#function-filters').collapse('show');
             }
-        },
-
-        hideSpinner: function() {
-            setTimeout(() => {
-                $('#spinner').modal('hide');
-            }, 1000)
         },
     },
     filters : {
