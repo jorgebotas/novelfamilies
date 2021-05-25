@@ -773,6 +773,12 @@ var gmgc_vueapp = new Vue({
                 },
             ]
           });
+        this.searchTypeChoices.setChoices([{
+                value: 'function', 
+                    label: 'Functional context',
+                selected: true, 
+            }])
+
         searchTypeSelect.change(async function(){
             await $('.search-filters').collapse('hide');
             let val = searchTypeSelect.val();
