@@ -326,7 +326,7 @@ var gmgc_vueapp = new Vue({
                 this.searchFamByFunction(query, options);
             }  else if (type == 'biome') {
                 this.searchFamByBiome(query, options);
-            } else if (this.examples.includes(type)) {
+            } else if (Object.values(this.examples).includes(type)) {
                 this.searchFamByExample(type, query, options);
             }
         },
