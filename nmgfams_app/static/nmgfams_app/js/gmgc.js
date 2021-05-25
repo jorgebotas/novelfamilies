@@ -331,12 +331,16 @@ var gmgc_vueapp = new Vue({
         searchFamByTaxa : function(query, prefix, options) {
             query = prefix + query;
             console.log(query)
-            const spec = +options.specificity || (document
-                .querySelector("#specificity")
-                .noUiSlider.get());
-            const cov = +options.coverage || (document
-                .querySelector("#coverage")
-                .noUiSlider.get());
+            const spec = options && +options.specificity >= 0
+                ? +options.specificity
+                : document
+                    .querySelector("#specificity")
+                    .noUiSlider.get();
+            const cov = options && +options.coverage >= 0
+                ? +options.coverage 
+                : document
+                    .querySelector("#coverage")
+                    .noUiSlider.get();
             const fetchURL = API_BASE_URL + `/taxafams/${query}/${spec}/${cov}`;
             fetch(`${fetchURL}/0/`)
                 .then(response => response.json())
