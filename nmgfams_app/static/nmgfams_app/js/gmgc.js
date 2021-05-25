@@ -403,8 +403,18 @@ var gmgc_vueapp = new Vue({
             // Change selected choice
             if (exampleType == 'synapo')
                 this.searchTypeChoices.setChoiceByValue('taxa')
-            else 
+            else {
+                if (exampleType == 'ko') 
+                    exampleType += 's'
+                if (exampleType == 'card') 
+                    exampleType = exampleType.toUpperCase();
+
                 this.searchTypeChoices.setChoiceByValue('function')
+                d3.select('.term-type input:checked')
+                    .attr('checked', null);
+                d3.select(`.term-type input[value="${exampleType}"]`)
+                    .attr('checked', true);
+            }
 
             $('#search-fams').val(query);
             const searchParams = {
