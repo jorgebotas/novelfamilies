@@ -277,9 +277,9 @@ var hideSpinner = function() {
     }, 1000)
 }
 
-var fetchCatch = async function(e) {
+var fetchCatch = function(e) {
     console.log(e)
-    setTimeout(() => {
+    setTimeout(async () => {
         await $('#spinner').modal('hide');
         $('#alert').modal('show')
     }, 1000)
