@@ -271,15 +271,15 @@ var renderSunburst = function(selector, data) {
     SeqSunburst(data, 200, selector);
 }
 
-var hideSpinner = function() {
+var hideSpinner = async function() {
     setTimeout(() => {
         $('#spinner').modal('hide');
     }, 1000)
 }
 
-var fetchCatch = function(e) {
+var fetchCatch = async function(e) {
     console.log(e)
-    hideSpinner();
+    await hideSpinner();
     $('#alert').modal('show')
 }
 
