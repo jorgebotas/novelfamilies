@@ -271,7 +271,7 @@ var renderSunburst = function(selector, data) {
     SeqSunburst(data, 200, selector);
 }
 
-var hideSpinner = function(){
+var hideSpinner = function() {
     setTimeout(() => {
         $('#spinner').modal('hide');
     }, 1000)
