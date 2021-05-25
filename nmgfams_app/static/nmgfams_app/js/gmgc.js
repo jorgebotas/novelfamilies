@@ -345,7 +345,7 @@ var gmgc_vueapp = new Vue({
             this.searchTypeChoices.setChoices([{
                 value: 'taxa', 
                 label: 'Taxon name',
-                selected: searchType == 'taxa' 
+                selected: true, 
             }])
             query = prefix + query;
             const spec = options && +options.specificity >= 0
