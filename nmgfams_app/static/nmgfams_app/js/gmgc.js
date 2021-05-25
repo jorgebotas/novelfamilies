@@ -701,7 +701,17 @@ var gmgc_vueapp = new Vue({
 
         scrollToTop: function() {
             $("html, body").animate({ scrollTop: 0 }, "slow");
-        }
+        },
+
+        toggleSearchFilters: async function() {
+            await $('.search-filters').collapse('hide');
+            const val = searchTypeSelect.val();
+            if (val == 'taxa') {
+                await $('#taxa-filters').collapse('show');
+            } else if (val == 'function') {
+                await $('#function-filters').collapse('show');
+            }
+        },
     },
     filters : {
         filterBlank : function (value) {
@@ -788,15 +798,7 @@ var gmgc_vueapp = new Vue({
                 },
             ]
           });
-        searchTypeSelect.change(async function(){
-            await $('.search-filters').collapse('hide');
-            let val = searchTypeSelect.val();
-            if (val == 'taxa') {
-                await $('#taxa-filters').collapse('show');
-            } else if (val == 'function') {
-                await $('#function-filters').collapse('show');
-            }
-        });
+        searchTypeSelect.change(() => this.toggleSearchFilters());
 
         // Build sliders
         ["specificity", "coverage", "conservation"].forEach(id => {

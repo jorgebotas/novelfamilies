@@ -30,9 +30,11 @@
                            placeholder="Search family"/>
                     <span class="input-icon-addon search-icon">
                         <i class="fa fa-search"
-                            aria-hidden="true"
+                           aria-hidden="true"
                            @click="searchFams()"></i>
-                        <i class="mx-2 fa fa-sliders" aria-hidden="true"></i>
+                        <i class="mx-2 fa fa-sliders" 
+                           aria-hidden="true"
+                           @click="toggleSearchFilters()"></i>
                     </span>
                 </div>
                 <button class="btn btn-primary btn-sm mx-1 my-auto"
