@@ -312,6 +312,7 @@ var gmgc_vueapp = new Vue({
             this.totalItems = 0;
             this.currentPage = options && options.page ? options.page : 1;
             query = query || $("#search-fams").val().trim();
+            $("#search-fams").val(query);
             const type = searchType || $("#search-type").val();
             $('#search-fams').trigger('blur');
             if (type == 'fam') {
