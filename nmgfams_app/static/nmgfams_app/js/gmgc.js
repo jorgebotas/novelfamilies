@@ -624,7 +624,7 @@ var gmgc_vueapp = new Vue({
         getHMM: function(query) {
             fetch(API_BASE_URL + '/hmm/' + query + '/')
                 .then(response => response.blob())
-                .then(blob => saveAs(blob, `${query}_tree.nwx`))
+                .then(blob => saveAs(blob, `${query}_hmm.txt`))
         },
 
         getCardPage : function(page, query, field) {
