@@ -369,7 +369,9 @@ var gmgc_vueapp = new Vue({
         },
 
         searchFamByFunction : function(query, options) {
-            const queryType = $('.term-type input:checked').val();
+            const queryType = options && options.fnType
+                ? options.fnType
+                : $('.term-type input:checked').val();
             const conservation = options && +options.conservation >= 0
                 ? options.conservation 
                 : document
@@ -382,6 +384,7 @@ var gmgc_vueapp = new Vue({
             const searchParams = {
                 searchType: 'function',
                 query: query,
+                fnType: queryType,
                 conservation: conservation,
                 minDist: minRelDist,
                 page: this.currentPage,
