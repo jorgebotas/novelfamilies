@@ -279,9 +279,11 @@ var hideSpinner = function() {
 
 var fetchCatch = function(e) {
     console.log(e)
-    setTimeout(async () => {
-        await $('#spinner').modal('hide');
-        $('#alert').modal('show')
+    setTimeout(() => {
+        $('#spinner').modal('hide');
+        setTimeout(() => {
+            $('#alert').modal('show')
+        }, 5);
     }, 1000)
 }
 
