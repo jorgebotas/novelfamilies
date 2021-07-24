@@ -13107,6 +13107,9 @@ a:hover {
   background-color: rgba(132, 144, 215, 0.2);
   color: #6574cd; }
 
+.choices_list {
+  z-index: 2; }
+
 .choices__list .choices__item {
   transition: color 0.5s, opacity 0.5s, background 0.5s, border-color 0.5s !important; }
 
