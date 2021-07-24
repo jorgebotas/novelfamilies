@@ -13108,6 +13108,7 @@ a:hover {
   color: #6574cd; }
 
 .choices_list {
+  border-radius: 25px !important;
   border-radius: 25px; }
 
 .choices__list .choices__item {
