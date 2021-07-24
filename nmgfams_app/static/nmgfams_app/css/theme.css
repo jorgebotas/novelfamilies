@@ -13023,6 +13023,12 @@ Antialiasing
   background-color: #ffd39d !important;
   color: #9d5600 !important; }
 
+.no-border {
+  border: none !important; }
+
+.no-box-shadow {
+  box-shadow: none !important; }
+
 a {
   text-decoration: none !important;
   color: #6574cd;
@@ -13167,6 +13173,7 @@ a:hover {
   font-weight: bold; }
 
 .card {
+  border: none !important;
   border-radius: 25px !important;
   box-shadow: 5px 5px 10px #c1c1c1, -5px -5px 100px #fff; }
 
