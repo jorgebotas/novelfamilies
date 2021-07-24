@@ -37,7 +37,7 @@ body {
   font-weight: 400;
   line-height: 1.7142857143;
   color: #212b36;
-  background-color: #f8f9fa;
+  background-color: white;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
 
@@ -438,7 +438,7 @@ progress {
 
 .img-thumbnail {
   padding: 0.25rem;
-  background-color: #f8f9fa;
+  background-color: white;
   border: 1px solid #eceef0;
   border-radius: 5px;
   max-width: 100%;
@@ -1999,9 +1999,9 @@ textarea.form-control-lg {
   .form-range:focus {
     outline: none; }
     .form-range:focus::-webkit-slider-thumb {
-      box-shadow: 0 0 0 1px #f8f9fa, 0 0 0 0.25rem rgba(101, 116, 205, 0.25); }
+      box-shadow: 0 0 0 1px white, 0 0 0 0.25rem rgba(101, 116, 205, 0.25); }
     .form-range:focus::-moz-range-thumb {
-      box-shadow: 0 0 0 1px #f8f9fa, 0 0 0 0.25rem rgba(101, 116, 205, 0.25); }
+      box-shadow: 0 0 0 1px white, 0 0 0 0.25rem rgba(101, 116, 205, 0.25); }
   .form-range::-moz-focus-outer {
     border: 0; }
   .form-range::-webkit-slider-thumb {
@@ -2774,8 +2774,8 @@ textarea.form-control-lg {
   .nav-tabs .nav-link.active,
   .nav-tabs .nav-item.show .nav-link {
     color: #7b838e;
-    background-color: #f8f9fa;
-    border-color: #eceef0 #eceef0 #f8f9fa; }
+    background-color: white;
+    border-color: #eceef0 #eceef0 white; }
   .nav-tabs .dropdown-menu {
     margin-top: -1px;
     border-top-left-radius: 0;
@@ -3085,9 +3085,6 @@ textarea.form-control-lg {
   margin-bottom: -0.75rem;
   margin-left: -0.625rem;
   border-bottom: 0; }
-  .card-header-tabs .nav-link.active {
-    background-color: white;
-    border-bottom-color: white; }
 
 .card-header-pills {
   margin-right: -0.625rem;
@@ -5183,7 +5180,7 @@ textarea.form-control-lg {
   background-color: #5f666e !important; }
 
 .bg-body {
-  background-color: #f8f9fa !important; }
+  background-color: white !important; }
 
 .bg-white {
   background-color: white !important; }
@@ -11304,7 +11301,7 @@ Remove the cancel buttons in Chrome and Safari on macOS.
     display: block;
     width: 4px;
     content: "";
-    background-color: #f8f9fa; }
+    background-color: white; }
   .list-timeline:not(.list-timeline-simple) > li {
     z-index: 2;
     min-height: 40px; }
