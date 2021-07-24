@@ -1,26 +1,5 @@
-//import ApexCharts from 'apexcharts';
-//import Vue from 'vue';
-//import GeCoViz from 'gecoviz.js';
-//import noUiSlider from 'nouislider';
-
-
 var API_BASE_URL = "/api"
-var STATIC_URL = "/static/geco"
 
-//var colors = ["#abfdcb",
-                //"#c9b2fd",
-                //"#fcaf81",
-                //"#a9dff7",
-                //"#254F93",
-                //"#FF5C8D",
-                //"#838383",
-                //"#5F33FF",
-                //"#c7e3aa",
-                //"#D81E5B",
-                //"#47DAFF",
-                //"#c4ab77",
-                //"#A1A314",
-                //"#fff600"];
 var colors = [
     "#9c89b8",
     "#f0a6ca",
