@@ -17,7 +17,7 @@
         <div class="row row-cols-xxl-2 row-cols-1 g-2">
         <div v-for="([tax, info]) in this.examples.synapo"
              class='col'>
-          <div class="mb-0 h-100 bg-light"
+          <div class="mb-0 h-100"
                style="padding: 0.75rem 1.25rem; margin-bottom: 0;
                       display: flex;
                       align-items: center;
@@ -56,7 +56,7 @@
         <div v-for="([ko, info]) in this.examples.ko"
              class='col'>
           <div class="card mb-0 h-100">
-            <div class="card-header bg-light">
+            <div class="card-header">
                 <a :href='"https://www.genome.jp/entry/ko:" + ko'
                     target="_blank">[[ ko ]]</a>
                 <a class="fa fa-link ms-2"
@@ -95,7 +95,7 @@
         <div v-for="([card, info]) in this.examples.card"
              class='col'>
           <div class="card mb-0 h-100">
-            <div class="card-header bg-light">
+            <div class="card-header">
 
                 <a v-if="info.id"
                     :href='"https://card.mcmaster.ca/ontology/" + info.id'
