@@ -13108,7 +13108,7 @@ a:hover {
   color: #6574cd; }
 
 .choices_list {
-  z-index: 3; }
+  z-index: 100; }
 
 .choices__list .choices__item {
   transition: color 0.5s, opacity 0.5s, background 0.5s, border-color 0.5s !important; }
