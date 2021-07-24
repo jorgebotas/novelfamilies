@@ -13175,7 +13175,7 @@ a:hover {
 
 .card-header {
   background: transparent !important;
-  border-radius: 25px !important; }
+  border: none; }
 
 .card .row > .col > div {
   border-radius: 25px !important;
