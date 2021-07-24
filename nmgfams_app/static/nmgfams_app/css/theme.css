@@ -13170,14 +13170,15 @@ a:hover {
   font-weight: bold; }
 
 .card {
-  border-radius: 25px;
+  border-radius: 25px !important;
   box-shadow: 5px 5px 10px #c1c1c1, -5px -5px 100px #fff; }
 
-.caed-header {
-  background: transparent !important; }
+.card-header {
+  background: transparent !important;
+  border-radius: 25px !important; }
 
 .card .row > .col > div {
-  border-radius: 25px;
+  border-radius: 25px !important;
   box-shadow: 5px 5px 10px #c1c1c1, -5px -5px 100px #fff; }
 
 /*# sourceMappingURL=theme.css.map */
