@@ -13047,6 +13047,9 @@ a:hover {
 .link-secondary {
   transition: color 0.5s; }
 
+.btn {
+  border-radius: 25px !important; }
+
 .btn-secondary {
   color: white;
   background-color: #5f666e;
@@ -13176,7 +13179,8 @@ a:hover {
   font-size: 10px !important; }
 
 .term-type .form-selectgroup-label {
-  font-size: .9em; }
+  font-size: .9em;
+  border-radius: 25px !important; }
 
 .fam-table {
   font-size: 80%; }
