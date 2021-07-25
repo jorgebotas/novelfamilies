@@ -60,9 +60,6 @@ def tree(request, query):
 def context(request, query):
     context = get_neighborhood(query)
     analysis = { 'context' : context }
-    print(analysis)
-    with open("context.json", "w") as handle:
-        json.dump(analysis, handle, indent=4)
     return JsonResponse(analysis)
 
 def hmm(request, query):
