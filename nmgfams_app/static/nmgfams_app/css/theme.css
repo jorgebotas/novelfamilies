@@ -13082,6 +13082,9 @@ a:hover {
 .dropright .dropdown-menu {
   margin-left: 10px !important; }
 
+.dropdown-menu {
+  padding: 15px 10px; }
+
 .dropright-menu-arrow:before {
   content: "";
   position: absolute;
@@ -13111,7 +13114,8 @@ a:hover {
   color: #6574cd; }
 
 .choices_list {
-  border-radius: 25px !important; }
+  border-radius: 25px !important;
+  padding-left: 0 !important; }
 
 .choices__list .choices__item {
   transition: color 0.5s, opacity 0.5s, background 0.5s, border-color 0.5s !important;
