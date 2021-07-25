@@ -52,6 +52,7 @@ def fam_by_taxa(request, query, spec, cov, page):
 def tree(request, query):
     tree = get_newick(query)
     if tree:
+        print(tree)
         return HttpResponse(tree, content_type='text/plain')
     print("NO TREE for specified cluster: " + str(query))
     return HttpResponseNotFound()
