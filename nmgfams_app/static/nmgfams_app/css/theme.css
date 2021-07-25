@@ -13115,7 +13115,7 @@ a:hover {
 
 .choices_list {
   border-radius: 25px !important;
-  padding-left: 0 !important; }
+  padding: 0 !important; }
 
 .choices__list .choices__item {
   transition: color 0.5s, opacity 0.5s, background 0.5s, border-color 0.5s !important;
