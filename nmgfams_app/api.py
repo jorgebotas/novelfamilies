@@ -61,7 +61,7 @@ def context(request, query):
     analysis = { 'context' : context }
     print(analysis)
     with open("context.json", "w") as handle:
-        handle.write(analysis)
+        json.dump(analysis, handle, indent=4)
     return JsonResponse(analysis)
 
 def hmm(request, query):
@@ -99,5 +99,5 @@ def fam_by_example(request, example_type, query, page):
         'total_matches': total_matches
     }
     with open("example_fams.json", "w") as handle:
-        handle.write(fams['show_items'])
+        json.dump(fams['show_items'], handle, indent=4)
     return JsonResponse(fams)
