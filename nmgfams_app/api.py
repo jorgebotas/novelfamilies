@@ -98,6 +98,6 @@ def fam_by_example(request, example_type, query, page):
         'show_items': examples,
         'total_matches': total_matches
     }
-    with open("~/example_fams.json", "w") as handle:
+    with open("example_fams.json", "w") as handle:
         handle.write(fams['show_items'])
     return JsonResponse(fams)
