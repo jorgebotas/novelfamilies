@@ -59,6 +59,7 @@ def tree(request, query):
 def context(request, query):
     context = get_neighborhood(query)
     analysis = { 'context' : context }
+    print(analysis)
     return JsonResponse(analysis)
 
 def hmm(request, query):
@@ -95,5 +96,4 @@ def fam_by_example(request, example_type, query, page):
         'show_items': examples,
         'total_matches': total_matches
     }
-    print(fams['show_items'])
     return JsonResponse(fams)
