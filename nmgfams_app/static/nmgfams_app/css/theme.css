@@ -13115,12 +13115,11 @@ a:hover {
 
 .choices_list {
   border-radius: 25px !important;
-  padding: 0 !important; }
+  padding: 5px !important; }
 
 .choices__list .choices__item {
   transition: color 0.5s, opacity 0.5s, background 0.5s, border-color 0.5s !important;
-  border-radius: 25px;
-  padding: 0.25rem 1rem; }
+  border-radius: 25px; }
 
 .form-control {
   border-radius: 25px !important; }
