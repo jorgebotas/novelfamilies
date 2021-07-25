@@ -95,4 +95,5 @@ def fam_by_example(request, example_type, query, page):
         'show_items': examples,
         'total_matches': total_matches
     }
+    print(fams['show_items'])
     return JsonResponse(fams)

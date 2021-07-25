@@ -430,7 +430,6 @@ var gmgc_vueapp = new Vue({
                 .forEach(f => f.classList.remove('show'));
             this.show_items = {};
             this.show_items = data.show_items;
-            console.log(this.show_items)
             this.currentSearch = fetchURL;
             this.totalItems = +data.total_matches;
             this.nPages = Math.ceil(this.totalItems/this.perPage)
