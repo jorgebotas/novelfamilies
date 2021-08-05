@@ -490,7 +490,8 @@ var gmgc_vueapp = new Vue({
                     .annotation("Orthologous groups", "most conserved")
                     .options({
                         'showBar': false,
-                        'showLegend': false
+                        'showLegend': false,
+                        'onlyViewport': false,
                     })
                     .shuffleColors()
                     .draw();
@@ -576,6 +577,7 @@ var gmgc_vueapp = new Vue({
                         .nSide(4)
                         .geneText("Gene name")
                         .annotation("Orthologous groups", 1)
+                        .options({ 'onlyViewport': false })
                         .draw();
                     d3.select(selector)
                         .style('opacity', 1)
