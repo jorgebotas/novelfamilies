@@ -1,6 +1,6 @@
 from django.conf import settings
 from django.http import HttpResponse, HttpResponseNotFound, JsonResponse
-import json
+from json import dump
 from pickle import load as load_pickle
 
 from .src.mongodb import mongo_connect
@@ -52,7 +52,6 @@ def fam_by_taxa(request, query, spec, cov, page):
 def tree(request, query):
     tree = get_newick(query)
     if tree:
-        print(tree)
         return HttpResponse(tree, content_type='text/plain')
     print("NO TREE for specified cluster: " + str(query))
     return HttpResponseNotFound()
@@ -97,5 +96,5 @@ def fam_by_example(request, example_type, query, page):
         'total_matches': total_matches
     }
     with open("example_fams.json", "w") as handle:
-        json.dump(fams['show_items'], handle, indent=4)
+        dump(fams['show_items'], handle, indent=4)
     return JsonResponse(fams)
