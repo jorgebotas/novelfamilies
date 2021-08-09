@@ -365,7 +365,6 @@ def get_neighborhood(fam, members=None):
         src, genome, gene, tax = gene_entry.split('@')
         # find taxa lineage by genome name
         taxa = get_taxonomy(genome)
-        print(taxa)
         # First, give me neighbours and their positions/strands. The result includes the anchor
         window = 10
         mini_contig = get_mini_contig(gene, window=window)
@@ -456,6 +455,7 @@ def get_more_faminfo(fams):
         tax_counter = Counter(taxonomy)
         taxonomy = list(zip(tax_counter.keys(),
                             tax_counter.values()))
+        print(taxonomy)
         ext_fam['taxonomy'] = taxonomy
         ext_fam['context_summary'] = get_neighborhood_summary(fname)
         extended_fams.append(ext_fam)
