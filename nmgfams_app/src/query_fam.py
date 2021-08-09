@@ -365,6 +365,7 @@ def get_neighborhood(fam, members=None):
         src, genome, gene, tax = gene_entry.split('@')
         # find taxa lineage by genome name
         taxa = get_taxonomy(genome)
+        print(taxa)
         # First, give me neighbours and their positions/strands. The result includes the anchor
         window = 10
         mini_contig = get_mini_contig(gene, window=window)
