@@ -23,7 +23,7 @@ with open(BASE_DIR + '/.env/secretKey.txt') as f:
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '138.4.139.12']
+ALLOWED_HOSTS = ['127.0.0.1', '138.4.139.12', 'novelgenefamilies.compgenomics.org']
 
 
 # Application definition
