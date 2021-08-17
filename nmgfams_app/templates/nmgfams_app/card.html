@@ -32,26 +32,26 @@
                         aria-controls="pills-seqs"
                         aria-selected="false">Sequences</a>
                   </li>
-                  <li class="nav-item mx-2">
-                    <a class="nav-link btn-sm" 
-                       id="pills-stats-tab" 
-                       @click="toggleFam('f' + index + '-tab-content')"
-                       data-toggle="pill"
-                       :href="'#f' + index + '-stats'"
-                        role="tab" 
-                        aria-controls="pills-stats"
-                        aria-selected="false">Stats</a>
-                  </li>
-                  <li class="nav-item mx-2">
-                    <a class="nav-link btn-sm" 
-                       id="pills-biomes-tab" 
-                       data-toggle="pill"
-                       :href="'#f' + index + '-biomes'"
-                        @click="toggleFam('f' + index + '-tab-content')"
-                        role="tab" 
-                        aria-controls="pills-biomes"
-                        aria-selected="false">Biome distribution</a>
-                  </li>
+                  <!--<li class="nav-item mx-2">-->
+                    <!--<a class="nav-link btn-sm" -->
+                       <!--id="pills-stats-tab" -->
+                       <!--@click="toggleFam('f' + index + '-tab-content')"-->
+                       <!--data-toggle="pill"-->
+                       <!--:href="'#f' + index + '-stats'"-->
+                        <!--role="tab" -->
+                        <!--aria-controls="pills-stats"-->
+                        <!--aria-selected="false">Stats</a>-->
+                  <!--</li>-->
+                  <!--<li class="nav-item mx-2">-->
+                    <!--<a class="nav-link btn-sm" -->
+                       <!--id="pills-biomes-tab" -->
+                       <!--data-toggle="pill"-->
+                       <!--:href="'#f' + index + '-biomes'"-->
+                        <!--@click="toggleFam('f' + index + '-tab-content')"-->
+                        <!--role="tab" -->
+                        <!--aria-controls="pills-biomes"-->
+                        <!--aria-selected="false">Biome distribution</a>-->
+                  <!--</li>-->
                   <li class="nav-item mx-2">
                     <a class="nav-link btn-sm" 
                        id="pills-taxp-tab" 
@@ -83,8 +83,8 @@
                             @click="getNewick(tid)">Phylogeny</a>
                         <a class="dropdown-item"
                             @click="getSeqs(tid)">Sequences</a>
-                        <a class="dropdown-item"
-                            @click="getHMM(tid)">HMM</a>
+                        <!--<a class="dropdown-item"-->
+                            <!--@click="getHMM(tid)">HMM</a>-->
                       </div>
                             
                     </div>
