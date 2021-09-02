@@ -17,7 +17,7 @@
                         :href="'#f' + index + '-gecoviz'" 
                        role="tab"
                         aria-controls="pills-gecoviz"
-                        aria-selected="tru"
+                        aria-selected="true"
                         @click="toggleFam('f' + index + '-tab-content');
                                 toggleGeCoViz('#f'+index+'-GeCoViz', tid);"
                         >Genomic Context</a>
@@ -61,6 +61,16 @@
                         role="tab" 
                         aria-controls="pills-taxp"
                         aria-selected="false">Taxonomic distribution</a>
+                  </li>
+                  <li class="nav-item mx-2" v-if="tdata.fitness">
+                    <a class="nav-link btn-sm" 
+                       id="pills-fit-tab" 
+                       @click="toggleFam('f' + index + '-tab-content')"
+                       data-toggle="pill"
+                       :href="'#f' + index + '-fit'"
+                        role="tab" 
+                        aria-controls="pills-fit"
+                        aria-selected="false">Fitness experiments</a>
                   </li>
                   <li class="nav-item mx-3 position-absolute"
                       style="right:40px; top:7px;">
@@ -366,6 +376,74 @@
                                        </th>
                                        <th class="p-1">
                                            [[ tdata[l[0]+'_refseq_genomes'] ]]
+                                       </th>
+                                   </tr>
+                               </tbody>
+                           </table>
+                       </div>
+                   </div>
+
+               </div>
+               </div>
+           </div>
+
+
+
+           <div class="tab-pane fade" 
+                :id="'f' + index + '-taxp'" 
+                role="tabpanel"
+              aria-labelledby="pills-taxp-tab"
+              v-if="tdata.fitness">
+               <div class="card col-md-12 p-0">
+                   <div class="card-header text-primary font-weight-bold">
+                        Taxonomic assignation
+                   </div>
+                <div class="card-body">
+                   <div class="card p-0 mx-4 fam-table">
+                       <div class="table-responsive">
+                           <table class="table table-vcenter card-table
+                               text-center mb-0">
+                               <thead>
+                                   <tr>
+                                       <th>Condition type</th>
+                                       <th>Condition</th>
+                                       <th>Experiment code</th>
+                                       <th>Fitness variation</th>
+                                       <th>Hit gene name</th>
+                                       <th>Identity</th>
+                                       <th>Family Coverage</th>
+                                       <th>Gene coverage</th>
+                                       <th>e-value</th>
+                                   </tr>
+                               </thead>
+                               <tbody>
+                                   <tr v-for="c in tdata.fitness">
+                                       <th class="p-1">
+                                           [[ c.condition_type ]]
+                                       </th>
+                                       <th class="p-1">
+                                           [[ c.condition ]]
+                                       </th>
+                                       <th class="p-1">
+                                           [[ c.exp_code ]]
+                                       </th>
+                                       <th class="p-1">
+                                           [[ c.fitness_delta | toFixed ]]
+                                       </th>
+                                       <th class="p-1">
+                                           [[ c.hit_gene ]]
+                                       </th>
+                                       <th class="p-1">
+                                           [[ c.identity ]]
+                                       </th>
+                                       <th class="p-1">
+                                           [[ c.cov_fam ]]
+                                       </th>
+                                       <th class="p-1">
+                                           [[ c.cov_gene ]]
+                                       </th>
+                                       <th class="p-1">
+                                           [[ c.evalue ]]
                                        </th>
                                    </tr>
                                </tbody>

@@ -91,6 +91,13 @@ def fam_by_example(request, example_type, query, page):
     with open(example_file, "rb") as handle:
         example_fams = load_pickle(handle)
     examples, total_matches = get_fams(example_fams[query], page)
+
+    if example_type == "fitness":
+        faminfo_file = f'{EXAMPLES_PATH}/{example_type}_examples_faminfo.pickle'
+        with open(faminfo_file, "rb") as handle:
+            faminfo = load_pickle(handle)
+        examples = { k: { **v, "fitness": faminfo.get(k, []) } for k, v in examples.items() }
+
     fams = {
         'show_items': examples,
         'total_matches': total_matches
