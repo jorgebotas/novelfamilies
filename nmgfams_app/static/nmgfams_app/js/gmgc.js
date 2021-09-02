@@ -398,6 +398,7 @@ var gmgc_vueapp = new Vue({
                 this.searchTypeChoices.setChoiceByValue('taxa')
             else {
                 // Modify exampleType to match mongodb collection
+                let termType;
                 if (exampleType == 'ko') 
                     termType = exampleType + 's'
                 else if (exampleType == 'card') 
