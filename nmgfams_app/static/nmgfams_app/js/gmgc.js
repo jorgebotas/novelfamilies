@@ -283,6 +283,7 @@ var gmgc_vueapp = new Vue({
             ko: [],
             synapo: [],
             card: [],
+            fitness: [],
         },
         taxBadgeColors: {
             'phylum': 'bg-red-lt',
@@ -838,6 +839,7 @@ var gmgc_vueapp = new Vue({
             this.showExamples('ko');
             this.showExamples('synapo');
             this.showExamples('card');
+            this.showExamples('fitness');
         }
     },
 });

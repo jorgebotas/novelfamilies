@@ -128,4 +128,42 @@
 
 
 
+<div class="col">
+<div class="card no-border no-box-shadow">
+    <div class="card-header">
+        <h3 class="card-title">
+            Hits to fitness experiments
+        </h3>
+    </div>
+    <div class="card-body card-body-scrollable pl-1 pr-3"
+         style="height: 77vh">
+        <div class="row row-cols-xxl-3 row-cols-xl-2 row-cols-1 g-2">
+        <div v-for="([condtype, info]) in this.examples.fitness"
+             class='col'>
+          <div class="card mb-0 h-100">
+            <div class="card-header">
+                <div>
+                    [[ condtype ]]
+                </div>
+
+                <a class="fa fa-link ms-2"
+                   @click="searchFams('fitness', contype)"
+                   style="color:var(--indigo)">
+                </a>
+                <span class='ms-auto badge bg-indigo-lt'>
+                [[ info.nfam ]] fams
+                </span>
+            </div>
+            <div class="card-body text-muted">
+                [[ info.desc ]]
+            </div>
+          </div>
+        </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
 </div>
