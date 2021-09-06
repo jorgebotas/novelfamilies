@@ -830,7 +830,7 @@ var gmgc_vueapp = new Vue({
             sliderLabel.html(`${name}: ${parseInt(slider.get())} gene(s)`);
         })
 
-        const query = urlParams['query'];
+        const query = urlParams['query'].replace("+", " ");
 
         if(searchType && query)
             this.searchFams(searchType, query, urlParams);
