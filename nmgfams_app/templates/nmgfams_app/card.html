@@ -405,33 +405,25 @@
                                text-center mb-0">
                                <thead>
                                    <tr>
-                                       <th>Condition type</th>
                                        <th>Condition</th>
-                                       <th>Experiment code</th>
+                                       <th>Condition type</th>
                                        <th>Fitness variation</th>
-                                       <th>Hit gene name</th>
                                        <th>Identity</th>
-                                       <th>Family Coverage</th>
-                                       <th>Gene coverage</th>
+                                       <th>Novel family coverage</th>
+                                       <th>Original gene coverage</th>
                                        <th>e-value</th>
                                    </tr>
                                </thead>
                                <tbody>
                                    <tr v-for="c in tdata.fitness">
                                        <th class="p-1">
-                                           [[ c.condition_type ]]
-                                       </th>
-                                       <th class="p-1">
                                            [[ c.condition ]]
                                        </th>
                                        <th class="p-1">
-                                           [[ c.exp_code ]]
+                                           [[ c.condition_type ]]
                                        </th>
                                        <th class="p-1">
                                            [[ c.fitness_delta | toFixed ]]
-                                       </th>
-                                       <th class="p-1">
-                                           [[ c.hit_gene ]]
                                        </th>
                                        <th class="p-1">
                                            [[ c.identity ]]
