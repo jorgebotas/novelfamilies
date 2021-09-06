@@ -70,7 +70,7 @@
                        :href="'#f' + index + '-fit'"
                         role="tab" 
                         aria-controls="pills-fit"
-                        aria-selected="false">Fitness experiments</a>
+                        aria-selected="false">Experimentally tested</a>
                   </li>
                   <li class="nav-item mx-3 position-absolute"
                       style="right:40px; top:7px;">
@@ -396,7 +396,7 @@
               v-if="tdata.fitness">
                <div class="card col-md-12 p-0">
                    <div class="card-header text-primary font-weight-bold">
-                        Mapping to fitness experiments
+                        Experimentally tested
                    </div>
                 <div class="card-body">
                    <div class="card p-0 mx-4 fam-table">
@@ -408,6 +408,7 @@
                                        <th>Condition</th>
                                        <th>Condition type</th>
                                        <th>Fitness variation</th>
+                                       <th>T score</th>
                                        <th>Identity</th>
                                        <th>Novel family coverage</th>
                                        <th>Original gene coverage</th>
@@ -424,6 +425,9 @@
                                        </th>
                                        <th class="p-1">
                                            [[ c.fitness_delta | toFixed ]]
+                                       </th>
+                                       <th class="p-1">
+                                           [[ c.t_score | toFixed ]]
                                        </th>
                                        <th class="p-1">
                                            [[ c.identity ]]
