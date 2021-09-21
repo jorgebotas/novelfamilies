@@ -8,178 +8,213 @@
 
 <div class='example-cards 
      justify-content-center
-     align-content-center h-100 mt-3 mx-1'
+     align-content-center h-100 mt-3 mx-1 px-2'
     id="example-cards">
 
-
-<div class="card mx-2">
-    <div class="card-header bg-indigo-lt">
-        <ul class="nav nav-pills d-flex h-100"
-            style="border-bottom-color:transparent;">
-          <li class="nav-item mr-2" 
-              style="padding-top:0 !important; padding-bottom:0 !important">
-              <span class="nav-link text-muted mt-2 pt-1" style="font-weight:bold">
-                  Browse novel families by
-              </span>
-          </li>
-          <li class="nav-item" 
-              style="padding-top:0 !important; padding-bottom:0 !important">
-            <a class="nav-link f-bold h-100 mt-1 pt-1" 
-               :class="{ 'active': exampleTab === 'synapo' }"
-                @click="exampleTab = 'synapo'"
-                style="border-bottom-color:transparent;">Synapomorphic families</a>
-          </li>
-          <li class="nav-item" 
-              style="padding-top:0 !important; padding-bottom:0 !important">
-            <a class="nav-link f-bold h-100 mt-1 pt-1" 
-               :class="{ 'active': exampleTab === 'ko' }"
-                @click="exampleTab = 'ko'"
-                style="border-bottom-color:transparent;">KEGG functions</a>
-          </li>
-          <li class="nav-item" 
-              style="padding-top:0 !important; padding-bottom:0 !important">
-            <a class="nav-link f-bold h-100 mt-1 pt-1" 
-               :class="{ 'active': exampleTab === 'card' }"
-                @click="exampleTab = 'card'"
-               style="border-bottom-color:transparent;">Antibiotic resistance</a>
-          </li>
-          <li class="nav-item" 
-              style="padding-top:0 !important; padding-bottom:0 !important">
-            <a class="nav-link f-bold h-100 mt-1 pt-1" 
-               :class="{ 'active': exampleTab === 'fitness' }"
-                @click="exampleTab = 'fitness'"
-               style="border-bottom-color:transparent;">Fitness experiments</a>
-          </li>
-        </ul>
-    </div>
-
-
-    <div class="card-body card-body-scrollable px-3"
-       :style="{ 'display': exampleTab === 'synapo' ? 'block' : 'none' }"
-         style="height: 35vh; border-top:none !important">
-        <div class="row row-cols-xxl-3 row-cols-2 g-2">
-        <div v-for="([tax, info]) in this.examples.synapo"
-             class='col'>
-          <div class="mb-0 h-100"
-               style="padding: 0.75rem 1.25rem; margin-bottom: 0;
-                      display: flex;
-                      align-items: center;
-                      border-radius: 4px;
-                      border: 1px solid rgba(95, 102, 110, 0.2);">
-                <span class="badge mr-auto"
-                      :class="taxBadgeColors[info.level]">
-                    [[ info.level ]]
-                </span>
-                [[ tax | trimTaxa ]] 
-                <a class="fa fa-link ms-2"
-                   @click="searchFams('synapo', tax)"
-                   style="color:var(--indigo)">
-                </a>
-                <span class='ms-auto badge bg-indigo-lt'>
-                [[ info.nfam ]] fams
-                </span>
-          </div>
-        </div>
-        </div>
-    </div>
-
-
-    <div class="card-body card-body-scrollable px-3"
-       :style="{ 'display': exampleTab === 'ko' ? 'block' : 'none' }"
-         style="height: 35vh; border-top:none !important">
-        <div class="row row-cols-xxl-3 row-cols-xl-3 row-cols-2 g-2">
-        <div v-for="([ko, info]) in this.examples.ko"
-             class='col'>
-          <div class="card mb-0 h-100">
-            <div class="card-header">
-                <a :href='"https://www.genome.jp/entry/ko:" + ko'
-                    target="_blank">[[ ko ]]</a>
-                <a class="fa fa-link ms-2"
-                   @click="searchFams('ko', ko)"
-                   style="color:var(--indigo)">
-                </a>
-                <span class='ms-auto badge bg-indigo-lt'>
-                [[ info.nfam ]] fams
-                </span>
+    <div class="card">
+        <div class="card-body">
+            <div class="col-xl-4 col-lg-5 col-sm-12">
+                hi
+                
             </div>
-            <div class="card-body text-muted">
-                [[ info.desc ]]
-                <span v-for="ec in info.ec"
-                      class="badge bg-red-lt mx-1">
-                    [[ ec ]]
-                </span>
+            <div class="col-xl-5 col-lg-7 col-sm-12">
+                <p>
+                    Welcome! This resource allows you to iteratively explore the genomic context,
+                    functional associations, phylogenetic information and ecological distribution of 
+                    413,335 novel and highly curated protein families.  
+                    identified from thousands of  uncultivated microbial organisms. 
+                </p>
+                <p>
+                    All data is derived from the systematic analysis of the so-called 
+                    microbial dark matter of a multi-habitat metagenomics dataset. 
+                </p>
+
+                <p>
+                    You can search novel protein families by their genomic context 
+                    (e.g. associated to specific KEGG functions or eggNOG orthologs),
+                    by taxa conservation (i.e., by finding rank-specific protein families),
+                    or even by association with fitness experiments. 
+                </p>
+
+                
             </div>
-          </div>
-        </div>
+            <div class="col-xl-3 col-md-12">
+                hi
+                
+            </div>
+            
         </div>
     </div>
 
-    <div class="card-body card-body-scrollable px-3"
-        :style="{ 'display': exampleTab === 'card' ? 'block' : 'none' }"
-         style="height: 35vh; border-top:none !important">
-        <div class="row row-cols-xxl-3 row-cols-xl-3 row-cols-2 g-2">
-        <div v-for="([card, info]) in this.examples.card"
-             class='col'>
-          <div class="card mb-0 h-100">
-            <div class="card-header">
 
-                <a v-if="info.id"
-                    :href='"https://card.mcmaster.ca/ontology/" + info.id'
-                    target="_blank">[[ card ]]</a>
-                <div v-else>
-                    [[ card ]]
+    <div class="card">
+        <div class="card-header bg-indigo-lt">
+            <ul class="nav nav-pills d-flex h-100"
+                style="border-bottom-color:transparent;">
+              <li class="nav-item mr-2" 
+                  style="padding-top:0 !important; padding-bottom:0 !important">
+                  <span class="nav-link text-muted mt-2 pt-1" style="font-weight:bold">
+                      Browse novel families by
+                  </span>
+              </li>
+              <li class="nav-item" 
+                  style="padding-top:0 !important; padding-bottom:0 !important">
+                <a class="nav-link f-bold h-100 mt-1 pt-1" 
+                   :class="{ 'active': exampleTab === 'synapo' }"
+                    @click="exampleTab = 'synapo'"
+                    style="border-bottom-color:transparent;">Synapomorphic families</a>
+              </li>
+              <li class="nav-item" 
+                  style="padding-top:0 !important; padding-bottom:0 !important">
+                <a class="nav-link f-bold h-100 mt-1 pt-1" 
+                   :class="{ 'active': exampleTab === 'ko' }"
+                    @click="exampleTab = 'ko'"
+                    style="border-bottom-color:transparent;">KEGG functions</a>
+              </li>
+              <li class="nav-item" 
+                  style="padding-top:0 !important; padding-bottom:0 !important">
+                <a class="nav-link f-bold h-100 mt-1 pt-1" 
+                   :class="{ 'active': exampleTab === 'card' }"
+                    @click="exampleTab = 'card'"
+                   style="border-bottom-color:transparent;">Antibiotic resistance</a>
+              </li>
+              <li class="nav-item" 
+                  style="padding-top:0 !important; padding-bottom:0 !important">
+                <a class="nav-link f-bold h-100 mt-1 pt-1" 
+                   :class="{ 'active': exampleTab === 'fitness' }"
+                    @click="exampleTab = 'fitness'"
+                   style="border-bottom-color:transparent;">Fitness experiments</a>
+              </li>
+            </ul>
+        </div>
+
+
+        <div class="card-body card-body-scrollable px-3"
+           :style="{ 'display': exampleTab === 'synapo' ? 'block' : 'none' }"
+             style="height: 35vh; border-top:none !important">
+            <div class="row row-cols-xxl-3 row-cols-2 g-2">
+            <div v-for="([tax, info]) in this.examples.synapo"
+                 class='col'>
+              <div class="mb-0 h-100"
+                   style="padding: 0.75rem 1.25rem; margin-bottom: 0;
+                          display: flex;
+                          align-items: center;
+                          border-radius: 4px;
+                          border: 1px solid rgba(95, 102, 110, 0.2);">
+                    <span class="badge mr-auto"
+                          :class="taxBadgeColors[info.level]">
+                        [[ info.level ]]
+                    </span>
+                    [[ tax | trimTaxa ]] 
+                    <a class="fa fa-link ms-2"
+                       @click="searchFams('synapo', tax)"
+                       style="color:var(--indigo)">
+                    </a>
+                    <span class='ms-auto badge bg-indigo-lt'>
+                    [[ info.nfam ]] fams
+                    </span>
+              </div>
+            </div>
+            </div>
+        </div>
+
+
+        <div class="card-body card-body-scrollable px-3"
+           :style="{ 'display': exampleTab === 'ko' ? 'block' : 'none' }"
+             style="height: 35vh; border-top:none !important">
+            <div class="row row-cols-xxl-3 row-cols-xl-3 row-cols-2 g-2">
+            <div v-for="([ko, info]) in this.examples.ko"
+                 class='col'>
+              <div class="card mb-0 h-100">
+                <div class="card-header">
+                    <a :href='"https://www.genome.jp/entry/ko:" + ko'
+                        target="_blank">[[ ko ]]</a>
+                    <a class="fa fa-link ms-2"
+                       @click="searchFams('ko', ko)"
+                       style="color:var(--indigo)">
+                    </a>
+                    <span class='ms-auto badge bg-indigo-lt'>
+                    [[ info.nfam ]] fams
+                    </span>
                 </div>
-
-                <a class="fa fa-link ms-2"
-                   @click="searchFams('card', card)"
-                   style="color:var(--indigo)">
-                </a>
-                <span class='ms-auto badge bg-indigo-lt'>
-                [[ info.nfam ]] fams
-                </span>
-            </div>
-            <div class="card-body text-muted">
-                [[ info.desc ]]
-                <span v-if="info.accession"
-                    class="badge bg-red-lt mx-1">
-                    [[ info.accession ]]
-                </span>
-            </div>
-          </div>
-        </div>
-        </div>
-    </div>
-
-    <div class="card-body card-body-scrollable px-3"
-        :style="{ 'display': exampleTab === 'fitness' ? 'block' : 'none' }"
-         style="height: 35vh; border-top:none !important">
-        <div class="row row-cols-xxl-3 row-cols-xl-2 row-cols-2 g-2">
-        <div v-for="([condtype, info]) in this.examples.fitness"
-             class='col'>
-          <div class="card mb-0 h-100">
-            <div class="card-header">
-                <div>
-                    [[ condtype ]]
+                <div class="card-body text-muted">
+                    [[ info.desc ]]
+                    <span v-for="ec in info.ec"
+                          class="badge bg-red-lt mx-1">
+                        [[ ec ]]
+                    </span>
                 </div>
+              </div>
+            </div>
+            </div>
+        </div>
 
-                <a class="fa fa-link ms-2"
-                   @click="searchFams('fitness', condtype)"
-                   style="color:var(--indigo)">
-                </a>
-                <span class='ms-auto badge bg-indigo-lt'>
-                [[ info.nfam ]] fams
-                </span>
+        <div class="card-body card-body-scrollable px-3"
+            :style="{ 'display': exampleTab === 'card' ? 'block' : 'none' }"
+             style="height: 35vh; border-top:none !important">
+            <div class="row row-cols-xxl-3 row-cols-xl-3 row-cols-2 g-2">
+            <div v-for="([card, info]) in this.examples.card"
+                 class='col'>
+              <div class="card mb-0 h-100">
+                <div class="card-header">
+
+                    <a v-if="info.id"
+                        :href='"https://card.mcmaster.ca/ontology/" + info.id'
+                        target="_blank">[[ card ]]</a>
+                    <div v-else>
+                        [[ card ]]
+                    </div>
+
+                    <a class="fa fa-link ms-2"
+                       @click="searchFams('card', card)"
+                       style="color:var(--indigo)">
+                    </a>
+                    <span class='ms-auto badge bg-indigo-lt'>
+                    [[ info.nfam ]] fams
+                    </span>
+                </div>
+                <div class="card-body text-muted">
+                    [[ info.desc ]]
+                    <span v-if="info.accession"
+                        class="badge bg-red-lt mx-1">
+                        [[ info.accession ]]
+                    </span>
+                </div>
+              </div>
             </div>
-            <div class="card-body text-muted">
-                [[ info.desc ]]
             </div>
-          </div>
         </div>
+
+        <div class="card-body card-body-scrollable px-3"
+            :style="{ 'display': exampleTab === 'fitness' ? 'block' : 'none' }"
+             style="height: 35vh; border-top:none !important">
+            <div class="row row-cols-xxl-3 row-cols-xl-2 row-cols-2 g-2">
+            <div v-for="([condtype, info]) in this.examples.fitness"
+                 class='col'>
+              <div class="card mb-0 h-100">
+                <div class="card-header">
+                    <div>
+                        [[ condtype ]]
+                    </div>
+
+                    <a class="fa fa-link ms-2"
+                       @click="searchFams('fitness', condtype)"
+                       style="color:var(--indigo)">
+                    </a>
+                    <span class='ms-auto badge bg-indigo-lt'>
+                    [[ info.nfam ]] fams
+                    </span>
+                </div>
+                <div class="card-body text-muted">
+                    [[ info.desc ]]
+                </div>
+              </div>
+            </div>
+            </div>
         </div>
+
+
+        
     </div>
-
-
-    
-</div>
 
 </div>
