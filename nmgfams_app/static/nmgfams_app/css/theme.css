@@ -13150,6 +13150,10 @@ button:focus {
   right: 29px !important;
   left: auto !important; }
 
+.dropdown-submenu:hover .dropdown-menu {
+  display: block;
+  margin-top: -1rem !important; }
+
 .dropdown-menu-rounded {
   padding: 10px;
   font-size: 12px; }
