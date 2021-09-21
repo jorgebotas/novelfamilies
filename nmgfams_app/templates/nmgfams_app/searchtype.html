@@ -5,38 +5,37 @@
     </button>
     <ul class="dropdown-menu suggestion-menu" role="menu"
         style="overflow:visible">
-        <li class="dropdown-item">
-            <a @click="searchType == 'fam'">
+        <li class="dropdown-item"
+            @click="searchType == 'fam'">
                [[ searchTypes['fam'] ]]
-            </a>
         </li>
-        <li class="dropdown-item">
-            <a @click="searchType == 'taxa'">
+        <li class="dropdown-item"
+            @click="searchType == 'taxa'">
                [[ searchTypes['taxa'] ]]
-            </a>
         </li>
         <li class="dropdown-item dropdown-submenu dropend">
             <a href="#"
                class="dropdown-toggle no-after" 
+               style="color:inherit"
                data-toggle="dropdown" 
                role="button">Functional context
                <i class="fas fa-angle-right ml-2"></i></a>
             <ul class="dropdown-menu suggestion-menu" role="menu"
                 style="margin-top:-2rem;">
-                <li class="dropdown-item">
-                    <a @click="searchType = 'og'">[[ searchTypes['og'] ]]</a>
+                <li class="dropdown-item"
+                    @click="searchType = 'og'">[[ searchTypes['og'] ]]
                 </li>
-                <li class="dropdown-item">
-                    <a @click="searchType = 'kos'">[[ searchTypes['kos'] ]]</a>
+                <li class="dropdown-item"
+                    @click="searchType = 'kos'">[[ searchTypes['kos'] ]]
                 </li>
-                <li class="dropdown-item">
-                    <a @click="searchType = 'kpath'">[[ searchTypes['kpath'] ]]</a>
+                <li class="dropdown-item"
+                    @click="searchType = 'kpath'">[[ searchTypes['kpath'] ]]
                 </li>
-                <li class="dropdown-item">
-                    <a @click="searchType = 'CARD'">[[ searchTypes['CARD'] ]]</a>
+                <li class="dropdown-item"
+                    @click="searchType = 'CARD'">[[ searchTypes['CARD'] ]]
                 </li>
-                <li class="dropdown-item">
-                    <a @click="searchType = 'pname'">[[ searchTypes['pname'] ]]</a>
+                <li class="dropdown-item"
+                    @click="searchType = 'pname'">[[ searchTypes['pname'] ]]
                 </li>
             </ul>
 
