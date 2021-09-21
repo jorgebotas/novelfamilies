@@ -55,8 +55,8 @@
 
 
     <div class="card-body card-body-scrollable pl-1 pr-3"
-   :style="{ 'display': exampleTab === 'synapo' ? 'block' : 'none' }"
-         style="height: 35vh">
+       :style="{ 'display': exampleTab === 'synapo' ? 'block' : 'none' }"
+         style="height: 35vh; border-top:none !important">
         <div class="row row-cols-xxl-3 row-cols-2 g-2">
         <div v-for="([tax, info]) in this.examples.synapo"
              class='col'>
@@ -86,7 +86,7 @@
 
     <div class="card-body card-body-scrollable  pl-1 pr-3"
        :style="{ 'display': exampleTab === 'ko' ? 'block' : 'none' }"
-         style="height: 35vh">
+         style="height: 35vh; border-top:none !important">
         <div class="row row-cols-xxl-3 row-cols-xl-3 row-cols-2 g-2">
         <div v-for="([ko, info]) in this.examples.ko"
              class='col'>
@@ -116,7 +116,7 @@
 
     <div class="card-body card-body-scrollable pl-1 pr-3"
         :style="{ 'display': exampleTab === 'card' ? 'block' : 'none' }"
-         style="height: 35vh">
+         style="height: 35vh; border-top:none !important">
         <div class="row row-cols-xxl-3 row-cols-xl-3 row-cols-2 g-2">
         <div v-for="([card, info]) in this.examples.card"
              class='col'>
@@ -152,7 +152,7 @@
 
     <div class="card-body card-body-scrollable pl-1 pr-3"
         :style="{ 'display': exampleTab === 'fitness' ? 'block' : 'none' }"
-         style="height: 35vh">
+         style="height: 35vh; border-top:none !important">
         <div class="row row-cols-xxl-3 row-cols-xl-2 row-cols-2 g-2">
         <div v-for="([condtype, info]) in this.examples.fitness"
              class='col'>
