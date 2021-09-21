@@ -19,7 +19,7 @@
             :class="{ 'fa-times' : showDescription,
                       'fa-plus' : !showDescription }"></i>
         </a>
-        <div class="card-body row g-2">
+        <div class="card-body row g-2" v-if="showDescription">
             <div class="col-xl-5 col-md-6 col-sm-12 mx-auto d-flex align-items-center">
                 <img src="{% static "nmgfams_app/img/tree.png" %}" alt=""
                     class="ml-5"
