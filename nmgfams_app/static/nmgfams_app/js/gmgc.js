@@ -288,6 +288,8 @@ var gmgc_vueapp = new Vue({
         exampleTab: "synapo",
         searchType: "og",
         searchTypes: {
+            fam: "Family name",
+            taxa: "Taxon name",
             og: "eggNOG Orthologous Group",
             kos: "KEGG Orthologous Group",
             kpath: "KEGG Pathway",
