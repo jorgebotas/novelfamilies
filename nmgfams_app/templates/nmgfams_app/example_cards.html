@@ -12,16 +12,15 @@
      align-content-center h-100 mt-3 mx-1 px-6'
     id="example-cards">
 
-    <div class="card mx-auto" style="max-width:1200px">
+    <div class="card mx-auto" style="max-width:1200px; min-height:50px">
         <a @click="showDescription = !showDescription"
-            style="position:absolute;right:20px;top:20px;">
+            style="position:absolute;right:40px;top:20px;font-size:1rem">
             <i class="fas"
             :class="{ 'fa-times' : showDescription,
                       'fa-plus' : !showDescription }"></i>
         </a>
-        <div class="card-body row g-2">
-            <div class="col-xl-5 col-md-6 col-sm-12 mx-auto d-flex align-items-center"
-                v-if="showDescription">
+        <div class="card-body row g-2" v-if="showDescription">
+            <div class="col-xl-5 col-md-6 col-sm-12 mx-auto d-flex align-items-center">
                 <img src="{% static "nmgfams_app/img/tree.png" %}" alt=""
                     class="ml-5"
                     style="height:80%; width:auto"/>
