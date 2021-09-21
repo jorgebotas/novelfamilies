@@ -16,7 +16,7 @@
         <div class="card-body row g-2">
             <div class="col-xl-3 col-lg-4 col-sm-12 mx-auto">
                 <img src="{% static "nmgfams_app/img/tree.png" %}" alt=""
-                    style="height:80%;width:auto"/>
+                    style="height:80%; width:auto"/>
             </div>
             <div class="col-xl-6 col-lg-8 col-sm-12 pt-4">
                 <p>
@@ -103,9 +103,9 @@
         </div>
 
 
-        <div class="card-body card-body-scrollable px-3"
+        <div class="card-body px-3"
            :style="{ 'display': exampleTab === 'synapo' ? 'block' : 'none' }"
-             style="height: 35vh; border-top:none !important">
+             style="border-top:none !important">
             <div class="row row-cols-xxl-3 row-cols-2 g-2">
             <div v-for="([tax, info]) in this.examples.synapo"
                  class='col'>
@@ -133,9 +133,9 @@
         </div>
 
 
-        <div class="card-body card-body-scrollable px-3"
+        <div class="card-body px-3"
            :style="{ 'display': exampleTab === 'ko' ? 'block' : 'none' }"
-             style="height: 35vh; border-top:none !important">
+             style="border-top:none !important">
             <div class="row row-cols-xxl-3 row-cols-xl-3 row-cols-2 g-2">
             <div v-for="([ko, info]) in this.examples.ko"
                  class='col'>
@@ -163,9 +163,9 @@
             </div>
         </div>
 
-        <div class="card-body card-body-scrollable px-3"
+        <div class="card-body px-3"
             :style="{ 'display': exampleTab === 'card' ? 'block' : 'none' }"
-             style="height: 35vh; border-top:none !important">
+             style="border-top:none !important">
             <div class="row row-cols-xxl-3 row-cols-xl-3 row-cols-2 g-2">
             <div v-for="([card, info]) in this.examples.card"
                  class='col'>
@@ -199,9 +199,9 @@
             </div>
         </div>
 
-        <div class="card-body card-body-scrollable px-3"
+        <div class="card-body px-3"
             :style="{ 'display': exampleTab === 'fitness' ? 'block' : 'none' }"
-             style="height: 35vh; border-top:none !important">
+             style="border-top:none !important">
             <div class="row row-cols-xxl-3 row-cols-xl-2 row-cols-2 g-2">
             <div v-for="([condtype, info]) in this.examples.fitness"
                  class='col'>
