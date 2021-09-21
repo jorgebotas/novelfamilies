@@ -286,6 +286,14 @@ var gmgc_vueapp = new Vue({
             fitness: [],
         },
         exampleTab: "synapo",
+        searchType: "og",
+        searchTypes: {
+            og: "eggNOG Orthologous Group",
+            kos: "KEGG Orthologous Group",
+            kpath: "KEGG Pathway",
+            CARD: "CARD",
+            pname: "Gene / protein name"
+        },
         taxBadgeColors: {
             'phylum': 'bg-red-lt',
             'class': 'bg-green-lt',

@@ -1,0 +1,43 @@
+<div class="dropdown">
+    <button class="btn-clean m-1 mr-0 dropdown-toggle no-after"
+            data-toggle="dropdown" role="button">
+        [[ searchTypes[searchType] ]] <i class="fas fa-angle-down ml-1"></i>
+    </button>
+    <ul class="dropdown-menu" role="menu">
+        <li class="dropdown-item">
+            <a @click="searchType == 'fam'">
+               Family name
+            </a>
+        </li>
+        <li class="dropdown-item">
+            <a @click="searchType == 'taxa'">
+               Taxon name
+            </a>
+        </li>
+        <li class="dropdown-item dropdown-submenu dropend">
+            <a href="#"
+               class="dropdown-toggle no-after" 
+               data-toggle="dropdown" 
+               role="button">Functional context
+               <i class="fas fa-angle-right ml-2"></i></a>
+            <ul class="dropdown-menu" role="menu">
+                <li class="dropdown-item">
+                    <a @click="searchType = 'og'">searchTypes['og']</a>
+                </li>
+                <li class="dropdown-item">
+                    <a @click="searchType = 'kos'">searchTypes['kos']</a>
+                </li>
+                <li class="dropdown-item">
+                    <a @click="searchType = 'kpath'">searchTypes['kpath']</a>
+                </li>
+                <li class="dropdown-item">
+                    <a @click="searchType = 'CARD'">searchTypes['CARD']</a>
+                </li>
+                <li class="dropdown-item">
+                    <a @click="searchType = 'pname'">searchTypes['pname']</a>
+                </li>
+            </ul>
+
+        </li>
+    </ul>
+</div>
