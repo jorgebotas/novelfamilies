@@ -13026,6 +13026,9 @@ Antialiasing
   background-color: #ffd39d !important;
   color: #9d5600 !important; }
 
+.color-black {
+  color: black !important; }
+
 .color-indigo {
   color: #6574cd !important; }
 
