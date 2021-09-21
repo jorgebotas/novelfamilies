@@ -7,12 +7,12 @@
         style="overflow:visible">
         <li class="dropdown-item">
             <a @click="searchType == 'fam'">
-               searchTypes['fam']
+               [[ searchTypes['fam'] ]]
             </a>
         </li>
         <li class="dropdown-item">
             <a @click="searchType == 'taxa'">
-               searchTypes['taxa']
+               [[ searchTypes['taxa'] ]]
             </a>
         </li>
         <li class="dropdown-item dropdown-submenu dropend">
@@ -22,7 +22,7 @@
                role="button">Functional context
                <i class="fas fa-angle-right ml-2"></i></a>
             <ul class="dropdown-menu suggestion-menu" role="menu"
-                style="margin-top:2rem;">
+                style="margin-top:-2rem;">
                 <li class="dropdown-item">
                     <a @click="searchType = 'og'">[[ searchTypes['og'] ]]</a>
                 </li>
