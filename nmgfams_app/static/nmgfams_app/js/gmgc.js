@@ -285,6 +285,7 @@ var gmgc_vueapp = new Vue({
             fitness: [],
         },
         exampleTab: "synapo",
+        showDescription: true,
         searchType: "fam",
         searchTypes: {
             fam: "Family name",
@@ -707,6 +708,7 @@ var gmgc_vueapp = new Vue({
                 await $('#function-filters').collapse('show');
             }
         },
+
     },
     filters : {
         filterBlank : function (value) {
