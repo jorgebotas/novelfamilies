@@ -13151,8 +13151,7 @@ button:focus {
   left: auto !important; }
 
 .dropdown-submenu:hover .dropdown-menu {
-  display: block;
-  margin-top: -1rem !important; }
+  display: block; }
 
 .dropdown-menu-rounded {
   padding: 10px;

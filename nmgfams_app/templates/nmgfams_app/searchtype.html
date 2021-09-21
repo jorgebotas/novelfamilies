@@ -4,7 +4,7 @@
         [[ searchTypes[searchType] ]] <i class="fas fa-angle-down ml-1"></i>
     </button>
     <ul class="dropdown-menu suggestion-menu" role="menu"
-        style="overflow:auto">
+        style="overflow:visible">
         <li class="dropdown-item">
             <a @click="searchType == 'fam'">
                Family name
@@ -23,19 +23,19 @@
                <i class="fas fa-angle-right ml-2"></i></a>
             <ul class="dropdown-menu suggestion-menu" role="menu">
                 <li class="dropdown-item">
-                    <a @click="searchType = 'og'">searchTypes['og']</a>
+                    <a @click="searchType = 'og'">[[ searchTypes['og']</a>
                 </li>
                 <li class="dropdown-item">
-                    <a @click="searchType = 'kos'">searchTypes['kos']</a>
+                    <a @click="searchType = 'kos'">[[ searchTypes['kos'] ]]</a>
                 </li>
                 <li class="dropdown-item">
-                    <a @click="searchType = 'kpath'">searchTypes['kpath']</a>
+                    <a @click="searchType = 'kpath'">[[ searchTypes['kpath'] ]]</a>
                 </li>
                 <li class="dropdown-item">
-                    <a @click="searchType = 'CARD'">searchTypes['CARD']</a>
+                    <a @click="searchType = 'CARD'">[[ searchTypes['CARD'] ]]</a>
                 </li>
                 <li class="dropdown-item">
-                    <a @click="searchType = 'pname'">searchTypes['pname']</a>
+                    <a @click="searchType = 'pname'">[[ searchTypes['pname'] ]]</a>
                 </li>
             </ul>
 
