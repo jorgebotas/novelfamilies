@@ -1,9 +1,10 @@
 <div class="dropdown">
     <button class="btn-clean m-1 mr-0 dropdown-toggle no-after"
-            data-toggle="dropdown" role="button">
-        [[ searchTypes[searchType] ]] <i class="fas fa-angle-down ml-1"></i>
+            data-toggle="dropdown" role="button"
+            style="background-color: white !important">
+        [[ searchTypes[searchType] ]] <i class="fas fa-angle-down ml-2"></i>
     </button>
-    <ul class="dropdown-menu suggestion-menu" role="menu"
+    <ul class="dropdown-menu suggestion-menu mt-0" role="menu"
         style="overflow:visible">
         <li class="dropdown-item"
             @click="searchType == 'fam'">
