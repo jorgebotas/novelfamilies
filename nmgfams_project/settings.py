@@ -24,7 +24,7 @@ with open(BASE_DIR + '/.env/secretKey.txt') as f:
 DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', '138.4.139.12',
-        'novelgenefamilies.compgenomics.org', 'novelfams.cgmlab.org/']
+        'novelgenefamilies.compgenomics.org', 'novelfams.cgmlab.org']
 
 
 # Application definition
