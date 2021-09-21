@@ -399,25 +399,8 @@ var gmgc_vueapp = new Vue({
         },
 
         searchFamByExample : function(exampleType, query) {
-            // Change selected choice
-            if (exampleType == 'synapo')
-                this.searchTypeChoices.setChoiceByValue('taxa')
-            else {
-                // Modify exampleType to match mongodb collection
-                let termType;
-                if (exampleType == 'ko') 
-                    termType = exampleType + 's'
-                else if (exampleType == 'card') 
-                    termType = exampleType.toUpperCase();
-
-                this.searchTypeChoices.setChoiceByValue('function')
-                d3.select('.term-type input:checked')
-                    .attr('checked', null);
-                d3.select(`.term-type input[value="${termType}"]`)
-                    .attr('checked', true);
-            }
-
             $('#search-fams').val(query);
+            this.searchType = exampleType;
             const searchParams = {
                 searchType: exampleType,
                 query: query,
