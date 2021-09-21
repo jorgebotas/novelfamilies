@@ -399,8 +399,12 @@ var gmgc_vueapp = new Vue({
         },
 
         searchFamByExample : function(exampleType, query) {
+            if (exampleType == 'synapo')
+                this.searchType = "taxa";
+            else
+                this.searchType = exampleType;
+
             $('#search-fams').val(query);
-            this.searchType = exampleType;
             const searchParams = {
                 searchType: exampleType,
                 query: query,
