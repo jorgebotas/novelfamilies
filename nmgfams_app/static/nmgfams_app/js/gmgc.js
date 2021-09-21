@@ -278,7 +278,6 @@ var gmgc_vueapp = new Vue({
         totalItems: 0,
         nPages: 1,
         currentSearch: '',
-        searchTypeChoices: undefined,
         examples: {
             ko: [],
             synapo: [],
@@ -314,13 +313,13 @@ var gmgc_vueapp = new Vue({
             this.currentPage = options && options.page ? options.page : 1;
             query = query || $("#search-fams").val().trim();
             $("#search-fams").val(query);
-            const type = searchType || $("#search-type").val();
+            const type = searchType || this.searchType;
             $('#search-fams').trigger('blur');
             if (type == 'fam') {
                 this.searchFamById(query);
             } else if (type == 'taxa'){
                 this.searchFamByTaxa(query, '', options);
-            } else if (type == 'function') {
+            } else if (["og", "kos", "kpath", "CARD", "pname"].includes(type)) {
                 this.searchFamByFunction(query, options);
             }  else if (type == 'biome') {
                 this.searchFamByBiome(query, options);
@@ -370,9 +369,6 @@ var gmgc_vueapp = new Vue({
         },
 
         searchFamByFunction : function(query, options) {
-            const queryType = options && options.fnType
-                ? options.fnType
-                : $('.term-type input:checked').val();
             const conservation = options && +options.conservation >= 0
                 ? options.conservation 
                 : document
@@ -383,15 +379,14 @@ var gmgc_vueapp = new Vue({
                 : parseInt(document.querySelector("#mindist")
                     .noUiSlider.get());
             const searchParams = {
-                searchType: 'function',
+                searchType: this.searchType,
                 query: query,
-                fnType: queryType,
                 conservation: conservation,
                 minDist: minRelDist,
                 page: this.currentPage,
             }
             const fetchURL = API_BASE_URL
-                + `/fnfams/${queryType}/${query}/${minRelDist}/${conservation}`;
+                + `/fnfams/${this.searchType}/${query}/${minRelDist}/${conservation}`;
             fetch(`${fetchURL}/${this.currentPage}/`)
                 .then(response => response.json())
                 .then(data => this.fetchThen(data, fetchURL))
