@@ -12,13 +12,16 @@
      align-content-center h-100 mt-3 mx-1 px-6'
     id="example-cards">
 
-    <div class="card mx-auto" style="max-width:1200px; min-height:70px">
+    <div class="card mx-auto" style="max-width:1200px;">
         <a @click="showDescription = !showDescription"
             style="position:absolute;right:40px;top:20px;font-size:1rem">
             <i class="fas"
             :class="{ 'fa-times' : showDescription,
                       'fa-plus' : !showDescription }"></i>
         </a>
+        <div class="card-header" v-if="!showDescription">
+            Project description
+        </div>
         <div class="card-body row g-2" v-if="showDescription">
             <div class="col-xl-5 col-md-6 col-sm-12 mx-auto d-flex align-items-center">
                 <img src="{% static "nmgfams_app/img/tree.png" %}" alt=""
