@@ -285,7 +285,7 @@ var gmgc_vueapp = new Vue({
             fitness: [],
         },
         exampleTab: "synapo",
-        searchType: "og",
+        searchType: "fam",
         searchTypes: {
             fam: "Family name",
             taxa: "Taxon name",
