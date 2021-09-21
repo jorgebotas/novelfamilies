@@ -404,6 +404,8 @@ var gmgc_vueapp = new Vue({
             // Change selected choice
             if (exampleType == 'synapo')
                 this.searchType = "taxa";
+            else if (exampleType === "fitness")
+                this.searchType = "fam":
             else {
                 // Modify exampleType to match mongodb collection
                 let termType;
