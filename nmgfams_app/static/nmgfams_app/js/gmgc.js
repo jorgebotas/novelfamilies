@@ -285,7 +285,7 @@ var gmgc_vueapp = new Vue({
             card: [],
             fitness: [],
         },
-        exampleTab: "ko",
+        exampleTab: "synapo",
         taxBadgeColors: {
             'phylum': 'bg-red-lt',
             'class': 'bg-green-lt',
