@@ -314,6 +314,7 @@ var gmgc_vueapp = new Vue({
             query = query || $("#search-fams").val().trim();
             $("#search-fams").val(query);
             const type = searchType || this.searchType;
+            this.searchType = type;
             $('#search-fams').trigger('blur');
             if (type == 'fam') {
                 this.searchFamById(query);
@@ -755,45 +756,6 @@ var gmgc_vueapp = new Vue({
             'minDist': urlParams.minDist || 1,
         };
 
-        //const searchTypeSelect = $('#search-type');
-        //this.searchTypeChoices = new Choices(searchTypeSelect[0], {
-            //classNames: {
-                //containerInner: searchTypeSelect[0].className,
-                //input: 'form-control',
-                //inputCloned: 'form-control-sm',
-                //listDropdown: 'dropdown-menu',
-                //itemChoice: 'dropdown-item',
-                //activeState: 'show',
-                //selectedState: 'active',
-                //placeholder: 'choices__placeholder',
-            //},
-            //shouldSort: false,
-            //searchEnabled: false,
-            //choices : [
-                //{
-                    //value: 'fam', 
-                    //label: 'Family name',
-                    //selected: searchType == 'fam' 
-                //},
-                //{
-                    //value: 'taxa', 
-                    //label: 'Taxon name',
-                    //selected: searchType == 'taxa' 
-                //},
-                //{
-                    //value: 'function', 
-                    //label: 'Functional context',
-                    //selected: searchType == 'function' 
-                //},
-                //{
-                    //value: 'biome', 
-                    //label: 'Biome name', 
-                    //selected: searchType == 'biome' 
-                //},
-            //]
-          //});
-        //searchTypeSelect.change(() => this.toggleSearchFilters());
-
         // Build sliders
         ["specificity", "coverage", "conservation"].forEach(id => {
                 let slider = document.getElementById(id);
@@ -835,7 +797,6 @@ var gmgc_vueapp = new Vue({
         const query = urlParams['query'];
 
         if(searchType && query) {
-
             this.searchFams(searchType, query.replace("+", " "), urlParams);
         }
 
