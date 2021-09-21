@@ -4,7 +4,6 @@
       style="padding-top:0 !important; padding-bottom:0 !important">
     <a class="nav-link f-bold h-100 mt-1 pt-1" 
        :class="{ 'active': exampleTab === 'synapo' }"
-       id="sunburst-navlink"
         @click="exampleTab = 'synapo'"
         style="border-bottom-color:transparent;">Synapomorphic families</a>
   </li>
@@ -12,15 +11,13 @@
       style="padding-top:0 !important; padding-bottom:0 !important">
     <a class="nav-link f-bold h-100 mt-1 pt-1" 
        :class="{ 'active': exampleTab === 'ko' }"
-       id="sunburst-navlink"
         @click="exampleTab = 'ko'"
         style="border-bottom-color:transparent;">KEGG functions</a>
   </li>
   <li class="nav-item" 
       style="padding-top:0 !important; padding-bottom:0 !important">
     <a class="nav-link f-bold h-100 mt-1 pt-1" 
-       :class="{ 'active': exampleTab === 'synapo' }"
-       id="sunburst-navlink"
+       :class="{ 'active': exampleTab === 'card' }"
         @click="exampleTab = 'card'"
        style="border-bottom-color:transparent;">Antibiotic resistance</a>
   </li>
@@ -28,7 +25,6 @@
       style="padding-top:0 !important; padding-bottom:0 !important">
     <a class="nav-link f-bold h-100 mt-1 pt-1" 
        :class="{ 'active': exampleTab === 'fitness' }"
-       id="sunburst-navlink"
         @click="exampleTab = 'fitness'"
        style="border-bottom-color:transparent;">Fitness experiments</a>
   </li>
