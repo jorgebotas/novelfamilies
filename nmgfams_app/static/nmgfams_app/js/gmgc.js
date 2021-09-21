@@ -399,10 +399,19 @@ var gmgc_vueapp = new Vue({
         },
 
         searchFamByExample : function(exampleType, query) {
+            // Change selected choice
             if (exampleType == 'synapo')
                 this.searchType = "taxa";
-            else
-                this.searchType = exampleType;
+            else {
+                // Modify exampleType to match mongodb collection
+                let termType;
+                if (exampleType == 'ko') 
+                    termType = exampleType + 's'
+                else if (exampleType == 'card') 
+                    termType = exampleType.toUpperCase();
+
+                this.searchType = termType;
+            }
 
             $('#search-fams').val(query);
             const searchParams = {
