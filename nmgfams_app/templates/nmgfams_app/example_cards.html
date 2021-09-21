@@ -13,7 +13,8 @@
     id="example-cards">
 
     <div class="card mx-auto" style="max-width:1200px">
-        <a @click="showDescription = !showDescription">
+        <a @click="showDescription = !showDescription"
+            style="position:absolute;right:20px;top:20px;">
             <i class="fas"
             :class="{ showDescription ? 'fa-times' : 'fa-plus' }"></i>
         </a>
