@@ -3,7 +3,8 @@
             data-toggle="dropdown" role="button">
         [[ searchTypes[searchType] ]] <i class="fas fa-angle-down ml-1"></i>
     </button>
-    <ul class="dropdown-menu" role="menu">
+    <ul class="dropdown-menu suggestion-menu" role="menu"
+        style="overflow:auto">
         <li class="dropdown-item">
             <a @click="searchType == 'fam'">
                Family name
@@ -20,7 +21,7 @@
                data-toggle="dropdown" 
                role="button">Functional context
                <i class="fas fa-angle-right ml-2"></i></a>
-            <ul class="dropdown-menu" role="menu">
+            <ul class="dropdown-menu suggestion-menu" role="menu">
                 <li class="dropdown-item">
                     <a @click="searchType = 'og'">searchTypes['og']</a>
                 </li>
