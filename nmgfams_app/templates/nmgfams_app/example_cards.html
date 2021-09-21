@@ -12,9 +12,9 @@
     id="example-cards">
 
 
-<div class="card">
-    <div class="card-header">
-        <ul class="nav nav-pills justify-content-end d-flex ml-auto h-100"
+<div class="card mx-2">
+    <div class="card-header bg-indigo-lt">
+        <ul class="nav nav-pills d-flex h-100"
             style="border-bottom-color:transparent;">
           <li class="nav-item" 
               style="padding-top:0 !important; padding-bottom:0 !important">
@@ -51,7 +51,7 @@
     <div class="card-body card-body-scrollable pl-1 pr-3"
    :style="{ 'display': exampleTab === 'synapo' ? 'block' : 'none' }"
          style="height: 35vh">
-        <div class="row row-cols-xxl-2 row-cols-1 g-2">
+        <div class="row row-cols-xxl-3 row-cols-2 g-2">
         <div v-for="([tax, info]) in this.examples.synapo"
              class='col'>
           <div class="mb-0 h-100"
@@ -81,7 +81,7 @@
     <div class="card-body card-body-scrollable  pl-1 pr-3"
        :style="{ 'display': exampleTab === 'ko' ? 'block' : 'none' }"
          style="height: 35vh">
-        <div class="row row-cols-xxl-3 row-cols-xl-2 row-cols-1 g-2">
+        <div class="row row-cols-xxl-3 row-cols-xl-3 row-cols-2 g-2">
         <div v-for="([ko, info]) in this.examples.ko"
              class='col'>
           <div class="card mb-0 h-100">
@@ -111,7 +111,7 @@
     <div class="card-body card-body-scrollable pl-1 pr-3"
         :style="{ 'display': exampleTab === 'card' ? 'block' : 'none' }"
          style="height: 35vh">
-        <div class="row row-cols-xxl-3 row-cols-xl-2 row-cols-1 g-2">
+        <div class="row row-cols-xxl-3 row-cols-xl-3 row-cols-2 g-2">
         <div v-for="([card, info]) in this.examples.card"
              class='col'>
           <div class="card mb-0 h-100">
@@ -147,7 +147,7 @@
     <div class="card-body card-body-scrollable pl-1 pr-3"
         :style="{ 'display': exampleTab === 'fitness' ? 'block' : 'none' }"
          style="height: 35vh">
-        <div class="row row-cols-xxl-3 row-cols-xl-2 row-cols-1 g-2">
+        <div class="row row-cols-xxl-3 row-cols-xl-2 row-cols-2 g-2">
         <div v-for="([condtype, info]) in this.examples.fitness"
              class='col'>
           <div class="card mb-0 h-100">
