@@ -42,16 +42,6 @@
                         <!--aria-controls="pills-stats"-->
                         <!--aria-selected="false">Stats</a>-->
                   <!--</li>-->
-                  <!--<li class="nav-item mx-2">-->
-                    <!--<a class="nav-link btn-sm" -->
-                       <!--id="pills-biomes-tab" -->
-                       <!--data-toggle="pill"-->
-                       <!--:href="'#f' + index + '-biomes'"-->
-                        <!--@click="toggleFam('f' + index + '-tab-content')"-->
-                        <!--role="tab" -->
-                        <!--aria-controls="pills-biomes"-->
-                        <!--aria-selected="false">Biome distribution</a>-->
-                  <!--</li>-->
                   <li class="nav-item mx-2">
                     <a class="nav-link btn-sm" 
                        id="pills-taxp-tab" 
@@ -61,6 +51,16 @@
                         role="tab" 
                         aria-controls="pills-taxp"
                         aria-selected="false">Taxonomic distribution</a>
+                  </li>
+                  <li class="nav-item mx-2">
+                    <a class="nav-link btn-sm" 
+                       id="pills-biomes-tab" 
+                       data-toggle="pill"
+                       :href="'#f' + index + '-biomes'"
+                        @click="toggleFam('f' + index + '-tab-content')"
+                        role="tab" 
+                        aria-controls="pills-biomes"
+                        aria-selected="false">Biome distribution</a>
                   </li>
                   <li class="nav-item mx-2" v-if="tdata.fitness">
                     <a class="nav-link btn-sm" 
@@ -153,13 +153,13 @@
                                text-center mb-0">
                                <thead>
                                    <tr>
-                                       <th>Members</th>
-                                       <th>Length (aa)</th>
-                                       <th>Signal peptide (Gram+)</th>
-                                       <th>Signal peptide (Gram-)</th>
-                                       <th>Topology</th>
-                                       <th>Sequence</th>
-                                       <th>Neighbor sequences</th>
+                                       <th>members</th>
+                                       <th>length (aa)</th>
+                                       <th>signal peptide (gram+)</th>
+                                       <th>signal peptide (gram-)</th>
+                                       <th>topology</th>
+                                       <th>sequence</th>
+                                       <th>neighbor sequences</th>
                                    </tr>
                                </thead>
                                <tbody>
@@ -452,19 +452,39 @@
            </div>
 
 
-          <!--<div class="tab-pane fade" :id="'f' + index + '-biomes'" role="tabpanel"-->
-              <!--aria-labelledby="pills-biomes-tab">-->
-           <!--<div class="card">-->
-               <!--<div class="card-header text-primary font-weight-bold">-->
-                   <!--Biome mapping-->
-               <!--</div>-->
-               <!--<div class="card-body rounded">-->
-                    <!--<div class="bg-white rounded col-md-6 mx-auto" -->
-                         <!--:id="'f' + index + '-biomesViz'">-->
-                    <!--</div>-->
-               <!--</div>-->
-           <!--</div>-->
-          <!--</div>-->
+          <div class="tab-pane fade" :id="'f' + index + '-biomes'" role="tabpanel"
+              aria-labelledby="pills-biomes-tab">
+           <div class="card">
+               <div class="card-header text-primary font-weight-bold">
+                   Biome mapping distribution
+               </div>
+               <div class="card-body rounded">
+                    <div class="bg-white rounded col-md-6 mx-auto" 
+                         :id="'f' + index + '-biomesViz'">
+                       <div class="table-responsive">
+                           <table class="table table-vcenter card-table
+                               text-center mb-0">
+                               <thead>
+                                   <tr>
+                                       <th>Biome</th>
+                                       <th>Number of members</th>
+                                   </tr>
+                               </thead>
+                               <tbody>
+                                   <tr v-for="(count, biome) in tdata.biome">
+                                       <th class="p-1 pl-3 text-left">
+                                           [[ biome ]]
+                                       </th>
+                                       <th class="p-1 pl-3 text-left">
+                                           [[ count ]]
+                                       </th>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+               </div>
+           </div>
+          </div>
 
 
           <div class="tab-pane fade active show" 
