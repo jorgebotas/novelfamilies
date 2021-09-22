@@ -21,6 +21,7 @@ col_proteins = db.proteins
 col_trees = db.trees
 col_signalp = db.signalp
 col_tm = db.tm
+col_biome = db.biomes_GMGC2
 
 DOCS_PER_PAGE = 10
 
@@ -426,6 +427,9 @@ def get_more_faminfo(fams):
     # Transmembrane domains
     transm = col_tm.find({'fam': {'$in': fnames}}, {'_id': 0})
     transm = { t['fam']: t for t in transm }
+    # Habitat
+    habitat = col_biome.find({ "fam": { "$in": fnames } }, {"_id": 0})
+    habitat = { h["fam"]: h["b"][0] for h in habitat }
     extended_fams = []
     for fam in fams:
         ext_fam = fam
@@ -449,6 +453,8 @@ def get_more_faminfo(fams):
             # Taxonomy
             genome =  m.split('@')[1]
         ext_fam['domains'] = domains
+        ext_fam["biome"] = habitat.get(fname, {})
+        print(ext_fam["biome"])
         unique_genomes = list(set(m.split('@')[1] for m in fam['members']))
         taxonomy = [get_taxonomy(g, json=False)
                     for g in unique_genomes]
