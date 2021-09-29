@@ -96,6 +96,7 @@ var SeqSunburst = function(unformattedData, width, separator=";") {
             unfFields.push(...seq)
         })
         fields = [...new Set(unfFields)];
+        console.log(fields)
     }
 
     function buildScales() {
