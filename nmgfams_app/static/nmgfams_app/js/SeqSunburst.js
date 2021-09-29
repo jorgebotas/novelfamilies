@@ -5,9 +5,8 @@
 // Sequence: separated by ';'
 // count: int
 
-var SeqSunburst = function(unformattedData, width) {
+var SeqSunburst = function(unformattedData, width, separator=";") {
     const data = unformattedData;
-    const separator = ";";
     var root;
     var fields;
     const radius = width/2;
