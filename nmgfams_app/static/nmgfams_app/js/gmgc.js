@@ -524,7 +524,7 @@ var gmgc_vueapp = new Vue({
 
                 // Render sunbursts
                 const biomeSunburstSelector = `#f${idx}-biomeSunburst`
-                SeqSunburst(data.biome, 600, ":")
+                SeqSunburst(data.biome, 600, ":", true)
                     .draw(biomeSunburstSelector);
             });
         },
