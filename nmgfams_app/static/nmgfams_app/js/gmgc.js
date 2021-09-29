@@ -579,10 +579,13 @@ var gmgc_vueapp = new Vue({
                         'genus',
                         'species'
                     ]
+
                     GeCoViz(selector)
                         .treeData(newick, newickFields[0], newickFields)
                         .contextData(context)
                         .nSide(4)
+                        .scaleDist()
+                        .zoom(0.3)
                         .geneText("Gene name")
                         .annotation("Orthologous groups", 1)
                         .options({ 'onlyViewport': false })
@@ -593,6 +596,7 @@ var gmgc_vueapp = new Vue({
                     $(selector + " + div .gecoviz-progress").hide();
                     this.show_items[query].newick = newick;
                     this.show_items[query].context = context;
+                    setTimeout(this.GeCoViz.scaleDist, 1000);
                 }
             },
 

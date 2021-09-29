@@ -13212,6 +13212,10 @@ button:focus {
 .navbar .choices__list {
   left: .4rem; }
 
+.choices > .form-select.form-control {
+  padding-top: 0.2rem !important;
+  padding-bottom: 0.2rem !important; }
+
 .choices__list {
   border-radius: 25px !important;
   padding: 5px !important; }
