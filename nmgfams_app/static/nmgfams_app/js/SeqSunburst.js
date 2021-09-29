@@ -1,6 +1,26 @@
 // Code inspired on https://observablehq.com/@kerryrodden/sequences-sunburst
 
 
+function twoLineText(name, maxChar) {
+    if (name.length <= maxChar)
+        return [ name,  ]
+    const shortName = name.slice(0, maxChar);
+    const shortNameSplit = shortName.split(" ");
+    let fittedName = shortNameSplit[0];
+    for (let i in shortNameSplit.slice(1)) {
+        const extended = fittedName + " " + shortNameSplit[i];
+        if (extended.length <= maxChar)
+            fittedName = extended;
+        else
+            break;
+    }
+    let remainderName = name
+        .slice(fittedName.length)
+    if (remainderName.length > maxChar)
+        remainderName = remainderName.slice(0, maxChar - 3) + "...";
+    return [ fittedName, remainderName ]
+}
+
 // Input is a list of sequence-count tuples
 // Sequence: separated by ';'
 // count: int
@@ -183,6 +203,49 @@ var SeqSunburst = function(unformattedData, width, separator=";") {
                 // Update breadcrumb
                 breadcrumb.update(sequence)
             });
+
+        function labelTransform(d) {
+          const x = (d.x0 + d.x1) / 2 * 180 / Math.PI;
+          const y = (d.y0 + d.y1) / 2 * radius;
+          return `rotate(${x - 90}) translate(${y},0) rotate(${x < 180 ? 0 : 180})`;
+        }
+
+        function labelText(d) {
+            const maxChar = 13;
+            let name = d.data.tname;
+            if (!twoLineLabelVisible(d)) {
+                if (name.length > maxChar)
+                    name = name.slice(0, maxChar - 3) + "...";
+                return name
+            }
+            const [ fittedName, remainderName ] = twoLineText(name, maxChar);
+
+            if (!remainderName)
+                return fittedName
+
+            return `<tspan x="0" dy="-1px">
+                        ${fittedName}
+                    </tspan>
+                    <tspan x="0" dy="8px">
+                        ${remainderName}
+                    </tspan>`;
+        }
+
+        // Text labels
+        sunburst.append("g")
+            .attr("class", "text-labels")
+            .attr("pointer-events", "none")
+            .attr("text-anchor", "middle")
+            .style("user-select", "none")
+          .selectAll("text")
+          .data(root.descendants()
+              .filter(d => d.depth && d.x1 - d.x0 > 0.001))
+          .join("text")
+            .style("font-size", ".5rem")
+            .attr("dy", "0.35em")
+            //.attr("fill-opacity", d => +labelVisible(d.current))
+            .attr("transform", labelTransform)
+            .html(labelText);
 
         return sunburst;
     }
