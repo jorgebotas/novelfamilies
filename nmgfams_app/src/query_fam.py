@@ -453,7 +453,7 @@ def get_more_faminfo(fams):
             # Taxonomy
             genome =  m.split('@')[1]
         ext_fam['domains'] = domains
-        biome = [ [ k.replace, v ]  for k, v in habitat.get(fname, {}).items() ]
+        biome = [ [ k, v ]  for k, v in habitat.get(fname, {}).items() ]
         ext_fam["biome"] = biome
         # ext_fam["biome"] = sorted(biome, key=lambda d: int(d["count"]), reverse=True)
         unique_genomes = list(set(m.split('@')[1] for m in fam['members']))
