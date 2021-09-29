@@ -97,7 +97,6 @@ var SeqSunburst = function(unformattedData, width, separator=";") {
             unfFields.push(...seq)
         })
         fields = [...new Set(unfFields)];
-        console.log(fields)
     }
 
     function buildScales() {
@@ -299,7 +298,10 @@ class BreadCrumb {
         breadcrumbsEnter
             .append('text')
             .attr('class', 'breadcrumb-polygon-text')
-            .text(d => d.data.name.slice(3))
+            .text(d => {
+                const split = d.data.name.split("__");
+                return split[split.length - 1]
+            })
             .attr('x', this.tipWidth + this.polygonWidth/2)
             .attr('y', this.fieldsHeight + this.polygonHeight/1.5)
             .style('text-anchor', 'middle')
@@ -309,7 +311,12 @@ class BreadCrumb {
         breadcrumbsEnter
             .append('text')
             .attr('class', 'breadcrumb-top-text')
-            .text(d => capitalize(this.fields[d.data.name.slice(0, 1)]))
+            .text(d => {
+                const split = d.data.name.split("__");
+                if (split.length > 1 && this.fields[split[0]]) 
+                    return capitalize(split[0]);
+            })
+            //.text(d => capitalize(this.fields[d.data.name.slice(0, 1)]))
             .attr('x', this.tipWidth + this.polygonWidth/2)
             .attr('y', this.fieldsHeight - 5)
             .style('text-anchor', 'middle')
