@@ -6,6 +6,7 @@
 // count: int
 
 var SeqSunburst = function(unformattedData, width, separator=";") {
+    console.log(separator)
     const data = unformattedData;
     var root;
     var fields;
