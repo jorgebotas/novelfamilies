@@ -216,7 +216,7 @@ var SeqSunburst = function(unformattedData, width, separator=";") {
 
 
         function labelText(d) {
-            const maxChar = 13;
+            const maxChar = 10;
             let name = d.data.name;
             if (!twoLineLabelVisible(d)) {
                 if (name.length > maxChar)
