@@ -459,6 +459,9 @@
                    Biome mapping distribution
                </div>
                <div class="card-body rounded">
+                   <div class='mb-5' 
+                       :id="'f'+index+'-taxSunburst'">
+                   </div>
                     <div class="bg-white rounded col-md-6 mx-auto fam-table" 
                          :id="'f' + index + '-biomesViz'">
                        <div class="table-responsive">
@@ -473,10 +476,10 @@
                                <tbody>
                                    <tr v-for="b in tdata.biome">
                                        <th class="p-1 pl-3 text-left">
-                                           [[ b.biome ]]
+                                           [[ b[0] ]]
                                        </th>
                                        <th class="p-1">
-                                           [[ b.count ]]
+                                           [[ b[1] ]]
                                        </th>
                                 </tbody>
                             </table>

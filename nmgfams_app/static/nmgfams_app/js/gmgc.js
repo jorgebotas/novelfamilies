@@ -518,9 +518,14 @@ var gmgc_vueapp = new Vue({
                 setTimeout(() => renderDomains(data.domains, `#f${idx}`), 0)
 
                 // Render sunbursts
-                const sunburstSelector = `#f${idx}-taxSunburst`
+                const taxSunburstSelector = `#f${idx}-taxSunburst`
                 SeqSunburst(data.taxonomy, 400)
-                    .draw(sunburstSelector);
+                    .draw(taxSunburstSelector);
+
+                // Render sunbursts
+                const biomeSunburstSelector = `#f${idx}-biomeSunburst`
+                SeqSunburst(data.biome, 400)
+                    .draw(biomeSunburstSelector);
             });
         },
 
