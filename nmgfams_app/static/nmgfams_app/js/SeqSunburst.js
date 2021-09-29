@@ -210,6 +210,11 @@ var SeqSunburst = function(unformattedData, width, separator=";") {
           return `rotate(${x - 90}) translate(${y},0) rotate(${x < 180 ? 0 : 180})`;
         }
 
+        function twoLineLabelVisible(d) {
+          return (d.y1 - d.y0) * (d.x1 - d.x0) > 0.06;
+        }
+
+
         function labelText(d) {
             const maxChar = 13;
             let name = d.data.tname;
