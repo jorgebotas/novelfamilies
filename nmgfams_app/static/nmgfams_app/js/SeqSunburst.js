@@ -314,7 +314,7 @@ class BreadCrumb {
             .text(d => {
                 const split = d.data.name.split("__");
                 if (split.length > 1 && this.fields[split[0]]) 
-                    return capitalize(split[0]);
+                    return capitalize(this.fields[split[0]]);
             })
             //.text(d => capitalize(this.fields[d.data.name.slice(0, 1)]))
             .attr('x', this.tipWidth + this.polygonWidth/2)
