@@ -25,9 +25,10 @@ function twoLineText(name, maxChar) {
 // Sequence: separated by ';'
 // count: int
 
-var SeqSunburst = function(unformattedData, width, separator=";") {
+var SeqSunburst = function(unformattedData, width, separator=";", textLabels) {
     console.log(separator)
     const data = unformattedData;
+    separator = separator || ";";
     var root;
     var fields;
     const radius = width/2;
@@ -214,9 +215,8 @@ var SeqSunburst = function(unformattedData, width, separator=";") {
           return (d.y1 - d.y0) * (d.x1 - d.x0) > 0.06;
         }
 
-
         function labelText(d) {
-            const maxChar = 10;
+            const maxChar = 9;
             let name = d.data.name;
             if (!twoLineLabelVisible(d)) {
                 if (name.length > maxChar)
@@ -237,22 +237,24 @@ var SeqSunburst = function(unformattedData, width, separator=";") {
         }
 
         // Text labels
-        sunburst.append("g")
-            .attr("class", "text-labels")
-            .attr("pointer-events", "none")
-            .attr("text-anchor", "middle")
-            .style("user-select", "none")
-          .selectAll("text")
-          .data(root.descendants()
-              .filter(d => d.depth && d.x1 - d.x0 > 0.001))
-          .join("text")
-            .style("font-size", ".5rem")
-            .attr("dy", "0.35em")
-            //.attr("fill-opacity", d => +labelVisible(d.current))
-            .attr("transform", labelTransform)
-            .html(labelText);
+        if (textLabels) {
+            sunburst.append("g")
+                .attr("class", "text-labels")
+                .attr("pointer-events", "none")
+                .attr("text-anchor", "middle")
+                .style("user-select", "none")
+              .selectAll("text")
+              .data(root.descendants()
+                  .filter(d => d.depth && d.x1 - d.x0 > 0.001))
+              .join("text")
+                .style("font-size", ".5rem")
+                .attr("dy", "0.35em")
+                //.attr("fill-opacity", d => +labelVisible(d.current))
+                .attr("transform", labelTransform)
+                .html(labelText);
 
-        return sunburst;
+            return sunburst;
+        }
     }
 
     function initGraph() {

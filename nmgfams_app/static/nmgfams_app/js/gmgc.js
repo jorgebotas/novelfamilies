@@ -519,7 +519,7 @@ var gmgc_vueapp = new Vue({
 
                 // Render sunbursts
                 const taxSunburstSelector = `#f${idx}-taxSunburst`
-                SeqSunburst(data.taxonomy, 400)
+                SeqSunburst(data.taxonomy, 400, ";", false)
                     .draw(taxSunburstSelector);
 
                 // Render sunbursts
