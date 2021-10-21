@@ -32,7 +32,6 @@ var SeqSunburst = function(unformattedData, width, separator=";", textLabels) {
     var root;
     var fields;
     const radius = width/2;
-    // var graph = function() { return this; };
     // Arcs
     var arc;
     var mousearc;
