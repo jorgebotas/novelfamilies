@@ -34,11 +34,28 @@
                     style="min-width:80px">
                     Open all
                 </button>
-                <a class="btn btn-primary btn-sm mx-1 my-auto"
-                   target="_blank"
-                   href="{% static "nmgfams_app/downloads" %}"
+
+                <div class="dropdown  mx-1 my-auto">
+                <a class="btn btn-primary btn-sm dropdown-toggle 
+                            dropdown-noafter" 
+                   role="button"
+                   id="dropdownMenuDataDownloads"
+                   data-toggle="dropdown"
+                   aria-haspopup="true"
+                   aria-expanded="false"
                    style="min-width:80px">
                     Downloads
                 </a>
+                  <div class="dropdown-menu dropdown-menu-arrow
+                       dropdown-menu-right dropdown-menu-rounded" 
+                      aria-labelledby="dropdownMenuDataDownloads">
+                    <a class="dropdown-item" target="_blank"
+                       href="{% static "nmgfams_app/downloads/proteins_filtered.tar.gz"%}">Sequences</a>
+                    <a class="dropdown-item" target="_blank"
+                       href="{% static "nmgfams_app/downloads/hmms_filtered.tar.gz"%}">HMMs</a>
+                    <a class="dropdown-item" target="_blank"
+                       href="{% static "nmgfams_app/downloads/algs_filtered.tar.gz"%}">Alignments</a>
+                  </div>
+                </div>
           </div>
   </header>
