@@ -12,7 +12,7 @@
      align-content-center h-100 mt-3 mx-1 px-6'
     id="example-cards">
 
-    <div class="card mx-auto" style="max-width:1200px; min-height:70px">
+    <div class="card mx-auto" style="max-width:1500px; min-height:70px">
         <a @click="showDescription = !showDescription"
             style="position:absolute;right:40px;top:20px;font-size:1rem">
             <i class="fas"
@@ -24,12 +24,12 @@
             Project description
         </div>
         <div class="card-body row g-2" v-if="showDescription">
-            <div class="col-xl-5 col-md-6 col-sm-12 mx-auto d-flex align-items-center">
+            <div class="col-xl-7 col-md-9 col-sm-10 mx-auto d-flex align-items-center">
                 <img src="{% static "nmgfams_app/img/tree.png" %}" alt=""
                     class="ml-5"
                     style="height:80%; width:auto"/>
             </div>
-            <div class="col-xl-7 col-md-8 col-sm-12 pt-5 card-body">
+            <div class="col-xl-5 col-md-8 col-sm-12 pt-5 card-body">
                 <p>
                     <b class="f-bold">Welcome!</b> This resource allows you to iteratively explore the genomic context,
                     functional associations, phylogenetic information and ecological distribution of 
