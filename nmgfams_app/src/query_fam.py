@@ -15,6 +15,7 @@ col_neighs = db.neighs
 col_cards = db.card
 col_fams = db.nfam_v2_members
 col_faminfo = db.faminfo
+col_faminfo = db.novel_fam_data
 col_taxonomy = db.genome_taxonomy
 col_og_neigh_scores = db.og_neigh_scores
 col_proteins = db.proteins
@@ -466,6 +467,15 @@ def get_more_faminfo(fams):
         ext_fam['context_summary'] = get_neighborhood_summary(fname)
         extended_fams.append(ext_fam)
     return extended_fams
+
+def get_fams_by_code(codes, page=1):
+    fam_info = list(col_faminfo.find({'code': {'$in': codes}}, {'_id': 0}))
+    fam_info = get_more_faminfo(fam_info)
+    fam_info_paged = fam_info[(page-1)*DOCS_PER_PAGE:page*DOCS_PER_PAGE]
+    fam_info_paged = { m['name'] : m for m in fam_info_paged }
+    total_matches = len(fam_info)
+    return fam_info_paged, total_matches
+
 
 def get_fams(fnames, page=1):
     fam_info = list(col_faminfo.find({'name': {'$in': fnames}}, {'_id': 0}))

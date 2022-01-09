@@ -8,6 +8,7 @@ from .src.get_context import get_context, get_newick
 from .src.query_fam import fams_by_taxa,\
                            fams_by_neigh_annotation,\
                            get_fams,\
+                           get_fams_by_code,\
                            get_hmm,\
                            get_sequence,\
                            get_sequences,\
@@ -18,7 +19,7 @@ from .src.query_fam import fams_by_taxa,\
 EXAMPLES_PATH = settings.BASE_DIR + "/nmgfams_app/examples"
 
 def info(request, query):
-    fam, total_matches = get_fams([query])
+    fam, total_matches = get_fams_by_code([query])
     data = { 
         'show_items' : fam,
         'total_matches': total_matches}
