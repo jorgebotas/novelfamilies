@@ -273,7 +273,7 @@ def fams_by_taxa(taxa, spec=0.9, cov=0.9, page=1):
                                                 'term':taxa,
                                                 'specificity':{'$gte': spec},
                                                 'coverage':{'$gte': cov}}},
-                             'emapper_hits': {'$eq': 0} })\ #,
+                             'emapper_hits': {'$eq': 0} })\
                              # 'name': {'$in': ALLOWED_FAMS }})\
             .sort([('n_taxa', DESCENDING),
                    ('name', ASCENDING)])\
