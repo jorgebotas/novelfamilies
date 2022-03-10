@@ -39,10 +39,24 @@ def get_pickle(filePath):
         pdict = pickle.load(pickle_in)
     return pdict
 
+def get_list(path):
+    """Reads list from file
+
+    :path: file containing list (one item per line)
+    :returns: list
+
+    """
+    with open(path) as handle:
+        output = [ l.strip() for l in handle.readlines() ]
+    return output
+        
+
 kegg_dict = get_pickle(STATIC_PATH + "pickle/KEGG_DESCRIPTION.pickle")
 # OG level dictionary (for neighborhood summary)
 # TODO: include level in col_og_neigh_scores
 og_level_dict = get_pickle(STATIC_PATH + "pickle/e5_og_levels.pickle")
+
+ALLOWED_FAMS = get_list(STATIC_PATH + "txt/allowed_fams.txt")
 
 def get_sequence(query, fasta=True):
     seq = col_proteins.find_one({'n': query}).get('aa', 'Sequence not found')
@@ -226,7 +240,8 @@ def fams_by_neigh_annotation(term_type, term, min_rel_dist=1, score=0.9, page=1)
     for fam in col_og_neigh_scores.find({term_type: {'$elemMatch': {
                                                 'n': term,
                                                 'score':{'$gte': score},
-                                                }}}):
+                                                }},
+                                        'fam'{'$in': ALLOWED_FAMS}}):
         try:
             term_match = next(hit for hit in fam[term_type] if is_full_match(hit))
         except StopIteration:
@@ -258,7 +273,8 @@ def fams_by_taxa(taxa, spec=0.9, cov=0.9, page=1):
                                                 'term':taxa,
                                                 'specificity':{'$gte': spec},
                                                 'coverage':{'$gte': cov}}},
-                             'emapper_hits': {'$eq': 0}})\
+                             'emapper_hits': {'$eq': 0},
+                             'name': {'$in': ALLOWED_FAMS }})\
             .sort([('n_taxa', DESCENDING),
                    ('name', ASCENDING)])\
             .skip(max((page-1)*DOCS_PER_PAGE, 0))\
@@ -469,6 +485,11 @@ def get_more_faminfo(fams):
     return extended_fams
 
 def get_fams_by_code(codes, page=1):
+
+    codes = [ c for c in codes if c in ALLOWED_FAMS ]
+    if not len(codes):
+        return {}, 0
+
     fam_info = list(col_faminfo.find({'code': {'$in': codes}}, {'_id': 0}))
     fam_info = get_more_faminfo(fam_info)
     fam_info_paged = fam_info[(page-1)*DOCS_PER_PAGE:page*DOCS_PER_PAGE]
