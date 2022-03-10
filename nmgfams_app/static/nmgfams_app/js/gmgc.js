@@ -822,8 +822,6 @@ var gmgc_vueapp = new Vue({
         }
 
         // Lister for back/forward button in browser
-        window.onload = () => {
-            window.onpopstate = () => setTimeout(() => location.reload(), 0);
-        }
+        window.onpopstate = () => setTimeout(() => location.reload(), 0);
     },
 });
