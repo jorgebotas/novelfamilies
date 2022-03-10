@@ -553,6 +553,10 @@ var gmgc_vueapp = new Vue({
             $('.tab-content').collapse('hide');
         },
 
+        hideAllFams : function() {
+            $('.tab-content').collapse('hide');
+        },
+
         toggleFam : function(id, action='show') {
             $("#" + id).collapse(action);
         },

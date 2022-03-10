@@ -18,6 +18,12 @@
         Open all displayed families
     </button>
 
+    <button class="btn btn-primary btn-sm ml-3"
+        @click="hideAllFams()"
+        style="min-width:80px">
+        Close all displayed families
+    </button>
+
 </div>
 <div v-if="nPages > 1">
     {% include 'nmgfams_app/pagination.html' with currentPage=currentPage nPages=nPages field="f" only %}
