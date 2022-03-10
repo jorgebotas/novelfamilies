@@ -802,9 +802,8 @@ var gmgc_vueapp = new Vue({
         }
     },
     mounted: function() {
-
-        const sliderValues = this.getSliderValues();
         // Build sliders
+        const sliderValues = this.getSliderValues();
         ["specificity", "coverage", "conservation"].forEach(id => {
                 let slider = document.getElementById(id);
                 noUiSlider.create(slider,
@@ -844,6 +843,6 @@ var gmgc_vueapp = new Vue({
 
         // Lister for back/forward button in browser
         window.onpopstate = () => setTimeout(() => this.onPopState(), 0);
-
+        this.onPopState();
     },
 });
