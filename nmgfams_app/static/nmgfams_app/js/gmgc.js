@@ -724,6 +724,51 @@ var gmgc_vueapp = new Vue({
             }
         },
 
+
+        getUrlParams: function() {
+            const vars = {};
+            window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,
+                (_,key,value) => vars[key] = value);
+            return vars;
+        },
+
+        getSliderValues: function(urlParams) {
+            if (!urlParams)
+                urlParams = this.getUrlParams();
+            return {
+                'specificity': urlParams.specificity || .9,
+                'coverage': urlParams.coverage || .9,
+                'conservation': urlParams.conservation || .9,
+                'minDist': urlParams.minDist || 1,
+            };
+
+        },
+
+        onPopState: function(updateSliderValues=false) {
+            const urlParams = this.getUrlParams();
+            const searchType = urlParams['searchType'] || 'fam';
+
+            if (updateSliderValues) {
+                const sliderValues = this.getSliderValues(urlParams);
+                Object.entries(this.sliders).forEach(([id, slider]) =>
+                    slider.set(sliderValues[id]));
+            };
+
+            const query = urlParams['query'];
+
+            if (searchType && query) {
+                this.searchFams(searchType, query.replace("+", " "), urlParams);
+            }
+
+            // Display examples
+            if (this.totalItems == 0) {
+                this.showExamples('ko');
+                this.showExamples('synapo');
+                this.showExamples('card');
+                this.showExamples('fitness');
+            }
+        },
+
     },
     filters : {
         filterBlank : function (value) {
@@ -757,28 +802,14 @@ var gmgc_vueapp = new Vue({
         }
     },
     mounted: function() {
-        // Allow searches coded in URL
-        function getUrlParams() {
-            const vars = {};
-            window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,
-                (_,key,value) => vars[key] = value);
-            return vars;
-        }
-        const urlParams = getUrlParams();
-        const searchType = urlParams['searchType'] || 'fam';
-        const sliderStartValues = {
-            'specificity': urlParams.specificity || .9,
-            'coverage': urlParams.coverage || .9,
-            'conservation': urlParams.conservation || .9,
-            'minDist': urlParams.minDist || 1,
-        };
 
+        const sliderValues = this.getSliderValues();
         // Build sliders
         ["specificity", "coverage", "conservation"].forEach(id => {
                 let slider = document.getElementById(id);
                 noUiSlider.create(slider,
                     {
-                        start: sliderStartValues[id],
+                        start: sliderValues[id],
                         connect: [true, false],
                         step: .01,
                         range: {
@@ -796,7 +827,7 @@ var gmgc_vueapp = new Vue({
         let slider = document.getElementById("mindist");
         noUiSlider.create(slider,
             {
-                start: sliderStartValues["minDist"],
+                start: sliderValues["minDist"],
                 connect: [true, false],
                 step: 1,
                 range: {
@@ -811,21 +842,8 @@ var gmgc_vueapp = new Vue({
             sliderLabel.html(`${name}: ${parseInt(slider.get())} gene(s)`);
         })
 
-        const query = urlParams['query'];
-
-        if(searchType && query) {
-            this.searchFams(searchType, query.replace("+", " "), urlParams);
-        }
-
-        // Display examples
-        if(this.totalItems == 0) {
-            this.showExamples('ko');
-            this.showExamples('synapo');
-            this.showExamples('card');
-            this.showExamples('fitness');
-        }
-
         // Lister for back/forward button in browser
-        window.onpopstate = () => setTimeout(() => this.mounted(), 0);
+        window.onpopstate = () => setTimeout(() => this.onPopState(), 0);
+
     },
 });
