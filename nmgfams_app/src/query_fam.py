@@ -240,8 +240,8 @@ def fams_by_neigh_annotation(term_type, term, min_rel_dist=1, score=0.9, page=1)
     for fam in col_og_neigh_scores.find({term_type: {'$elemMatch': {
                                                 'n': term,
                                                 'score':{'$gte': score},
-                                                }},
-                                        'fam': {'$in': ALLOWED_FAMS}}):
+                                                }} }): #,
+                                        # 'fam': {'$in': ALLOWED_FAMS}}):
         try:
             term_match = next(hit for hit in fam[term_type] if is_full_match(hit))
         except StopIteration:
@@ -273,8 +273,8 @@ def fams_by_taxa(taxa, spec=0.9, cov=0.9, page=1):
                                                 'term':taxa,
                                                 'specificity':{'$gte': spec},
                                                 'coverage':{'$gte': cov}}},
-                             'emapper_hits': {'$eq': 0},
-                             'name': {'$in': ALLOWED_FAMS }})\
+                             'emapper_hits': {'$eq': 0} }) #,
+                             # 'name': {'$in': ALLOWED_FAMS }})\
             .sort([('n_taxa', DESCENDING),
                    ('name', ASCENDING)])\
             .skip(max((page-1)*DOCS_PER_PAGE, 0))\
@@ -486,9 +486,9 @@ def get_more_faminfo(fams):
 
 def get_fams_by_code(codes, page=1):
 
-    codes = [ c for c in codes if c in ALLOWED_FAMS ]
-    if not len(codes):
-        return {}, 0
+    # codes = [ c for c in codes if c in ALLOWED_FAMS ]
+    # if not len(codes):
+        # return {}, 0
 
     fam_info = list(col_faminfo.find({'code': {'$in': codes}}, {'_id': 0}))
     fam_info = get_more_faminfo(fam_info)
