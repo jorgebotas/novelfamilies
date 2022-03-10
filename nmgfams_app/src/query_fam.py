@@ -241,7 +241,7 @@ def fams_by_neigh_annotation(term_type, term, min_rel_dist=1, score=0.9, page=1)
                                                 'n': term,
                                                 'score':{'$gte': score},
                                                 }},
-                                        'fam'{'$in': ALLOWED_FAMS}}):
+                                        'fam': {'$in': ALLOWED_FAMS}}):
         try:
             term_match = next(hit for hit in fam[term_type] if is_full_match(hit))
         except StopIteration:
