@@ -26,7 +26,6 @@ function twoLineText(name, maxChar) {
 // count: int
 
 var SeqSunburst = function(unformattedData, width, separator=";", textLabels) {
-    console.log(separator)
     const data = unformattedData;
     separator = separator || ";";
     var root;
