@@ -11,6 +11,13 @@
     class='text-center mb-3'>
     Showing results from [[ (currentPage - 1) * perPage + 1 ]] 
     to [[ Math.min(currentPage * perPage, totalItems) ]]. Total hits: [[ totalItems ]].
+
+    <button class="btn btn-primary btn-sm ml-3"
+        @click="showAllFams()"
+        style="min-width:80px">
+        Open all tabs shown
+    </button>
+
 </div>
 <div v-if="nPages > 1">
     {% include 'nmgfams_app/pagination.html' with currentPage=currentPage nPages=nPages field="f" only %}
