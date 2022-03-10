@@ -820,5 +820,8 @@ var gmgc_vueapp = new Vue({
             this.showExamples('card');
             this.showExamples('fitness');
         }
+
+        // Lister for back/forward button in browser
+        window.onpopstate = () => location.reload();
     },
 });
