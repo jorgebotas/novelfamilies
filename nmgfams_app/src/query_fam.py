@@ -274,11 +274,11 @@ def fams_by_taxa(taxa, spec=0.9, cov=0.9, page=1):
                                                 'specificity':{'$gte': spec},
                                                 'coverage':{'$gte': cov}}},
                              'emapper_hits': {'$eq': 0} })\
-                             # 'name': {'$in': ALLOWED_FAMS }})\
             .sort([('n_taxa', DESCENDING),
                    ('name', ASCENDING)])\
             .skip(max((page-1)*DOCS_PER_PAGE, 0))\
             .limit(DOCS_PER_PAGE)
+                             #277 'name': {'$in': ALLOWED_FAMS }})\
     total_matches = fams.count()
     for fam in fams:
         clade_match = next(clade for clade in fam['clade_counter'] if clade['term'] == taxa)
