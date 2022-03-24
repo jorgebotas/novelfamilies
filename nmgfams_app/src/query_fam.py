@@ -483,6 +483,7 @@ def get_more_faminfo(fams):
         ext_fam['taxonomy'] = taxonomy
         ext_fam['context_summary'] = get_neighborhood_summary(fname)
         extended_fams.append(ext_fam)
+    print(extended_fams)
     return extended_fams
 
 def get_fams_by_code(codes, page=1):
