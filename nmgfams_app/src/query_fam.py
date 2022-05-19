@@ -490,11 +490,12 @@ def get_more_faminfo(fams):
 
 def get_fams_by_code(codes, page=1):
 
-    codes = [ c for c in codes if c in ALLOWED_FAMS ]
-    if not len(codes):
-        return {}, 0
+    # codes = [ c for c in codes if c in ALLOWED_FAMS ]
+    # if not len(codes):
+        # return {}, 0
 
     fam_info = list(col_faminfo.find({'code': {'$in': codes}}, {'_id': 0}))
+    fam_info = [ f for f in fam_info if f["name"] in ALLOWED_FAMS ]
     fam_info = get_more_faminfo(fam_info)
     fam_info_paged = fam_info[(page-1)*DOCS_PER_PAGE:page*DOCS_PER_PAGE]
     fam_info_paged = { m['name'] : m for m in fam_info_paged }
